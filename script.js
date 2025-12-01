@@ -108,13 +108,15 @@ class ParticleSystem {
     }
 
     createParticle() {
+        const opacity = Math.random() * 0.5 + 0.1;
         return {
             x: Math.random() * this.canvas.width,
             y: Math.random() * this.canvas.height,
             size: Math.random() * 3 + 1,
             speedX: (Math.random() - 0.5) * 0.5,
             speedY: (Math.random() - 0.5) * 0.5,
-            opacity: Math.random() * 0.5 + 0.1,
+            opacity: opacity,
+            currentOpacity: opacity,
             pulseSpeed: Math.random() * 0.02 + 0.01,
             pulsePhase: Math.random() * Math.PI * 2
         };
@@ -249,7 +251,7 @@ document.querySelectorAll('.fade-in').forEach(el => {
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
         particleSystem.destroy();
-    } else {
+    } else if (!particleSystem.animationId) {
         particleSystem.animate();
     }
 });

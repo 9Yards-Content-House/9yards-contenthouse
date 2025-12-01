@@ -62,12 +62,14 @@ body {
     font-family: var(--font-family);
     background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, var(--primary) 100%);
     background-attachment: fixed;
+    background-size: 200% 200%;
     color: var(--white);
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    animation: gradientShift 15s ease infinite;
 }
 
 /* Particle Canvas */
@@ -293,11 +295,6 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
-
-body {
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
 }
 
 /* =====================================================
@@ -545,11 +542,6 @@ body {
 
 /* Touch Devices */
 @media (hover: none) {
-    .submit-btn:hover {
-        transform: none;
-        box-shadow: var(--shadow-button);
-    }
-    
     .countdown-card:hover {
         transform: none;
     }
