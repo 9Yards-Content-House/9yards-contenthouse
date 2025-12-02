@@ -8,7 +8,7 @@
 // =====================================================
 
 const countdownConfig = {
-    targetDate: new Date('December 8, 2025 00:00:00 UTC').getTime(),
+    targetDate: new Date('December 18, 2025 00:00:00 UTC').getTime(),
     elements: {
         days: document.getElementById('days'),
         hours: document.getElementById('hours'),
