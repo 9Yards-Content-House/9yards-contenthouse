@@ -116,7 +116,7 @@ body {
 }
 
 .logo {
-    width: 80px;
+    width: 100px;
     height: auto;
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-card);
@@ -219,23 +219,6 @@ body {
     font-variant-numeric: tabular-nums;
 }
 
-.countdown-number.flip {
-    animation: flipNumber 0.5s ease;
-}
-
-@keyframes flipNumber {
-    0% {
-        transform: perspective(400px) rotateX(0);
-    }
-    50% {
-        transform: perspective(400px) rotateX(-90deg);
-        opacity: 0.5;
-    }
-    100% {
-        transform: perspective(400px) rotateX(0);
-    }
-}
-
 .countdown-label {
     font-size: 0.6rem;
     font-weight: 500;
@@ -308,11 +291,11 @@ body {
     }
     
     .logo {
-        width: 60px;
+        width: 80px;
     }
     
     .main-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     
     .subtitle {
@@ -350,11 +333,11 @@ body {
     }
     
     .logo {
-        width: 70px;
+        width: 100px;
     }
     
     .main-title {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
     
     .subtitle {
@@ -396,11 +379,11 @@ body {
     }
     
     .logo {
-        width: 90px;
+        width: 120px;
     }
     
     .main-title {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     
     .subtitle {
@@ -439,11 +422,11 @@ body {
     }
     
     .logo {
-        width: 100px;
+        width: 140px;
     }
     
     .main-title {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     
     .subtitle {
@@ -483,11 +466,11 @@ body {
     }
     
     .logo {
-        width: 110px;
+        width: 160px;
     }
     
     .main-title {
-        font-size: 4.5rem;
+        font-size: 4rem;
     }
     
     .countdown-container {
@@ -562,7 +545,7 @@ body {
     }
     
     .logo {
-        width: 50px;
+        width: 60px;
     }
     
     .countdown-container {
@@ -603,5 +586,71 @@ body {
     
     .footer p {
         font-size: 0.65rem;
+    }
+}
+
+/* =====================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ===================================================== */
+
+/* Skip link for keyboard navigation */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--secondary);
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    z-index: 100;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 var(--radius-sm) 0;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus styles for better keyboard navigation */
+*:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+::-moz-selection {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+/* Print styles */
+@media print {
+    #particles {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .main-title {
+        -webkit-text-fill-color: var(--primary);
+        color: var(--primary);
+    }
+    
+    .countdown-card {
+        border: 1px solid var(--primary);
+        background: white;
+    }
+    
+    .countdown-number {
+        color: var(--primary);
     }
 }

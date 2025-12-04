@@ -42,19 +42,13 @@ function updateCountdown() {
         seconds: Math.floor((distance % (1000 * 60)) / 1000)
     };
 
-    // Update each unit with flip animation
+    // Update each unit (no animation)
     Object.entries(timeUnits).forEach(([unit, value]) => {
         const element = countdownConfig.elements[unit];
         const formattedValue = value.toString().padStart(2, '0');
         
         if (countdownConfig.previousValues[unit] !== formattedValue) {
-            element.classList.add('flip');
-            
-            setTimeout(() => {
-                element.textContent = formattedValue;
-                element.classList.remove('flip');
-            }, 250);
-            
+            element.textContent = formattedValue;
             countdownConfig.previousValues[unit] = formattedValue;
         }
     });
@@ -250,9 +244,14 @@ document.querySelectorAll('.fade-in').forEach(el => {
 // Reduce animations when tab is not visible
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
-        particleSystem.destroy();
-    } else if (!particleSystem.animationId) {
-        particleSystem.animate();
+        if (particleSystem.animationId) {
+            cancelAnimationFrame(particleSystem.animationId);
+            particleSystem.animationId = null;
+        }
+    } else {
+        if (!particleSystem.animationId) {
+            particleSystem.animate();
+        }
     }
 });
 
@@ -274,15 +273,15 @@ if (!('scrollBehavior' in document.documentElement.style)) {
 // =====================================================
 
 console.log(
-    '%c9 YARDS',
+    '%c9YARDS CONTENT HOUSE',
     'font-size: 48px; font-weight: bold; color: #212282; text-shadow: 2px 2px 0 #E6411C;'
 );
 console.log(
-    '%cSomething extraordinary is coming...',
+    '%cDigital Done Right.',
     'font-size: 16px; color: #666;'
 );
 console.log(
-    '%cInterested in working with us? Contact: hello@9yards.com',
+    '%cInterested in working with us? Contact: hello@9yardscontenthouse.com',
     'font-size: 12px; color: #999;'
 );
 
