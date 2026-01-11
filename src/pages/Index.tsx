@@ -53,30 +53,18 @@ const heroPortfolioRow2 = [
   { image: portfolio5, title: "Animation", logo: "Animate" },
 ];
 
-// Hero service cards for the masonry grid - all 18 services with images
+// Hero service cards for the masonry grid - 10 services with unique images
 const heroServiceCards = [
-  // Creative Services
-  { name: "Video Production", image: portfolio2 },
-  { name: "Photography", image: portfolio4 },
-  { name: "Graphic Design", image: portfolio1 },
-  { name: "Print Design", image: portfolio6 },
-  { name: "Branding", image: portfolio1 },
-  { name: "Social Media Creative", image: portfolio4 },
-  { name: "Concept Creation", image: portfolio5 },
-  { name: "Motion Design", image: portfolio5 },
-  // Digital & Strategy
-  { name: "Social Media Marketing", image: portfolio4 },
-  { name: "Website Development", image: portfolio3 },
-  { name: "Influencer Marketing", image: portfolio2 },
-  { name: "Email Marketing", image: portfolio6 },
-  { name: "Copywriting", image: portfolio1 },
-  { name: "Digital Strategy", image: portfolio3 },
-  // Media Production
-  { name: "Podcast Production", image: portfolio2 },
-  { name: "TV & Radio Production", image: portfolio5 },
-  // AI Services
-  { name: "AI-Powered Creative", image: portfolio5 },
-  { name: "AI Consulting", image: portfolio3 },
+  { name: "Video Production", image: "/images/hero-grid/video-production.jpg" },
+  { name: "Photography", image: "/images/hero-grid/photography.jpg" },
+  { name: "Graphic Design", image: "/images/hero-grid/graphic-design.jpg" },
+  { name: "Print Design", image: "/images/hero-grid/print-design.jpg" },
+  { name: "Branding", image: "/images/hero-grid/branding.jpg" },
+  { name: "Social Media Marketing", image: "/images/hero-grid/social-media-marketing.jpg" },
+  { name: "Website Development", image: "/images/hero-grid/Website-development.jpg" },
+  { name: "Influencer Marketing", image: "/images/hero-grid/influencer-marketing.jpg" },
+  { name: "Podcast Production", image: "/images/hero-grid/podcast-production.jpg" },
+  { name: "TV & Radio Production", image: "/images/hero-grid/tv-and-radio-production.jpg" },
 ];
 
 const services = [
@@ -269,16 +257,15 @@ export default function Index() {
           {/* Left Side - Text Content */}
           <div className="w-full lg:w-[60%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
             {/* Main Headline */}
-            <h1 className="text-[1.85rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem] leading-[1.08] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left">
-              Your <span className="text-accent">creative team's</span>
-              <br /> creative team<span className="text-accent">™</span>
+            <h1 className="text-[1.5rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem] leading-[1.15] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left">
+              <span className="sm:whitespace-nowrap">Everything your brand needs,</span>
+              <br className="hidden sm:block" />
+              <span className="sm:whitespace-nowrap">one <span className="text-accent">creative partner.</span></span>
             </h1>
             
             {/* Subtitle */}
             <p className="text-[0.9rem] sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-[1.35rem] text-white/70 mb-6 sm:mb-7 lg:mb-10 max-w-sm sm:max-w-md lg:max-w-xl xl:max-w-2xl text-center lg:text-left mx-auto lg:mx-0 leading-[1.7]">
-              Scale your in-house creative team with top local talent 
-              powered by industry-leading AI workflows, delivering 
-              anything you can imagine fast and affordably.
+              Whatever your vision, we bring it to life. World-class creative talent and intelligent workflows deliver professional results faster and more affordably than traditional agencies. Your creative department, on demand.
             </p>
             
             {/* CTA Button */}
@@ -289,7 +276,7 @@ export default function Index() {
                 className="px-7 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 text-sm sm:text-base lg:text-lg"
                 asChild
               >
-                <Link to="/contact">Book a demo</Link>
+                <Link to="/get-started">Get Started</Link>
               </Button>
             </div>
           </div>
@@ -307,7 +294,7 @@ export default function Index() {
               {/* Row 1 - Scrolls Left - Service cards with varied widths */}
               <div className="mb-1.5 sm:mb-2 md:mb-2.5">
                 <div className="flex animate-scroll-left flex-nowrap">
-                  {[...heroServiceCards.slice(0, 9), ...heroServiceCards.slice(0, 9), ...heroServiceCards.slice(0, 9)].map((service, index) => {
+                  {[...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5)].map((service, index) => {
                     // Pinterest-style varied widths only (height consistent for clean horizontal scroll)
                     const widths = [
                       'w-[130px] sm:w-[160px] md:w-[190px]',  // narrow
@@ -346,7 +333,7 @@ export default function Index() {
               {/* Row 2 - Scrolls Right - Service cards with varied widths */}
               <div>
                 <div className="flex animate-scroll-right flex-nowrap">
-                  {[...heroServiceCards.slice(9, 18), ...heroServiceCards.slice(9, 18), ...heroServiceCards.slice(9, 18)].map((service, index) => {
+                  {[...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10)].map((service, index) => {
                     // Different width pattern for row 2
                     const widths = [
                       'w-[160px] sm:w-[195px] md:w-[235px]',  // medium-wide
@@ -411,12 +398,12 @@ export default function Index() {
 
               {/* Grid Container - Service Cards Masonry */}
               <div className="flex h-full gap-1.5 xl:gap-2 pl-3 xl:pl-4 pr-3 xl:pr-4 pt-6">
-                {/* Column 1 - Scrolls Up - Services 0-5 */}
+                {/* Column 1 - Scrolls Up - Services 0-3 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-slow">
-                    {[...heroServiceCards.slice(0, 6), ...heroServiceCards.slice(0, 6), ...heroServiceCards.slice(0, 6)].map((service, index) => {
+                    {[...heroServiceCards.slice(0, 4), ...heroServiceCards.slice(0, 4), ...heroServiceCards.slice(0, 4), ...heroServiceCards.slice(0, 4)].map((service, index) => {
                       // Pinterest-style varied heights
-                      const heights = [180, 240, 160, 280, 200, 150];
+                      const heights = [180, 240, 160, 280];
                       const height = heights[index % heights.length];
                       return (
                         <div 
@@ -441,12 +428,12 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* Column 2 - Scrolls Down - Services 6-11 */}
+                {/* Column 2 - Scrolls Down - Services 4-6 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-down-medium pt-6 xl:pt-10">
-                    {[...heroServiceCards.slice(6, 12), ...heroServiceCards.slice(6, 12), ...heroServiceCards.slice(6, 12)].map((service, index) => {
+                    {[...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7)].map((service, index) => {
                       // Different height pattern for column 2
-                      const heights = [220, 170, 260, 190, 140, 230];
+                      const heights = [220, 170, 260];
                       const height = heights[index % heights.length];
                       return (
                         <div 
@@ -471,12 +458,12 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* Column 3 - Scrolls Up - Services 12-17 */}
+                {/* Column 3 - Scrolls Up - Services 7-9 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-fast pt-3 xl:pt-5">
-                    {[...heroServiceCards.slice(12, 18), ...heroServiceCards.slice(12, 18), ...heroServiceCards.slice(12, 18)].map((service, index) => {
+                    {[...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10)].map((service, index) => {
                       // Different height pattern for column 3
-                      const heights = [200, 150, 250, 175, 210, 165];
+                      const heights = [200, 150, 250];
                       const height = heights[index % heights.length];
                       return (
                         <div 

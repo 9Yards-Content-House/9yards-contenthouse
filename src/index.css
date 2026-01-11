@@ -467,13 +467,13 @@ body.menu-open {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-33.333%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
   }
 }
 
 @keyframes scroll-right {
   0% {
-    transform: translate3d(-33.333%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
   }
   100% {
     transform: translate3d(0, 0, 0);
@@ -490,21 +490,25 @@ body.menu-open {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 50s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   perspective: 1000px;
   transform-style: preserve-3d;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .animate-scroll-right {
-  animation: scroll-right 40s linear infinite;
+  animation: scroll-right 50s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   perspective: 1000px;
   transform-style: preserve-3d;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .animate-marquee {
@@ -512,14 +516,17 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-/* Pause animation on hover */
+/* Pause animation on hover - optional, can be removed for continuous scroll */
+/*
 .animate-scroll-left:hover,
 .animate-scroll-right:hover,
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+*/
 
 /* Reduced motion support - respect user preferences */
 @media (prefers-reduced-motion: reduce) {
@@ -542,7 +549,7 @@ body.menu-open {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(0, -33.333%, 0);
+    transform: translate3d(0, -25%, 0);
   }
 }
 
@@ -551,7 +558,7 @@ body.menu-open {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(0, -33.333%, 0);
+    transform: translate3d(0, -25%, 0);
   }
 }
 
@@ -560,14 +567,14 @@ body.menu-open {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(0, -33.333%, 0);
+    transform: translate3d(0, -25%, 0);
   }
 }
 
 /* Reverse vertical scrolling (scroll down) */
 @keyframes scroll-down-slow {
   0% {
-    transform: translate3d(0, -33.333%, 0);
+    transform: translate3d(0, -25%, 0);
   }
   100% {
     transform: translate3d(0, 0, 0);
@@ -576,7 +583,7 @@ body.menu-open {
 
 @keyframes scroll-down-medium {
   0% {
-    transform: translate3d(0, -33.333%, 0);
+    transform: translate3d(0, -25%, 0);
   }
   100% {
     transform: translate3d(0, 0, 0);
@@ -585,7 +592,7 @@ body.menu-open {
 
 @keyframes scroll-down-fast {
   0% {
-    transform: translate3d(0, -33.333%, 0);
+    transform: translate3d(0, -25%, 0);
   }
   100% {
     transform: translate3d(0, 0, 0);
@@ -593,42 +600,61 @@ body.menu-open {
 }
 
 .animate-scroll-up-slow {
-  animation: scroll-up-slow 80s linear infinite;
+  animation: scroll-up-slow 100s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .animate-scroll-up-medium {
-  animation: scroll-up-medium 70s linear infinite;
+  animation: scroll-up-medium 85s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .animate-scroll-up-fast {
-  animation: scroll-up-fast 60s linear infinite;
+  animation: scroll-up-fast 75s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .animate-scroll-down-slow {
-  animation: scroll-down-slow 80s linear infinite;
+  animation: scroll-down-slow 100s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .animate-scroll-down-medium {
-  animation: scroll-down-medium 70s linear infinite;
+  animation: scroll-down-medium 85s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .animate-scroll-down-fast {
-  animation: scroll-down-fast 60s linear infinite;
+  animation: scroll-down-fast 75s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
-/* Pause vertical scroll on hover */
+/* Pause vertical scroll on hover - optional, can be removed for continuous scroll */
+/*
 .animate-scroll-up-slow:hover,
 .animate-scroll-up-medium:hover,
 .animate-scroll-up-fast:hover,
@@ -637,6 +663,7 @@ body.menu-open {
 .animate-scroll-down-fast:hover {
   animation-play-state: paused;
 }
+*/
 
 /* Scrolling grid image optimization */
 .scroll-grid-image {
@@ -644,14 +671,33 @@ body.menu-open {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  contain: layout paint;
+  contain: layout style paint;
   transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  isolation: isolate;
+}
+
+/* Ensure images inside cards are optimized */
+.scroll-grid-image img {
+  will-change: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Smooth scroll container */
 .scroll-container {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+  contain: layout style;
+  isolation: isolate;
+}
+
+/* Force GPU layer for scroll parent containers */
+.scroll-wrapper {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: contents;
   contain: layout style;
 }
