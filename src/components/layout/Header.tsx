@@ -411,7 +411,7 @@ export function Header() {
             location.pathname === "/" && !isScrolled && "opacity-0 pointer-events-none"
           )}>
             <Button variant="accent" asChild>
-              <Link to="/contact">Contact Us</Link>
+              <Link to="/get-started">Get Started</Link>
             </Button>
           </div>
 
@@ -640,7 +640,7 @@ export function Header() {
 
               <div className="pt-4 sm:pt-6 border-t border-border mt-4">
                 <Button variant="accent" size="lg" className="w-full" asChild>
-                  <Link to="/contact">Contact Us</Link>
+                  <Link to="/get-started">Get Started</Link>
                 </Button>
               </div>
             </div>
