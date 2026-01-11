@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -272,71 +272,94 @@ export function Header() {
 
                 {/* Mega Menu for Services */}
                 {link.dropdownType === "services" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[800px]">
-                    <div className="bg-background rounded-xl shadow-2xl border border-border p-6">
-                      <div className="grid grid-cols-4 gap-6">
-                        <div>
-                          <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
-                            Creative Services
-                          </h4>
-                          <ul className="space-y-2">
-                            {services.creative.map((item) => (
-                              <li key={item.name}>
-                                <Link
-                                  to={item.href}
-                                  className="text-sm text-muted-foreground hover:text-primary transition-colors block py-1"
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
-                            Digital & Strategy
-                          </h4>
-                          <ul className="space-y-2">
-                            {services.digital.map((item) => (
-                              <li key={item.name}>
-                                <Link
-                                  to={item.href}
-                                  className="text-sm text-muted-foreground hover:text-primary transition-colors block py-1"
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="space-y-6">
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[calc(100vw-2rem)] max-w-[800px]">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-border/50 overflow-hidden">
+                      {/* Header */}
+                      <div className="bg-gradient-to-r from-primary/5 to-accent/5 px-6 py-4 border-b border-border/50">
+                        <div className="flex items-center justify-between">
                           <div>
-                            <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
+                            <h3 className="font-bold text-foreground">Our Services</h3>
+                            <p className="text-sm text-muted-foreground">Everything you need to grow your brand</p>
+                          </div>
+                          <Link
+                            to="/services"
+                            className="group flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                          >
+                            View all
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                          </Link>
+                        </div>
+                      </div>
+                      
+                      {/* Content Grid */}
+                      <div className="p-5">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                          {/* Creative Services */}
+                          <div>
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3">
+                              Creative
+                            </h4>
+                            <ul className="space-y-1">
+                              {services.creative.map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    to={item.href}
+                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          {/* Digital & Strategy */}
+                          <div>
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3">
+                              Digital & Strategy
+                            </h4>
+                            <ul className="space-y-1">
+                              {services.digital.map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    to={item.href}
+                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          
+                          {/* Media Production & AI */}
+                          <div>
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3">
                               Media Production
                             </h4>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1">
                               {services.media.map((item) => (
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-1"
+                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                                   >
                                     {item.name}
                                   </Link>
                                 </li>
                               ))}
                             </ul>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
+                            
+                            {/* AI Services */}
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3 mt-6">
                               AI Services
                             </h4>
-                            <ul className="space-y-2">
+                            <ul className="space-y-1">
                               {services.ai.map((item) => (
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
-                                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-1"
+                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                                   >
                                     {item.name}
                                   </Link>
@@ -344,59 +367,58 @@ export function Header() {
                               ))}
                             </ul>
                           </div>
+                          
+                          {/* Featured / CTA Column */}
+                          <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 rounded-xl p-4 flex flex-col">
+                            <div className="flex-1">
+                              <h4 className="font-bold text-foreground mb-2">Not sure where to start?</h4>
+                              <p className="text-sm text-muted-foreground mb-4">
+                                Tell us about your project and we'll recommend the perfect solution.
+                              </p>
+                            </div>
+                            <Button variant="accent" size="sm" className="w-full" asChild>
+                              <Link to="/get-started">
+                                Get Started
+                                <ArrowRight className="w-4 h-4 ml-1" />
+                              </Link>
+                            </Button>
+                          </div>
                         </div>
                       </div>
-                      <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
-                        <Link
-                          to="/services"
-                          className="text-sm font-semibold text-primary hover:underline"
-                        >
-                          View All Services →
-                        </Link>
-                        <Button variant="accent" size="sm" asChild>
-                          <Link to="/contact">Get a Quote</Link>
-                        </Button>
-                      </div>
                     </div>
                   </div>
                 )}
 
-                {/* Simple Dropdown for Why Us */}
+                {/* Dropdown for Why Us */}
                 {link.dropdownType === "whyUs" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[220px]">
-                    <div className="bg-background rounded-xl shadow-2xl border border-border p-3">
-                      <ul className="space-y-1">
-                        {whyUsItems.map((item) => (
-                          <li key={item.name}>
-                            <Link
-                              to={item.href}
-                              className="text-sm text-foreground hover:text-primary hover:bg-primary/5 transition-colors block py-2 px-3 rounded-lg"
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[200px]">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-border/50 overflow-hidden p-2">
+                      {whyUsItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 )}
 
-                {/* Simple Dropdown for Company */}
+                {/* Dropdown for Company */}
                 {link.dropdownType === "company" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[180px]">
-                    <div className="bg-background rounded-xl shadow-2xl border border-border p-3">
-                      <ul className="space-y-1">
-                        {companyItems.map((item) => (
-                          <li key={item.name}>
-                            <Link
-                              to={item.href}
-                              className="text-sm text-foreground hover:text-primary hover:bg-primary/5 transition-colors block py-2 px-3 rounded-lg"
-                            >
-                              {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[180px]">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-border/50 overflow-hidden p-2">
+                      {companyItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 )}
