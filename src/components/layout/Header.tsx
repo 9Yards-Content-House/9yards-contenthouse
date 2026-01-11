@@ -27,20 +27,31 @@ const services = {
   ],
 };
 
+const whyUsItems = [
+  { name: "How We Work", href: "/how-we-work" },
+  { name: "World Class Team", href: "/team" },
+  { name: "AI-Powered Creative", href: "/ai-creative" },
+];
+
+const companyItems = [
+  { name: "About Us", href: "/about" },
+  { name: "Careers", href: "/careers" },
+  { name: "Contact", href: "/contact" },
+];
+
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services", hasMegaMenu: true },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Studio", href: "/studio" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
+  { name: "Services", href: "/services", dropdownType: "services" },
+  { name: "Our Work", href: "/portfolio" },
+  { name: "Why Us", href: "#", dropdownType: "whyUs" },
+  { name: "Company", href: "#", dropdownType: "company" },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isWhyUsOpen, setIsWhyUsOpen] = useState(false);
+  const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -54,6 +65,8 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
+    setIsWhyUsOpen(false);
+    setIsCompanyOpen(false);
   }, [location]);
 
   // Determine if mobile menu is open - always show full color logo when mobile menu is open
@@ -99,25 +112,38 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <div key={link.name} className="relative mega-menu-trigger">
-                <Link
-                  to={link.href}
-                  className={cn(
-                    "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
-                    location.pathname === link.href
-                      ? isScrolled 
-                        ? "text-primary bg-primary/5" 
-                        : "text-white bg-white/10"
-                      : isScrolled
+                {link.dropdownType ? (
+                  <button
+                    className={cn(
+                      "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
+                      isScrolled
                         ? "text-foreground hover:text-primary hover:bg-primary/5"
                         : "text-white/90 hover:text-white hover:bg-white/10"
-                  )}
-                >
-                  {link.name}
-                  {link.hasMegaMenu && <ChevronDown className="w-4 h-4" />}
-                </Link>
+                    )}
+                  >
+                    {link.name}
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className={cn(
+                      "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
+                      location.pathname === link.href
+                        ? isScrolled 
+                          ? "text-primary bg-primary/5" 
+                          : "text-white bg-white/10"
+                        : isScrolled
+                          ? "text-foreground hover:text-primary hover:bg-primary/5"
+                          : "text-white/90 hover:text-white hover:bg-white/10"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                )}
 
                 {/* Mega Menu for Services */}
-                {link.hasMegaMenu && (
+                {link.dropdownType === "services" && (
                   <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[700px]">
                     <div className="bg-background rounded-xl shadow-2xl border border-border p-6">
                       <div className="grid grid-cols-3 gap-6">
@@ -187,6 +213,46 @@ export function Header() {
                     </div>
                   </div>
                 )}
+
+                {/* Simple Dropdown for Why Us */}
+                {link.dropdownType === "whyUs" && (
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[220px]">
+                    <div className="bg-background rounded-xl shadow-2xl border border-border p-3">
+                      <ul className="space-y-1">
+                        {whyUsItems.map((item) => (
+                          <li key={item.name}>
+                            <Link
+                              to={item.href}
+                              className="text-sm text-foreground hover:text-primary hover:bg-primary/5 transition-colors block py-2 px-3 rounded-lg"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
+                {/* Simple Dropdown for Company */}
+                {link.dropdownType === "company" && (
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[180px]">
+                    <div className="bg-background rounded-xl shadow-2xl border border-border p-3">
+                      <ul className="space-y-1">
+                        {companyItems.map((item) => (
+                          <li key={item.name}>
+                            <Link
+                              to={item.href}
+                              className="text-sm text-foreground hover:text-primary hover:bg-primary/5 transition-colors block py-2 px-3 rounded-lg"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -232,87 +298,141 @@ export function Header() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background z-40 animate-fade-in overflow-hidden">
-            <div className="p-4 sm:p-6 space-y-2 sm:space-y-4 h-full overflow-y-auto pb-20">
-              {navLinks.map((link) => (
-                <div key={link.name}>
-                  {link.hasMegaMenu ? (
+            <div className="p-4 sm:p-6 space-y-1 h-full overflow-y-auto pb-20">
+              {/* Services Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
+                >
+                  Services
+                  <ChevronDown
+                    className={cn(
+                      "w-5 h-5 transition-transform duration-200",
+                      isServicesOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {isServicesOpen && (
+                  <div className="pl-4 space-y-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
                     <div>
-                      <button
-                        onClick={() => setIsServicesOpen(!isServicesOpen)}
-                        className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
-                      >
-                        {link.name}
-                        <ChevronDown
-                          className={cn(
-                            "w-5 h-5 transition-transform duration-200",
-                            isServicesOpen && "rotate-180"
-                          )}
-                        />
-                      </button>
-                      {isServicesOpen && (
-                        <div className="pl-4 space-y-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
-                          <div>
-                            <h5 className="font-semibold text-primary text-sm mb-2">
-                              Creative Services
-                            </h5>
-                            {services.creative.map((item) => (
-                              <Link
-                                key={item.name}
-                                to={item.href}
-                                className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                              >
-                                {item.name}
-                              </Link>
-                            ))}
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-primary text-sm mb-2">
-                              Digital Marketing
-                            </h5>
-                            {services.digital.map((item) => (
-                              <Link
-                                key={item.name}
-                                to={item.href}
-                                className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                              >
-                                {item.name}
-                              </Link>
-                            ))}
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-primary text-sm mb-2">
-                              Specialized
-                            </h5>
-                            {services.specialized.map((item) => (
-                              <Link
-                                key={item.name}
-                                to={item.href}
-                                className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                              >
-                                {item.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                      <h5 className="font-semibold text-primary text-sm mb-2">
+                        Creative Services
+                      </h5>
+                      {services.creative.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
                     </div>
-                  ) : (
-                    <Link
-                      to={link.href}
-                      className={cn(
-                        "block py-3 text-base sm:text-lg font-medium transition-colors",
-                        location.pathname === link.href
-                          ? "text-primary"
-                          : "text-foreground hover:text-primary"
-                      )}
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
+                    <div>
+                      <h5 className="font-semibold text-primary text-sm mb-2">
+                        Digital Marketing
+                      </h5>
+                      {services.digital.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-primary text-sm mb-2">
+                        Specialized
+                      </h5>
+                      {services.specialized.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
 
-              <div className="pt-4 sm:pt-6 border-t border-border space-y-4">
+              {/* Our Work Link */}
+              <Link
+                to="/portfolio"
+                className={cn(
+                  "block py-3 text-base sm:text-lg font-medium transition-colors",
+                  location.pathname === "/portfolio"
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
+                )}
+              >
+                Our Work
+              </Link>
+
+              {/* Why Us Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsWhyUsOpen(!isWhyUsOpen)}
+                  className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
+                >
+                  Why Us
+                  <ChevronDown
+                    className={cn(
+                      "w-5 h-5 transition-transform duration-200",
+                      isWhyUsOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {isWhyUsOpen && (
+                  <div className="pl-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
+                    {whyUsItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Company Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsCompanyOpen(!isCompanyOpen)}
+                  className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
+                >
+                  Company
+                  <ChevronDown
+                    className={cn(
+                      "w-5 h-5 transition-transform duration-200",
+                      isCompanyOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {isCompanyOpen && (
+                  <div className="pl-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
+                    {companyItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="pt-4 sm:pt-6 border-t border-border space-y-4 mt-4">
                 <a
                   href="tel:0700488870"
                   className="flex items-center gap-2 text-base sm:text-lg font-medium text-foreground hover:text-primary transition-colors"
