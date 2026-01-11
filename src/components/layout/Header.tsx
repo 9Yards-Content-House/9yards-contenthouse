@@ -6,37 +6,44 @@ import { cn } from "@/lib/utils";
 
 const services = {
   creative: [
-    { name: "Graphic Design", href: "/services/graphic-design" },
     { name: "Video Production", href: "/services/video-production" },
-    { name: "Branding Services", href: "/services/branding" },
-    { name: "Motion Design", href: "/services/motion-design" },
+    { name: "Photography", href: "/services/photography" },
+    { name: "Graphic Design", href: "/services/graphic-design" },
     { name: "Print Design", href: "/services/print-design" },
+    { name: "Branding", href: "/services/branding" },
+    { name: "Social Media Creative", href: "/services/social-media-creative" },
+    { name: "Concept Creation", href: "/services/concept-creation" },
+    { name: "Motion Design", href: "/services/motion-design" },
   ],
   digital: [
-    { name: "Social Media Management", href: "/services/social-media" },
+    { name: "Social Media Marketing", href: "/services/social-media-marketing" },
     { name: "Website Development", href: "/services/web-development" },
-    { name: "Email Marketing", href: "/services/email-marketing" },
     { name: "Influencer Marketing", href: "/services/influencer-marketing" },
+    { name: "Email Marketing", href: "/services/email-marketing" },
+    { name: "Copywriting", href: "/services/copywriting" },
     { name: "Digital Strategy", href: "/services/digital-strategy" },
   ],
-  specialized: [
-    { name: "Ad Creative", href: "/services/ad-creative" },
+  media: [
+    { name: "Podcast Production", href: "/services/podcast-production" },
+    { name: "TV & Radio Production", href: "/services/tv-radio-production" },
+  ],
+  ai: [
     { name: "AI-Powered Creative", href: "/services/ai-creative" },
-    { name: "Copywriting", href: "/services/copywriting" },
-    { name: "Podcast Studio", href: "/studio" },
+    { name: "AI Consulting", href: "/services/ai-consulting" },
   ],
 };
 
 const allServiceHrefs = [
   ...services.creative.map(s => s.href),
   ...services.digital.map(s => s.href),
-  ...services.specialized.map(s => s.href),
+  ...services.media.map(s => s.href),
+  ...services.ai.map(s => s.href),
   "/services"
 ];
 
 const whyUsItems = [
   { name: "How We Work", href: "/how-we-work" },
-  { name: "World Class Team", href: "/team" },
+  { name: "World-Class Team", href: "/team" },
   { name: "AI-Powered Creative", href: "/ai-creative" },
 ];
 
@@ -265,9 +272,9 @@ export function Header() {
 
                 {/* Mega Menu for Services */}
                 {link.dropdownType === "services" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[700px]">
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[800px]">
                     <div className="bg-background rounded-xl shadow-2xl border border-border p-6">
-                      <div className="grid grid-cols-3 gap-6">
+                      <div className="grid grid-cols-4 gap-6">
                         <div>
                           <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
                             Creative Services
@@ -287,7 +294,7 @@ export function Header() {
                         </div>
                         <div>
                           <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
-                            Digital Marketing
+                            Digital & Strategy
                           </h4>
                           <ul className="space-y-2">
                             {services.digital.map((item) => (
@@ -302,22 +309,41 @@ export function Header() {
                             ))}
                           </ul>
                         </div>
-                        <div>
-                          <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
-                            Specialized
-                          </h4>
-                          <ul className="space-y-2">
-                            {services.specialized.map((item) => (
-                              <li key={item.name}>
-                                <Link
-                                  to={item.href}
-                                  className="text-sm text-muted-foreground hover:text-primary transition-colors block py-1"
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="space-y-6">
+                          <div>
+                            <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
+                              Media Production
+                            </h4>
+                            <ul className="space-y-2">
+                              {services.media.map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    to={item.href}
+                                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-1"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-primary mb-3 text-sm uppercase tracking-wide">
+                              AI Services
+                            </h4>
+                            <ul className="space-y-2">
+                              {services.ai.map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    to={item.href}
+                                    className="text-sm text-muted-foreground hover:text-primary transition-colors block py-1"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
                       </div>
                       <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
@@ -461,7 +487,7 @@ export function Header() {
                       </div>
                       <div>
                         <h5 className="font-semibold text-primary text-sm mb-2">
-                          Digital Marketing
+                          Digital & Strategy
                         </h5>
                         {services.digital.map((item) => (
                           <Link
@@ -480,9 +506,28 @@ export function Header() {
                       </div>
                       <div>
                         <h5 className="font-semibold text-primary text-sm mb-2">
-                          Specialized
+                          Media Production
                         </h5>
-                        {services.specialized.map((item) => (
+                        {services.media.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className={cn(
+                              "block py-2.5 px-2 text-sm sm:text-base rounded-lg tap-highlight transition-colors",
+                              location.pathname === item.href
+                                ? "text-primary font-medium"
+                                : "text-muted-foreground hover:text-primary"
+                            )}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-primary text-sm mb-2">
+                          AI Services
+                        </h5>
+                        {services.ai.map((item) => (
                           <Link
                             key={item.name}
                             to={item.href}
