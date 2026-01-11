@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,17 +27,28 @@ const services = {
   ],
 };
 
+const allServiceHrefs = [
+  ...services.creative.map(s => s.href),
+  ...services.digital.map(s => s.href),
+  ...services.specialized.map(s => s.href),
+  "/services"
+];
+
 const whyUsItems = [
   { name: "How We Work", href: "/how-we-work" },
   { name: "World Class Team", href: "/team" },
   { name: "AI-Powered Creative", href: "/ai-creative" },
 ];
 
+const whyUsHrefs = whyUsItems.map(item => item.href);
+
 const companyItems = [
   { name: "About Us", href: "/about" },
   { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
+
+const companyHrefs = companyItems.map(item => item.href);
 
 const navLinks = [
   { name: "Services", href: "/services", dropdownType: "services" },
@@ -52,7 +63,15 @@ export function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isWhyUsOpen, setIsWhyUsOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  // Check if current path matches a child route for parent active state
+  const isServicesActive = allServiceHrefs.some(href => location.pathname.startsWith(href.split('/').slice(0, 3).join('/')));
+  const isWhyUsActive = whyUsHrefs.includes(location.pathname);
+  const isCompanyActive = companyHrefs.includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,12 +81,81 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Body scroll lock when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
+    return () => document.body.classList.remove("menu-open");
+  }, [isMobileMenuOpen]);
+
+  // Escape key to close dropdowns and mobile menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMobileMenuOpen(false);
+        setOpenDropdown(null);
+        setIsServicesOpen(false);
+        setIsWhyUsOpen(false);
+        setIsCompanyOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Focus trap for mobile menu
+  useEffect(() => {
+    if (!isMobileMenuOpen || !mobileMenuRef.current) return;
+
+    const focusableElements = mobileMenuRef.current.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0] as HTMLElement;
+    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement?.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleTab);
+    firstElement?.focus();
+
+    return () => document.removeEventListener("keydown", handleTab);
+  }, [isMobileMenuOpen]);
+
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
     setIsWhyUsOpen(false);
     setIsCompanyOpen(false);
+    setOpenDropdown(null);
   }, [location]);
+
+  // Delayed close for desktop dropdowns (prevents accidental close)
+  const handleMouseEnter = useCallback((dropdownType: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setOpenDropdown(dropdownType);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150); // 150ms delay before closing
+  }, []);
 
   // Determine if mobile menu is open - always show full color logo when mobile menu is open
   const showFullColorLogo = isScrolled || isMobileMenuOpen;
@@ -108,39 +196,72 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <div key={link.name} className="relative mega-menu-trigger">
-                {link.dropdownType ? (
-                  <button
-                    className={cn(
-                      "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
-                      isScrolled
-                        ? "text-foreground hover:text-primary hover:bg-primary/5"
-                        : "text-white/90 hover:text-white hover:bg-white/10"
-                    )}
-                  >
-                    {link.name}
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className={cn(
-                      "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
-                      location.pathname === link.href
-                        ? isScrolled 
-                          ? "text-primary bg-primary/5" 
-                          : "text-white bg-white/10"
-                        : isScrolled
-                          ? "text-foreground hover:text-primary hover:bg-primary/5"
-                          : "text-white/90 hover:text-white hover:bg-white/10"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                )}
+          {/* Desktop Navigation - now shows at md breakpoint */}
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => {
+              // Determine if this nav item is active based on child routes
+              const isActive = 
+                link.dropdownType === "services" ? isServicesActive :
+                link.dropdownType === "whyUs" ? isWhyUsActive :
+                link.dropdownType === "company" ? isCompanyActive :
+                location.pathname === link.href;
+
+              return (
+                <div 
+                  key={link.name} 
+                  className={cn(
+                    "relative mega-menu-trigger",
+                    openDropdown === link.dropdownType && "dropdown-open"
+                  )}
+                  onMouseEnter={() => link.dropdownType && handleMouseEnter(link.dropdownType)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {link.dropdownType ? (
+                    <button
+                      className={cn(
+                        "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
+                        isActive
+                          ? isScrolled
+                            ? "text-primary bg-primary/5"
+                            : "text-white bg-white/10"
+                          : isScrolled
+                            ? "text-foreground hover:text-primary hover:bg-primary/5"
+                            : "text-white/90 hover:text-white hover:bg-white/10"
+                      )}
+                      aria-expanded={openDropdown === link.dropdownType}
+                      aria-haspopup="true"
+                    >
+                      {link.name}
+                      <ChevronDown className={cn(
+                        "w-4 h-4 transition-transform duration-200",
+                        openDropdown === link.dropdownType && "rotate-180"
+                      )} />
+                      {/* Active indicator dot */}
+                      {isActive && (
+                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current" />
+                      )}
+                    </button>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className={cn(
+                        "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
+                        isActive
+                          ? isScrolled 
+                            ? "text-primary bg-primary/5" 
+                            : "text-white bg-white/10"
+                          : isScrolled
+                            ? "text-foreground hover:text-primary hover:bg-primary/5"
+                            : "text-white/90 hover:text-white hover:bg-white/10"
+                      )}
+                    >
+                      {link.name}
+                      {/* Active indicator dot */}
+                      {isActive && (
+                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current" />
+                      )}
+                    </Link>
+                  )}
 
                 {/* Mega Menu for Services */}
                 {link.dropdownType === "services" && (
@@ -254,12 +375,13 @@ export function Header() {
                   </div>
                 )}
               </div>
-            ))}
+            );
+            })}
           </div>
 
           {/* Desktop CTA - hidden on home page until scroll */}
           <div className={cn(
-            "hidden lg:flex items-center gap-4 transition-all duration-300",
+            "hidden md:flex items-center gap-4 transition-all duration-300",
             location.pathname === "/" && !isScrolled && "opacity-0 pointer-events-none"
           )}>
             <Button variant="accent" asChild>
@@ -267,96 +389,124 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - animated hamburger */}
           <button
             className={cn(
-              "lg:hidden p-2 rounded-lg transition-all duration-300",
+              "md:hidden p-2 rounded-lg transition-all duration-300",
               isScrolled || isMobileMenuOpen
                 ? "hover:bg-muted text-foreground"
-                : "hover:bg-white/10 text-white"
+                : "hover:bg-white/10 text-white",
+              isMobileMenuOpen && "hamburger-open"
             )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            <div className="flex flex-col justify-center items-center gap-1.5 w-6 h-6">
+              <span className="hamburger-line" />
+              <span className="hamburger-line" />
+              <span className="hamburger-line" />
+            </div>
           </button>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu with focus trap */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background z-40 animate-fade-in overflow-hidden">
+          <div 
+            ref={mobileMenuRef}
+            className="md:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background z-40 mobile-menu-enter overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+          >
             <div className="p-4 sm:p-6 space-y-1 h-full overflow-y-auto pb-20">
-              {/* Services Dropdown */}
+              {/* Services Dropdown with accordion animation */}
               <div>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
+                  className={cn(
+                    "flex items-center justify-between w-full py-3 px-2 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors",
+                    isServicesActive ? "text-primary" : "text-foreground"
+                  )}
                 >
                   Services
                   <ChevronDown
                     className={cn(
-                      "w-5 h-5 transition-transform duration-200",
+                      "w-5 h-5 transition-transform duration-300",
                       isServicesOpen && "rotate-180"
                     )}
                   />
                 </button>
-                {isServicesOpen && (
-                  <div className="pl-4 space-y-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
-                    <div>
-                      <h5 className="font-semibold text-primary text-sm mb-2">
-                        Creative Services
-                      </h5>
-                      {services.creative.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-primary text-sm mb-2">
-                        Digital Marketing
-                      </h5>
-                      {services.digital.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                    <div>
-                      <h5 className="font-semibold text-primary text-sm mb-2">
-                        Specialized
-                      </h5>
-                      {services.specialized.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                <div className={cn("accordion-content", isServicesOpen && "open")}>
+                  <div className="accordion-inner">
+                    <div className="pl-4 space-y-4 mt-2 pb-2 border-l-2 border-primary/20">
+                      <div>
+                        <h5 className="font-semibold text-primary text-sm mb-2">
+                          Creative Services
+                        </h5>
+                        {services.creative.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className={cn(
+                              "block py-2.5 px-2 text-sm sm:text-base rounded-lg tap-highlight transition-colors",
+                              location.pathname === item.href
+                                ? "text-primary font-medium"
+                                : "text-muted-foreground hover:text-primary"
+                            )}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-primary text-sm mb-2">
+                          Digital Marketing
+                        </h5>
+                        {services.digital.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className={cn(
+                              "block py-2.5 px-2 text-sm sm:text-base rounded-lg tap-highlight transition-colors",
+                              location.pathname === item.href
+                                ? "text-primary font-medium"
+                                : "text-muted-foreground hover:text-primary"
+                            )}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-primary text-sm mb-2">
+                          Specialized
+                        </h5>
+                        {services.specialized.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className={cn(
+                              "block py-2.5 px-2 text-sm sm:text-base rounded-lg tap-highlight transition-colors",
+                              location.pathname === item.href
+                                ? "text-primary font-medium"
+                                : "text-muted-foreground hover:text-primary"
+                            )}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Our Work Link */}
               <Link
                 to="/portfolio"
                 className={cn(
-                  "block py-3 text-base sm:text-lg font-medium transition-colors",
+                  "block py-3 px-2 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors",
                   location.pathname === "/portfolio"
                     ? "text-primary"
                     : "text-foreground hover:text-primary"
@@ -365,62 +515,82 @@ export function Header() {
                 Our Work
               </Link>
 
-              {/* Why Us Dropdown */}
+              {/* Why Us Dropdown with accordion animation */}
               <div>
                 <button
                   onClick={() => setIsWhyUsOpen(!isWhyUsOpen)}
-                  className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
+                  className={cn(
+                    "flex items-center justify-between w-full py-3 px-2 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors",
+                    isWhyUsActive ? "text-primary" : "text-foreground"
+                  )}
                 >
                   Why Us
                   <ChevronDown
                     className={cn(
-                      "w-5 h-5 transition-transform duration-200",
+                      "w-5 h-5 transition-transform duration-300",
                       isWhyUsOpen && "rotate-180"
                     )}
                   />
                 </button>
-                {isWhyUsOpen && (
-                  <div className="pl-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
-                    {whyUsItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                <div className={cn("accordion-content", isWhyUsOpen && "open")}>
+                  <div className="accordion-inner">
+                    <div className="pl-4 mt-2 pb-2 border-l-2 border-primary/20">
+                      {whyUsItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className={cn(
+                            "block py-2.5 px-2 text-sm sm:text-base rounded-lg tap-highlight transition-colors",
+                            location.pathname === item.href
+                              ? "text-primary font-medium"
+                              : "text-muted-foreground hover:text-primary"
+                          )}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
 
-              {/* Company Dropdown */}
+              {/* Company Dropdown with accordion animation */}
               <div>
                 <button
                   onClick={() => setIsCompanyOpen(!isCompanyOpen)}
-                  className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
+                  className={cn(
+                    "flex items-center justify-between w-full py-3 px-2 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors",
+                    isCompanyActive ? "text-primary" : "text-foreground"
+                  )}
                 >
                   Company
                   <ChevronDown
                     className={cn(
-                      "w-5 h-5 transition-transform duration-200",
+                      "w-5 h-5 transition-transform duration-300",
                       isCompanyOpen && "rotate-180"
                     )}
                   />
                 </button>
-                {isCompanyOpen && (
-                  <div className="pl-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
-                    {companyItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                <div className={cn("accordion-content", isCompanyOpen && "open")}>
+                  <div className="accordion-inner">
+                    <div className="pl-4 mt-2 pb-2 border-l-2 border-primary/20">
+                      {companyItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.href}
+                          className={cn(
+                            "block py-2.5 px-2 text-sm sm:text-base rounded-lg tap-highlight transition-colors",
+                            location.pathname === item.href
+                              ? "text-primary font-medium"
+                              : "text-muted-foreground hover:text-primary"
+                          )}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
 
               <div className="pt-4 sm:pt-6 border-t border-border mt-4">
