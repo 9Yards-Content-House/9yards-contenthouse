@@ -272,8 +272,8 @@ export function Header() {
 
                 {/* Mega Menu for Services */}
                 {link.dropdownType === "services" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[calc(100vw-2rem)] max-w-[820px]">
-                    <div className="bg-background rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden">
+                  <div className="mega-menu fixed top-[72px] left-0 right-0 pt-3 flex justify-center px-4">
+                    <div className="bg-background rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden w-full max-w-[900px]">
                       {/* Header */}
                       <div className="bg-gradient-to-r from-primary/5 via-transparent to-accent/5 px-6 py-4 border-b border-border">
                         <div className="flex items-center justify-between">
@@ -296,7 +296,7 @@ export function Header() {
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 lg:divide-x divide-border">
                           {/* Creative Services */}
                           <div className="pr-0 lg:pr-6 pb-6 lg:pb-0">
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
+                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Creative
                             </h4>
                             <ul className="space-y-0.5">
@@ -320,7 +320,7 @@ export function Header() {
                           
                           {/* Digital & Strategy */}
                           <div className="pl-0 lg:pl-6 pr-0 lg:pr-6 pb-6 lg:pb-0">
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
+                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Digital & Strategy
                             </h4>
                             <ul className="space-y-0.5">
@@ -344,7 +344,7 @@ export function Header() {
                           
                           {/* Media Production & AI */}
                           <div className="pl-0 lg:pl-6 pr-0 lg:pr-6">
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
+                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Media Production
                             </h4>
                             <ul className="space-y-0.5">
@@ -366,7 +366,7 @@ export function Header() {
                             </ul>
                             
                             {/* AI Services */}
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
+                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
                               AI Services
                             </h4>
                             <ul className="space-y-0.5">
