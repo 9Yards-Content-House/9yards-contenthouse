@@ -5,28 +5,28 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-[0.98]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold ring-offset-background transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-brand-blue-light shadow-md hover:shadow-lg",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent/10 hover:text-accent-foreground",
+        default: "bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 shadow-md hover:shadow-lg active:scale-[0.98]",
+        destructive: "bg-destructive text-destructive-foreground rounded-lg hover:bg-destructive/90",
+        outline: "border-2 border-primary bg-transparent text-primary rounded-lg hover:bg-primary hover:text-primary-foreground",
+        secondary: "bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80",
+        ghost: "hover:bg-accent/10 hover:text-accent-foreground rounded-lg",
         link: "text-primary underline-offset-4 hover:underline",
-        // 9Yards specific variants
-        accent: "bg-accent text-accent-foreground hover:bg-brand-orange-light shadow-button hover:shadow-lg",
-        hero: "bg-accent text-accent-foreground hover:bg-brand-orange-light shadow-button hover:shadow-lg text-base px-8 py-4",
-        "hero-outline": "border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary text-base px-8 py-4",
-        cta: "bg-gradient-to-r from-brand-orange to-brand-orange-dark text-accent-foreground hover:from-brand-orange-light hover:to-brand-orange shadow-button hover:shadow-lg",
-        "outline-accent": "border-2 border-accent bg-transparent text-accent hover:bg-accent hover:text-accent-foreground",
+        // 9Yards accent button - matches food.9yards.co.ug style
+        accent: "bg-[#E84E1B] text-white font-semibold rounded-full hover:bg-[#D44518] hover:scale-[1.03] hover:shadow-[0_8px_30px_-6px_rgba(232,78,27,0.5)] active:scale-[0.98] shadow-[0_4px_14px_-3px_rgba(232,78,27,0.4)]",
+        hero: "bg-[#E84E1B] text-white font-semibold rounded-full hover:bg-[#D44518] hover:scale-[1.03] hover:shadow-[0_8px_30px_-6px_rgba(232,78,27,0.5)] active:scale-[0.98] shadow-[0_4px_14px_-3px_rgba(232,78,27,0.4)] text-base px-8 py-4",
+        "hero-outline": "border-2 border-white bg-transparent text-white rounded-full hover:bg-white hover:text-[#E84E1B] hover:scale-[1.03] active:scale-[0.98] text-base px-8 py-4",
+        cta: "bg-[#E84E1B] text-white font-semibold rounded-full hover:bg-[#D44518] hover:scale-[1.03] hover:shadow-[0_8px_30px_-6px_rgba(232,78,27,0.5)] active:scale-[0.98] shadow-[0_4px_14px_-3px_rgba(232,78,27,0.4)]",
+        "outline-accent": "border-2 border-[#E84E1B] bg-transparent text-[#E84E1B] rounded-full hover:bg-[#E84E1B] hover:text-white hover:scale-[1.03] active:scale-[0.98]",
       },
       size: {
         default: "h-11 px-6 py-2",
-        sm: "h-9 rounded-md px-4",
-        lg: "h-12 rounded-lg px-8 text-base",
-        xl: "h-14 rounded-lg px-10 text-lg",
+        sm: "h-9 px-4 text-sm",
+        lg: "h-12 px-8 text-base",
+        xl: "h-14 px-10 text-lg",
         icon: "h-10 w-10",
       },
     },

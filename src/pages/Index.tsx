@@ -258,9 +258,9 @@ export default function Index() {
             {/* CTA Button */}
             <div className="flex justify-center lg:justify-start">
               <Button 
-                variant="default" 
+                variant="accent" 
                 size="lg" 
-                className="bg-accent hover:bg-accent/90 text-primary px-7 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 text-sm sm:text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                className="px-7 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 text-sm sm:text-base lg:text-lg"
                 asChild
               >
                 <Link to="/contact">Book a demo</Link>

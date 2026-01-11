@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -257,21 +257,12 @@ export function Header() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="tel:0700488870"
-              className={cn(
-                "flex items-center gap-2 text-sm font-medium transition-all duration-300",
-                isScrolled 
-                  ? "text-muted-foreground hover:text-primary" 
-                  : "text-white/90 hover:text-white"
-              )}
-            >
-              <Phone className="w-4 h-4" />
-              0700 488 870
-            </a>
-            <Button variant={isScrolled ? "accent" : "outline"} className={cn(!isScrolled && "border-white text-white hover:bg-white hover:text-primary")} asChild>
+          {/* Desktop CTA - hidden on home page until scroll */}
+          <div className={cn(
+            "hidden lg:flex items-center gap-4 transition-all duration-300",
+            location.pathname === "/" && !isScrolled && "opacity-0 pointer-events-none"
+          )}>
+            <Button variant="accent" asChild>
               <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
@@ -432,14 +423,7 @@ export function Header() {
                 )}
               </div>
 
-              <div className="pt-4 sm:pt-6 border-t border-border space-y-4 mt-4">
-                <a
-                  href="tel:0700488870"
-                  className="flex items-center gap-2 text-base sm:text-lg font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  <Phone className="w-5 h-5 text-primary" />
-                  0700 488 870
-                </a>
+              <div className="pt-4 sm:pt-6 border-t border-border mt-4">
                 <Button variant="accent" size="lg" className="w-full" asChild>
                   <Link to="/contact">Contact Us</Link>
                 </Button>
