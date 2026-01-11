@@ -272,10 +272,10 @@ export function Header() {
 
                 {/* Mega Menu for Services */}
                 {link.dropdownType === "services" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[calc(100vw-2rem)] max-w-[800px]">
-                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-border/50 overflow-hidden">
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[calc(100vw-2rem)] max-w-[820px]">
+                    <div className="bg-background rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden">
                       {/* Header */}
-                      <div className="bg-gradient-to-r from-primary/5 to-accent/5 px-6 py-4 border-b border-border/50">
+                      <div className="bg-gradient-to-r from-primary/5 via-transparent to-accent/5 px-6 py-4 border-b border-border">
                         <div className="flex items-center justify-between">
                           <div>
                             <h3 className="font-bold text-foreground">Our Services</h3>
@@ -283,7 +283,7 @@ export function Header() {
                           </div>
                           <Link
                             to="/services"
-                            className="group flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                            className="group flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
                           >
                             View all
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -292,19 +292,24 @@ export function Header() {
                       </div>
                       
                       {/* Content Grid */}
-                      <div className="p-5">
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                      <div className="p-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 lg:divide-x divide-border">
                           {/* Creative Services */}
-                          <div>
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3">
+                          <div className="pr-0 lg:pr-6 pb-6 lg:pb-0">
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Creative
                             </h4>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {services.creative.map((item) => (
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
-                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                    className={cn(
+                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      location.pathname === item.href
+                                        ? "text-primary font-medium bg-primary/5"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                    )}
                                   >
                                     {item.name}
                                   </Link>
@@ -314,16 +319,21 @@ export function Header() {
                           </div>
                           
                           {/* Digital & Strategy */}
-                          <div>
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3">
+                          <div className="pl-0 lg:pl-6 pr-0 lg:pr-6 pb-6 lg:pb-0">
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Digital & Strategy
                             </h4>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {services.digital.map((item) => (
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
-                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                    className={cn(
+                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      location.pathname === item.href
+                                        ? "text-primary font-medium bg-primary/5"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                    )}
                                   >
                                     {item.name}
                                   </Link>
@@ -333,16 +343,21 @@ export function Header() {
                           </div>
                           
                           {/* Media Production & AI */}
-                          <div>
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3">
+                          <div className="pl-0 lg:pl-6 pr-0 lg:pr-6">
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Media Production
                             </h4>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {services.media.map((item) => (
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
-                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                    className={cn(
+                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      location.pathname === item.href
+                                        ? "text-primary font-medium bg-primary/5"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                    )}
                                   >
                                     {item.name}
                                   </Link>
@@ -351,15 +366,20 @@ export function Header() {
                             </ul>
                             
                             {/* AI Services */}
-                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-3 mt-6">
+                            <h4 className="font-semibold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
                               AI Services
                             </h4>
-                            <ul className="space-y-1">
+                            <ul className="space-y-0.5">
                               {services.ai.map((item) => (
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
-                                    className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                    className={cn(
+                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      location.pathname === item.href
+                                        ? "text-primary font-medium bg-primary/5"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                    )}
                                   >
                                     {item.name}
                                   </Link>
@@ -369,21 +389,32 @@ export function Header() {
                           </div>
                           
                           {/* Featured / CTA Column */}
-                          <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 rounded-xl p-4 flex flex-col">
-                            <div className="flex-1">
-                              <h4 className="font-bold text-foreground mb-2">Not sure where to start?</h4>
-                              <p className="text-sm text-muted-foreground mb-4">
-                                Tell us about your project and we'll recommend the perfect solution.
-                              </p>
+                          <div className="pl-0 lg:pl-6">
+                            <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 rounded-xl p-5 h-full flex flex-col border border-primary/10">
+                              <div className="flex-1">
+                                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                                  <span className="text-primary text-lg">?</span>
+                                </div>
+                                <h4 className="font-bold text-foreground mb-2">Not sure where to start?</h4>
+                                <p className="text-sm text-muted-foreground mb-4">
+                                  Tell us about your project and we'll recommend the perfect solution.
+                                </p>
+                              </div>
+                              <Button variant="accent" size="sm" className="w-full" asChild>
+                                <Link to="/get-started">
+                                  Get Started
+                                  <ArrowRight className="w-4 h-4 ml-1" />
+                                </Link>
+                              </Button>
                             </div>
-                            <Button variant="accent" size="sm" className="w-full" asChild>
-                              <Link to="/get-started">
-                                Get Started
-                                <ArrowRight className="w-4 h-4 ml-1" />
-                              </Link>
-                            </Button>
                           </div>
                         </div>
+                      </div>
+                      
+                      {/* Footer */}
+                      <div className="px-6 py-3 bg-muted/30 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Need help choosing? <a href="mailto:contenthouse@9yards.co.ug" className="text-primary hover:underline">Contact us</a></span>
+                        <span className="hidden sm:inline">Response within 24 hours</span>
                       </div>
                     </div>
                   </div>
@@ -391,34 +422,48 @@ export function Header() {
 
                 {/* Dropdown for Why Us */}
                 {link.dropdownType === "whyUs" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[200px]">
-                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-border/50 overflow-hidden p-2">
-                      {whyUsItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[220px]">
+                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden">
+                      <div className="p-2">
+                        {whyUsItems.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className={cn(
+                              "block px-4 py-2.5 text-sm rounded-lg transition-all duration-200",
+                              location.pathname === item.href
+                                ? "text-primary font-medium bg-primary/5"
+                                : "text-foreground hover:text-primary hover:bg-muted/50"
+                            )}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
 
                 {/* Dropdown for Company */}
                 {link.dropdownType === "company" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[180px]">
-                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-border/50 overflow-hidden p-2">
-                      {companyItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[200px]">
+                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden">
+                      <div className="p-2">
+                        {companyItems.map((item) => (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className={cn(
+                              "block px-4 py-2.5 text-sm rounded-lg transition-all duration-200",
+                              location.pathname === item.href
+                                ? "text-primary font-medium bg-primary/5"
+                                : "text-foreground hover:text-primary hover:bg-muted/50"
+                            )}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
