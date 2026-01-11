@@ -68,7 +68,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["'Open Sans'", "system-ui", "sans-serif"],
+        sans: ["'Inter'", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display-1": ["4rem", { lineHeight: "1.1", fontWeight: "700" }],
