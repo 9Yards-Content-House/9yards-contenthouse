@@ -241,7 +241,7 @@ export default function Index() {
         <div className="relative z-10 flex flex-col lg:flex-row lg:min-h-screen">
           
           {/* Left Side - Text Content */}
-          <div className="w-full lg:w-[52%] xl:w-[50%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-12 xl:px-16 2xl:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
+          <div className="w-full lg:w-[60%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-12 xl:px-16 2xl:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
             {/* Main Headline */}
             <h1 className="text-[1.85rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.5rem] xl:text-[3.25rem] 2xl:text-[3.75rem] leading-[1.1] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-7 text-center lg:text-left">
               Your <span className="italic font-light text-accent">creative team's</span>
@@ -269,7 +269,7 @@ export default function Index() {
           </div>
 
           {/* Right Side - Masonry Grid (Desktop) / Horizontal Scroll (Mobile/Tablet) */}
-          <div className="w-full lg:w-[48%] xl:w-[50%] relative">
+          <div className="w-full lg:w-[40%] relative">
             
             {/* Mobile/Tablet: Horizontal Scrolling Rows with edge fade */}
             <div className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8">
@@ -327,14 +327,6 @@ export default function Index() {
 
             {/* Desktop: 3-Column Masonry Grid with Smooth Scrolling */}
             <div className="hidden lg:block h-screen overflow-hidden relative">
-              {/* Left edge fade - blends with text area */}
-              <div 
-                className="absolute left-0 top-0 bottom-0 w-16 xl:w-24 z-10 pointer-events-none"
-                style={{
-                  background: 'linear-gradient(to right, hsl(var(--primary)) 0%, transparent 100%)'
-                }}
-              />
-              
               {/* Top Gradient Overlay - ensures nav visibility */}
               <div 
                 className="absolute top-0 left-0 right-0 h-28 xl:h-36 z-10 pointer-events-none"
