@@ -56,29 +56,42 @@ export function Header() {
     setIsServicesOpen(false);
   }, [location]);
 
+  // Determine if mobile menu is open - always show full color logo when mobile menu is open
+  const showFullColorLogo = isScrolled || isMobileMenuOpen;
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-lg py-2"
-          : "bg-transparent py-4"
+          : "bg-transparent py-4",
+        isMobileMenuOpen && "bg-background"
       )}
     >
       <div className="container-custom">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">9Y</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-bold text-foreground group-hover:text-primary transition-colors">
-                9Yards
-              </span>
-              <span className="text-muted-foreground text-sm block -mt-1">
-                Content House
-              </span>
+          {/* Logo with transition */}
+          <Link to="/" className="flex items-center group relative">
+            <div className="relative h-10 sm:h-12 w-auto">
+              {/* Inverted Logo (shown before scroll) */}
+              <img
+                src="/images/logo/9Yards-Logo-Inverted-Color.png"
+                alt="9Yards Content House"
+                className={cn(
+                  "h-full w-auto object-contain transition-opacity duration-300",
+                  showFullColorLogo ? "opacity-0" : "opacity-100"
+                )}
+              />
+              {/* Full Color Logo (shown after scroll) */}
+              <img
+                src="/images/logo/9Yards-Logo-Full-Color.png"
+                alt="9Yards Content House"
+                className={cn(
+                  "h-full w-auto object-contain absolute top-0 left-0 transition-opacity duration-300",
+                  showFullColorLogo ? "opacity-100" : "opacity-0"
+                )}
+              />
             </div>
           </Link>
 
@@ -89,10 +102,14 @@ export function Header() {
                 <Link
                   to={link.href}
                   className={cn(
-                    "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                    "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
                     location.pathname === link.href
-                      ? "text-primary bg-primary/5"
-                      : "text-foreground hover:text-primary hover:bg-primary/5"
+                      ? isScrolled 
+                        ? "text-primary bg-primary/5" 
+                        : "text-white bg-white/10"
+                      : isScrolled
+                        ? "text-foreground hover:text-primary hover:bg-primary/5"
+                        : "text-white/90 hover:text-white hover:bg-white/10"
                   )}
                 >
                   {link.name}
@@ -178,19 +195,29 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:0700488870"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className={cn(
+                "flex items-center gap-2 text-sm font-medium transition-all duration-300",
+                isScrolled 
+                  ? "text-muted-foreground hover:text-primary" 
+                  : "text-white/90 hover:text-white"
+              )}
             >
               <Phone className="w-4 h-4" />
               0700 488 870
             </a>
-            <Button variant="accent" asChild>
+            <Button variant={isScrolled ? "accent" : "outline"} className={cn(!isScrolled && "border-white text-white hover:bg-white hover:text-primary")} asChild>
               <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className={cn(
+              "lg:hidden p-2 rounded-lg transition-all duration-300",
+              isScrolled || isMobileMenuOpen
+                ? "hover:bg-muted text-foreground"
+                : "hover:bg-white/10 text-white"
+            )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -204,26 +231,26 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-[60px] bg-background z-40 animate-fade-in">
-            <div className="p-6 space-y-4 h-full overflow-y-auto">
+          <div className="lg:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background z-40 animate-fade-in overflow-hidden">
+            <div className="p-4 sm:p-6 space-y-2 sm:space-y-4 h-full overflow-y-auto pb-20">
               {navLinks.map((link) => (
                 <div key={link.name}>
                   {link.hasMegaMenu ? (
                     <div>
                       <button
                         onClick={() => setIsServicesOpen(!isServicesOpen)}
-                        className="flex items-center justify-between w-full py-3 text-lg font-medium"
+                        className="flex items-center justify-between w-full py-3 text-base sm:text-lg font-medium text-foreground"
                       >
                         {link.name}
                         <ChevronDown
                           className={cn(
-                            "w-5 h-5 transition-transform",
+                            "w-5 h-5 transition-transform duration-200",
                             isServicesOpen && "rotate-180"
                           )}
                         />
                       </button>
                       {isServicesOpen && (
-                        <div className="pl-4 space-y-4 mt-2 animate-fade-in">
+                        <div className="pl-4 space-y-4 mt-2 pb-2 animate-fade-in border-l-2 border-primary/20">
                           <div>
                             <h5 className="font-semibold text-primary text-sm mb-2">
                               Creative Services
@@ -232,7 +259,7 @@ export function Header() {
                               <Link
                                 key={item.name}
                                 to={item.href}
-                                className="block py-2 text-muted-foreground"
+                                className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
                               >
                                 {item.name}
                               </Link>
@@ -246,7 +273,7 @@ export function Header() {
                               <Link
                                 key={item.name}
                                 to={item.href}
-                                className="block py-2 text-muted-foreground"
+                                className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
                               >
                                 {item.name}
                               </Link>
@@ -260,7 +287,7 @@ export function Header() {
                               <Link
                                 key={item.name}
                                 to={item.href}
-                                className="block py-2 text-muted-foreground"
+                                className="block py-2 text-sm sm:text-base text-muted-foreground hover:text-primary transition-colors"
                               >
                                 {item.name}
                               </Link>
@@ -273,10 +300,10 @@ export function Header() {
                     <Link
                       to={link.href}
                       className={cn(
-                        "block py-3 text-lg font-medium",
+                        "block py-3 text-base sm:text-lg font-medium transition-colors",
                         location.pathname === link.href
                           ? "text-primary"
-                          : "text-foreground"
+                          : "text-foreground hover:text-primary"
                       )}
                     >
                       {link.name}
@@ -285,10 +312,10 @@ export function Header() {
                 </div>
               ))}
 
-              <div className="pt-6 border-t border-border space-y-4">
+              <div className="pt-4 sm:pt-6 border-t border-border space-y-4">
                 <a
                   href="tel:0700488870"
-                  className="flex items-center gap-2 text-lg font-medium"
+                  className="flex items-center gap-2 text-base sm:text-lg font-medium text-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary" />
                   0700 488 870
