@@ -278,53 +278,77 @@ export default function Index() {
               {/* Right edge fade */}
               <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-l from-primary to-transparent" />
               
-              {/* Row 1 - Scrolls Left */}
-              <div className="mb-2.5 sm:mb-3 md:mb-4">
-                <div className="flex animate-scroll-left">
-                  {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
-                    <div 
-                      key={`row1-${index}`} 
-                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative scroll-grid-image"
-                    >
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
-                        <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
-                          {item.logo}
-                        </span>
+              {/* Row 1 - Scrolls Left - Pinterest style varied widths, consistent height per row */}
+              <div className="mb-1.5 sm:mb-2 md:mb-2.5">
+                <div className="flex animate-scroll-left flex-nowrap">
+                  {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => {
+                    // Pinterest-style varied widths only (height consistent for clean horizontal scroll)
+                    const widths = [
+                      'w-[130px] sm:w-[160px] md:w-[190px]',  // narrow
+                      'w-[170px] sm:w-[210px] md:w-[250px]',  // wide
+                      'w-[145px] sm:w-[180px] md:w-[215px]',  // medium
+                      'w-[120px] sm:w-[150px] md:w-[180px]',  // small
+                      'w-[180px] sm:w-[220px] md:w-[265px]',  // extra wide
+                      'w-[155px] sm:w-[190px] md:w-[230px]',  // medium-wide
+                    ];
+                    const width = widths[index % widths.length];
+                    return (
+                      <div 
+                        key={`row1-${index}`} 
+                        className={`flex-shrink-0 ${width} h-[100px] sm:h-[130px] md:h-[160px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image`}
+                      >
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
+                          <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
+                            {item.logo}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Row 2 - Scrolls Right */}
+              {/* Row 2 - Scrolls Right - Pinterest style varied widths, slightly taller row */}
               <div>
-                <div className="flex animate-scroll-right">
-                  {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
-                    <div 
-                      key={`row2-${index}`} 
-                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative scroll-grid-image"
-                    >
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
-                        <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
-                          {item.logo}
-                        </span>
+                <div className="flex animate-scroll-right flex-nowrap">
+                  {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => {
+                    // Different width pattern for row 2
+                    const widths = [
+                      'w-[160px] sm:w-[195px] md:w-[235px]',  // medium-wide
+                      'w-[125px] sm:w-[155px] md:w-[185px]',  // narrow
+                      'w-[185px] sm:w-[225px] md:w-[270px]',  // extra wide
+                      'w-[140px] sm:w-[175px] md:w-[210px]',  // medium
+                      'w-[115px] sm:w-[145px] md:w-[175px]',  // small
+                      'w-[170px] sm:w-[210px] md:w-[250px]',  // wide
+                    ];
+                    const width = widths[index % widths.length];
+                    return (
+                      <div 
+                        key={`row2-${index}`} 
+                        className={`flex-shrink-0 ${width} h-[115px] sm:h-[145px] md:h-[180px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image`}
+                      >
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
+                          <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
+                            {item.logo}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -355,83 +379,98 @@ export default function Index() {
                 }}
               />
 
-              {/* Grid Container */}
-              <div className="flex h-full gap-2.5 xl:gap-3 2xl:gap-4 pl-4 xl:pl-6 pr-4 xl:pr-6 pt-6">
+              {/* Grid Container - Pinterest style with tighter gaps */}
+              <div className="flex h-full gap-1.5 xl:gap-2 pl-3 xl:pl-4 pr-3 xl:pr-4 pt-6">
                 {/* Column 1 - Scrolls Up */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-slow">
-                    {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
-                      <div 
-                        key={`col1-${index}`} 
-                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
-                        style={{ height: index % 3 === 0 ? '160px' : index % 3 === 1 ? '200px' : '140px' }}
-                      >
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-2 left-2">
-                          <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
-                            {item.logo}
-                          </span>
+                    {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => {
+                      // Pinterest-style varied heights
+                      const heights = [180, 240, 160, 280, 200, 150];
+                      const height = heights[index % heights.length];
+                      return (
+                        <div 
+                          key={`col1-${index}`} 
+                          className="mb-1.5 xl:mb-2 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
+                          style={{ height: `${height}px` }}
+                        >
+                          <img 
+                            src={item.image} 
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <div className="absolute top-2 left-2">
+                            <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
+                              {item.logo}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
 
                 {/* Column 2 - Scrolls Down (opposite) */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-down-medium pt-6 xl:pt-10">
-                    {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
-                      <div 
-                        key={`col2-${index}`} 
-                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
-                        style={{ height: index % 3 === 0 ? '180px' : index % 3 === 1 ? '150px' : '170px' }}
-                      >
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-2 left-2">
-                          <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
-                            {item.logo}
-                          </span>
+                    {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => {
+                      // Different height pattern for column 2
+                      const heights = [220, 170, 260, 190, 140, 230];
+                      const height = heights[index % heights.length];
+                      return (
+                        <div 
+                          key={`col2-${index}`} 
+                          className="mb-1.5 xl:mb-2 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
+                          style={{ height: `${height}px` }}
+                        >
+                          <img 
+                            src={item.image} 
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <div className="absolute top-2 left-2">
+                            <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
+                              {item.logo}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
 
                 {/* Column 3 - Scrolls Up */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-fast pt-3 xl:pt-5">
-                    {[...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse()].map((item, index) => (
-                      <div 
-                        key={`col3-${index}`} 
-                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
-                        style={{ height: index % 3 === 0 ? '150px' : index % 3 === 1 ? '180px' : '165px' }}
-                      >
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="absolute top-2 left-2">
-                          <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
-                            {item.logo}
-                          </span>
+                    {[...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse()].map((item, index) => {
+                      // Different height pattern for column 3
+                      const heights = [200, 150, 250, 175, 210, 165];
+                      const height = heights[index % heights.length];
+                      return (
+                        <div 
+                          key={`col3-${index}`} 
+                          className="mb-1.5 xl:mb-2 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
+                          style={{ height: `${height}px` }}
+                        >
+                          <img 
+                            src={item.image} 
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <div className="absolute top-2 left-2">
+                            <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
+                              {item.logo}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </div>
