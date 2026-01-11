@@ -236,20 +236,20 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section - Superside Style */}
-      <section className="relative min-h-screen bg-primary overflow-hidden">
+      <section className="relative bg-primary overflow-hidden lg:min-h-screen">
         {/* Desktop Layout: Split view */}
-        <div className="relative z-10 min-h-screen flex flex-col lg:flex-row items-center">
+        <div className="relative z-10 flex flex-col lg:flex-row lg:min-h-screen">
           
           {/* Left Side - Text Content */}
-          <div className="w-full lg:w-[55%] xl:w-[55%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 lg:pt-0 lg:pb-0">
+          <div className="w-full lg:w-[52%] xl:w-[50%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-12 xl:px-16 2xl:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
             {/* Main Headline */}
-            <h1 className="text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem] leading-[1.15] text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left">
+            <h1 className="text-[1.85rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.5rem] xl:text-[3.25rem] 2xl:text-[3.75rem] leading-[1.1] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-7 text-center lg:text-left">
               Your <span className="italic font-light text-accent">creative team's</span>
               <br /> creative team<span className="text-accent">™</span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl text-white/80 mb-6 sm:mb-8 lg:mb-10 max-w-md lg:max-w-lg text-center lg:text-left mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-[0.9rem] sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl text-white/75 mb-6 sm:mb-7 lg:mb-8 max-w-sm sm:max-w-md lg:max-w-md xl:max-w-lg text-center lg:text-left mx-auto lg:mx-0 leading-relaxed">
               Scale your in-house creative team with top local talent 
               powered by industry-leading AI workflows, delivering 
               anything you can imagine fast and affordably.
@@ -260,7 +260,7 @@ export default function Index() {
               <Button 
                 variant="default" 
                 size="lg" 
-                className="bg-accent hover:bg-accent/90 text-primary px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-accent hover:bg-accent/90 text-primary px-7 sm:px-8 lg:px-10 py-5 sm:py-6 text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 asChild
               >
                 <Link to="/contact">Book a demo</Link>
@@ -269,25 +269,30 @@ export default function Index() {
           </div>
 
           {/* Right Side - Masonry Grid (Desktop) / Horizontal Scroll (Mobile/Tablet) */}
-          <div className="w-full lg:w-[45%] xl:w-[45%] relative lg:pr-6 xl:pr-8">
+          <div className="w-full lg:w-[48%] xl:w-[50%] relative">
             
-            {/* Mobile/Tablet: Horizontal Scrolling Rows */}
-            <div className="lg:hidden mt-4 sm:mt-6 md:mt-8 overflow-hidden pb-8 sm:pb-10 md:pb-12">
+            {/* Mobile/Tablet: Horizontal Scrolling Rows with edge fade */}
+            <div className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8">
+              {/* Left edge fade */}
+              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-r from-primary to-transparent" />
+              {/* Right edge fade */}
+              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-l from-primary to-transparent" />
+              
               {/* Row 1 - Scrolls Left */}
-              <div className="mb-3 sm:mb-4">
+              <div className="mb-2.5 sm:mb-3 md:mb-4">
                 <div className="flex animate-scroll-left">
                   {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
                     <div 
                       key={`row1-${index}`} 
-                      className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[240px] h-[120px] sm:h-[150px] md:h-[180px] mx-1.5 sm:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative group"
+                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative"
                     >
                       <img 
                         src={item.image} 
                         alt={item.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
-                        <span className="text-white text-[10px] sm:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 py-1 rounded-md">
+                      <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
+                        <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
                           {item.logo}
                         </span>
                       </div>
@@ -302,15 +307,15 @@ export default function Index() {
                   {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
                     <div 
                       key={`row2-${index}`} 
-                      className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[240px] h-[120px] sm:h-[150px] md:h-[180px] mx-1.5 sm:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative group"
+                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative"
                     >
                       <img 
                         src={item.image} 
                         alt={item.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
-                        <span className="text-white text-[10px] sm:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 py-1 rounded-md">
+                      <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
+                        <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
                           {item.logo}
                         </span>
                       </div>
@@ -322,40 +327,56 @@ export default function Index() {
 
             {/* Desktop: 3-Column Masonry Grid with Smooth Scrolling */}
             <div className="hidden lg:block h-screen overflow-hidden relative">
+              {/* Left edge fade - blends with text area */}
+              <div 
+                className="absolute left-0 top-0 bottom-0 w-16 xl:w-24 z-10 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to right, hsl(var(--primary)) 0%, transparent 100%)'
+                }}
+              />
+              
               {/* Top Gradient Overlay - ensures nav visibility */}
               <div 
-                className="absolute top-0 left-0 right-0 h-24 xl:h-32 z-10 pointer-events-none"
+                className="absolute top-0 left-0 right-0 h-28 xl:h-36 z-10 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(to bottom, hsl(var(--primary)) 0%, hsl(var(--primary)) 30%, transparent 100%)'
+                  background: 'linear-gradient(to bottom, hsl(var(--primary)) 0%, hsl(var(--primary)) 40%, transparent 100%)'
                 }}
               />
               
               {/* Bottom Gradient Overlay */}
               <div 
-                className="absolute bottom-0 left-0 right-0 h-24 xl:h-32 z-10 pointer-events-none"
+                className="absolute bottom-0 left-0 right-0 h-28 xl:h-36 z-10 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(to top, hsl(var(--primary)) 0%, hsl(var(--primary)) 30%, transparent 100%)'
+                  background: 'linear-gradient(to top, hsl(var(--primary)) 0%, hsl(var(--primary)) 40%, transparent 100%)'
+                }}
+              />
+              
+              {/* Right edge fade */}
+              <div 
+                className="absolute right-0 top-0 bottom-0 w-6 xl:w-8 z-10 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to left, hsl(var(--primary)) 0%, transparent 100%)'
                 }}
               />
 
               {/* Grid Container */}
-              <div className="flex h-full gap-3 xl:gap-4 pt-4 pr-4 xl:pr-8">
+              <div className="flex h-full gap-2.5 xl:gap-3 2xl:gap-4 pl-4 xl:pl-6 pr-4 xl:pr-6 pt-6">
                 {/* Column 1 - Scrolls Up */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-slow">
                     {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
                       <div 
                         key={`col1-${index}`} 
-                        className="mb-3 xl:mb-4 rounded-xl xl:rounded-2xl overflow-hidden relative group"
-                        style={{ height: index % 3 === 0 ? '180px' : index % 3 === 1 ? '240px' : '160px' }}
+                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group"
+                        style={{ height: index % 3 === 0 ? '160px' : index % 3 === 1 ? '200px' : '140px' }}
                       >
                         <img 
                           src={item.image} 
                           alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        <div className="absolute top-2 xl:top-3 left-2 xl:left-3">
-                          <span className="text-white text-[10px] xl:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 xl:px-3 py-1 xl:py-1.5 rounded-lg">
+                        <div className="absolute top-2 left-2">
+                          <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
                             {item.logo}
                           </span>
                         </div>
@@ -366,20 +387,20 @@ export default function Index() {
 
                 {/* Column 2 - Scrolls Down (opposite) */}
                 <div className="flex-1 overflow-hidden">
-                  <div className="animate-scroll-down-medium pt-8 xl:pt-12">
+                  <div className="animate-scroll-down-medium pt-6 xl:pt-10">
                     {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
                       <div 
                         key={`col2-${index}`} 
-                        className="mb-3 xl:mb-4 rounded-xl xl:rounded-2xl overflow-hidden relative group"
-                        style={{ height: index % 3 === 0 ? '220px' : index % 3 === 1 ? '170px' : '200px' }}
+                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group"
+                        style={{ height: index % 3 === 0 ? '180px' : index % 3 === 1 ? '150px' : '170px' }}
                       >
                         <img 
                           src={item.image} 
                           alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        <div className="absolute top-2 xl:top-3 left-2 xl:left-3">
-                          <span className="text-white text-[10px] xl:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 xl:px-3 py-1 xl:py-1.5 rounded-lg">
+                        <div className="absolute top-2 left-2">
+                          <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
                             {item.logo}
                           </span>
                         </div>
@@ -390,20 +411,20 @@ export default function Index() {
 
                 {/* Column 3 - Scrolls Up */}
                 <div className="flex-1 overflow-hidden">
-                  <div className="animate-scroll-up-fast pt-4 xl:pt-6">
+                  <div className="animate-scroll-up-fast pt-3 xl:pt-5">
                     {[...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse()].map((item, index) => (
                       <div 
                         key={`col3-${index}`} 
-                        className="mb-3 xl:mb-4 rounded-xl xl:rounded-2xl overflow-hidden relative group"
-                        style={{ height: index % 3 === 0 ? '170px' : index % 3 === 1 ? '210px' : '190px' }}
+                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group"
+                        style={{ height: index % 3 === 0 ? '150px' : index % 3 === 1 ? '180px' : '165px' }}
                       >
                         <img 
                           src={item.image} 
                           alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        <div className="absolute top-2 xl:top-3 left-2 xl:left-3">
-                          <span className="text-white text-[10px] xl:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 xl:px-3 py-1 xl:py-1.5 rounded-lg">
+                        <div className="absolute top-2 left-2">
+                          <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
                             {item.logo}
                           </span>
                         </div>
