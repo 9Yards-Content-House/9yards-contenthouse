@@ -323,9 +323,9 @@ export function Header() {
                       
                       {/* Content Grid */}
                       <div className="p-6">
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 lg:divide-x divide-border">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-border">
                           {/* Creative Services */}
-                          <div className="pr-0 lg:pr-6 pb-6 lg:pb-0">
+                          <div className="lg:pr-6">
                             <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Creative
                             </h4>
@@ -346,10 +346,34 @@ export function Header() {
                                 </li>
                               ))}
                             </ul>
+                            
+                            {/* Media Production - shown on tablet only in this column */}
+                            <div className="lg:hidden">
+                              <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
+                                Media Production
+                              </h4>
+                              <ul className="space-y-0.5">
+                                {services.media.map((item) => (
+                                  <li key={item.name}>
+                                    <Link
+                                      to={item.href}
+                                      className={cn(
+                                        "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                        location.pathname === item.href
+                                          ? "text-primary font-medium bg-primary/5"
+                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                      )}
+                                    >
+                                      {item.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           </div>
                           
                           {/* Digital & Strategy */}
-                          <div className="pl-0 lg:pl-6 pr-0 lg:pr-6 pb-6 lg:pb-0">
+                          <div className="lg:px-6">
                             <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Digital & Strategy
                             </h4>
@@ -370,10 +394,34 @@ export function Header() {
                                 </li>
                               ))}
                             </ul>
+                            
+                            {/* AI Services - shown on tablet only in this column */}
+                            <div className="lg:hidden">
+                              <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
+                                AI Services
+                              </h4>
+                              <ul className="space-y-0.5">
+                                {services.ai.map((item) => (
+                                  <li key={item.name}>
+                                    <Link
+                                      to={item.href}
+                                      className={cn(
+                                        "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                        location.pathname === item.href
+                                          ? "text-primary font-medium bg-primary/5"
+                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                      )}
+                                    >
+                                      {item.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           </div>
                           
-                          {/* Media Production & AI */}
-                          <div className="pl-0 lg:pl-6 pr-0 lg:pr-6">
+                          {/* Media Production - hidden on tablet, shown on desktop */}
+                          <div className="hidden lg:block lg:px-6">
                             <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
                               Media Production
                             </h4>
@@ -395,7 +443,7 @@ export function Header() {
                               ))}
                             </ul>
                             
-                            {/* AI Services */}
+                            {/* AI Services - desktop only in this column */}
                             <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
                               AI Services
                             </h4>
@@ -418,8 +466,8 @@ export function Header() {
                             </ul>
                           </div>
                           
-                          {/* Featured / CTA Column */}
-                          <div className="pl-0 lg:pl-6">
+                          {/* Featured / CTA Column - Hidden on tablet, shown on desktop */}
+                          <div className="hidden lg:block lg:pl-6">
                             <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 rounded-xl p-5 h-full flex flex-col border border-primary/10">
                               <div className="flex-1">
                                 <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
@@ -437,6 +485,27 @@ export function Header() {
                                 </Link>
                               </Button>
                             </div>
+                          </div>
+                        </div>
+                        
+                        {/* CTA Banner - Shown only on tablet */}
+                        <div className="lg:hidden mt-6 pt-6 border-t border-border">
+                          <div className="bg-gradient-to-r from-primary/10 via-accent/5 to-primary/5 rounded-xl p-4 flex items-center justify-between gap-4 border border-primary/10">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                <span className="text-primary text-xl">?</span>
+                              </div>
+                              <div>
+                                <h4 className="font-bold text-foreground text-sm">Not sure where to start?</h4>
+                                <p className="text-xs text-muted-foreground">Tell us about your project</p>
+                              </div>
+                            </div>
+                            <Button variant="accent" size="sm" asChild>
+                              <Link to="/get-started">
+                                Get Started
+                                <ArrowRight className="w-4 h-4 ml-1" />
+                              </Link>
+                            </Button>
                           </div>
                         </div>
                       </div>
