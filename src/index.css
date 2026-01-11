@@ -338,3 +338,152 @@
     transform: translateX(100%);
   }
 }
+
+/* Superside-style scrolling animations */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-scroll-left:hover,
+.animate-scroll-right:hover,
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Vertical scrolling for desktop masonry - seamless infinite scroll */
+@keyframes scroll-up-slow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -33.333%, 0);
+  }
+}
+
+@keyframes scroll-up-medium {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -33.333%, 0);
+  }
+}
+
+@keyframes scroll-up-fast {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -33.333%, 0);
+  }
+}
+
+/* Reverse vertical scrolling (scroll down) */
+@keyframes scroll-down-slow {
+  0% {
+    transform: translate3d(0, -33.333%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scroll-down-medium {
+  0% {
+    transform: translate3d(0, -33.333%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scroll-down-fast {
+  0% {
+    transform: translate3d(0, -33.333%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-scroll-up-slow {
+  animation: scroll-up-slow 80s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-scroll-up-medium {
+  animation: scroll-up-medium 70s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-scroll-up-fast {
+  animation: scroll-up-fast 60s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-scroll-down-slow {
+  animation: scroll-down-slow 80s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-scroll-down-medium {
+  animation: scroll-down-medium 70s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.animate-scroll-down-fast {
+  animation: scroll-down-fast 60s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Pause vertical scroll on hover */
+.animate-scroll-up-slow:hover,
+.animate-scroll-up-medium:hover,
+.animate-scroll-up-fast:hover,
+.animate-scroll-down-slow:hover,
+.animate-scroll-down-medium:hover,
+.animate-scroll-down-fast:hover {
+  animation-play-state: paused;
+}

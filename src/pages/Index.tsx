@@ -26,13 +26,32 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 // Import images
-import heroBg from "@/assets/hero-bg.jpg";
 import portfolio1 from "@/assets/portfolio-1.jpg";
 import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
 import portfolio4 from "@/assets/portfolio-4.jpg";
 import portfolio5 from "@/assets/portfolio-5.jpg";
 import portfolio6 from "@/assets/portfolio-6.jpg";
+
+// Hero portfolio images - row 1 (scrolls left)
+const heroPortfolioRow1 = [
+  { image: portfolio1, title: "Brand Identity", logo: "Legensity" },
+  { image: portfolio2, title: "Music Video", logo: "Afro Beats" },
+  { image: portfolio3, title: "Web Design", logo: "TechUG" },
+  { image: portfolio4, title: "Social Campaign", logo: "Safari" },
+  { image: portfolio5, title: "Motion Graphics", logo: "Motion" },
+  { image: portfolio6, title: "Print Design", logo: "Print" },
+];
+
+// Hero portfolio images - row 2 (scrolls right)
+const heroPortfolioRow2 = [
+  { image: portfolio3, title: "Tech Website", logo: "StartupUG" },
+  { image: portfolio1, title: "Branding", logo: "Kampala" },
+  { image: portfolio4, title: "Marketing", logo: "Uganda Air" },
+  { image: portfolio2, title: "Video Prod", logo: "Pearl" },
+  { image: portfolio6, title: "Design", logo: "Rolex" },
+  { image: portfolio5, title: "Animation", logo: "Animate" },
+];
 
 const services = [
   {
@@ -173,14 +192,14 @@ const testimonials = [
 ];
 
 const clientLogos = [
-  "Spice Diana",
-  "TechUganda",
-  "Safari Tours",
-  "Afro Beats",
-  "Kampala Hotels",
-  "Uganda Airlines",
-  "Rolex Café",
-  "Pearl of Africa",
+  { name: "Spice Diana", logo: null },
+  { name: "TechUganda", logo: null },
+  { name: "Safari Tours", logo: null },
+  { name: "Afro Beats", logo: null },
+  { name: "Kampala Hotels", logo: null },
+  { name: "Uganda Airlines", logo: null },
+  { name: "Rolex Café", logo: null },
+  { name: "Pearl of Africa", logo: null },
 ];
 
 const stats = [
@@ -194,7 +213,6 @@ export default function Index() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const heroAnimation = useScrollAnimation<HTMLDivElement>();
   const servicesAnimation = useScrollAnimation<HTMLDivElement>();
   const whyUsAnimation = useScrollAnimation<HTMLDivElement>();
   const portfolioAnimation = useScrollAnimation<HTMLDivElement>();
@@ -217,52 +235,211 @@ export default function Index() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src={heroBg}
-            alt="9Yards Creative Studio"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
-        </div>
-
-        {/* Content */}
-        <div
-          ref={heroAnimation.ref}
-          className={cn(
-            "container-custom relative z-10 pt-24",
-            heroAnimation.isVisible && "animate-fade-in-up"
-          )}
-        >
-          <div className="max-w-3xl">
-            <h1 className="text-display-2 md:text-display-1 text-primary-foreground mb-6">
-              Scale Your Creative Team with{" "}
-              <span className="text-accent">AI-Powered Excellence</span>
+      {/* Hero Section - Superside Style */}
+      <section className="relative min-h-screen bg-primary overflow-hidden">
+        {/* Desktop Layout: Split view */}
+        <div className="relative z-10 min-h-screen flex flex-col lg:flex-row items-center">
+          
+          {/* Left Side - Text Content */}
+          <div className="w-full lg:w-[55%] xl:w-[55%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-16 xl:px-24 pt-24 sm:pt-28 md:pt-32 pb-8 sm:pb-10 lg:pt-0 lg:pb-0">
+            {/* Main Headline */}
+            <h1 className="text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem] leading-[1.15] text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left">
+              Your <span className="italic font-light text-accent">creative team's</span>
+              <br /> creative team<span className="text-accent">™</span>
             </h1>
-            <p className="text-body-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl">
-              World-class design, video, and digital marketing from Kampala to
-              the world. Subscription plans from{" "}
-              <strong>500K UGX/month</strong>.
+            
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl text-white/80 mb-6 sm:mb-8 lg:mb-10 max-w-md lg:max-w-lg text-center lg:text-left mx-auto lg:mx-0 leading-relaxed">
+              Scale your in-house creative team with top local talent 
+              powered by industry-leading AI workflows, delivering 
+              anything you can imagine fast and affordably.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="hero" asChild>
-                <a href="#contact-form">
-                  Get Started
-                  <ArrowRight className="w-5 h-5" />
-                </a>
+            
+            {/* CTA Button */}
+            <div className="flex justify-center lg:justify-start">
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="bg-accent hover:bg-accent/90 text-primary px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                asChild
+              >
+                <Link to="/contact">Book a demo</Link>
               </Button>
-              <Button variant="hero-outline" asChild>
-                <Link to="/portfolio">View Our Work</Link>
-              </Button>
+            </div>
+          </div>
+
+          {/* Right Side - Masonry Grid (Desktop) / Horizontal Scroll (Mobile/Tablet) */}
+          <div className="w-full lg:w-[45%] xl:w-[45%] relative lg:pr-6 xl:pr-8">
+            
+            {/* Mobile/Tablet: Horizontal Scrolling Rows */}
+            <div className="lg:hidden mt-4 sm:mt-6 md:mt-8 overflow-hidden pb-8 sm:pb-10 md:pb-12">
+              {/* Row 1 - Scrolls Left */}
+              <div className="mb-3 sm:mb-4">
+                <div className="flex animate-scroll-left">
+                  {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
+                    <div 
+                      key={`row1-${index}`} 
+                      className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[240px] h-[120px] sm:h-[150px] md:h-[180px] mx-1.5 sm:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative group"
+                    >
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
+                        <span className="text-white text-[10px] sm:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 py-1 rounded-md">
+                          {item.logo}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 2 - Scrolls Right */}
+              <div>
+                <div className="flex animate-scroll-right">
+                  {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
+                    <div 
+                      key={`row2-${index}`} 
+                      className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[240px] h-[120px] sm:h-[150px] md:h-[180px] mx-1.5 sm:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative group"
+                    >
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
+                        <span className="text-white text-[10px] sm:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 py-1 rounded-md">
+                          {item.logo}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop: 3-Column Masonry Grid with Smooth Scrolling */}
+            <div className="hidden lg:block h-screen overflow-hidden relative">
+              {/* Top Gradient Overlay - ensures nav visibility */}
+              <div 
+                className="absolute top-0 left-0 right-0 h-24 xl:h-32 z-10 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to bottom, hsl(var(--primary)) 0%, hsl(var(--primary)) 30%, transparent 100%)'
+                }}
+              />
+              
+              {/* Bottom Gradient Overlay */}
+              <div 
+                className="absolute bottom-0 left-0 right-0 h-24 xl:h-32 z-10 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to top, hsl(var(--primary)) 0%, hsl(var(--primary)) 30%, transparent 100%)'
+                }}
+              />
+
+              {/* Grid Container */}
+              <div className="flex h-full gap-3 xl:gap-4 pt-4 pr-4 xl:pr-8">
+                {/* Column 1 - Scrolls Up */}
+                <div className="flex-1 overflow-hidden">
+                  <div className="animate-scroll-up-slow">
+                    {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
+                      <div 
+                        key={`col1-${index}`} 
+                        className="mb-3 xl:mb-4 rounded-xl xl:rounded-2xl overflow-hidden relative group"
+                        style={{ height: index % 3 === 0 ? '180px' : index % 3 === 1 ? '240px' : '160px' }}
+                      >
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute top-2 xl:top-3 left-2 xl:left-3">
+                          <span className="text-white text-[10px] xl:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 xl:px-3 py-1 xl:py-1.5 rounded-lg">
+                            {item.logo}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 2 - Scrolls Down (opposite) */}
+                <div className="flex-1 overflow-hidden">
+                  <div className="animate-scroll-down-medium pt-8 xl:pt-12">
+                    {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
+                      <div 
+                        key={`col2-${index}`} 
+                        className="mb-3 xl:mb-4 rounded-xl xl:rounded-2xl overflow-hidden relative group"
+                        style={{ height: index % 3 === 0 ? '220px' : index % 3 === 1 ? '170px' : '200px' }}
+                      >
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute top-2 xl:top-3 left-2 xl:left-3">
+                          <span className="text-white text-[10px] xl:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 xl:px-3 py-1 xl:py-1.5 rounded-lg">
+                            {item.logo}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Column 3 - Scrolls Up */}
+                <div className="flex-1 overflow-hidden">
+                  <div className="animate-scroll-up-fast pt-4 xl:pt-6">
+                    {[...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse()].map((item, index) => (
+                      <div 
+                        key={`col3-${index}`} 
+                        className="mb-3 xl:mb-4 rounded-xl xl:rounded-2xl overflow-hidden relative group"
+                        style={{ height: index % 3 === 0 ? '170px' : index % 3 === 1 ? '210px' : '190px' }}
+                      >
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute top-2 xl:top-3 left-2 xl:left-3">
+                          <span className="text-white text-[10px] xl:text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 xl:px-3 py-1 xl:py-1.5 rounded-lg">
+                            {item.logo}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        {/* Trusted By Section */}
+        <div className="relative z-10 bg-background py-12 md:py-16">
+          <div className="container-custom">
+            <p className="text-center text-foreground mb-8 md:mb-10 text-lg md:text-xl font-medium">
+              Trusted by <span className="font-bold">100+</span> of Uganda's top brands
+            </p>
+            
+            {/* Logo Marquee */}
+            <div className="relative overflow-hidden">
+              <div className="flex animate-marquee">
+                {[...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
+                  <div 
+                    key={`logo-${index}`}
+                    className="flex-shrink-0 mx-6 md:mx-10"
+                  >
+                    <div className="h-8 md:h-10 flex items-center justify-center text-muted-foreground font-semibold text-sm md:text-base whitespace-nowrap hover:text-primary transition-colors">
+                      {client.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Services Section */}
@@ -391,24 +568,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Client Logos */}
-      <section className="py-12 bg-muted border-y border-border">
-        <div className="container-custom">
-          <p className="text-center text-muted-foreground mb-8 text-sm font-medium uppercase tracking-wide">
-            Trusted by leading brands across Uganda
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {clientLogos.map((logo) => (
-              <div
-                key={logo}
-                className="h-12 px-6 flex items-center justify-center bg-background rounded-lg border border-border text-muted-foreground font-semibold hover:text-primary hover:border-primary/30 transition-colors cursor-default"
-              >
-                {logo}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Client Logos - Now integrated in hero section, removing this duplicate */}
 
       {/* Testimonials */}
       <section className="section-padding bg-background">
