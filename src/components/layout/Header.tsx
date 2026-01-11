@@ -113,6 +113,22 @@ export function Header() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Click outside to close desktop dropdowns
+  useEffect(() => {
+    if (!openDropdown) return;
+    
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      // Check if click is inside a dropdown or trigger
+      if (!target.closest('.mega-menu-trigger') && !target.closest('[data-dropdown-content]')) {
+        setOpenDropdown(null);
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [openDropdown]);
+
   // Focus trap for mobile menu
   useEffect(() => {
     if (!isMobileMenuOpen || !mobileMenuRef.current) return;
@@ -159,9 +175,10 @@ export function Header() {
   }, []);
 
   const handleMouseLeave = useCallback(() => {
+    // Small delay to allow cursor to move between trigger and menu
     closeTimeoutRef.current = setTimeout(() => {
       setOpenDropdown(null);
-    }, 150); // 150ms delay before closing
+    }, 50); // 50ms - just enough to bridge the gap
   }, []);
 
   // Determine if mobile menu is open - always show full color logo when mobile menu is open
@@ -225,6 +242,14 @@ export function Header() {
                 >
                   {link.dropdownType ? (
                     <button
+                      onClick={() => {
+                        // Toggle dropdown on click (for touch devices)
+                        if (openDropdown === link.dropdownType) {
+                          setOpenDropdown(null);
+                        } else {
+                          setOpenDropdown(link.dropdownType);
+                        }
+                      }}
                       className={cn(
                         "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
                         isActive
@@ -271,9 +296,14 @@ export function Header() {
                   )}
 
                 {/* Mega Menu for Services */}
-                {link.dropdownType === "services" && (
-                  <div className="mega-menu fixed top-[72px] left-0 right-0 pt-3 flex justify-center px-4">
-                    <div className="bg-background rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden w-full max-w-[900px]">
+                {link.dropdownType === "services" && openDropdown === "services" && (
+                  <div 
+                    className="fixed top-[72px] left-0 right-0 pt-3 flex justify-center px-4 z-50"
+                    onMouseEnter={() => handleMouseEnter("services")}
+                    onMouseLeave={handleMouseLeave}
+                    data-dropdown-content
+                  >
+                    <div className="bg-background rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden w-full max-w-[900px] animate-in fade-in-0 zoom-in-95 duration-200">
                       {/* Header */}
                       <div className="bg-gradient-to-r from-primary/5 via-transparent to-accent/5 px-6 py-4 border-b border-border">
                         <div className="flex items-center justify-between">
@@ -421,9 +451,14 @@ export function Header() {
                 )}
 
                 {/* Dropdown for Why Us */}
-                {link.dropdownType === "whyUs" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[220px]">
-                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden">
+                {link.dropdownType === "whyUs" && openDropdown === "whyUs" && (
+                  <div 
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[220px] z-50"
+                    onMouseEnter={() => handleMouseEnter("whyUs")}
+                    onMouseLeave={handleMouseLeave}
+                    data-dropdown-content
+                  >
+                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden animate-in fade-in-0 zoom-in-95 duration-200">
                       <div className="p-2">
                         {whyUsItems.map((item) => (
                           <Link
@@ -445,9 +480,14 @@ export function Header() {
                 )}
 
                 {/* Dropdown for Company */}
-                {link.dropdownType === "company" && (
-                  <div className="mega-menu absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[200px]">
-                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden">
+                {link.dropdownType === "company" && openDropdown === "company" && (
+                  <div 
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[200px] z-50"
+                    onMouseEnter={() => handleMouseEnter("company")}
+                    onMouseLeave={handleMouseLeave}
+                    data-dropdown-content
+                  >
+                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden animate-in fade-in-0 zoom-in-95 duration-200">
                       <div className="p-2">
                         {companyItems.map((item) => (
                           <Link
