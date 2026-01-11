@@ -270,7 +270,7 @@ export default function Index() {
           <div className="w-full lg:w-[60%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
             {/* Main Headline */}
             <h1 className="text-[1.85rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem] leading-[1.08] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left">
-              Your <span className="italic font-light text-accent">creative team's</span>
+              Your <span className="text-accent">creative team's</span>
               <br /> creative team<span className="text-accent">™</span>
             </h1>
             
