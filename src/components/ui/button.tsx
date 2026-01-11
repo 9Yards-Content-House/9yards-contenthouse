@@ -16,11 +16,11 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent/10 hover:text-accent-foreground rounded-lg active:bg-accent/15",
         link: "text-primary underline-offset-4 hover:underline",
         // 9Yards accent button - clean background hover effects
-        accent: "bg-[#E84E1B] text-white font-semibold rounded-full hover:bg-[#C9411A] active:bg-[#B53A17] transition-colors duration-200",
-        hero: "bg-[#E84E1B] text-white font-semibold rounded-full hover:bg-[#C9411A] active:bg-[#B53A17] transition-colors duration-200 text-base px-8 py-4",
-        "hero-outline": "border-2 border-white bg-transparent text-white rounded-full hover:bg-white hover:text-[#E84E1B] active:bg-white/90 transition-colors duration-200 text-base px-8 py-4",
-        cta: "bg-[#E84E1B] text-white font-semibold rounded-full hover:bg-[#C9411A] active:bg-[#B53A17] transition-colors duration-200",
-        "outline-accent": "border-2 border-[#E84E1B] bg-transparent text-[#E84E1B] rounded-full hover:bg-[#E84E1B] hover:text-white active:bg-[#C9411A] transition-colors duration-200",
+        accent: "bg-[#E6411C] text-white font-semibold rounded-full hover:bg-[#C93917] active:bg-[#AB3013] transition-colors duration-200",
+        hero: "bg-[#E6411C] text-white font-semibold rounded-full hover:bg-[#C93917] active:bg-[#AB3013] transition-colors duration-200 text-base px-8 py-4",
+        "hero-outline": "border-2 border-white bg-transparent text-white rounded-full hover:bg-white hover:text-[#E6411C] active:bg-white/90 transition-colors duration-200 text-base px-8 py-4",
+        cta: "bg-[#E6411C] text-white font-semibold rounded-full hover:bg-[#C93917] active:bg-[#AB3013] transition-colors duration-200",
+        "outline-accent": "border-2 border-[#E6411C] bg-transparent text-[#E6411C] rounded-full hover:bg-[#E6411C] hover:text-white active:bg-[#C93917] transition-colors duration-200",
       },
       size: {
         default: "h-11 px-6 py-2",

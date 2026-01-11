@@ -7,28 +7,29 @@
 @layer base {
   :root {
     /* Brand Colors - 9Yards Content House */
-    --brand-blue: 239 59% 32%;
-    --brand-blue-light: 239 59% 42%;
-    --brand-blue-dark: 239 59% 22%;
-    --brand-orange: 11 80% 51%;
-    --brand-orange-light: 11 80% 61%;
-    --brand-orange-dark: 11 80% 41%;
+    /* Blue: #212282 | Orange: #E6411C */
+    --brand-blue: 240 61% 32%;
+    --brand-blue-light: 240 61% 42%;
+    --brand-blue-dark: 240 61% 22%;
+    --brand-orange: 11 82% 51%;
+    --brand-orange-light: 11 82% 61%;
+    --brand-orange-dark: 11 82% 41%;
     
     /* Core Design Tokens */
     --background: 0 0% 100%;
-    --foreground: 239 59% 15%;
+    --foreground: 240 61% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 239 59% 15%;
+    --card-foreground: 240 61% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 239 59% 15%;
+    --popover-foreground: 240 61% 15%;
 
     --primary: var(--brand-blue);
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14% 96%;
-    --secondary-foreground: 239 59% 15%;
+    --secondary-foreground: 240 61% 15%;
 
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
@@ -64,22 +65,22 @@
   }
 
   .dark {
-    --background: 239 59% 8%;
+    --background: 240 61% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 239 50% 12%;
+    --card: 240 50% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 239 50% 12%;
+    --popover: 240 50% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 239 59% 65%;
-    --primary-foreground: 239 59% 10%;
+    --primary: 240 61% 65%;
+    --primary-foreground: 240 61% 10%;
 
-    --secondary: 239 30% 20%;
+    --secondary: 240 30% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 239 30% 20%;
+    --muted: 240 30% 20%;
     --muted-foreground: 220 9% 65%;
 
     --accent: var(--brand-orange);
@@ -88,9 +89,9 @@
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 239 30% 20%;
-    --input: 239 30% 20%;
-    --ring: 239 59% 65%;
+    --border: 240 30% 20%;
+    --input: 240 30% 20%;
+    --ring: 240 61% 65%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
