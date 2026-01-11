@@ -272,7 +272,7 @@ export default function Index() {
           <div className="w-full lg:w-[40%] relative">
             
             {/* Mobile/Tablet: Horizontal Scrolling Rows with edge fade */}
-            <div className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8">
+            <div className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8 scroll-container">
               {/* Left edge fade */}
               <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-r from-primary to-transparent" />
               {/* Right edge fade */}
@@ -284,12 +284,14 @@ export default function Index() {
                   {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
                     <div 
                       key={`row1-${index}`} 
-                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative"
+                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative scroll-grid-image"
                     >
                       <img 
                         src={item.image} 
                         alt={item.title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
                         <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
@@ -307,12 +309,14 @@ export default function Index() {
                   {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
                     <div 
                       key={`row2-${index}`} 
-                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative"
+                      className="flex-shrink-0 w-[140px] sm:w-[180px] md:w-[220px] h-[105px] sm:h-[135px] md:h-[165px] mx-1 sm:mx-1.5 md:mx-2 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden relative scroll-grid-image"
                     >
                       <img 
                         src={item.image} 
                         alt={item.title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
                         <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
@@ -359,13 +363,15 @@ export default function Index() {
                     {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => (
                       <div 
                         key={`col1-${index}`} 
-                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group"
+                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
                         style={{ height: index % 3 === 0 ? '160px' : index % 3 === 1 ? '200px' : '140px' }}
                       >
                         <img 
                           src={item.image} 
                           alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute top-2 left-2">
                           <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
@@ -383,13 +389,15 @@ export default function Index() {
                     {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => (
                       <div 
                         key={`col2-${index}`} 
-                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group"
+                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
                         style={{ height: index % 3 === 0 ? '180px' : index % 3 === 1 ? '150px' : '170px' }}
                       >
                         <img 
                           src={item.image} 
                           alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute top-2 left-2">
                           <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
@@ -407,13 +415,15 @@ export default function Index() {
                     {[...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse()].map((item, index) => (
                       <div 
                         key={`col3-${index}`} 
-                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group"
+                        className="mb-2.5 xl:mb-3 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
                         style={{ height: index % 3 === 0 ? '150px' : index % 3 === 1 ? '180px' : '165px' }}
                       >
                         <img 
                           src={item.image} 
                           alt={item.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute top-2 left-2">
                           <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">

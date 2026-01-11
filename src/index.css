@@ -461,44 +461,57 @@ body.menu-open {
   }
 }
 
-/* Superside-style scrolling animations */
+/* Superside-style scrolling animations - GPU accelerated */
 @keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-33.333%);
+    transform: translate3d(-33.333%, 0, 0);
   }
 }
 
 @keyframes scroll-right {
   0% {
-    transform: translateX(-33.333%);
+    transform: translate3d(-33.333%, 0, 0);
   }
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-33.333%);
+    transform: translate3d(-33.333%, 0, 0);
   }
 }
 
 .animate-scroll-left {
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 40s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .animate-scroll-right {
-  animation: scroll-right 30s linear infinite;
+  animation: scroll-right 40s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Pause animation on hover */
@@ -506,6 +519,21 @@ body.menu-open {
 .animate-scroll-right:hover,
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Reduced motion support - respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-left,
+  .animate-scroll-right,
+  .animate-marquee,
+  .animate-scroll-up-slow,
+  .animate-scroll-up-medium,
+  .animate-scroll-up-fast,
+  .animate-scroll-down-slow,
+  .animate-scroll-down-medium,
+  .animate-scroll-down-fast {
+    animation: none !important;
+  }
 }
 
 /* Vertical scrolling for desktop masonry - seamless infinite scroll */
@@ -608,4 +636,22 @@ body.menu-open {
 .animate-scroll-down-medium:hover,
 .animate-scroll-down-fast:hover {
   animation-play-state: paused;
+}
+
+/* Scrolling grid image optimization */
+.scroll-grid-image {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  contain: layout paint;
+  transform: translateZ(0);
+}
+
+/* Smooth scroll container */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  contain: layout style;
 }
