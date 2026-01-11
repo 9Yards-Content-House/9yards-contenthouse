@@ -241,15 +241,15 @@ export default function Index() {
         <div className="relative z-10 flex flex-col lg:flex-row lg:min-h-screen">
           
           {/* Left Side - Text Content */}
-          <div className="w-full lg:w-[60%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-12 xl:px-16 2xl:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
+          <div className="w-full lg:w-[60%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
             {/* Main Headline */}
-            <h1 className="text-[1.85rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.5rem] xl:text-[3.25rem] 2xl:text-[3.75rem] leading-[1.1] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-7 text-center lg:text-left">
+            <h1 className="text-[1.85rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem] leading-[1.08] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left">
               Your <span className="italic font-light text-accent">creative team's</span>
               <br /> creative team<span className="text-accent">™</span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-[0.9rem] sm:text-base md:text-lg lg:text-base xl:text-lg 2xl:text-xl text-white/75 mb-6 sm:mb-7 lg:mb-8 max-w-sm sm:max-w-md lg:max-w-md xl:max-w-lg text-center lg:text-left mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-[0.9rem] sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-[1.35rem] text-white/70 mb-6 sm:mb-7 lg:mb-10 max-w-sm sm:max-w-md lg:max-w-xl xl:max-w-2xl text-center lg:text-left mx-auto lg:mx-0 leading-[1.7]">
               Scale your in-house creative team with top local talent 
               powered by industry-leading AI workflows, delivering 
               anything you can imagine fast and affordably.
@@ -260,7 +260,7 @@ export default function Index() {
               <Button 
                 variant="default" 
                 size="lg" 
-                className="bg-accent hover:bg-accent/90 text-primary px-7 sm:px-8 lg:px-10 py-5 sm:py-6 text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-accent hover:bg-accent/90 text-primary px-7 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 text-sm sm:text-base lg:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 asChild
               >
                 <Link to="/contact">Book a demo</Link>
