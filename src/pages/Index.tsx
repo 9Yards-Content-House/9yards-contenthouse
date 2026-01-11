@@ -53,6 +53,32 @@ const heroPortfolioRow2 = [
   { image: portfolio5, title: "Animation", logo: "Animate" },
 ];
 
+// Hero service cards for the masonry grid - all 18 services with images
+const heroServiceCards = [
+  // Creative Services
+  { name: "Video Production", image: portfolio2 },
+  { name: "Photography", image: portfolio4 },
+  { name: "Graphic Design", image: portfolio1 },
+  { name: "Print Design", image: portfolio6 },
+  { name: "Branding", image: portfolio1 },
+  { name: "Social Media Creative", image: portfolio4 },
+  { name: "Concept Creation", image: portfolio5 },
+  { name: "Motion Design", image: portfolio5 },
+  // Digital & Strategy
+  { name: "Social Media Marketing", image: portfolio4 },
+  { name: "Website Development", image: portfolio3 },
+  { name: "Influencer Marketing", image: portfolio2 },
+  { name: "Email Marketing", image: portfolio6 },
+  { name: "Copywriting", image: portfolio1 },
+  { name: "Digital Strategy", image: portfolio3 },
+  // Media Production
+  { name: "Podcast Production", image: portfolio2 },
+  { name: "TV & Radio Production", image: portfolio5 },
+  // AI Services
+  { name: "AI-Powered Creative", image: portfolio5 },
+  { name: "AI Consulting", image: portfolio3 },
+];
+
 const services = [
   {
     icon: Palette,
@@ -278,10 +304,10 @@ export default function Index() {
               {/* Right edge fade */}
               <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-l from-primary to-transparent" />
               
-              {/* Row 1 - Scrolls Left - Pinterest style varied widths, consistent height per row */}
+              {/* Row 1 - Scrolls Left - Service cards with varied widths */}
               <div className="mb-1.5 sm:mb-2 md:mb-2.5">
                 <div className="flex animate-scroll-left flex-nowrap">
-                  {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => {
+                  {[...heroServiceCards.slice(0, 9), ...heroServiceCards.slice(0, 9), ...heroServiceCards.slice(0, 9)].map((service, index) => {
                     // Pinterest-style varied widths only (height consistent for clean horizontal scroll)
                     const widths = [
                       'w-[130px] sm:w-[160px] md:w-[190px]',  // narrow
@@ -290,24 +316,26 @@ export default function Index() {
                       'w-[120px] sm:w-[150px] md:w-[180px]',  // small
                       'w-[180px] sm:w-[220px] md:w-[265px]',  // extra wide
                       'w-[155px] sm:w-[190px] md:w-[230px]',  // medium-wide
+                      'w-[140px] sm:w-[175px] md:w-[205px]',  // medium-narrow
+                      'w-[165px] sm:w-[200px] md:w-[240px]',  // wide
+                      'w-[135px] sm:w-[168px] md:w-[200px]',  // narrow-medium
                     ];
                     const width = widths[index % widths.length];
                     return (
                       <div 
                         key={`row1-${index}`} 
-                        className={`flex-shrink-0 ${width} h-[100px] sm:h-[130px] md:h-[160px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image`}
+                        className={`flex-shrink-0 ${width} h-[100px] sm:h-[130px] md:h-[160px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image group`}
                       >
                         <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
+                          src={service.image} 
+                          alt={service.name}
+                          className="absolute inset-0 w-full h-full object-cover"
                         />
-                        <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
-                          <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
-                            {item.logo}
-                          </span>
+                        {/* Gradient overlay for text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        {/* Service name label */}
+                        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
+                          <h4 className="text-white font-semibold text-[10px] sm:text-xs md:text-sm leading-tight drop-shadow-lg">{service.name}</h4>
                         </div>
                       </div>
                     );
@@ -315,10 +343,10 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Row 2 - Scrolls Right - Pinterest style varied widths, slightly taller row */}
+              {/* Row 2 - Scrolls Right - Service cards with varied widths */}
               <div>
                 <div className="flex animate-scroll-right flex-nowrap">
-                  {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => {
+                  {[...heroServiceCards.slice(9, 18), ...heroServiceCards.slice(9, 18), ...heroServiceCards.slice(9, 18)].map((service, index) => {
                     // Different width pattern for row 2
                     const widths = [
                       'w-[160px] sm:w-[195px] md:w-[235px]',  // medium-wide
@@ -327,24 +355,26 @@ export default function Index() {
                       'w-[140px] sm:w-[175px] md:w-[210px]',  // medium
                       'w-[115px] sm:w-[145px] md:w-[175px]',  // small
                       'w-[170px] sm:w-[210px] md:w-[250px]',  // wide
+                      'w-[150px] sm:w-[185px] md:w-[220px]',  // medium
+                      'w-[175px] sm:w-[215px] md:w-[255px]',  // wide
+                      'w-[130px] sm:w-[160px] md:w-[195px]',  // narrow
                     ];
                     const width = widths[index % widths.length];
                     return (
                       <div 
                         key={`row2-${index}`} 
-                        className={`flex-shrink-0 ${width} h-[115px] sm:h-[145px] md:h-[180px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image`}
+                        className={`flex-shrink-0 ${width} h-[115px] sm:h-[145px] md:h-[180px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image group`}
                       >
                         <img 
-                          src={item.image} 
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
+                          src={service.image} 
+                          alt={service.name}
+                          className="absolute inset-0 w-full h-full object-cover"
                         />
-                        <div className="absolute top-1.5 sm:top-2 md:top-3 left-1.5 sm:left-2 md:left-3">
-                          <span className="text-white text-[9px] sm:text-[10px] md:text-xs font-medium bg-black/40 backdrop-blur-sm px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
-                            {item.logo}
-                          </span>
+                        {/* Gradient overlay for text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        {/* Service name label */}
+                        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
+                          <h4 className="text-white font-semibold text-[10px] sm:text-xs md:text-sm leading-tight drop-shadow-lg">{service.name}</h4>
                         </div>
                       </div>
                     );
@@ -379,12 +409,12 @@ export default function Index() {
                 }}
               />
 
-              {/* Grid Container - Pinterest style with tighter gaps */}
+              {/* Grid Container - Service Cards Masonry */}
               <div className="flex h-full gap-1.5 xl:gap-2 pl-3 xl:pl-4 pr-3 xl:pr-4 pt-6">
-                {/* Column 1 - Scrolls Up */}
+                {/* Column 1 - Scrolls Up - Services 0-5 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-slow">
-                    {[...heroPortfolioRow1, ...heroPortfolioRow1, ...heroPortfolioRow1].map((item, index) => {
+                    {[...heroServiceCards.slice(0, 6), ...heroServiceCards.slice(0, 6), ...heroServiceCards.slice(0, 6)].map((service, index) => {
                       // Pinterest-style varied heights
                       const heights = [180, 240, 160, 280, 200, 150];
                       const height = heights[index % heights.length];
@@ -395,16 +425,15 @@ export default function Index() {
                           style={{ height: `${height}px` }}
                         >
                           <img 
-                            src={item.image} 
-                            alt={item.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            loading="lazy"
-                            decoding="async"
+                            src={service.image} 
+                            alt={service.name}
+                            className="absolute inset-0 w-full h-full object-cover"
                           />
-                          <div className="absolute top-2 left-2">
-                            <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
-                              {item.logo}
-                            </span>
+                          {/* Gradient overlay for text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                          {/* Service name label */}
+                          <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
+                            <h4 className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg">{service.name}</h4>
                           </div>
                         </div>
                       );
@@ -412,10 +441,10 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* Column 2 - Scrolls Down (opposite) */}
+                {/* Column 2 - Scrolls Down - Services 6-11 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-down-medium pt-6 xl:pt-10">
-                    {[...heroPortfolioRow2, ...heroPortfolioRow2, ...heroPortfolioRow2].map((item, index) => {
+                    {[...heroServiceCards.slice(6, 12), ...heroServiceCards.slice(6, 12), ...heroServiceCards.slice(6, 12)].map((service, index) => {
                       // Different height pattern for column 2
                       const heights = [220, 170, 260, 190, 140, 230];
                       const height = heights[index % heights.length];
@@ -426,16 +455,15 @@ export default function Index() {
                           style={{ height: `${height}px` }}
                         >
                           <img 
-                            src={item.image} 
-                            alt={item.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            loading="lazy"
-                            decoding="async"
+                            src={service.image} 
+                            alt={service.name}
+                            className="absolute inset-0 w-full h-full object-cover"
                           />
-                          <div className="absolute top-2 left-2">
-                            <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
-                              {item.logo}
-                            </span>
+                          {/* Gradient overlay for text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                          {/* Service name label */}
+                          <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
+                            <h4 className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg">{service.name}</h4>
                           </div>
                         </div>
                       );
@@ -443,10 +471,10 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* Column 3 - Scrolls Up */}
+                {/* Column 3 - Scrolls Up - Services 12-17 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-fast pt-3 xl:pt-5">
-                    {[...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse(), ...heroPortfolioRow1.slice().reverse()].map((item, index) => {
+                    {[...heroServiceCards.slice(12, 18), ...heroServiceCards.slice(12, 18), ...heroServiceCards.slice(12, 18)].map((service, index) => {
                       // Different height pattern for column 3
                       const heights = [200, 150, 250, 175, 210, 165];
                       const height = heights[index % heights.length];
@@ -457,16 +485,15 @@ export default function Index() {
                           style={{ height: `${height}px` }}
                         >
                           <img 
-                            src={item.image} 
-                            alt={item.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            loading="lazy"
-                            decoding="async"
+                            src={service.image} 
+                            alt={service.name}
+                            className="absolute inset-0 w-full h-full object-cover"
                           />
-                          <div className="absolute top-2 left-2">
-                            <span className="text-white text-[10px] xl:text-xs font-medium bg-black/40 backdrop-blur-sm px-2 py-1 rounded-md">
-                              {item.logo}
-                            </span>
+                          {/* Gradient overlay for text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                          {/* Service name label */}
+                          <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
+                            <h4 className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg">{service.name}</h4>
                           </div>
                         </div>
                       );
