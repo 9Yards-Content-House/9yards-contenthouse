@@ -390,7 +390,7 @@ body.menu-open {
 }
 
 .mobile-menu-exit {
-  animation: mobileMenuExit 0.3s ease-out forwards;
+  animation: mobileMenuExit 0.25s ease-in forwards;
 }
 
 @keyframes mobileMenuEnter {
@@ -412,6 +412,18 @@ body.menu-open {
   to {
     opacity: 0;
     transform: translateY(-10px);
+  }
+}
+
+/* Mobile menu expanded section styling */
+.mobile-nav-expanded {
+  @apply bg-primary/5 rounded-lg;
+}
+
+/* Safe area for notched devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-menu-safe-area {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 }
 
