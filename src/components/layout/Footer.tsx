@@ -95,20 +95,10 @@ export function Footer() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-shrink-0">
-              <Button variant="accent" size="lg" className="px-6 sm:px-8 text-sm sm:text-base" asChild>
+              <Button variant="accent" size="lg" className="px-8 sm:px-10 text-sm sm:text-base" asChild>
                 <Link to="/get-started">
                   Get Started
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button 
-                variant="hero-outline" 
-                size="lg" 
-                className="border-white/40 hover:border-white hover:bg-white/10 px-6 sm:px-8 text-sm sm:text-base"
-                asChild
-              >
-                <Link to="/contact">
-                  Contact Us
                 </Link>
               </Button>
             </div>
