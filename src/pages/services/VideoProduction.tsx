@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play, Tv, MessageSquare, ClipboardList, Sparkles, Wand2 } from "lucide-react";
 
 // Video service categories for the horizontal scroll
 const videoServices = [
@@ -300,6 +300,288 @@ export default function VideoProduction() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Expertise Section */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-primary">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Platform Expertise</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+              Video expertise for every<br className="hidden sm:block" />
+              <span className="italic font-serif font-normal">platform and purpose</span>
+            </h2>
+          </div>
+
+          {/* Channel Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+            {/* Social Media Platforms Card */}
+            <div className="group">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                <Play className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                Instagram, TikTok, YouTube, Facebook
+              </h3>
+              <p className="text-base text-white/60 leading-relaxed">
+                Platform-optimized content designed to stop the scroll. Vertical video, square formats, and aspect ratios that perform from day one.
+              </p>
+            </div>
+
+            {/* Broadcast & Streaming Card */}
+            <div className="group">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                <Tv className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                TV and broadcast quality
+              </h3>
+              <p className="text-base text-white/60 leading-relaxed">
+                Broadcast-ready productions with cinematic quality. Built for television, streaming platforms, and high-impact digital campaigns.
+              </p>
+            </div>
+
+            {/* Corporate & Marketing Card */}
+            <div className="group">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
+                <MessageSquare className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                Corporate and marketing videos
+              </h3>
+              <p className="text-base text-white/60 leading-relaxed">
+                Professional videos that drive business results. Product demos, explainer videos, and brand content that converts viewers into customers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Efficient Workflows Section */}
+      <section className="relative overflow-hidden bg-primary py-4 sm:py-6 lg:py-8">
+        {/* Full-width container with rounded corners */}
+        <div className="mx-4 sm:mx-6 lg:mx-8 rounded-2xl sm:rounded-3xl overflow-hidden relative min-h-[650px] sm:min-h-[700px] lg:min-h-[750px]">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src="/images/team/9yards-team-onset.png" 
+              alt="9Yards team on set"
+              className="w-full h-full object-cover object-[70%_center] sm:object-center"
+            />
+            {/* Gradient overlay - stronger on left for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30 lg:from-black/85 lg:via-black/40 lg:to-transparent" />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 px-6 sm:px-10 lg:px-16 xl:px-20 py-16 sm:py-20 lg:py-24">
+            <div className="max-w-xl lg:max-w-lg">
+              {/* Eyebrow */}
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">
+                How 9Yards Delivers Faster
+              </p>
+              
+              {/* Headline */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] mb-4">
+                Efficient workflows guided by <span className="italic font-serif font-normal">creative excellence</span>
+              </h2>
+              
+              {/* Description */}
+              <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-8 sm:mb-10">
+                Our video specialists combine professional cinema equipment with proven workflows to deliver faster without sacrificing quality. From concept to final edit, we have refined every step.
+              </p>
+
+              {/* Process Cards */}
+              <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
+                {/* Pre-Production */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <ClipboardList className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Pre-Production</p>
+                      <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
+                        Clear planning and creative direction earlier with detailed briefs and collaborative concept development
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Production */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Production</p>
+                      <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
+                        Professional cinema cameras, lighting, and audio equipment ensure broadcast-quality footage from every shoot
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Post-Production */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Wand2 className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Post-Production</p>
+                      <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
+                        Expert editing, color grading, and sound design deliver polished videos that meet your deadline and exceed expectations
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-full bg-accent hover:bg-accent/90 text-white px-6 sm:px-8"
+              >
+                <Link to="/get-started?service=video-production">
+                  Get started
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process Section with Timeline */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-primary overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
+            
+            {/* Left Side - Sticky Content */}
+            <div className="lg:sticky lg:top-32 lg:self-start">
+              {/* Headline */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] mb-6">
+                Our process makes it<br className="hidden sm:block" />
+                easier to <span className="italic font-serif font-normal">press play</span>
+              </h2>
+              
+              {/* Description */}
+              <p className="text-base sm:text-lg text-white/60 leading-relaxed mb-10 sm:mb-12 lg:mb-16 max-w-md">
+                Our video team is built for speed, quality, and seamless collaboration, from concept to final cut.
+              </p>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:gap-10 pb-8 border-b border-white/10">
+                {/* Stat 1 */}
+                <div>
+                  <p className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight font-serif italic mb-2">
+                    50+
+                  </p>
+                  <p className="text-sm text-white/50 leading-relaxed mb-2">
+                    projects delivered monthly across all formats
+                  </p>
+                  <Link to="/portfolio" className="text-sm text-accent hover:text-accent/80 inline-flex items-center gap-1 transition-colors">
+                    View our work <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+
+                {/* Stat 2 */}
+                <div>
+                  <p className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight font-serif italic mb-2">
+                    48-72h
+                  </p>
+                  <p className="text-sm text-white/50 leading-relaxed mb-2">
+                    average turnaround for social video content
+                  </p>
+                  <Link to="/get-started" className="text-sm text-accent hover:text-accent/80 inline-flex items-center gap-1 transition-colors">
+                    Get started <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Timeline */}
+            <div className="relative">
+              {/* Vertical Line */}
+              <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-accent/50 to-accent/20" />
+              
+              {/* Timeline Items */}
+              <div className="space-y-12 sm:space-y-16 lg:space-y-20">
+                {/* Step 1 */}
+                <div className="relative pl-14 sm:pl-16">
+                  {/* Circle with number */}
+                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
+                    <span className="text-sm sm:text-base font-semibold text-primary">1</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                    Strategic planning from the start
+                  </h3>
+                  <p className="text-base text-white/60 leading-relaxed">
+                    Get brand-aligned video with thorough content briefs, platform strategy, and clear creative direction. We collaborate to develop concepts that work, whether you come with a full script or just an idea.
+                  </p>
+                </div>
+
+                {/* Step 2 */}
+                <div className="relative pl-14 sm:pl-16">
+                  {/* Circle with number */}
+                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
+                    <span className="text-sm sm:text-base font-semibold text-primary">2</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                    Flexible engagement model
+                  </h3>
+                  <p className="text-base text-white/60 leading-relaxed">
+                    Subscribe for ongoing content or book one-time projects. Our services adapt to your needs. Use us end-to-end or fill specific gaps in your workflow.
+                  </p>
+                </div>
+
+                {/* Step 3 */}
+                <div className="relative pl-14 sm:pl-16">
+                  {/* Circle with number */}
+                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
+                    <span className="text-sm sm:text-base font-semibold text-primary">3</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                    Local team, professional results
+                  </h3>
+                  <p className="text-base text-white/60 leading-relaxed">
+                    Work with experienced cinematographers, editors, and directors based in Kampala. Direct communication, fast revisions, no time zone hassles. Professional cinema equipment on every shoot.
+                  </p>
+                </div>
+
+                {/* Step 4 */}
+                <div className="relative pl-14 sm:pl-16">
+                  {/* Circle with number */}
+                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
+                    <span className="text-sm sm:text-base font-semibold text-primary">4</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                    Streamlined production
+                  </h3>
+                  <p className="text-base text-white/60 leading-relaxed">
+                    Solid pre-production planning means efficient shoot days. We handle locations, talent, equipment, and logistics while maintaining creative excellence at every step.
+                  </p>
+                </div>
+
+                {/* Step 5 */}
+                <div className="relative pl-14 sm:pl-16">
+                  {/* Circle with number */}
+                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
+                    <span className="text-sm sm:text-base font-semibold text-primary">5</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                    Expert finishing & delivery
+                  </h3>
+                  <p className="text-base text-white/60 leading-relaxed">
+                    Professional editing, color grading, motion graphics, and sound design. Delivered in every format you need, optimized for Instagram, YouTube, TV, or web with platform-specific guidance.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
