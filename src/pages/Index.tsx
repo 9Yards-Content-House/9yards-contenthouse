@@ -655,12 +655,9 @@ export default function Index() {
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">
               9Yards Content House vs. Traditional Alternatives
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Hiring in-house or juggling<br className="hidden sm:block" /> freelancers? Neither.
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.15]">
+              There's a better way to get world-class<br className="hidden sm:block" /> creative without the hassle.
             </h2>
-            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              There's a better way to get world-class creative without the hassle.
-            </p>
           </div>
 
           {/* Desktop/Tablet Comparison */}
