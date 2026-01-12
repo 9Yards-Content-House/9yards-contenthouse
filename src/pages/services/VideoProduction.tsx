@@ -217,6 +217,141 @@ export default function VideoProduction() {
         </div>
       </section>
 
+      {/* Flexible Production Options - Bento Grid Section */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-background">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center lg:text-left">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Full-Service Video Production</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4 sm:mb-6">
+              Flexible production options for<br className="hidden sm:block" />
+              every kind of video need
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
+              From social reels to broadcast commercials, we have got your team's back (and your brand's story).
+            </p>
+          </div>
+
+          {/* Bento Grid - Responsive layout matching Superside */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4 lg:gap-5">
+            
+            {/* Row 1 */}
+            {/* Card 1: Social-first video - Large card (5 cols) */}
+            <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/social-media-marketing.jpg" 
+                alt="Social-first video content"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/85 via-black/55 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col justify-between">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white drop-shadow-lg">Social-first video</h3>
+                <p className="text-sm sm:text-base text-white/90 max-w-md leading-relaxed drop-shadow-md">
+                  Platform-optimized content that is fast, fun, and built for scroll-stopping impact. Reels, TikToks, and shorts that drive engagement.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Full-production music videos - Medium card (4 cols) */}
+            <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/video-production.jpg" 
+                alt="Full-production music videos"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Full-production music videos</h3>
+                <p className="text-sm sm:text-base text-white/90 max-w-xs leading-relaxed drop-shadow-md">
+                  Cinematic storytelling for artists who demand excellence. From concept to color grade, your vision, our professional execution.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: Corporate & commercial video - Small card (3 cols) */}
+            <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/tv-and-radio-production.jpg" 
+                alt="Corporate and commercial video"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Corporate & commercial video</h3>
+                <p className="text-sm text-white/90 leading-relaxed drop-shadow-md">
+                  Elevate your brand with TV commercials, product demos, and company stories. Broadcast-quality production that drives results.
+                </p>
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            {/* Card 4: Post-production specialists - Small card (3 cols) */}
+            <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/graphic-design.jpg" 
+                alt="Post-production specialists"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Post-production specialists</h3>
+                <p className="text-sm text-white/90 leading-relaxed drop-shadow-md">
+                  Already shot your footage? We handle editing, color correction, sound design, and motion graphics.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5: Documentary & brand stories - Small card (3 cols) */}
+            <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/podcast-production.jpg" 
+                alt="Documentary and brand stories"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Documentary & brand stories</h3>
+                <p className="text-sm text-white/90 leading-relaxed drop-shadow-md">
+                  Compelling narratives that connect with audiences. Brand documentaries and stories that leave an impact.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 6: Event & live production - Large card (6 cols) */}
+            <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/influencer-marketing.jpg" 
+                alt="Event and live production"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Event & live production</h3>
+                  <p className="text-sm sm:text-base text-white/90 max-w-lg leading-relaxed drop-shadow-md">
+                    Multi-camera coverage for conferences, launches, and live events. Capture every moment with professional crews and fast turnaround.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-16 sm:py-20 lg:py-28 bg-background">
         <div className="container-custom">
