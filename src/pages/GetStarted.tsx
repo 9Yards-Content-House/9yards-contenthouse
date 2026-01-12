@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -79,6 +79,20 @@ const serviceOptions = [
   },
 ];
 
+// Map URL params to service IDs
+const serviceParamMap: Record<string, string> = {
+  "video-production": "video",
+  "video": "video",
+  "creative": "creative",
+  "creative-design": "creative",
+  "social": "social",
+  "social-media": "social",
+  "website": "website",
+  "web-development": "website",
+  "podcast": "podcast",
+  "podcast-studio": "podcast",
+};
+
 // Timeline options
 const timelineOptions = [
   { id: "urgent", label: "Urgent", description: "Within 1 week" },
@@ -143,6 +157,7 @@ const STORAGE_KEY = "9yards_get_started_form";
 
 export default function GetStarted() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -185,6 +200,17 @@ export default function GetStarted() {
       }
     }
   }, []);
+
+  // Handle pre-selection from URL parameter (e.g., ?service=video-production)
+  useEffect(() => {
+    const serviceParam = searchParams.get("service");
+    if (serviceParam) {
+      const mappedService = serviceParamMap[serviceParam.toLowerCase()];
+      if (mappedService) {
+        setSelectedService(mappedService);
+      }
+    }
+  }, [searchParams]);
 
   // Save form data to localStorage whenever it changes
   useEffect(() => {

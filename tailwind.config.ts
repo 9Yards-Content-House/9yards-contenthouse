@@ -124,6 +124,14 @@ export default {
           "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--brand-orange) / 0.4)" },
           "50%": { boxShadow: "0 0 0 12px hsl(var(--brand-orange) / 0)" },
         },
+        "marquee": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-25%)" },
+        },
+        "smoothMarquee": {
+          "0%": { transform: "translate3d(0, 0, 0)" },
+          "100%": { transform: "translate3d(-25%, 0, 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -134,8 +142,24 @@ export default {
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "scale-in": "scale-in 0.4s ease-out forwards",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "marquee": "marquee 30s linear infinite",
+        "smooth-marquee": "smoothMarquee 40s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    // Custom plugin for hiding scrollbars
+    function({ addUtilities }: { addUtilities: Function }) {
+      addUtilities({
+        '.scrollbar-hide': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none'
+          }
+        }
+      })
+    }
+  ],
 } satisfies Config;

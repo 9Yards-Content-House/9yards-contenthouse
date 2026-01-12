@@ -485,7 +485,17 @@ body.menu-open {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-33.333%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+/* Ultra-smooth marquee for video production hero pills */
+@keyframes smoothMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-25%, 0, 0);
   }
 }
 
