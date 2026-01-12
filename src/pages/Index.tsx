@@ -19,6 +19,9 @@ import {
   Users,
   Target,
   Award,
+  PenTool,
+  Megaphone,
+  Code,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -129,7 +132,7 @@ const whyChooseUs = [
     icon: Target,
     title: "Full-Spectrum Creative",
     description:
-      "From branding to video, web to social—one team handles all your creative needs seamlessly.",
+      "From branding to video, web to social. One team handles all your creative needs seamlessly.",
   },
   {
     icon: Award,
@@ -491,30 +494,374 @@ export default function Index() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Trusted By Section */}
-        <div className="relative z-10 bg-background py-12 md:py-16">
-          <div className="container-custom">
-            <p className="text-center text-foreground mb-8 md:mb-10 text-lg md:text-xl font-medium">
-              Trusted by <span className="font-bold">100+</span> of Uganda's top brands
-            </p>
-            
-            {/* Logo Marquee */}
-            <div className="relative overflow-hidden">
-              <div className="flex animate-marquee">
-                {[...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
-                  <div 
-                    key={`logo-${index}`}
-                    className="flex-shrink-0 mx-6 md:mx-10"
-                  >
-                    <div className="h-8 md:h-10 flex items-center justify-center text-muted-foreground font-semibold text-sm md:text-base whitespace-nowrap hover:text-primary transition-colors">
-                      {client.name}
-                    </div>
-                  </div>
-                ))}
+      {/* Creative Partner Section */}
+      <section className="overflow-hidden bg-background py-16 sm:py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 sm:gap-y-12 md:mx-0 md:max-w-none md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-16">
+            <div className="md:pr-4 lg:pr-8">
+              <div className="md:max-w-md lg:max-w-lg">
+                {/* Accent bar */}
+                <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
+                <h2 className="text-sm font-semibold text-accent uppercase tracking-widest">Kampala's Creative Powerhouse</h2>
+                <p className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight">
+                  Your creative department has been waiting for you
+                </p>
+                <p className="mt-5 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  Professional cinema equipment. Podcast studios. Motion designers. Video production. Social media management. 9Yards Content House brings everything you need to scale your brand without the enterprise price tag or endless wait times.
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  From a single Instagram post to complete TV commercials, we deliver world-class creative that traditional agencies can't match. Subscribe monthly or book projects. Your vision, our expertise, exceptional results.
+                </p>
+                <div className="mt-8 sm:mt-10">
+                  <Button variant="accent" size="lg" asChild>
+                    <Link to="/services">
+                      View Our Services
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div className="relative order-first md:order-last">
+              {/* Decorative accent elements - hidden on mobile/tablet, visible on desktop */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/10 rounded-2xl -z-10 hidden lg:block"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/10 rounded-2xl -z-10 hidden lg:block"></div>
+              
+              {/* Image with brand accent border */}
+              <div className="relative max-w-sm mx-auto md:max-w-none">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl transform rotate-1 scale-[1.02] md:rotate-2"></div>
+                <img 
+                  src="/images/team/team.jpg" 
+                  alt="9Yards Content House creative team at work" 
+                  className="relative w-full h-auto rounded-xl shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/5] sm:aspect-[4/5] md:aspect-[3/4] lg:aspect-[3/4]" 
+                />
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Services Overview Section - Modern Stacked List with Hover Images */}
+      <section className="bg-background py-20 sm:py-28 lg:py-32 overflow-hidden" id="what-we-create">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-accent">What We Create</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              From a single post to a complete rebrand. We've got you covered.
+            </h2>
+          </div>
+
+          {/* Services List */}
+          <div className="mt-12 sm:mt-16 lg:mt-20">
+            
+            {/* Service 1: Video Production */}
+            <Link 
+              to="/services/video-production"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 sm:py-10 lg:py-12 border-t border-foreground/10 items-center"
+            >
+              {/* Animated underline */}
+              <div className="absolute bottom-0 left-0 h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out w-full"></div>
+              
+              {/* Number + Tag */}
+              <div className="lg:col-span-2 flex items-center gap-4 lg:flex-col lg:items-start lg:gap-2">
+                <span className="text-sm font-medium text-muted-foreground/60 tabular-nums">01</span>
+                <span className="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent">Popular</span>
+              </div>
+              
+              {/* Title */}
+              <div className="lg:col-span-4">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300 flex items-center gap-3">
+                  Video Production
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </h3>
+              </div>
+              
+              {/* Description */}
+              <div className="lg:col-span-5">
+                <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
+                  From music videos to TV commercials. No 6-month wait, just world-class production.
+                </p>
+              </div>
+
+              {/* Mobile Image */}
+              <div className="lg:hidden mt-4 w-full aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src="/images/hero-grid/video-production.jpg" 
+                  alt="Video Production"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Desktop Hover Image */}
+              <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-64 xl:w-72 aspect-video opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none translate-x-8 rotate-2 group-hover:translate-x-0 group-hover:rotate-0 z-10">
+                <img 
+                  src="/images/hero-grid/video-production.jpg" 
+                  alt="Video Production"
+                  className="w-full h-full object-cover rounded-lg shadow-2xl ring-1 ring-foreground/5"
+                />
+              </div>
+            </Link>
+
+            {/* Service 2: Branding Services */}
+            <Link 
+              to="/services/branding-services"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 sm:py-10 lg:py-12 border-t border-foreground/10 items-center"
+            >
+              {/* Animated underline */}
+              <div className="absolute bottom-0 left-0 h-px bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out w-full"></div>
+              
+              {/* Number + Tag */}
+              <div className="lg:col-span-2 flex items-center gap-4 lg:flex-col lg:items-start lg:gap-2">
+                <span className="text-sm font-medium text-muted-foreground/60 tabular-nums">02</span>
+                <span className="text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary">Premium</span>
+              </div>
+              
+              {/* Title */}
+              <div className="lg:col-span-4">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 flex items-center gap-3">
+                  Branding Services
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </h3>
+              </div>
+              
+              {/* Description */}
+              <div className="lg:col-span-5">
+                <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
+                  Build a brand that commands attention. Logo, voice, and guidelines that scale with you.
+                </p>
+              </div>
+
+              {/* Mobile Image */}
+              <div className="lg:hidden mt-4 w-full aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src="/images/hero-grid/branding.jpg" 
+                  alt="Branding Services"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Desktop Hover Image */}
+              <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-64 xl:w-72 aspect-video opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none translate-x-8 -rotate-2 group-hover:translate-x-0 group-hover:rotate-0 z-10">
+                <img 
+                  src="/images/hero-grid/branding.jpg" 
+                  alt="Branding Services"
+                  className="w-full h-full object-cover rounded-lg shadow-2xl ring-1 ring-foreground/5"
+                />
+              </div>
+            </Link>
+
+            {/* Service 3: Social Media Marketing */}
+            <Link 
+              to="/services/social-media-management"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 sm:py-10 lg:py-12 border-t border-foreground/10 items-center"
+            >
+              {/* Animated underline */}
+              <div className="absolute bottom-0 left-0 h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out w-full"></div>
+              
+              {/* Number + Tag */}
+              <div className="lg:col-span-2 flex items-center gap-4 lg:flex-col lg:items-start lg:gap-2">
+                <span className="text-sm font-medium text-muted-foreground/60 tabular-nums">03</span>
+              </div>
+              
+              {/* Title */}
+              <div className="lg:col-span-4">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300 flex items-center gap-3">
+                  Social Media
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </h3>
+              </div>
+              
+              {/* Description */}
+              <div className="lg:col-span-5">
+                <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
+                  Grow your following while you focus on business. We handle strategy, content, and engagement.
+                </p>
+              </div>
+
+              {/* Mobile Image */}
+              <div className="lg:hidden mt-4 w-full aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src="/images/hero-grid/social-media-marketing.jpg" 
+                  alt="Social Media Marketing"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Desktop Hover Image */}
+              <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-64 xl:w-72 aspect-video opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none translate-x-8 rotate-2 group-hover:translate-x-0 group-hover:rotate-0 z-10">
+                <img 
+                  src="/images/hero-grid/social-media-marketing.jpg" 
+                  alt="Social Media Marketing"
+                  className="w-full h-full object-cover rounded-lg shadow-2xl ring-1 ring-foreground/5"
+                />
+              </div>
+            </Link>
+
+            {/* Service 4: Graphic Design */}
+            <Link 
+              to="/services/graphic-design"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 sm:py-10 lg:py-12 border-t border-foreground/10 items-center"
+            >
+              {/* Animated underline */}
+              <div className="absolute bottom-0 left-0 h-px bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out w-full"></div>
+              
+              {/* Number + Tag */}
+              <div className="lg:col-span-2 flex items-center gap-4 lg:flex-col lg:items-start lg:gap-2">
+                <span className="text-sm font-medium text-muted-foreground/60 tabular-nums">04</span>
+              </div>
+              
+              {/* Title */}
+              <div className="lg:col-span-4">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 flex items-center gap-3">
+                  Graphic Design
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </h3>
+              </div>
+              
+              {/* Description */}
+              <div className="lg:col-span-5">
+                <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
+                  Scroll-stopping graphics for every platform. Logos, posters, and social content. Always on time.
+                </p>
+              </div>
+
+              {/* Mobile Image */}
+              <div className="lg:hidden mt-4 w-full aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src="/images/hero-grid/graphic-design.jpg" 
+                  alt="Graphic Design"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Desktop Hover Image */}
+              <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-64 xl:w-72 aspect-video opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none translate-x-8 -rotate-2 group-hover:translate-x-0 group-hover:rotate-0 z-10">
+                <img 
+                  src="/images/hero-grid/graphic-design.jpg" 
+                  alt="Graphic Design"
+                  className="w-full h-full object-cover rounded-lg shadow-2xl ring-1 ring-foreground/5"
+                />
+              </div>
+            </Link>
+
+            {/* Service 5: Website Development */}
+            <Link 
+              to="/services/website-development"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 sm:py-10 lg:py-12 border-t border-foreground/10 items-center"
+            >
+              {/* Animated underline */}
+              <div className="absolute bottom-0 left-0 h-px bg-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out w-full"></div>
+              
+              {/* Number + Tag */}
+              <div className="lg:col-span-2 flex items-center gap-4 lg:flex-col lg:items-start lg:gap-2">
+                <span className="text-sm font-medium text-muted-foreground/60 tabular-nums">05</span>
+              </div>
+              
+              {/* Title */}
+              <div className="lg:col-span-4">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300 flex items-center gap-3">
+                  Web Development
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </h3>
+              </div>
+              
+              {/* Description */}
+              <div className="lg:col-span-5">
+                <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
+                  Beautiful, blazing-fast sites that turn visitors into customers. SEO-optimized from day one.
+                </p>
+              </div>
+
+              {/* Mobile Image */}
+              <div className="lg:hidden mt-4 w-full aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src="/images/hero-grid/Website-development.jpg" 
+                  alt="Website Development"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Desktop Hover Image */}
+              <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-64 xl:w-72 aspect-video opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none translate-x-8 rotate-2 group-hover:translate-x-0 group-hover:rotate-0 z-10">
+                <img 
+                  src="/images/hero-grid/Website-development.jpg" 
+                  alt="Website Development"
+                  className="w-full h-full object-cover rounded-lg shadow-2xl ring-1 ring-foreground/5"
+                />
+              </div>
+            </Link>
+
+            {/* Service 6: Podcast Studio */}
+            <Link 
+              to="/services/podcast-studio-rental"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 py-8 sm:py-10 lg:py-12 border-t border-b border-foreground/10 items-center"
+            >
+              {/* Animated underline */}
+              <div className="absolute bottom-0 left-0 h-px bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out w-full"></div>
+              
+              {/* Number + Tag */}
+              <div className="lg:col-span-2 flex items-center gap-4 lg:flex-col lg:items-start lg:gap-2">
+                <span className="text-sm font-medium text-muted-foreground/60 tabular-nums">06</span>
+                <span className="text-xs font-medium px-2 py-1 rounded-full bg-muted text-muted-foreground">Studio</span>
+              </div>
+              
+              {/* Title */}
+              <div className="lg:col-span-4">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 flex items-center gap-3">
+                  Podcast Studio
+                  <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </h3>
+              </div>
+              
+              {/* Description */}
+              <div className="lg:col-span-5">
+                <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
+                  Professional podcast studio in Kampala. Soundproofed, fully equipped, engineer included.
+                </p>
+              </div>
+
+              {/* Mobile Image */}
+              <div className="lg:hidden mt-4 w-full aspect-video rounded-xl overflow-hidden">
+                <img 
+                  src="/images/hero-grid/podcast-production.jpg" 
+                  alt="Podcast Studio"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Desktop Hover Image */}
+              <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-64 xl:w-72 aspect-video opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none translate-x-8 -rotate-2 group-hover:translate-x-0 group-hover:rotate-0 z-10">
+                <img 
+                  src="/images/hero-grid/podcast-production.jpg" 
+                  alt="Podcast Studio"
+                  className="w-full h-full object-cover rounded-lg shadow-2xl ring-1 ring-foreground/5"
+                />
+              </div>
+            </Link>
+
+          </div>
+
+          {/* View All CTA */}
+          <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <Link 
+              to="/services" 
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background font-medium rounded-full hover:bg-foreground/90 transition-colors group w-full sm:w-auto"
+            >
+              View all services
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 text-foreground font-medium rounded-full hover:bg-foreground/5 transition-colors w-full sm:w-auto"
+            >
+              Get a custom quote
+            </Link>
+          </div>
+
         </div>
       </section>
 
@@ -657,7 +1004,7 @@ export default function Index() {
         >
           <SectionHeading
             title="What Our Clients Say"
-            subtitle="Don't just take our word for it—hear from the brands we've helped succeed."
+            subtitle="Don't just take our word for it. Hear from the brands we've helped succeed."
           />
 
           {/* Carousel */}
