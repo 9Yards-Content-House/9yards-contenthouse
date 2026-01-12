@@ -30,6 +30,10 @@ import {
   Briefcase,
   UserCircle,
   Wrench,
+  Cpu,
+  ToggleRight,
+  Layers,
+  Star,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -1145,6 +1149,109 @@ export default function Index() {
               alt="9Yards Content House team" 
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="bg-[#181818] py-16 sm:py-20 lg:py-28 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-4">
+              Why Choose Us
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-6">
+              The 9Yards Advantage
+            </h2>
+            <p className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto">
+              Four reasons why leading brands trust us with their creative.
+            </p>
+          </div>
+
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
+            
+            {/* Card 1: AI-Powered Speed - Large card spanning 7 columns */}
+            <div className="lg:col-span-7 group relative bg-gradient-to-br from-accent/20 via-accent/10 to-transparent backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-accent/30 hover:border-accent/50 transition-all duration-300 overflow-hidden">
+              {/* Decorative gradient orb */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+              
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-accent/20 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                  <div className="relative">
+                    <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-accent" strokeWidth={1.5} />
+                    <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-accent/80 absolute -bottom-1 -right-2" strokeWidth={2} />
+                  </div>
+                </div>
+                {/* Title */}
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
+                  Speed Meets Affordability
+                </h3>
+                {/* Description */}
+                <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl">
+                  We blend human creativity with intelligent workflows to deliver premium quality at competitive rates. Fast turnarounds, fair pricing, and no compromises on craft.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Flexible Engagement - Smaller card spanning 5 columns */}
+            <div className="lg:col-span-5 group relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-300 hover:bg-white/[0.08]">
+              {/* Icon */}
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
+                <ToggleRight className="w-7 h-7 sm:w-8 sm:h-8 text-accent" strokeWidth={1.5} />
+              </div>
+              {/* Title */}
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3">
+                Work Your Way
+              </h3>
+              {/* Description */}
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+                Monthly subscriptions, one-off projects, or a mix of both. Scale up during busy seasons, dial back when needed. No long-term contracts, just flexible partnerships.
+              </p>
+            </div>
+
+            {/* Card 3: Full-Spectrum - Smaller card spanning 5 columns */}
+            <div className="lg:col-span-5 group relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-300 hover:bg-white/[0.08]">
+              {/* Icon */}
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
+                <Layers className="w-7 h-7 sm:w-8 sm:h-8 text-accent" strokeWidth={1.5} />
+              </div>
+              {/* Title */}
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3">
+                Everything Under One Roof
+              </h3>
+              {/* Description */}
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+                Video, design, web, social, and strategy from a single creative partner. Consistent quality across every touchpoint. One team, one vision, zero vendor chaos.
+              </p>
+            </div>
+
+            {/* Card 4: East African Excellence - Large card spanning 7 columns */}
+            <div className="lg:col-span-7 group relative bg-gradient-to-bl from-primary/20 via-primary/10 to-transparent backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-primary/30 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+              {/* Decorative gradient orb */}
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+              
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                  <div className="relative">
+                    <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={1.5} />
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent fill-accent absolute -top-1 -right-2" strokeWidth={2} />
+                  </div>
+                </div>
+                {/* Title */}
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
+                  Local Insight, Global Polish
+                </h3>
+                {/* Description */}
+                <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl">
+                  Born in Kampala, built for the world. We know your audience because we live here. We deliver international standards because that is the only benchmark worth chasing.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
