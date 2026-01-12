@@ -245,6 +245,7 @@ export default function Index() {
   const portfolioAnimation = useScrollAnimation<HTMLDivElement>();
   const testimonialsAnimation = useScrollAnimation<HTMLDivElement>();
   const statsAnimation = useScrollAnimation<HTMLDivElement>();
+  const whyChooseUsRef = useScrollAnimation<HTMLDivElement>();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -1154,10 +1155,19 @@ export default function Index() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-[#181818] py-16 sm:py-20 lg:py-28 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <section className="bg-[#181818] py-16 sm:py-20 lg:py-28 overflow-hidden relative">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 1px)`,
+          backgroundSize: '32px 32px'
+        }} />
+        
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className={cn(
+            "text-center mb-12 sm:mb-16 lg:mb-20 transition-all duration-700",
+            whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          )} ref={whyChooseUsRef.ref}>
             <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-4">
               Why Choose Us
             </span>
@@ -1172,19 +1182,20 @@ export default function Index() {
           {/* Bento Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
             
-            {/* Card 1: AI-Powered Speed - Large card spanning 7 columns */}
-            <div className="lg:col-span-7 group relative bg-gradient-to-br from-accent/20 via-accent/10 to-transparent backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-accent/30 hover:border-accent/50 transition-all duration-300 overflow-hidden">
+            {/* Card 1: Speed Meets Affordability - Large card spanning 7 columns */}
+            <div className={cn(
+              "lg:col-span-7 group relative bg-gradient-to-br from-accent/20 via-accent/10 to-transparent backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-accent/30 hover:border-accent/50 transition-all duration-700 overflow-hidden",
+              whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )} style={{ transitionDelay: '100ms' }}>
               {/* Decorative gradient orb */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
               
+              {/* Number badge */}
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center">
+                <span className="text-accent font-bold text-sm sm:text-base">01</span>
+              </div>
+              
               <div className="relative z-10">
-                {/* Icon */}
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-accent/20 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                  <div className="relative">
-                    <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-accent" strokeWidth={1.5} />
-                    <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-accent/80 absolute -bottom-1 -right-2" strokeWidth={2} />
-                  </div>
-                </div>
                 {/* Title */}
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
                   Speed Meets Affordability
@@ -1196,51 +1207,60 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Card 2: Flexible Engagement - Smaller card spanning 5 columns */}
-            <div className="lg:col-span-5 group relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-300 hover:bg-white/[0.08]">
-              {/* Icon */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
-                <ToggleRight className="w-7 h-7 sm:w-8 sm:h-8 text-accent" strokeWidth={1.5} />
+            {/* Card 2: Work Your Way - Smaller card spanning 5 columns */}
+            <div className={cn(
+              "lg:col-span-5 group relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-700 hover:bg-white/[0.08] flex flex-col",
+              whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )} style={{ transitionDelay: '200ms' }}>
+              {/* Number badge */}
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-accent/30 transition-colors">
+                <span className="text-white/40 group-hover:text-accent font-bold text-sm sm:text-base transition-colors">02</span>
               </div>
+              
               {/* Title */}
               <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3">
                 Work Your Way
               </h3>
               {/* Description */}
-              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed flex-grow">
                 Monthly subscriptions, one-off projects, or a mix of both. Scale up during busy seasons, dial back when needed. No long-term contracts, just flexible partnerships.
               </p>
             </div>
 
-            {/* Card 3: Full-Spectrum - Smaller card spanning 5 columns */}
-            <div className="lg:col-span-5 group relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-300 hover:bg-white/[0.08]">
-              {/* Icon */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
-                <Layers className="w-7 h-7 sm:w-8 sm:h-8 text-accent" strokeWidth={1.5} />
+            {/* Card 3: Everything Under One Roof - Smaller card spanning 5 columns */}
+            <div className={cn(
+              "lg:col-span-5 group relative bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-700 hover:bg-white/[0.08] flex flex-col",
+              whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )} style={{ transitionDelay: '300ms' }}>
+              {/* Number badge */}
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-accent/30 transition-colors">
+                <span className="text-white/40 group-hover:text-accent font-bold text-sm sm:text-base transition-colors">03</span>
               </div>
+              
               {/* Title */}
               <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3">
                 Everything Under One Roof
               </h3>
               {/* Description */}
-              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed flex-grow">
                 Video, design, web, social, and strategy from a single creative partner. Consistent quality across every touchpoint. One team, one vision, zero vendor chaos.
               </p>
             </div>
 
-            {/* Card 4: East African Excellence - Large card spanning 7 columns */}
-            <div className="lg:col-span-7 group relative bg-gradient-to-bl from-primary/20 via-primary/10 to-transparent backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-primary/30 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+            {/* Card 4: Local Insight, Global Polish - Large card spanning 7 columns */}
+            <div className={cn(
+              "lg:col-span-7 group relative bg-gradient-to-bl from-primary/20 via-primary/10 to-transparent backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-primary/30 hover:border-primary/50 transition-all duration-700 overflow-hidden",
+              whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )} style={{ transitionDelay: '400ms' }}>
               {/* Decorative gradient orb */}
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
               
+              {/* Number badge */}
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+                <span className="text-white/70 font-bold text-sm sm:text-base">04</span>
+              </div>
+              
               <div className="relative z-10">
-                {/* Icon */}
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                  <div className="relative">
-                    <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={1.5} />
-                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent fill-accent absolute -top-1 -right-2" strokeWidth={2} />
-                  </div>
-                </div>
                 {/* Title */}
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4">
                   Local Insight, Global Polish
@@ -1252,6 +1272,26 @@ export default function Index() {
               </div>
             </div>
 
+          </div>
+
+          {/* Section CTA */}
+          <div className={cn(
+            "mt-12 sm:mt-16 lg:mt-20 text-center transition-all duration-700",
+            whyChooseUsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          )} style={{ transitionDelay: '500ms' }}>
+            <Button 
+              asChild
+              size="lg"
+              className="rounded-full bg-accent hover:bg-accent/90 text-white px-8 sm:px-10"
+            >
+              <Link to="/get-started">
+                Start Your Project
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+            <p className="mt-4 text-sm text-white/40">
+              No commitment required. Let's talk about your goals.
+            </p>
           </div>
         </div>
       </section>
