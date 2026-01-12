@@ -1,19 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { 
-  ArrowRight, 
-  Play, 
-  Check,
-  Film,
-  Tv,
-  Music,
-  Building2,
-  Megaphone,
-  Sparkles,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ArrowRight } from "lucide-react";
 
 // Video service categories for the horizontal scroll
 const videoServices = [
@@ -28,43 +16,7 @@ const videoServices = [
   { name: "Explainer Videos" },
 ];
 
-// Why choose us points
-const whyChooseUs = [
-  {
-    icon: Film,
-    title: "Professional Equipment",
-    description: "Cinema-grade cameras, lighting, and audio gear for broadcast-quality results."
-  },
-  {
-    icon: Sparkles,
-    title: "Creative Direction",
-    description: "From concept to script to storyboard, we handle the creative heavy lifting."
-  },
-  {
-    icon: Tv,
-    title: "Full Post-Production",
-    description: "Expert editing, color grading, motion graphics, and sound design included."
-  },
-  {
-    icon: Megaphone,
-    title: "Fast Turnaround",
-    description: "Efficient workflows mean you get polished content when you need it."
-  },
-];
-
-// Process steps
-const processSteps = [
-  { step: "01", title: "Brief & Strategy", description: "We align on goals, audience, and creative direction." },
-  { step: "02", title: "Pre-Production", description: "Scripting, storyboarding, casting, and location scouting." },
-  { step: "03", title: "Production", description: "Professional filming with our experienced crew." },
-  { step: "04", title: "Post-Production", description: "Editing, color, graphics, and sound design." },
-  { step: "05", title: "Delivery", description: "Final files optimized for your distribution channels." },
-];
-
 export default function VideoProduction() {
-  const featuresRef = useScrollAnimation<HTMLDivElement>();
-  const processRef = useScrollAnimation<HTMLDivElement>();
-
   return (
     <Layout>
       {/* Hero Section - Superside Style */}
@@ -228,7 +180,7 @@ export default function VideoProduction() {
               every kind of video need
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-              From social reels to broadcast commercials, we have got your team's back (and your brand's story).
+              From social reels to broadcast commercials, we have got your team's back and your brand's story.
             </p>
           </div>
 
@@ -239,7 +191,7 @@ export default function VideoProduction() {
             {/* Card 1: Social-first video - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/social-media-marketing.jpg" 
+                src="/images/bento-grid/video production/social-first-video.jpg" 
                 alt="Social-first video content"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -258,7 +210,7 @@ export default function VideoProduction() {
             {/* Card 2: Full-production music videos - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/video-production.jpg" 
+                src="/images/bento-grid/video production/full-production-music-videos.jpg" 
                 alt="Full-production music videos"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -276,7 +228,7 @@ export default function VideoProduction() {
             {/* Card 3: Corporate & commercial video - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/tv-and-radio-production.jpg" 
+                src="/images/bento-grid/video production/corprate-&-commercial-video.jpg" 
                 alt="Corporate and commercial video"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -295,7 +247,7 @@ export default function VideoProduction() {
             {/* Card 4: Post-production specialists - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/graphic-design.jpg" 
+                src="/images/bento-grid/video production/Post-production-specialists.jpg" 
                 alt="Post-production specialists"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -313,7 +265,7 @@ export default function VideoProduction() {
             {/* Card 5: Documentary & brand stories - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/podcast-production.jpg" 
+                src="/images/bento-grid/video production/documentaries-and-brand-stories.jpg" 
                 alt="Documentary and brand stories"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -331,7 +283,7 @@ export default function VideoProduction() {
             {/* Card 6: Event & live production - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/influencer-marketing.jpg" 
+                src="/images/bento-grid/video production/event-and-live-production.jpg" 
                 alt="Event and live production"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -348,120 +300,6 @@ export default function VideoProduction() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-background">
-        <div className="container-custom">
-          <div 
-            ref={featuresRef.ref}
-            className={cn(
-              "text-center mb-12 sm:mb-16 transition-all duration-700",
-              featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-4">
-              Why Work With Us
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
-              Video Production, Simplified
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              From indie artists to enterprise brands, we deliver broadcast-quality video without the complexity.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {whyChooseUs.map((item, index) => (
-              <div 
-                key={item.title}
-                className={cn(
-                  "bg-muted/50 rounded-2xl p-6 sm:p-8 transition-all duration-700 hover:bg-muted",
-                  featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                )}
-                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-accent" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-[#181818]">
-        <div className="container-custom">
-          <div 
-            ref={processRef.ref}
-            className={cn(
-              "text-center mb-12 sm:mb-16 transition-all duration-700",
-              processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-4">
-              Our Process
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-              From Concept to Screen
-            </h2>
-            <p className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto">
-              A proven workflow that delivers exceptional results on time and on budget.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => (
-              <div 
-                key={step.step}
-                className={cn(
-                  "relative bg-white/5 rounded-2xl p-6 border border-white/10 transition-all duration-700 hover:bg-white/10 hover:border-accent/30",
-                  processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                )}
-                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-              >
-                <span className="text-4xl font-bold text-accent/30 mb-4 block">{step.step}</span>
-                <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-primary">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-            Ready to Bring Your Vision to Life?
-          </h2>
-          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-8">
-            Let's discuss your project and create something extraordinary together.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              asChild
-              size="lg"
-              className="rounded-full bg-accent hover:bg-accent/90 text-white px-10 h-14 text-base font-semibold"
-            >
-              <Link to="/get-started">
-                Get Started
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
-            <Button 
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-full border-white/30 text-white hover:bg-white/10 px-10 h-14 text-base font-semibold"
-            >
-              <Link to="/contact">Contact Us</Link>
-            </Button>
           </div>
         </div>
       </section>
