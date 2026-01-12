@@ -649,11 +649,11 @@ export default function Index() {
 
       {/* Comparison Section - 9Yards vs Alternatives */}
       <section className="bg-background py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           {/* Section Header - Matching App Style */}
-          <div className="max-w-4xl mx-auto mb-10 sm:mb-14 lg:mb-16 text-center lg:text-left">
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-16 lg:mb-20 text-center lg:text-left">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">
-              9Yards vs. Traditional Alternatives
+              9Yards Content House vs. Traditional Alternatives
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
               Hiring in-house or juggling<br className="hidden sm:block" /> freelancers? Neither.
@@ -663,204 +663,292 @@ export default function Index() {
             </p>
           </div>
 
-          {/* Desktop/Tablet Comparison Table */}
-          <div className="hidden md:block">
-            {/* Table Container with Border */}
-            <div className="rounded-2xl border border-border overflow-hidden">
-              {/* Table Header - Column Labels */}
-              <div className="grid grid-cols-12 bg-muted/30 border-b border-border">
-                <div className="col-span-5 p-4 lg:p-6"></div>
-                <div className="col-span-7 grid grid-cols-5">
-                  <div className="p-4 lg:p-6 text-center">
-                    <span className="text-sm lg:text-base font-semibold text-foreground">Speed</span>
-                  </div>
-                  <div className="p-4 lg:p-6 text-center">
-                    <span className="text-sm lg:text-base font-semibold text-foreground">Quality</span>
-                  </div>
-                  <div className="p-4 lg:p-6 text-center">
-                    <span className="text-sm lg:text-base font-semibold text-foreground">Flexibility</span>
-                  </div>
-                  <div className="p-4 lg:p-6 text-center">
-                    <span className="text-sm lg:text-base font-semibold text-foreground">Scalability</span>
-                  </div>
-                  <div className="p-4 lg:p-6 text-center">
-                    <span className="text-sm lg:text-base font-semibold text-foreground whitespace-nowrap">Cost</span>
-                  </div>
+          {/* Desktop/Tablet Comparison */}
+          <div className="hidden lg:block">
+            {/* Floating Column Headers - Larger and more prominent */}
+            <div className="grid grid-cols-12 mb-6 lg:mb-8 px-8 lg:px-12">
+              <div className="col-span-5"></div>
+              <div className="col-span-7 grid grid-cols-5">
+                <div className="text-center">
+                  <span className="text-base lg:text-lg font-semibold text-foreground">Speed</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-base lg:text-lg font-semibold text-foreground">Quality</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-base lg:text-lg font-semibold text-foreground">Flexibility</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-base lg:text-lg font-semibold text-foreground">Scalability</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-base lg:text-lg font-semibold text-foreground">Cost</span>
                 </div>
               </div>
+            </div>
 
-              {/* 9Yards Row - Highlighted with accent/orange background */}
-              <div className="grid grid-cols-12 bg-accent border-b border-accent">
-                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
-                  <div>
-                    <h4 className="font-bold text-white text-lg lg:text-xl mb-1.5">9Yards Content House</h4>
-                    <p className="text-sm lg:text-base text-white/80 leading-relaxed max-w-md">
-                      Your dedicated creative team with professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects—world-class creative without the enterprise cost.
-                    </p>
-                  </div>
+            {/* 9Yards Row - Highlighted with rounded pill shape */}
+            <div className="bg-accent rounded-[3rem] lg:rounded-[4rem] py-8 lg:py-10 px-8 lg:px-12 mb-8">
+              <div className="grid grid-cols-12 items-center">
+                <div className="col-span-5 pr-4">
+                  <h4 className="font-bold text-white text-xl lg:text-2xl mb-2">9Yards Content House</h4>
+                  <p className="text-sm lg:text-base text-white/85 leading-relaxed">
+                    Your dedicated creative team with professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects.
+                  </p>
                 </div>
                 <div className="col-span-7 grid grid-cols-5">
                   {[...Array(5)].map((_, i) => (
-                    <div key={i} className="p-4 lg:p-6 flex items-center justify-center">
-                      <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/20 flex items-center justify-center">
-                        <Check className="w-5 h-5 lg:w-6 lg:h-6 text-white" strokeWidth={3} />
-                      </div>
+                    <div key={i} className="flex items-center justify-center">
+                      <Check className="w-7 h-7 lg:w-8 lg:h-8 text-white" strokeWidth={2.5} />
                     </div>
                   ))}
                 </div>
               </div>
+            </div>
 
+            {/* Other Options - Open layout with dividers */}
+            <div className="divide-y divide-border/60">
               {/* In-house team */}
-              <div className="grid grid-cols-12 border-b border-border hover:bg-muted/20 transition-colors">
-                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
-                    <Building2 className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+              <div className="py-8 lg:py-10 px-6 lg:px-8 hover:bg-muted/10 transition-colors duration-200">
+                <div className="grid grid-cols-12 items-center">
+                  <div className="col-span-5 flex items-start gap-4 pr-4">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-muted flex items-center justify-center flex-shrink-0">
+                      <Building2 className="w-7 h-7 lg:w-8 lg:h-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground text-lg lg:text-xl mb-1.5">In-house team</h4>
+                      <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
+                        Building an in-house team means high fixed costs for salaries, equipment, and software without the flexibility to scale up or down as your business needs change.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">In-house team</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                      Building an in-house creative department requires significant investment in salaries, equipment, software, and space—plus the challenge of finding and retaining top talent.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-span-7 grid grid-cols-5">
-                  {/* Speed: X, Quality: X, Flexibility: X, Scalability: ✓, Cost: X */}
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  <div className="col-span-7 grid grid-cols-5">
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Traditional agencies */}
-              <div className="grid grid-cols-12 border-b border-border hover:bg-muted/20 transition-colors">
-                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+              <div className="py-8 lg:py-10 px-6 lg:px-8 hover:bg-muted/10 transition-colors duration-200">
+                <div className="grid grid-cols-12 items-center">
+                  <div className="col-span-5 flex items-start gap-4 pr-4">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-muted flex items-center justify-center flex-shrink-0">
+                      <Briefcase className="w-7 h-7 lg:w-8 lg:h-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground text-lg lg:text-xl mb-1.5">Traditional agencies</h4>
+                      <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
+                        Traditional agencies deliver quality work but come with enterprise pricing, long turnaround times, and rigid processes that don't adapt to your pace.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">Traditional agencies</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                      Large agencies deliver quality but come with enterprise pricing, long lead times, minimum contracts, and inflexible processes that don't adapt to your actual business needs.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-span-7 grid grid-cols-5">
-                  {/* Speed: X, Quality: ✓, Flexibility: X, Scalability: ✓, Cost: X */}
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  <div className="col-span-7 grid grid-cols-5">
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Freelancers */}
-              <div className="grid grid-cols-12 border-b border-border hover:bg-muted/20 transition-colors">
-                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
-                    <UserCircle className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+              <div className="py-8 lg:py-10 px-6 lg:px-8 hover:bg-muted/10 transition-colors duration-200">
+                <div className="grid grid-cols-12 items-center">
+                  <div className="col-span-5 flex items-start gap-4 pr-4">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-muted flex items-center justify-center flex-shrink-0">
+                      <UserCircle className="w-7 h-7 lg:w-8 lg:h-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground text-lg lg:text-xl mb-1.5">Freelancers</h4>
+                      <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
+                        Freelancers offer flexibility but managing multiple individuals, dealing with availability issues, and maintaining consistent quality quickly becomes a challenge.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">Freelancers</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                      Individual freelancers can be affordable but managing multiple specialists, inconsistent availability, varying quality standards, and communication challenges quickly becomes overwhelming.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-span-7 grid grid-cols-5">
-                  {/* Speed: X, Quality: X, Flexibility: ✓, Scalability: X, Cost: ✓ */}
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  <div className="col-span-7 grid grid-cols-5">
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* DIY tools & templates */}
-              <div className="grid grid-cols-12 hover:bg-muted/20 transition-colors">
-                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
-                    <Wrench className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+              <div className="py-8 lg:py-10 px-6 lg:px-8 hover:bg-muted/10 transition-colors duration-200">
+                <div className="grid grid-cols-12 items-center">
+                  <div className="col-span-5 flex items-start gap-4 pr-4">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-muted flex items-center justify-center flex-shrink-0">
+                      <Wrench className="w-7 h-7 lg:w-8 lg:h-8 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground text-lg lg:text-xl mb-1.5">DIY tools & templates</h4>
+                      <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
+                        DIY design tools help with basic tasks but lack the strategic thinking, custom execution, and professional polish that truly drives business results.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">DIY tools & templates</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                      Design tools and templates work for basic tasks but lack the strategic thinking, custom execution, and professional polish that separates good content from great content.
-                    </p>
-                  </div>
-                </div>
-                <div className="col-span-7 grid grid-cols-5">
-                  {/* Speed: ✓, Quality: X, Flexibility: X, Scalability: X, Cost: ✓ */}
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
-                  </div>
-                  <div className="p-4 lg:p-6 flex items-center justify-center">
-                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  <div className="col-span-7 grid grid-cols-5">
+                    <div className="flex items-center justify-center">
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex items-center justify-center">
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Mobile Cards View */}
-          <div className="md:hidden space-y-4">
-            {/* 9Yards Card - Highlighted with accent background */}
-            <div className="rounded-2xl bg-accent p-5 sm:p-6">
-              <h4 className="font-bold text-white text-xl mb-2">9Yards Content House</h4>
-              <p className="text-sm text-white/80 leading-relaxed mb-5">
-                Your dedicated creative team with professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects.
-              </p>
-              <div className="grid grid-cols-5 gap-1">
+          {/* Tablet View (md breakpoint) */}
+          <div className="hidden md:block lg:hidden">
+            {/* Column Headers for Tablet */}
+            <div className="flex justify-end mb-6 pr-4">
+              <div className="grid grid-cols-5 gap-4 w-[280px]">
                 {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label) => (
                   <div key={label} className="text-center">
-                    <div className="flex items-center justify-center mb-2">
-                      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                        <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                    <span className="text-sm font-semibold text-foreground">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 9Yards Row - Tablet */}
+            <div className="bg-accent rounded-[2.5rem] py-6 px-6 mb-6">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex-1 max-w-sm">
+                  <h4 className="font-bold text-white text-lg mb-1.5">9Yards Content House</h4>
+                  <p className="text-sm text-white/85 leading-relaxed">
+                    Your dedicated creative team with professional equipment, proven talent, and intelligent workflows.
+                  </p>
+                </div>
+                <div className="grid grid-cols-5 gap-4 w-[280px] flex-shrink-0">
+                  {[...Array(5)].map((_, i) => (
+                    <div key={i} className="flex items-center justify-center">
+                      <Check className="w-6 h-6 text-white" strokeWidth={2.5} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Other Options - Tablet */}
+            <div className="divide-y divide-border/60">
+              {[
+                { 
+                  icon: Building2, 
+                  title: 'In-house team', 
+                  desc: "Building an in-house team means high fixed costs for salaries, equipment, and software without the flexibility to scale.", 
+                  checks: [false, false, false, true, false] 
+                },
+                { 
+                  icon: Briefcase, 
+                  title: 'Traditional agencies', 
+                  desc: "Traditional agencies deliver quality work but come with enterprise pricing, long turnaround times, and rigid processes.", 
+                  checks: [false, true, false, true, false] 
+                },
+                { 
+                  icon: UserCircle, 
+                  title: 'Freelancers', 
+                  desc: "Freelancers offer flexibility but managing multiple individuals and maintaining consistent quality becomes a challenge.", 
+                  checks: [false, false, true, false, true] 
+                },
+                { 
+                  icon: Wrench, 
+                  title: 'DIY tools & templates', 
+                  desc: "DIY design tools help with basic tasks but lack the strategic thinking and professional polish.", 
+                  checks: [true, false, false, false, true] 
+                },
+              ].map((option) => (
+                <div key={option.title} className="py-6 px-4 hover:bg-muted/10 transition-colors duration-200">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-start gap-3 flex-1 max-w-sm">
+                      <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                        <option.icon className="w-6 h-6 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-foreground text-base mb-1">{option.title}</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{option.desc}</p>
                       </div>
                     </div>
-                    <span className="text-[10px] text-white/70 font-medium leading-tight block">{label}</span>
+                    <div className="grid grid-cols-5 gap-4 w-[280px] flex-shrink-0">
+                      {option.checks.map((checked, i) => (
+                        <div key={i} className="flex items-center justify-center">
+                          {checked ? (
+                            <Check className="w-5 h-5 text-green-500" strokeWidth={2.5} />
+                          ) : (
+                            <X className="w-5 h-5 text-red-400" strokeWidth={2.5} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Cards View */}
+          <div className="md:hidden space-y-4">
+            {/* 9Yards Card - Highlighted with rounded pill shape */}
+            <div className="rounded-[1.75rem] sm:rounded-[2rem] bg-accent p-5 sm:p-6">
+              <h4 className="font-bold text-white text-lg sm:text-xl mb-2">9Yards Content House</h4>
+              <p className="text-sm text-white/85 leading-relaxed mb-5">
+                Your dedicated creative team with professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects.
+              </p>
+              <div className="grid grid-cols-5 gap-2">
+                {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label) => (
+                  <div key={label} className="text-center">
+                    <div className="flex items-center justify-center mb-1.5">
+                      <Check className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[9px] sm:text-[10px] text-white/75 font-medium leading-tight block">{label}</span>
                   </div>
                 ))}
               </div>
@@ -871,49 +959,52 @@ export default function Index() {
               { 
                 icon: Building2, 
                 title: 'In-house team', 
-                desc: "Building an in-house creative department requires significant investment in salaries, equipment, software, and space.", 
+                desc: "Building an in-house team means high fixed costs for salaries, equipment, and software without the flexibility to scale up or down as your business needs change.", 
                 checks: [false, false, false, true, false] 
               },
               { 
                 icon: Briefcase, 
                 title: 'Traditional agencies', 
-                desc: 'Large agencies deliver quality but come with enterprise pricing, long lead times, and inflexible processes.', 
+                desc: "Traditional agencies deliver quality work but come with enterprise pricing, long turnaround times, and rigid processes that don't adapt to your pace.", 
                 checks: [false, true, false, true, false] 
               },
               { 
                 icon: UserCircle, 
                 title: 'Freelancers', 
-                desc: 'Individual freelancers can be affordable but managing multiple specialists and inconsistent quality becomes overwhelming.', 
+                desc: "Freelancers offer flexibility but managing multiple individuals, dealing with availability issues, and maintaining consistent quality quickly becomes a challenge.", 
                 checks: [false, false, true, false, true] 
               },
               { 
                 icon: Wrench, 
                 title: 'DIY tools & templates', 
-                desc: 'Design tools work for basic tasks but lack the strategic thinking and professional polish.', 
+                desc: "DIY design tools help with basic tasks but lack the strategic thinking, custom execution, and professional polish that truly drives business results.", 
                 checks: [true, false, false, false, true] 
               },
-            ].map((option) => (
-              <div key={option.title} className="rounded-2xl bg-muted/30 border border-border p-5 sm:p-6">
+            ].map((option, index) => (
+              <div key={option.title} className={cn(
+                "rounded-2xl p-5 sm:p-6",
+                index === 0 ? "border-t border-border/60" : "border-t border-border/40"
+              )}>
                 <div className="flex items-start gap-3 mb-5">
-                  <div className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
-                    <option.icon className="w-5 h-5 text-muted-foreground" />
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                    <option.icon className="w-5 h-5 sm:w-6 sm:h-6 text-muted-foreground" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-foreground text-lg mb-1">{option.title}</h4>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-bold text-foreground text-base sm:text-lg mb-1">{option.title}</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">{option.desc}</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-5 gap-1">
+                <div className="grid grid-cols-5 gap-2">
                   {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label, i) => (
                     <div key={label} className="text-center">
-                      <div className="flex items-center justify-center mb-2">
+                      <div className="flex items-center justify-center mb-1.5">
                         {option.checks[i] ? (
-                          <Check className="w-5 h-5 text-green-500" strokeWidth={2.5} />
+                          <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" strokeWidth={2.5} />
                         ) : (
-                          <X className="w-5 h-5 text-red-400" strokeWidth={2} />
+                          <X className="w-5 h-5 sm:w-6 sm:h-6 text-red-400" strokeWidth={2} />
                         )}
                       </div>
-                      <span className="text-[10px] text-muted-foreground font-medium leading-tight block">{label}</span>
+                      <span className="text-[9px] sm:text-[10px] text-muted-foreground font-medium leading-tight block">{label}</span>
                     </div>
                   ))}
                 </div>
