@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowRight, Zap, Clock, Award } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const footerLinks = {
@@ -77,12 +77,6 @@ const socialLinks = [
   { name: "TikTok", icon: TikTokIcon, href: "https://www.tiktok.com/@9.yards.content.house" },
 ];
 
-const features = [
-  { icon: Zap, label: "Fast Turnaround" },
-  { icon: Award, label: "World-Class Quality" },
-  { icon: Clock, label: "Flexible Pricing" },
-];
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -134,37 +128,9 @@ export function Footer() {
                 className="h-9 sm:h-10 w-auto"
               />
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-4 max-w-xs">
+            <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-xs">
               Your complete creative department. Fast, affordable, exceptional.
             </p>
-            
-            {/* Contact Info */}
-            <div className="space-y-2.5 mb-5">
-              <a
-                href="tel:+256700488870"
-                className="flex items-center gap-2.5 text-white/70 hover:text-accent transition-colors text-sm group"
-              >
-                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
-                +256 700 488 870
-              </a>
-              <a
-                href="mailto:contenthouse@9yards.co.ug"
-                className="flex items-center gap-2.5 text-white/70 hover:text-accent transition-colors text-sm group"
-              >
-                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
-                  <Mail className="w-3.5 h-3.5" />
-                </div>
-                contenthouse@9yards.co.ug
-              </a>
-              <div className="flex items-center gap-2.5 text-white/70 text-sm">
-                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                Canoga suites. Lower Kkonge
-              </div>
-            </div>
 
             {/* Social Links */}
             <div className="flex items-center gap-2">
@@ -249,18 +215,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Features Strip */}
-        <div className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-white/10">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16">
-            {features.map((feature) => (
-              <div key={feature.label} className="flex items-center gap-2.5 text-white/50">
-                <feature.icon className="w-4 h-4 text-accent" />
-                <span className="text-sm font-medium">{feature.label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>
