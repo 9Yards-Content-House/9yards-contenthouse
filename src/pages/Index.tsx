@@ -24,6 +24,12 @@ import {
   Code,
   ChevronLeft,
   ChevronRight,
+  Check,
+  X,
+  Building2,
+  Briefcase,
+  UserCircle,
+  Wrench,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -638,6 +644,282 @@ export default function Index() {
             </Button>
           </div>
 
+        </div>
+      </section>
+
+      {/* Comparison Section - 9Yards vs Alternatives */}
+      <section className="bg-background py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header - Matching App Style */}
+          <div className="max-w-4xl mx-auto mb-10 sm:mb-14 lg:mb-16 text-center lg:text-left">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">
+              9Yards vs. Traditional Alternatives
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
+              Hiring in-house or juggling<br className="hidden sm:block" /> freelancers? Neither.
+            </h2>
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
+              There's a better way to get world-class creative without the hassle.
+            </p>
+          </div>
+
+          {/* Desktop/Tablet Comparison Table */}
+          <div className="hidden md:block">
+            {/* Table Container with Border */}
+            <div className="rounded-2xl border border-border overflow-hidden">
+              {/* Table Header - Column Labels */}
+              <div className="grid grid-cols-12 bg-muted/30 border-b border-border">
+                <div className="col-span-5 p-4 lg:p-6"></div>
+                <div className="col-span-7 grid grid-cols-5">
+                  <div className="p-4 lg:p-6 text-center">
+                    <span className="text-sm lg:text-base font-semibold text-foreground">Speed</span>
+                  </div>
+                  <div className="p-4 lg:p-6 text-center">
+                    <span className="text-sm lg:text-base font-semibold text-foreground">Quality</span>
+                  </div>
+                  <div className="p-4 lg:p-6 text-center">
+                    <span className="text-sm lg:text-base font-semibold text-foreground">Flexibility</span>
+                  </div>
+                  <div className="p-4 lg:p-6 text-center">
+                    <span className="text-sm lg:text-base font-semibold text-foreground">Scalability</span>
+                  </div>
+                  <div className="p-4 lg:p-6 text-center">
+                    <span className="text-sm lg:text-base font-semibold text-foreground whitespace-nowrap">Cost</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 9Yards Row - Highlighted with accent/orange background */}
+              <div className="grid grid-cols-12 bg-accent border-b border-accent">
+                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
+                  <div>
+                    <h4 className="font-bold text-white text-lg lg:text-xl mb-1.5">9Yards Content House</h4>
+                    <p className="text-sm lg:text-base text-white/80 leading-relaxed max-w-md">
+                      Your dedicated creative team with professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects—world-class creative without the enterprise cost.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-span-7 grid grid-cols-5">
+                  {[...Array(5)].map((_, i) => (
+                    <div key={i} className="p-4 lg:p-6 flex items-center justify-center">
+                      <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/20 flex items-center justify-center">
+                        <Check className="w-5 h-5 lg:w-6 lg:h-6 text-white" strokeWidth={3} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* In-house team */}
+              <div className="grid grid-cols-12 border-b border-border hover:bg-muted/20 transition-colors">
+                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
+                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                    <Building2 className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">In-house team</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                      Building an in-house creative department requires significant investment in salaries, equipment, software, and space—plus the challenge of finding and retaining top talent.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-span-7 grid grid-cols-5">
+                  {/* Speed: X, Quality: X, Flexibility: X, Scalability: ✓, Cost: X */}
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Traditional agencies */}
+              <div className="grid grid-cols-12 border-b border-border hover:bg-muted/20 transition-colors">
+                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
+                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">Traditional agencies</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                      Large agencies deliver quality but come with enterprise pricing, long lead times, minimum contracts, and inflexible processes that don't adapt to your actual business needs.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-span-7 grid grid-cols-5">
+                  {/* Speed: X, Quality: ✓, Flexibility: X, Scalability: ✓, Cost: X */}
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Freelancers */}
+              <div className="grid grid-cols-12 border-b border-border hover:bg-muted/20 transition-colors">
+                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
+                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                    <UserCircle className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">Freelancers</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                      Individual freelancers can be affordable but managing multiple specialists, inconsistent availability, varying quality standards, and communication challenges quickly becomes overwhelming.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-span-7 grid grid-cols-5">
+                  {/* Speed: X, Quality: X, Flexibility: ✓, Scalability: X, Cost: ✓ */}
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  </div>
+                </div>
+              </div>
+
+              {/* DIY tools & templates */}
+              <div className="grid grid-cols-12 hover:bg-muted/20 transition-colors">
+                <div className="col-span-5 p-5 lg:p-6 flex items-start gap-4">
+                  <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                    <Wrench className="w-5 h-5 lg:w-6 lg:h-6 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground text-base lg:text-lg mb-1">DIY tools & templates</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                      Design tools and templates work for basic tasks but lack the strategic thinking, custom execution, and professional polish that separates good content from great content.
+                    </p>
+                  </div>
+                </div>
+                <div className="col-span-7 grid grid-cols-5">
+                  {/* Speed: ✓, Quality: X, Flexibility: X, Scalability: X, Cost: ✓ */}
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <X className="w-5 h-5 lg:w-6 lg:h-6 text-red-400" strokeWidth={2.5} />
+                  </div>
+                  <div className="p-4 lg:p-6 flex items-center justify-center">
+                    <Check className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" strokeWidth={2.5} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Cards View */}
+          <div className="md:hidden space-y-4">
+            {/* 9Yards Card - Highlighted with accent background */}
+            <div className="rounded-2xl bg-accent p-5 sm:p-6">
+              <h4 className="font-bold text-white text-xl mb-2">9Yards Content House</h4>
+              <p className="text-sm text-white/80 leading-relaxed mb-5">
+                Your dedicated creative team with professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects.
+              </p>
+              <div className="grid grid-cols-5 gap-1">
+                {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label) => (
+                  <div key={label} className="text-center">
+                    <div className="flex items-center justify-center mb-2">
+                      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                        <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                      </div>
+                    </div>
+                    <span className="text-[10px] text-white/70 font-medium leading-tight block">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Other options */}
+            {[
+              { 
+                icon: Building2, 
+                title: 'In-house team', 
+                desc: "Building an in-house creative department requires significant investment in salaries, equipment, software, and space.", 
+                checks: [false, false, false, true, false] 
+              },
+              { 
+                icon: Briefcase, 
+                title: 'Traditional agencies', 
+                desc: 'Large agencies deliver quality but come with enterprise pricing, long lead times, and inflexible processes.', 
+                checks: [false, true, false, true, false] 
+              },
+              { 
+                icon: UserCircle, 
+                title: 'Freelancers', 
+                desc: 'Individual freelancers can be affordable but managing multiple specialists and inconsistent quality becomes overwhelming.', 
+                checks: [false, false, true, false, true] 
+              },
+              { 
+                icon: Wrench, 
+                title: 'DIY tools & templates', 
+                desc: 'Design tools work for basic tasks but lack the strategic thinking and professional polish.', 
+                checks: [true, false, false, false, true] 
+              },
+            ].map((option) => (
+              <div key={option.title} className="rounded-2xl bg-muted/30 border border-border p-5 sm:p-6">
+                <div className="flex items-start gap-3 mb-5">
+                  <div className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
+                    <option.icon className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground text-lg mb-1">{option.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{option.desc}</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-5 gap-1">
+                  {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label, i) => (
+                    <div key={label} className="text-center">
+                      <div className="flex items-center justify-center mb-2">
+                        {option.checks[i] ? (
+                          <Check className="w-5 h-5 text-green-500" strokeWidth={2.5} />
+                        ) : (
+                          <X className="w-5 h-5 text-red-400" strokeWidth={2} />
+                        )}
+                      </div>
+                      <span className="text-[10px] text-muted-foreground font-medium leading-tight block">{label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </Layout>
