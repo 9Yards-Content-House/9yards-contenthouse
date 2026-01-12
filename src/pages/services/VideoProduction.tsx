@@ -167,6 +167,56 @@ export default function VideoProduction() {
         </div>
       </section>
 
+      {/* Video Production That Works For You Section */}
+      <section className="overflow-hidden bg-background py-12 sm:py-16 md:py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
+            {/* Text Content */}
+            <div className="order-2 lg:order-1">
+              <div className="max-w-xl lg:max-w-lg">
+                {/* Accent bar */}
+                <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
+                <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Video Production That Works For You</h2>
+                <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.2]">
+                  High-quality video, fast turnaround, and results you can measure
+                </p>
+                <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  Your brand needs video content that performs, from social media reels to music videos to corporate documentaries. 9Yards Content House brings professional equipment, experienced crews, and efficient workflows that deliver exceptional results without the traditional agency timeline.
+                </p>
+                <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  Unlike slow agencies or unreliable freelancers, our video production services adapt to your workflow and scale with your business. Professional cinema cameras, experienced editors, and proven processes mean you get speed without sacrificing storytelling or quality.
+                </p>
+                <div className="mt-6 sm:mt-8 lg:mt-10">
+                  <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
+                    <Link to="/get-started?service=video-production">
+                      Start Your Project
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+            
+            {/* Image */}
+            <div className="relative order-1 lg:order-2">
+              {/* Decorative accent elements - visible on tablet and desktop */}
+              <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-20 h-20 md:w-24 md:h-24 bg-accent/10 rounded-2xl -z-10 hidden sm:block"></div>
+              <div className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 w-24 h-24 md:w-32 md:h-32 bg-primary/10 rounded-2xl -z-10 hidden sm:block"></div>
+              
+              {/* Image with brand accent border */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
+                <img 
+                  src="/images/team/9yards-team-onset.png" 
+                  alt="9Yards Content House video production team on set with professional cinema camera" 
+                  className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-16 sm:py-20 lg:py-28 bg-background">
         <div className="container-custom">
