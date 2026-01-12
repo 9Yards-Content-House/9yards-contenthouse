@@ -82,23 +82,39 @@ export function Footer() {
 
   return (
     <footer className="text-white">
-      {/* CTA Section - Blue Theme */}
-      <div className="bg-[#212282]">
-        <div className="container-custom py-10 sm:py-14 md:py-16 lg:py-20">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8">
-            <div className="max-w-xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-white">
-                Ready to bring your<br className="hidden sm:block" /> vision to life?
+      {/* CTA Section - Blue Theme with Gradient */}
+      <div className="bg-gradient-to-br from-[#212282] via-[#1a1c6e] to-[#212282] relative overflow-hidden">
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3" />
+        </div>
+        
+        <div className="container-custom py-14 sm:py-16 md:py-20 lg:py-24 relative z-10">
+          {/* Mobile & Tablet: Centered layout | Desktop: Side by side */}
+          <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left gap-6 sm:gap-8 lg:gap-12">
+            
+            {/* Text Content */}
+            <div className="max-w-lg lg:max-w-xl">
+              <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-white">
+                Ready to scale your brand?
               </h2>
-              <p className="mt-3 sm:mt-4 text-white/70 text-sm sm:text-base lg:text-lg">
+              <p className="mt-4 sm:mt-5 text-white/70 text-base sm:text-lg lg:text-xl max-w-md mx-auto lg:mx-0">
                 Let's create something extraordinary together.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-shrink-0">
-              <Button variant="accent" size="lg" className="px-8 sm:px-10 text-sm sm:text-base" asChild>
+            
+            {/* CTA Button */}
+            <div className="w-full sm:w-auto flex-shrink-0 mt-2 sm:mt-0">
+              <Button 
+                variant="accent" 
+                size="lg" 
+                className="w-full sm:w-auto px-10 sm:px-12 py-6 sm:py-6 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow" 
+                asChild
+              >
                 <Link to="/get-started">
                   Get Started
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
             </div>
@@ -119,9 +135,17 @@ export function Footer() {
                 className="h-9 sm:h-10 w-auto"
               />
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-xs">
+            <p className="text-white/60 text-sm leading-relaxed mb-4 max-w-xs">
               Your complete creative department. Fast, affordable, exceptional.
             </p>
+
+            {/* Email Contact */}
+            <a 
+              href="mailto:contenthouse@9yards.co.ug" 
+              className="text-white/60 hover:text-accent transition-colors text-sm mb-4 inline-block"
+            >
+              contenthouse@9yards.co.ug
+            </a>
 
             {/* Social Links */}
             <div className="flex items-center gap-2">
