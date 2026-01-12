@@ -26,6 +26,7 @@ const services = {
   media: [
     { name: "Podcast Production", href: "/services/podcast-production" },
     { name: "TV & Radio Production", href: "/services/tv-radio-production" },
+    { name: "Voice-Over Recording", href: "/services/voice-over" },
   ],
   ai: [
     { name: "AI-Powered Creative", href: "/services/ai-creative" },

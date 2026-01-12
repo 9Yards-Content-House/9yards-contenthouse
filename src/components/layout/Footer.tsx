@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Zap, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const footerLinks = {
@@ -14,16 +14,20 @@ const footerLinks = {
     { name: "Social Media Marketing", href: "/services/social-media-management" },
     { name: "Website Development", href: "/services/website-development" },
     { name: "Influencer Marketing", href: "/services/influencer-marketing" },
+    { name: "Email Marketing", href: "/services/email-marketing" },
+    { name: "Digital Strategy", href: "/services/digital-strategy" },
   ],
   mediaProduction: [
     { name: "Podcast Production", href: "/services/podcast-production" },
     { name: "TV & Radio Production", href: "/services/tv-radio-production" },
+    { name: "Voice-Over Recording", href: "/services/voice-over" },
     { name: "Podcast Studio Rental", href: "/services/podcast-studio-rental" },
   ],
   company: [
     { name: "About Us", href: "/about" },
     { name: "Our Work", href: "/portfolio" },
-    { name: "Pricing", href: "/pricing" },
+    { name: "Why Us", href: "/why-us" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ],
 };
@@ -73,6 +77,12 @@ const socialLinks = [
   { name: "TikTok", icon: TikTokIcon, href: "https://www.tiktok.com/@9.yards.content.house" },
 ];
 
+const features = [
+  { icon: Zap, label: "Fast Turnaround" },
+  { icon: Award, label: "World-Class Quality" },
+  { icon: Clock, label: "Flexible Pricing" },
+];
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -80,7 +90,7 @@ export function Footer() {
     <footer className="bg-[#181818] text-white">
       {/* CTA Section */}
       <div className="border-b border-white/10">
-        <div className="container-custom py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="container-custom py-10 sm:py-14 md:py-16 lg:py-20">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8">
             <div className="max-w-xl">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1]">
@@ -113,61 +123,61 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container-custom py-12 sm:py-14 md:py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10 sm:gap-x-8 lg:gap-x-12">
+      <div className="container-custom py-10 sm:py-12 md:py-14">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-4 sm:gap-x-6 lg:gap-x-10 gap-y-8 sm:gap-y-10">
           {/* Brand Column */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-4">
-            <Link to="/" className="inline-block mb-5 sm:mb-6">
+          <div className="col-span-2 sm:col-span-2 md:col-span-4 lg:col-span-1 mb-2 md:mb-4 lg:mb-0">
+            <Link to="/" className="inline-block mb-4">
               <img 
                 src="/images/logo/9Yards-Logo-Inverted-Color.png" 
                 alt="9Yards Content House" 
-                className="h-9 sm:h-10 md:h-11 w-auto"
+                className="h-9 sm:h-10 w-auto"
               />
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-5 sm:mb-6 max-w-sm lg:max-w-none">
+            <p className="text-white/60 text-sm leading-relaxed mb-4 max-w-xs">
               Your complete creative department. Fast, affordable, exceptional.
             </p>
             
             {/* Contact Info */}
-            <div className="space-y-3 mb-6">
+            <div className="space-y-2.5 mb-5">
               <a
                 href="tel:+256700488870"
-                className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors text-sm group"
+                className="flex items-center gap-2.5 text-white/70 hover:text-accent transition-colors text-sm group"
               >
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
-                  <Phone className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
+                  <Phone className="w-3.5 h-3.5" />
                 </div>
                 +256 700 488 870
               </a>
               <a
                 href="mailto:contenthouse@9yards.co.ug"
-                className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors text-sm group"
+                className="flex items-center gap-2.5 text-white/70 hover:text-accent transition-colors text-sm group"
               >
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
-                  <Mail className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
+                  <Mail className="w-3.5 h-3.5" />
                 </div>
                 contenthouse@9yards.co.ug
               </a>
-              <div className="flex items-center gap-3 text-white/70 text-sm">
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-2.5 text-white/70 text-sm">
+                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-3.5 h-3.5" />
                 </div>
                 Canoga suites. Lower Kkonge
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent text-white/70 hover:text-white transition-all"
+                  className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent text-white/70 hover:text-white transition-all"
                   aria-label={social.name}
                 >
-                  <social.icon className="w-[18px] h-[18px]" />
+                  <social.icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
@@ -175,8 +185,8 @@ export function Footer() {
 
           {/* Creative Services */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Creative Services</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Creative Services</h4>
+            <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.creativeServices.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -192,8 +202,8 @@ export function Footer() {
 
           {/* Digital & Strategy */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Digital & Strategy</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Digital & Strategy</h4>
+            <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.digitalStrategy.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -209,8 +219,8 @@ export function Footer() {
 
           {/* Media Production */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Media Production</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Media Production</h4>
+            <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.mediaProduction.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -226,8 +236,8 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Company</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Company</h4>
+            <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -241,18 +251,30 @@ export function Footer() {
             </ul>
           </div>
         </div>
+
+        {/* Features Strip */}
+        <div className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-white/10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+            {features.map((feature) => (
+              <div key={feature.label} className="flex items-center gap-2.5 text-white/50">
+                <feature.icon className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium">{feature.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Footer Bottom */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="container-custom py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           {/* Copyright - Left */}
           <p className="text-xs sm:text-sm text-white/50 text-center sm:text-left">
             © {currentYear} 9Yards Content House
           </p>
 
           {/* Legal Links - Right */}
-          <div className="flex items-center gap-6 text-xs sm:text-sm text-white/50">
+          <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-white/50">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
