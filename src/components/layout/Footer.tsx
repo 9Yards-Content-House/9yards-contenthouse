@@ -3,23 +3,28 @@ import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const footerLinks = {
-  services: [
-    { name: "Videography", href: "/services/video-production" },
+  creativeServices: [
+    { name: "Video Production", href: "/services/video-production" },
+    { name: "Photography", href: "/services/photography" },
     { name: "Graphic Design", href: "/services/graphic-design" },
+    { name: "Print Design", href: "/services/print-design" },
+    { name: "Branding", href: "/services/branding-services" },
+  ],
+  digitalStrategy: [
     { name: "Social Media Marketing", href: "/services/social-media-management" },
     { name: "Website Development", href: "/services/website-development" },
-    { name: "Podcast Production", href: "/services/podcast-studio-rental" },
+    { name: "Influencer Marketing", href: "/services/influencer-marketing" },
+  ],
+  mediaProduction: [
+    { name: "Podcast Production", href: "/services/podcast-production" },
+    { name: "TV & Radio Production", href: "/services/tv-radio-production" },
+    { name: "Podcast Studio Rental", href: "/services/podcast-studio-rental" },
   ],
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Portfolio", href: "/portfolio" },
+    { name: "Our Work", href: "/portfolio" },
     { name: "Pricing", href: "/pricing" },
     { name: "Contact", href: "/contact" },
-  ],
-  resources: [
-    { name: "All Services", href: "/services" },
-    { name: "Podcast Studio", href: "/studio" },
-    { name: "Get Started", href: "/get-started" },
   ],
 };
 
@@ -108,59 +113,109 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container-custom py-10 sm:py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12">
+      <div className="container-custom py-12 sm:py-14 md:py-16 lg:py-20">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10 sm:gap-x-8 lg:gap-x-12">
           {/* Brand Column */}
-          <div className="sm:col-span-2 lg:col-span-2 mb-2 sm:mb-0">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-4">
             <Link to="/" className="inline-block mb-5 sm:mb-6">
               <img 
                 src="/images/logo/9Yards-Logo-Inverted-Color.png" 
                 alt="9Yards Content House" 
-                className="h-8 sm:h-10 md:h-12 w-auto"
+                className="h-9 sm:h-10 md:h-11 w-auto"
               />
             </Link>
-            <p className="text-white/60 text-sm sm:text-base max-w-sm leading-relaxed mb-5 sm:mb-6">
-              Your full-service creative partner. From videography to web development, we bring brands to life with world-class creative.
+            <p className="text-white/60 text-sm leading-relaxed mb-5 sm:mb-6 max-w-sm lg:max-w-none">
+              Your complete creative department. Fast, affordable, exceptional.
             </p>
             
             {/* Contact Info */}
-            <div className="space-y-2.5 sm:space-y-3">
+            <div className="space-y-3 mb-6">
               <a
                 href="tel:+256700488870"
-                className="flex items-center gap-2.5 sm:gap-3 text-white/70 hover:text-accent transition-colors text-sm group"
+                className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors text-sm group"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
-                  <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
+                  <Phone className="w-4 h-4" />
                 </div>
                 +256 700 488 870
               </a>
               <a
                 href="mailto:contenthouse@9yards.co.ug"
-                className="flex items-center gap-2.5 sm:gap-3 text-white/70 hover:text-accent transition-colors text-sm group"
+                className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors text-sm group"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
-                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors flex-shrink-0">
+                  <Mail className="w-4 h-4" />
                 </div>
                 contenthouse@9yards.co.ug
               </a>
-              <div className="flex items-center gap-2.5 sm:gap-3 text-white/70 text-sm">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div className="flex items-center gap-3 text-white/70 text-sm">
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 Canoga suites. Lower Kkonge
               </div>
             </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent text-white/70 hover:text-white transition-all"
+                  aria-label={social.name}
+                >
+                  <social.icon className="w-[18px] h-[18px]" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Services */}
+          {/* Creative Services */}
           <div>
-            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/90 mb-3 sm:mb-4">Services</h4>
-            <ul className="space-y-2 sm:space-y-3">
-              {footerLinks.services.map((link) => (
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Creative Services</h4>
+            <ul className="space-y-2.5">
+              {footerLinks.creativeServices.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-accent transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Digital & Strategy */}
+          <div>
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Digital & Strategy</h4>
+            <ul className="space-y-2.5">
+              {footerLinks.digitalStrategy.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-white/60 hover:text-white transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Media Production */}
+          <div>
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Media Production</h4>
+            <ul className="space-y-2.5">
+              {footerLinks.mediaProduction.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -171,30 +226,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/90 mb-3 sm:mb-4">Company</h4>
-            <ul className="space-y-2 sm:space-y-3">
+            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-4">Company</h4>
+            <ul className="space-y-2.5">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-accent transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="font-semibold text-xs sm:text-sm uppercase tracking-wider text-white/90 mb-3 sm:mb-4">Resources</h4>
-            <ul className="space-y-2 sm:space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-white/60 hover:text-accent transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -207,35 +245,20 @@ export function Footer() {
 
       {/* Footer Bottom */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-5 sm:py-6 md:py-8 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-          {/* Copyright */}
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs sm:text-sm text-white/50 text-center sm:text-left">
-            <span>© {currentYear} 9Yards Content House</span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <div className="flex items-center gap-3 sm:gap-4">
-              <Link to="/privacy-policy" className="hover:text-white/80 transition-colors">
-                Privacy
-              </Link>
-              <Link to="/terms-of-service" className="hover:text-white/80 transition-colors">
-                Terms
-              </Link>
-            </div>
-          </div>
+        <div className="container-custom py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          {/* Copyright - Left */}
+          <p className="text-xs sm:text-sm text-white/50 text-center sm:text-left">
+            © {currentYear} 9Yards Content House
+          </p>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent text-white/70 hover:text-white transition-all"
-                aria-label={social.name}
-              >
-                <social.icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
-              </a>
-            ))}
+          {/* Legal Links - Right */}
+          <div className="flex items-center gap-6 text-xs sm:text-sm text-white/50">
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
