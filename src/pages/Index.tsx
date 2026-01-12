@@ -845,12 +845,12 @@ export default function Index() {
 
           {/* Tablet View (md breakpoint) */}
           <div className="hidden md:block lg:hidden">
-            {/* Column Headers for Tablet */}
-            <div className="flex justify-end mb-6 pr-4">
-              <div className="grid grid-cols-5 gap-4 w-[280px]">
+            {/* Column Headers for Tablet - Fixed spacing */}
+            <div className="flex justify-end mb-6 pr-6">
+              <div className="grid grid-cols-5 w-[320px]">
                 {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label) => (
-                  <div key={label} className="text-center">
-                    <span className="text-sm font-semibold text-foreground">{label}</span>
+                  <div key={label} className="text-center px-1">
+                    <span className="text-xs font-semibold text-foreground">{label}</span>
                   </div>
                 ))}
               </div>
@@ -858,14 +858,14 @@ export default function Index() {
 
             {/* 9Yards Row - Tablet */}
             <div className="bg-accent rounded-[2.5rem] py-6 px-6 mb-6">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex-1 max-w-sm">
+              <div className="flex items-center justify-between gap-6">
+                <div className="flex-1">
                   <h4 className="font-bold text-white text-lg mb-1.5">9Yards Content House</h4>
-                  <p className="text-sm text-white/85 leading-relaxed">
-                    Your dedicated creative team with professional equipment, proven talent, and intelligent workflows.
+                  <p className="text-sm text-white/85 leading-relaxed max-w-xs">
+                    Professional equipment, proven talent, and intelligent workflows.
                   </p>
                 </div>
-                <div className="grid grid-cols-5 gap-4 w-[280px] flex-shrink-0">
+                <div className="grid grid-cols-5 w-[320px] flex-shrink-0">
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className="flex items-center justify-center">
                       <Check className="w-6 h-6 text-white" strokeWidth={2.5} />
@@ -881,40 +881,40 @@ export default function Index() {
                 { 
                   icon: Building2, 
                   title: 'In-house team', 
-                  desc: "Building an in-house team means high fixed costs for salaries, equipment, and software without the flexibility to scale.", 
+                  desc: "High fixed costs for salaries, equipment, and software without flexibility to scale.", 
                   checks: [false, false, false, true, false] 
                 },
                 { 
                   icon: Briefcase, 
                   title: 'Traditional agencies', 
-                  desc: "Traditional agencies deliver quality work but come with enterprise pricing, long turnaround times, and rigid processes.", 
+                  desc: "Quality work but with enterprise pricing, long turnarounds, and rigid processes.", 
                   checks: [false, true, false, true, false] 
                 },
                 { 
                   icon: UserCircle, 
                   title: 'Freelancers', 
-                  desc: "Freelancers offer flexibility but managing multiple individuals and maintaining consistent quality becomes a challenge.", 
+                  desc: "Flexible but managing quality and availability becomes challenging.", 
                   checks: [false, false, true, false, true] 
                 },
                 { 
                   icon: Wrench, 
                   title: 'DIY tools & templates', 
-                  desc: "DIY design tools help with basic tasks but lack the strategic thinking and professional polish.", 
+                  desc: "Great for basic tasks but lack strategic thinking and polish.", 
                   checks: [true, false, false, false, true] 
                 },
               ].map((option) => (
                 <div key={option.title} className="py-6 px-4 hover:bg-muted/10 transition-colors duration-200">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-start gap-3 flex-1 max-w-sm">
+                  <div className="flex items-center justify-between gap-6">
+                    <div className="flex items-start gap-3 flex-1">
                       <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
                         <option.icon className="w-6 h-6 text-muted-foreground" />
                       </div>
-                      <div>
+                      <div className="max-w-[240px]">
                         <h4 className="font-bold text-foreground text-base mb-1">{option.title}</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">{option.desc}</p>
                       </div>
                     </div>
-                    <div className="grid grid-cols-5 gap-4 w-[280px] flex-shrink-0">
+                    <div className="grid grid-cols-5 w-[320px] flex-shrink-0">
                       {option.checks.map((checked, i) => (
                         <div key={i} className="flex items-center justify-center">
                           {checked ? (
@@ -937,9 +937,9 @@ export default function Index() {
             <div className="rounded-[1.75rem] sm:rounded-[2rem] bg-accent p-5 sm:p-6">
               <h4 className="font-bold text-white text-lg sm:text-xl mb-2">9Yards Content House</h4>
               <p className="text-sm text-white/85 leading-relaxed mb-5">
-                Your dedicated creative team with professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects.
+                Professional equipment, proven talent, and intelligent workflows. Subscribe monthly or book projects.
               </p>
-              <div className="grid grid-cols-5 gap-2">
+              <div className="grid grid-cols-5 gap-1">
                 {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label) => (
                   <div key={label} className="text-center">
                     <div className="flex items-center justify-center mb-1.5">
@@ -956,25 +956,25 @@ export default function Index() {
               { 
                 icon: Building2, 
                 title: 'In-house team', 
-                desc: "Building an in-house team means high fixed costs for salaries, equipment, and software without the flexibility to scale up or down as your business needs change.", 
+                desc: "High fixed costs for salaries, equipment, and software without the flexibility to scale as your business needs change.", 
                 checks: [false, false, false, true, false] 
               },
               { 
                 icon: Briefcase, 
                 title: 'Traditional agencies', 
-                desc: "Traditional agencies deliver quality work but come with enterprise pricing, long turnaround times, and rigid processes that don't adapt to your pace.", 
+                desc: "Quality work but with enterprise pricing, long turnarounds, and rigid processes that don't adapt to your pace.", 
                 checks: [false, true, false, true, false] 
               },
               { 
                 icon: UserCircle, 
                 title: 'Freelancers', 
-                desc: "Freelancers offer flexibility but managing multiple individuals, dealing with availability issues, and maintaining consistent quality quickly becomes a challenge.", 
+                desc: "Flexibility but managing availability and maintaining consistent quality quickly becomes a challenge.", 
                 checks: [false, false, true, false, true] 
               },
               { 
                 icon: Wrench, 
                 title: 'DIY tools & templates', 
-                desc: "DIY design tools help with basic tasks but lack the strategic thinking, custom execution, and professional polish that truly drives business results.", 
+                desc: "Great for basic tasks but lack strategic thinking, custom execution, and professional polish.", 
                 checks: [true, false, false, false, true] 
               },
             ].map((option, index) => (
@@ -991,7 +991,7 @@ export default function Index() {
                     <p className="text-sm text-muted-foreground leading-relaxed">{option.desc}</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-5 gap-2">
+                <div className="grid grid-cols-5 gap-1">
                   {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label, i) => (
                     <div key={label} className="text-center">
                       <div className="flex items-center justify-center mb-1.5">
