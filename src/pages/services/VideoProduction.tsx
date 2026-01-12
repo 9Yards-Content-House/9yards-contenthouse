@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ArrowRight, Play, Tv, MessageSquare, ClipboardList, Sparkles, Wand2 } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
 
 // Video service categories for the horizontal scroll
 const videoServices = [
@@ -17,6 +18,90 @@ const videoServices = [
 ];
 
 export default function VideoProduction() {
+  // Timeline scroll animation state
+  const timelineSectionRef = useRef<HTMLDivElement>(null);
+  const timelineContainerRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
+  const [lineProgress, setLineProgress] = useState(0);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Process steps data
+  const processSteps = [
+    {
+      number: 1,
+      title: "Strategic planning from the start",
+      description: "Get brand-aligned video with thorough content briefs, platform strategy, and clear creative direction. We collaborate to develop concepts that work, whether you come with a full script or just an idea."
+    },
+    {
+      number: 2,
+      title: "Flexible engagement model",
+      description: "Subscribe for ongoing content or book one-time projects. Our services adapt to your needs. Use us end-to-end or fill specific gaps in your workflow."
+    },
+    {
+      number: 3,
+      title: "Local team, professional results",
+      description: "Work with experienced cinematographers, editors, and directors based in Kampala. Direct communication, fast revisions, no time zone hassles. Professional cinema equipment on every shoot."
+    },
+    {
+      number: 4,
+      title: "Streamlined production",
+      description: "Solid pre-production planning means efficient shoot days. We handle locations, talent, equipment, and logistics while maintaining creative excellence at every step."
+    },
+    {
+      number: 5,
+      title: "Expert finishing & delivery",
+      description: "Professional editing, color grading, motion graphics, and sound design. Delivered in every format you need, optimized for Instagram, YouTube, TV, or web with platform-specific guidance."
+    }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!timelineContainerRef.current) return;
+
+      const container = timelineContainerRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate overall progress through the timeline section
+      const containerTop = containerRect.top;
+      const containerHeight = containerRect.height;
+      const scrollStart = viewportHeight * 0.4; // Start when container is 40% from top
+      const scrollEnd = -containerHeight + viewportHeight * 0.6; // End when container bottom is 60% from top
+      
+      const totalScrollDistance = scrollStart - scrollEnd;
+      const currentScroll = scrollStart - containerTop;
+      const progress = Math.max(0, Math.min(1, currentScroll / totalScrollDistance));
+      
+      setLineProgress(progress);
+
+      // Determine active step based on individual step positions
+      stepRefs.current.forEach((stepRef, index) => {
+        if (stepRef) {
+          const stepRect = stepRef.getBoundingClientRect();
+          const stepCenter = stepRect.top + stepRect.height / 2;
+          const triggerPoint = viewportHeight * 0.5;
+          
+          if (stepCenter <= triggerPoint) {
+            setActiveStep(index + 1);
+          }
+        }
+      });
+
+      // Reset if we're above the first step
+      if (stepRefs.current[0]) {
+        const firstStepRect = stepRefs.current[0].getBoundingClientRect();
+        if (firstStepRect.top > viewportHeight * 0.5) {
+          setActiveStep(0);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section - Superside Style */}
@@ -457,12 +542,12 @@ export default function VideoProduction() {
       </section>
 
       {/* Our Process Section with Timeline */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-primary overflow-hidden">
+      <section className="bg-primary overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32" ref={timelineSectionRef}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
             
-            {/* Left Side - Sticky Content */}
-            <div className="lg:sticky lg:top-32 lg:self-start">
+            {/* Left Side - Sticky Content (vertically centered) */}
+            <div className="lg:sticky lg:top-1/2 lg:-translate-y-1/2 lg:self-start lg:h-fit">
               {/* Headline */}
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] mb-6">
                 Our process makes it<br className="hidden sm:block" />
@@ -504,82 +589,58 @@ export default function VideoProduction() {
               </div>
             </div>
 
-            {/* Right Side - Timeline */}
-            <div className="relative">
-              {/* Vertical Line */}
-              <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-accent/50 to-accent/20" />
+            {/* Right Side - Timeline with scroll animation */}
+            <div className="relative" ref={timelineContainerRef}>
+              {/* Background Vertical Line (gray/muted) */}
+              <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-white/20" />
+              
+              {/* Progress Vertical Line (orange/accent) - animated */}
+              <div 
+                className="absolute left-5 sm:left-6 top-0 w-px bg-accent origin-top transition-transform duration-100 ease-out"
+                style={{ 
+                  height: '100%',
+                  transform: `scaleY(${lineProgress})`,
+                }}
+              />
               
               {/* Timeline Items */}
-              <div className="space-y-12 sm:space-y-16 lg:space-y-20">
-                {/* Step 1 */}
-                <div className="relative pl-14 sm:pl-16">
-                  {/* Circle with number */}
-                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
-                    <span className="text-sm sm:text-base font-semibold text-primary">1</span>
+              <div className="space-y-16 sm:space-y-20 lg:space-y-24">
+                {processSteps.map((step, index) => (
+                  <div 
+                    key={step.number}
+                    ref={(el) => { stepRefs.current[index] = el; }}
+                    className="relative pl-14 sm:pl-16"
+                  >
+                    {/* Circle with number - animated color */}
+                    <div 
+                      className={`absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-500 ease-out ${
+                        activeStep >= step.number 
+                          ? 'bg-accent border-accent' 
+                          : 'bg-transparent border-white/30'
+                      }`}
+                    >
+                      <span 
+                        className={`text-sm sm:text-base font-semibold transition-colors duration-500 ${
+                          activeStep >= step.number 
+                            ? 'text-primary' 
+                            : 'text-white/50'
+                        }`}
+                      >
+                        {step.number}
+                      </span>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className={`transition-opacity duration-500 ${activeStep >= step.number ? 'opacity-100' : 'opacity-60'}`}>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="text-base text-white/60 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                    Strategic planning from the start
-                  </h3>
-                  <p className="text-base text-white/60 leading-relaxed">
-                    Get brand-aligned video with thorough content briefs, platform strategy, and clear creative direction. We collaborate to develop concepts that work, whether you come with a full script or just an idea.
-                  </p>
-                </div>
-
-                {/* Step 2 */}
-                <div className="relative pl-14 sm:pl-16">
-                  {/* Circle with number */}
-                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
-                    <span className="text-sm sm:text-base font-semibold text-primary">2</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                    Flexible engagement model
-                  </h3>
-                  <p className="text-base text-white/60 leading-relaxed">
-                    Subscribe for ongoing content or book one-time projects. Our services adapt to your needs. Use us end-to-end or fill specific gaps in your workflow.
-                  </p>
-                </div>
-
-                {/* Step 3 */}
-                <div className="relative pl-14 sm:pl-16">
-                  {/* Circle with number */}
-                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
-                    <span className="text-sm sm:text-base font-semibold text-primary">3</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                    Local team, professional results
-                  </h3>
-                  <p className="text-base text-white/60 leading-relaxed">
-                    Work with experienced cinematographers, editors, and directors based in Kampala. Direct communication, fast revisions, no time zone hassles. Professional cinema equipment on every shoot.
-                  </p>
-                </div>
-
-                {/* Step 4 */}
-                <div className="relative pl-14 sm:pl-16">
-                  {/* Circle with number */}
-                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
-                    <span className="text-sm sm:text-base font-semibold text-primary">4</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                    Streamlined production
-                  </h3>
-                  <p className="text-base text-white/60 leading-relaxed">
-                    Solid pre-production planning means efficient shoot days. We handle locations, talent, equipment, and logistics while maintaining creative excellence at every step.
-                  </p>
-                </div>
-
-                {/* Step 5 */}
-                <div className="relative pl-14 sm:pl-16">
-                  {/* Circle with number */}
-                  <div className="absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent border-4 border-primary flex items-center justify-center">
-                    <span className="text-sm sm:text-base font-semibold text-primary">5</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                    Expert finishing & delivery
-                  </h3>
-                  <p className="text-base text-white/60 leading-relaxed">
-                    Professional editing, color grading, motion graphics, and sound design. Delivered in every format you need, optimized for Instagram, YouTube, TV, or web with platform-specific guidance.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
