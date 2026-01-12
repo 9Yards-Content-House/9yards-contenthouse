@@ -77,12 +77,17 @@ const socialLinks = [
   { name: "TikTok", icon: TikTokIcon, href: "https://www.tiktok.com/@9.yards.content.house" },
 ];
 
-export function Footer() {
+interface FooterProps {
+  hideCtaSection?: boolean;
+}
+
+export function Footer({ hideCtaSection = false }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="text-white">
       {/* CTA Section - Blue Theme with Gradient */}
+      {!hideCtaSection && (
       <div className="bg-gradient-to-br from-[#212282] via-[#1a1c6e] to-[#212282] relative overflow-hidden">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-20">
@@ -121,6 +126,7 @@ export function Footer() {
           </div>
         </div>
       </div>
+      )}
 
       {/* Main Footer - Dark Theme */}
       <div className="bg-[#181818]">

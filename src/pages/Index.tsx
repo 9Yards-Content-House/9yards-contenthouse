@@ -257,7 +257,7 @@ export default function Index() {
       : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <Layout>
+    <Layout hideFooterCta>
       {/* Hero Section - Superside Style */}
       <section className="relative bg-primary overflow-hidden lg:min-h-screen">
         {/* Desktop Layout: Split view */}
@@ -1007,6 +1007,144 @@ export default function Index() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Work With The Best Section */}
+      <section className="relative overflow-hidden">
+        {/* Mobile: Image on top, stacked layout */}
+        <div className="md:hidden">
+          <div className="relative h-[280px] sm:h-[320px]">
+            <img 
+              src="/images/team/9yards-office-2.jpg" 
+              alt="9Yards Content House team" 
+              className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+            />
+          </div>
+          <div className="bg-muted/50 px-6 py-10 sm:py-12">
+            <div className="max-w-xl">
+              {/* Eyebrow */}
+              <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-3">
+                Work With The Best
+              </span>
+
+              {/* Headline */}
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight mb-4">
+                Professional creative team without the enterprise cost
+              </h2>
+
+              {/* Description */}
+              <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                Work with experienced video producers, graphic designers, motion artists, web developers, social media strategists, and podcast specialists, all based right here in Kampala.
+              </p>
+
+              {/* Sub-text */}
+              <p className="text-sm text-muted-foreground/80 leading-relaxed mb-6">
+                Plus, dedicated project management to ensure your briefs stay on track from start to finish.
+              </p>
+
+              {/* CTA Button */}
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-full bg-accent hover:bg-accent/90 text-white"
+              >
+                <Link to="/get-started">Get Started Today</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Tablet: Side by side layout */}
+        <div className="hidden md:grid md:grid-cols-2 lg:hidden">
+          {/* Left Content */}
+          <div className="bg-muted/50 px-8 py-16 flex items-center">
+            <div className="max-w-md">
+              {/* Eyebrow */}
+              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent mb-4">
+                Work With The Best
+              </span>
+
+              {/* Headline */}
+              <h2 className="text-3xl font-bold text-foreground leading-tight mb-5">
+                Professional creative team without the enterprise cost
+              </h2>
+
+              {/* Description */}
+              <p className="text-base text-muted-foreground leading-relaxed mb-5">
+                Work with experienced video producers, graphic designers, motion artists, web developers, social media strategists, and podcast specialists, all based right here in Kampala. Professional equipment, proven workflows, and the expertise to deliver your projects on time, every time.
+              </p>
+
+              {/* Sub-text */}
+              <p className="text-sm text-muted-foreground/80 leading-relaxed mb-8">
+                Plus, dedicated project management to ensure your briefs stay on track from start to finish.
+              </p>
+
+              {/* CTA Button */}
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-full bg-accent hover:bg-accent/90 text-white"
+              >
+                <Link to="/get-started">Get Started Today</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="relative min-h-[500px]">
+            <img 
+              src="/images/team/9yards-office-2.jpg" 
+              alt="9Yards Content House team" 
+              className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
+            />
+          </div>
+        </div>
+
+        {/* Desktop: Side by side layout */}
+        <div className="hidden lg:grid lg:grid-cols-2">
+          {/* Left Content */}
+          <div className="bg-muted/50 px-16 py-24 xl:px-24 flex items-center">
+            <div className="max-w-xl">
+              {/* Eyebrow */}
+              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent mb-4">
+                Work With The Best
+              </span>
+
+              {/* Headline */}
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
+                Professional creative team without the enterprise cost
+              </h2>
+
+              {/* Description */}
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Work with experienced video producers, graphic designers, motion artists, web developers, social media strategists, and podcast specialists, all based right here in Kampala. Professional equipment, proven workflows, and the expertise to deliver your projects on time, every time.
+              </p>
+
+              {/* Sub-text */}
+              <p className="text-base text-muted-foreground/80 leading-relaxed mb-8">
+                Plus, dedicated project management to ensure your briefs stay on track from start to finish.
+              </p>
+
+              {/* CTA Button */}
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-full bg-accent hover:bg-accent/90 text-white"
+              >
+                <Link to="/get-started">Get Started Today</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="relative min-h-[600px]">
+            <img 
+              src="/images/team/9yards-office-2.jpg" 
+              alt="9Yards Content House team" 
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
           </div>
         </div>
       </section>
