@@ -7,6 +7,9 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import VideoProduction from "./pages/services/VideoProduction";
+import PodcastProduction from "./pages/services/PodcastProduction";
+import TVRadioProduction from "./pages/services/TVRadioProduction";
+import VoiceOver from "./pages/services/VoiceOver";
 import Pricing from "./pages/Pricing";
 import Portfolio from "./pages/Portfolio";
 import Studio from "./pages/Studio";
@@ -28,6 +31,9 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/video-production" element={<VideoProduction />} />
+          <Route path="/services/podcast-production" element={<PodcastProduction />} />
+          <Route path="/services/tv-radio-production" element={<TVRadioProduction />} />
+          <Route path="/services/voice-over" element={<VoiceOver />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/studio" element={<Studio />} />
