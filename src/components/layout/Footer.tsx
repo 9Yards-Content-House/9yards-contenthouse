@@ -147,7 +147,7 @@ export function Footer() {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
-                Kampala, Uganda
+                Canoga suites. Lower Kkonge
               </div>
             </div>
           </div>
