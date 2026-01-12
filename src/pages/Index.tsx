@@ -524,7 +524,7 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <div className="relative order-first md:order-last">
+            <div className="relative order-last">
               {/* Decorative accent elements - hidden on mobile/tablet, visible on desktop */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/10 rounded-2xl -z-10 hidden lg:block"></div>
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/10 rounded-2xl -z-10 hidden lg:block"></div>
@@ -544,93 +544,98 @@ export default function Index() {
       </section>
 
 
-      {/* Services Overview Section - Agntix Style */}
-      <section className="bg-[#181818] py-20 sm:py-28 lg:py-32 overflow-hidden" id="what-we-create">
+      {/* Services Overview Section */}
+      <section className="bg-[#181818] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden" id="what-we-create">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="max-w-4xl mx-auto mb-12 sm:mb-16 lg:mb-20">
-            <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-4">Services</p>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-              Growing sales through exceptional services
+          <div className="max-w-4xl mx-auto mb-10 sm:mb-14 lg:mb-20 text-center lg:text-left">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">What We Create</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+              Everything Your Brand<br className="hidden sm:block" /> Needs to Stand Out
             </h2>
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-white/60 max-w-2xl mx-auto lg:mx-0">
+              One creative team. Endless possibilities. From first concept to final delivery.
+            </p>
           </div>
 
           {/* Services List - Horizontal Rows */}
-          <div className="divide-y divide-white/10 rounded-2xl overflow-hidden bg-[#181818]">
-            {/* Service Row Example - repeat for each service */}
+          <div className="divide-y divide-white/10 rounded-xl sm:rounded-2xl overflow-hidden bg-[#181818]">
             {[
               {
                 number: '01',
-                title: 'Video Production',
-                description: 'From music videos to TV commercials. World-class production, fast turnaround.',
+                title: 'Videography',
+                description: 'From concept to screen. Music videos, commercials, and brand films that captivate audiences.',
                 to: '/services/video-production',
               },
               {
                 number: '02',
-                title: 'Branding',
-                description: 'Build a brand that commands attention. Logo, voice, and identity systems.',
-                to: '/services/branding-services',
+                title: 'Graphic Design',
+                description: 'Designs that demand attention. Logos, social content, and visuals that elevate your brand.',
+                to: '/services/graphic-design',
               },
               {
                 number: '03',
-                title: 'Social Media',
-                description: 'Grow your following while you focus on business. Strategy, content, engagement.',
+                title: 'Social Media Marketing',
+                description: 'Grow your audience while you grow your business. Strategy, content, and engagement handled.',
                 to: '/services/social-media-management',
               },
               {
                 number: '04',
-                title: 'Graphic Design',
-                description: 'Scroll-stopping graphics for every platform. Logos, posters, social content.',
-                to: '/services/graphic-design',
+                title: 'Influencer Marketing',
+                description: 'The right voices for your brand. Authentic partnerships that expand your reach.',
+                to: '/services/influencer-marketing',
               },
               {
                 number: '05',
-                title: 'Web Development',
-                description: 'Beautiful, blazing-fast sites that convert. SEO-optimized from day one.',
-                to: '/services/website-development',
-              },
-              {
-                number: '06',
-                title: 'Podcast Studio',
-                description: 'Professional podcast studio in Kampala. Soundproofed, fully equipped.',
+                title: 'Podcast Production',
+                description: 'Your voice, professionally produced. Full-service recording, editing, and distribution.',
                 to: '/services/podcast-studio-rental',
               },
               {
-                number: '07',
-                title: 'Photography',
-                description: 'Professional product, portrait, and event photography for your brand.',
-                to: '/services/photography',
+                number: '06',
+                title: 'Website Development',
+                description: 'Fast, beautiful, and built to convert. Websites that work as hard as you do.',
+                to: '/services/website-development',
               },
-              {
-                number: '08',
-                title: 'Print Design',
-                description: 'Brochures, business cards, packaging. Print materials that leave an impression.',
-                to: '/services/print-design',
-              },
-            ].map((service, idx) => (
+            ].map((service) => (
               <Link
                 to={service.to}
                 key={service.number}
-                className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 px-4 sm:px-8 py-8 bg-transparent hover:bg-white/5 transition-colors duration-300 relative"
+                className="group flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-8 py-6 sm:py-7 md:py-8 bg-transparent hover:bg-white/5 transition-colors duration-300 relative"
               >
-                <div className="flex items-center gap-8 w-full md:w-auto">
-                  <span className="text-lg font-semibold text-white/60 min-w-[2.5rem] tabular-nums">{service.number}</span>
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-accent transition-colors leading-tight">
+                <div className="flex items-start sm:items-center gap-4 sm:gap-6 md:gap-8 w-full sm:w-auto">
+                  <span className="text-base sm:text-lg font-semibold text-white/50 min-w-[2rem] sm:min-w-[2.5rem] tabular-nums pt-1 sm:pt-0">{service.number}</span>
+                  <div className="flex-1 sm:flex-none">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white group-hover:text-accent transition-colors leading-tight">
                       {service.title}
                     </h3>
-                    <p className="text-white/70 text-base sm:text-lg mt-1 max-w-xl">
+                    <p className="text-white/60 text-sm sm:text-base md:text-lg mt-1 sm:mt-1.5 max-w-xl leading-relaxed">
                       {service.description}
                     </p>
                   </div>
                 </div>
-                <div className="flex-1 flex justify-end items-center w-full md:w-auto mt-4 md:mt-0">
-                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
-                    <ArrowRight className="w-6 h-6 text-white group-hover:text-white" />
+                <div className="flex justify-end items-center w-full sm:w-auto mt-2 sm:mt-0 pl-10 sm:pl-0">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300 flex-shrink-0">
+                    <ArrowRight className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white group-hover:text-white" />
                   </div>
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* More Services Button */}
+          <div className="flex justify-center mt-10 sm:mt-12 md:mt-14 lg:mt-16">
+            <Button 
+              variant="hero-outline" 
+              size="lg" 
+              className="border-white/30 hover:border-white"
+              asChild
+            >
+              <Link to="/services">
+                Explore All Services
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </div>
 
         </div>
