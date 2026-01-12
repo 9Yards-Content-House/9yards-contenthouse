@@ -81,20 +81,20 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#181818] text-white">
-      {/* CTA Section */}
-      <div className="border-b border-white/10">
+    <footer className="text-white">
+      {/* CTA Section - Blue Theme */}
+      <div className="bg-[#212282]">
         <div className="container-custom py-10 sm:py-14 md:py-16 lg:py-20">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8">
             <div className="max-w-xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-white">
                 Ready to bring your<br className="hidden sm:block" /> vision to life?
               </h2>
-              <p className="mt-3 sm:mt-4 text-white/60 text-sm sm:text-base lg:text-lg">
+              <p className="mt-3 sm:mt-4 text-white/70 text-sm sm:text-base lg:text-lg">
                 Let's create something extraordinary together.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-shrink-0">
               <Button variant="accent" size="lg" className="px-6 sm:px-8 text-sm sm:text-base" asChild>
                 <Link to="/get-started">
                   Get Started
@@ -104,7 +104,7 @@ export function Footer() {
               <Button 
                 variant="hero-outline" 
                 size="lg" 
-                className="border-white/30 hover:border-white px-6 sm:px-8 text-sm sm:text-base"
+                className="border-white/40 hover:border-white hover:bg-white/10 px-6 sm:px-8 text-sm sm:text-base"
                 asChild
               >
                 <Link to="/contact">
@@ -116,8 +116,9 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main Footer */}
-      <div className="container-custom py-10 sm:py-12 md:py-14">
+      {/* Main Footer - Dark Theme */}
+      <div className="bg-[#181818]">
+        <div className="container-custom py-10 sm:py-12 md:py-14">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-4 sm:gap-x-6 lg:gap-x-10 gap-y-8 sm:gap-y-10">
           {/* Brand Column */}
           <div className="col-span-2 sm:col-span-2 md:col-span-4 lg:col-span-1 mb-2 md:mb-4 lg:mb-0">
@@ -217,10 +218,11 @@ export function Footer() {
             </ul>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Footer Bottom */}
-      <div className="border-t border-white/10">
+      <div className="bg-[#181818] border-t border-white/10">
         <div className="container-custom py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           {/* Copyright - Left */}
           <p className="text-xs sm:text-sm text-white/50 text-center sm:text-left">
