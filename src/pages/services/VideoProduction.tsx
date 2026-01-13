@@ -20,7 +20,7 @@ const videoServices = [
 export default function VideoProduction() {
   // Timeline scroll animation state
   const timelineSectionRef = useRef<HTMLDivElement>(null);
-  const timelineContainerRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
   const [lineProgress, setLineProgress] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -56,42 +56,43 @@ export default function VideoProduction() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!timelineContainerRef.current) return;
-
-      const container = timelineContainerRef.current;
-      const containerRect = container.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
+      const viewportCenter = viewportHeight * 0.5;
       
-      // Calculate overall progress through the timeline section
-      const containerTop = containerRect.top;
-      const containerHeight = containerRect.height;
-      const scrollStart = viewportHeight * 0.4; // Start when container is 40% from top
-      const scrollEnd = -containerHeight + viewportHeight * 0.6; // End when container bottom is 60% from top
+      // Track which step is currently in view
+      let currentStep = 0;
       
-      const totalScrollDistance = scrollStart - scrollEnd;
-      const currentScroll = scrollStart - containerTop;
-      const progress = Math.max(0, Math.min(1, currentScroll / totalScrollDistance));
-      
-      setLineProgress(progress);
-
-      // Determine active step based on individual step positions
       stepRefs.current.forEach((stepRef, index) => {
         if (stepRef) {
-          const stepRect = stepRef.getBoundingClientRect();
-          const stepCenter = stepRect.top + stepRect.height / 2;
-          const triggerPoint = viewportHeight * 0.5;
+          const rect = stepRef.getBoundingClientRect();
+          const stepTop = rect.top;
           
-          if (stepCenter <= triggerPoint) {
-            setActiveStep(index + 1);
+          // Step becomes active when its top crosses the viewport center
+          if (stepTop <= viewportCenter) {
+            currentStep = index + 1;
           }
         }
       });
+      
+      setActiveStep(currentStep);
 
-      // Reset if we're above the first step
-      if (stepRefs.current[0]) {
-        const firstStepRect = stepRefs.current[0].getBoundingClientRect();
-        if (firstStepRect.top > viewportHeight * 0.5) {
-          setActiveStep(0);
+      // Calculate line progress based on timeline container
+      if (timelineRef.current && stepRefs.current[0] && stepRefs.current[stepRefs.current.length - 1]) {
+        const firstStep = stepRefs.current[0];
+        const lastStep = stepRefs.current[stepRefs.current.length - 1];
+        
+        if (firstStep && lastStep) {
+          const firstRect = firstStep.getBoundingClientRect();
+          const lastRect = lastStep.getBoundingClientRect();
+          
+          // Line starts at first circle center, ends at last circle center
+          const lineStart = firstRect.top + 25; // center of first circle
+          const lineEnd = lastRect.top + 25; // center of last circle
+          const totalDistance = lineEnd - lineStart;
+          
+          // Progress based on how far the viewport center has traveled
+          const progress = (viewportCenter - lineStart) / totalDistance;
+          setLineProgress(Math.max(0, Math.min(1, progress)));
         }
       }
     };
@@ -541,78 +542,98 @@ export default function VideoProduction() {
         </div>
       </section>
 
-      {/* Our Process Section with Timeline */}
-      <section className="bg-primary overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32" ref={timelineSectionRef}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-start">
+      {/* Our Process Section - Timeline Design */}
+      <section className="bg-primary py-20 sm:py-24 lg:py-28 overflow-clip" ref={timelineSectionRef}>
+        <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-10">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 xl:gap-28">
             
-            {/* Left Side - Sticky Content (aligned with first step) */}
-            <div className="lg:sticky lg:top-0">
-              {/* Headline */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] mb-6">
+            {/* Left Side - Sticky Sidebar */}
+            <div className="lg:flex-1 lg:sticky lg:top-24 lg:h-fit">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] mb-6">
                 Our process makes it<br className="hidden sm:block" />
                 easier to <span className="italic font-serif font-normal">press play</span>
               </h2>
-              
-              {/* Description */}
-              <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-md">
-                Our video team is built for speed, quality, and seamless collaboration, from concept to final cut.
+              <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-md mb-12 lg:mb-16">
+                Our video team is built for speed, quality, and seamless collaboration.
               </p>
+              
+              {/* Stats Grid */}
+              <div className="flex flex-col sm:flex-row gap-8 sm:gap-10">
+                <div>
+                  <p className="text-4xl sm:text-5xl font-bold text-accent mb-2 font-serif italic">
+                    50+
+                  </p>
+                  <p className="text-sm text-white/60 mb-3 max-w-[200px]">
+                    projects delivered monthly across all formats
+                  </p>
+                  <Link to="/portfolio" className="text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity inline-flex items-center gap-1">
+                    View our work <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+                <div>
+                  <p className="text-4xl sm:text-5xl font-bold text-accent mb-2 font-serif italic">
+                    48-72h
+                  </p>
+                  <p className="text-sm text-white/60 mb-3 max-w-[200px]">
+                    average turnaround for social video content
+                  </p>
+                  <Link to="/get-started" className="text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity inline-flex items-center gap-1">
+                    Get started <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
             </div>
 
-            {/* Right Side - Timeline with scroll animation */}
-            <div className="relative" ref={timelineContainerRef}>
-              {/* Background Vertical Line (gray/muted) */}
-              <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-white/20" />
-              
-              {/* Progress Vertical Line (orange/accent) - animated */}
-              <div 
-                className="absolute left-5 sm:left-6 top-0 w-px bg-accent origin-top transition-transform duration-100 ease-out"
-                style={{ 
-                  height: '100%',
-                  transform: `scaleY(${lineProgress})`,
-                }}
-              />
-              
-              {/* Timeline Items */}
-              <div className="space-y-16 sm:space-y-20 lg:space-y-24">
-                {processSteps.map((step, index) => (
-                  <div 
-                    key={step.number}
-                    ref={(el) => { stepRefs.current[index] = el; }}
-                    className="relative pl-14 sm:pl-16"
-                  >
-                    {/* Circle with number - animated color */}
+            {/* Right Side - Timeline */}
+            <div className="lg:flex-[1.2] relative" ref={timelineRef}>
+              {processSteps.map((step, index) => (
+                <div
+                  key={step.number}
+                  ref={(el) => { stepRefs.current[index] = el; }}
+                  className="flex gap-6 sm:gap-9 pb-20 sm:pb-24 relative"
+                >
+                  {/* Connector Line between circles - only show if not last item */}
+                  {index < processSteps.length - 1 && (
+                    <>
+                      {/* Background line segment */}
+                      <div 
+                        className="absolute left-[22px] sm:left-[23px] top-[50px] w-[2px] bg-white/20"
+                        style={{ height: 'calc(100% - 50px)' }}
+                      />
+                      {/* Animated progress line segment */}
+                      <div 
+                        className={`absolute left-[22px] sm:left-[23px] top-[50px] w-[2px] bg-accent transition-all duration-500 ease-out ${
+                          activeStep > step.number ? 'h-full' : 'h-0'
+                        }`}
+                        style={{ maxHeight: 'calc(100% - 50px)' }}
+                      />
+                    </>
+                  )}
+                  
+                  {/* Number Circle */}
+                  <div className="flex-shrink-0">
                     <div 
-                      className={`absolute left-0 top-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-500 ease-out ${
-                        activeStep >= step.number 
-                          ? 'bg-accent border-accent' 
-                          : 'bg-transparent border-white/30'
+                      className={`w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-full border-2 flex items-center justify-center text-lg font-medium transition-all duration-500 ease-out bg-transparent ${
+                        activeStep >= step.number
+                          ? 'border-accent text-white'
+                          : 'border-white/30 text-white/40'
                       }`}
                     >
-                      <span 
-                        className={`text-sm sm:text-base font-semibold transition-colors duration-500 ${
-                          activeStep >= step.number 
-                            ? 'text-primary' 
-                            : 'text-white/50'
-                        }`}
-                      >
-                        {step.number}
-                      </span>
-                    </div>
-                    
-                    {/* Content */}
-                    <div className={`transition-opacity duration-500 ${activeStep >= step.number ? 'opacity-100' : 'opacity-60'}`}>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                        {step.title}
-                      </h3>
-                      <p className="text-base text-white/60 leading-relaxed">
-                        {step.description}
-                      </p>
+                      {step.number}
                     </div>
                   </div>
-                ))}
-              </div>
+                  
+                  {/* Content */}
+                  <div className="pt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-lg">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
