@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { ArrowRight, Play, Tv, MessageSquare, ClipboardList, Sparkles, Wand2 } from "lucide-react";
+import { ArrowRight, Play, Tv, MessageSquare, ClipboardList, Sparkles, Wand2, Smartphone, Film, Briefcase } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 // Video service categories for the horizontal scroll
@@ -407,7 +407,7 @@ export default function VideoProduction() {
             {/* Social Media Platforms Card */}
             <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
-                <Play className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+                <Smartphone className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 Instagram, TikTok, YouTube, Facebook
@@ -420,7 +420,7 @@ export default function VideoProduction() {
             {/* Broadcast & Streaming Card */}
             <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
-                <Tv className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+                <Film className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 TV and broadcast quality
@@ -433,7 +433,7 @@ export default function VideoProduction() {
             {/* Corporate & Marketing Card */}
             <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
-                <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+                <Briefcase className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 Corporate and marketing videos
