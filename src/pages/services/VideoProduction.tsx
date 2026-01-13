@@ -543,41 +543,41 @@ export default function VideoProduction() {
       </section>
 
       {/* Our Process Section - Timeline Design */}
-      <section className="bg-primary py-20 sm:py-24 lg:py-28 overflow-clip" ref={timelineSectionRef}>
-        <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-10">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 xl:gap-28">
+      <section className="bg-primary py-16 sm:py-20 md:py-24 lg:py-28 overflow-clip" ref={timelineSectionRef}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-10">
+          <div className="flex flex-col lg:flex-row gap-10 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-28">
             
             {/* Left Side - Sticky Sidebar */}
-            <div className="lg:flex-1 lg:sticky lg:top-24 lg:h-fit">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] mb-6">
+            <div className="lg:flex-1 lg:sticky lg:top-24 lg:h-fit text-center lg:text-left">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold text-white leading-[1.1] mb-4 sm:mb-6">
                 Our process makes it<br className="hidden sm:block" />
                 easier to <span className="italic font-serif font-normal">press play</span>
               </h2>
-              <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-md mb-12 lg:mb-16">
+              <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed max-w-md mx-auto lg:mx-0 mb-8 sm:mb-10 lg:mb-16">
                 Our video team is built for speed, quality, and seamless collaboration.
               </p>
               
               {/* Stats Grid */}
-              <div className="flex flex-col sm:flex-row gap-8 sm:gap-10">
-                <div>
-                  <p className="text-4xl sm:text-5xl font-bold text-accent mb-2 font-serif italic">
+              <div className="flex flex-row justify-center lg:justify-start gap-6 sm:gap-8 md:gap-10">
+                <div className="text-center lg:text-left">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-1 sm:mb-2 font-serif italic">
                     50+
                   </p>
-                  <p className="text-sm text-white/60 mb-3 max-w-[200px]">
+                  <p className="text-xs sm:text-sm text-white/60 mb-2 sm:mb-3 max-w-[160px] sm:max-w-[200px]">
                     projects delivered monthly across all formats
                   </p>
-                  <Link to="/portfolio" className="text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity inline-flex items-center gap-1">
+                  <Link to="/portfolio" className="text-xs sm:text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity duration-300 inline-flex items-center gap-1">
                     View our work <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
-                <div>
-                  <p className="text-4xl sm:text-5xl font-bold text-accent mb-2 font-serif italic">
+                <div className="text-center lg:text-left">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent mb-1 sm:mb-2 font-serif italic">
                     48-72h
                   </p>
-                  <p className="text-sm text-white/60 mb-3 max-w-[200px]">
+                  <p className="text-xs sm:text-sm text-white/60 mb-2 sm:mb-3 max-w-[160px] sm:max-w-[200px]">
                     average turnaround for social video content
                   </p>
-                  <Link to="/get-started" className="text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity inline-flex items-center gap-1">
+                  <Link to="/get-started" className="text-xs sm:text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity duration-300 inline-flex items-center gap-1">
                     Get started <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
@@ -590,33 +590,36 @@ export default function VideoProduction() {
                 <div
                   key={step.number}
                   ref={(el) => { stepRefs.current[index] = el; }}
-                  className="flex gap-6 sm:gap-9 pb-20 sm:pb-24 relative"
+                  className="flex gap-4 sm:gap-6 md:gap-8 pb-12 sm:pb-16 md:pb-20 lg:pb-24 relative"
                 >
                   {/* Connector Line between circles - only show if not last item */}
                   {index < processSteps.length - 1 && (
                     <>
                       {/* Background line segment */}
                       <div 
-                        className="absolute left-[22px] sm:left-[23px] top-[50px] w-[2px] bg-white/20"
-                        style={{ height: 'calc(100% - 50px)' }}
+                        className="absolute left-[19px] sm:left-[21px] md:left-[23px] top-[44px] sm:top-[48px] md:top-[52px] w-1 bg-white/20 rounded-full"
+                        style={{ height: 'calc(100% - 44px)' }}
                       />
                       {/* Animated progress line segment */}
                       <div 
-                        className={`absolute left-[22px] sm:left-[23px] top-[50px] w-[2px] bg-accent transition-all duration-500 ease-out ${
-                          activeStep > step.number ? 'h-full' : 'h-0'
+                        className={`absolute left-[19px] sm:left-[21px] md:left-[23px] top-[44px] sm:top-[48px] md:top-[52px] w-1 bg-accent rounded-full transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                          activeStep > step.number ? 'opacity-100' : 'opacity-0'
                         }`}
-                        style={{ maxHeight: 'calc(100% - 50px)' }}
+                        style={{ 
+                          height: activeStep > step.number ? 'calc(100% - 44px)' : '0px',
+                          transitionProperty: 'height, opacity'
+                        }}
                       />
                     </>
                   )}
                   
                   {/* Number Circle */}
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 relative z-10">
                     <div 
-                      className={`w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-full border-2 flex items-center justify-center text-lg font-medium transition-all duration-500 ease-out bg-transparent ${
+                      className={`w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full border-[3px] sm:border-4 flex items-center justify-center text-base sm:text-lg font-medium bg-primary transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         activeStep >= step.number
                           ? 'border-accent text-white'
-                          : 'border-white/30 text-white/40'
+                          : 'border-white/25 text-white/40'
                       }`}
                     >
                       {step.number}
@@ -624,11 +627,15 @@ export default function VideoProduction() {
                   </div>
                   
                   {/* Content */}
-                  <div className="pt-1">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+                  <div className="pt-0.5 sm:pt-1 flex-1">
+                    <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 transition-colors duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                      activeStep >= step.number ? 'text-white' : 'text-white/60'
+                    }`}>
                       {step.title}
                     </h3>
-                    <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-lg">
+                    <p className={`text-sm sm:text-base md:text-lg leading-relaxed max-w-lg transition-colors duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                      activeStep >= step.number ? 'text-white/70' : 'text-white/40'
+                    }`}>
                       {step.description}
                     </p>
                   </div>
