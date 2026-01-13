@@ -555,38 +555,9 @@ export default function VideoProduction() {
               </h2>
               
               {/* Description */}
-              <p className="text-base sm:text-lg text-white/60 leading-relaxed mb-10 sm:mb-12 lg:mb-16 max-w-md">
+              <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-md">
                 Our video team is built for speed, quality, and seamless collaboration, from concept to final cut.
               </p>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:gap-10 pb-8 border-b border-white/10">
-                {/* Stat 1 */}
-                <div>
-                  <p className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight font-serif italic mb-2">
-                    50+
-                  </p>
-                  <p className="text-sm text-white/50 leading-relaxed mb-2">
-                    projects delivered monthly across all formats
-                  </p>
-                  <Link to="/portfolio" className="text-sm text-accent hover:text-accent/80 inline-flex items-center gap-1 transition-colors">
-                    View our work <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-
-                {/* Stat 2 */}
-                <div>
-                  <p className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight font-serif italic mb-2">
-                    48-72h
-                  </p>
-                  <p className="text-sm text-white/50 leading-relaxed mb-2">
-                    average turnaround for social video content
-                  </p>
-                  <Link to="/get-started" className="text-sm text-accent hover:text-accent/80 inline-flex items-center gap-1 transition-colors">
-                    Get started <ArrowRight className="w-3 h-3" />
-                  </Link>
-                </div>
-              </div>
             </div>
 
             {/* Right Side - Timeline with scroll animation */}
