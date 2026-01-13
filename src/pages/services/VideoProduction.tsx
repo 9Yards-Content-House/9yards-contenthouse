@@ -398,47 +398,47 @@ export default function VideoProduction() {
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Platform Expertise</p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
               Video expertise for every<br className="hidden sm:block" />
-              <span className="italic font-serif font-normal">platform and purpose</span>
+              platform and purpose
             </h2>
           </div>
 
           {/* Channel Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
             {/* Social Media Platforms Card */}
-            <div className="group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                <Play className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
+                <Play className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 Instagram, TikTok, YouTube, Facebook
               </h3>
-              <p className="text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
                 Platform-optimized content designed to stop the scroll. Vertical video, square formats, and aspect ratios that perform from day one.
               </p>
             </div>
 
             {/* Broadcast & Streaming Card */}
-            <div className="group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                <Tv className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
+                <Tv className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 TV and broadcast quality
               </h3>
-              <p className="text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
                 Broadcast-ready productions with cinematic quality. Built for television, streaming platforms, and high-impact digital campaigns.
               </p>
             </div>
 
             {/* Corporate & Marketing Card */}
-            <div className="group">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-300">
-                <MessageSquare className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
+                <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 Corporate and marketing videos
               </h3>
-              <p className="text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
                 Professional videos that drive business results. Product demos, explainer videos, and brand content that converts viewers into customers.
               </p>
             </div>
