@@ -403,42 +403,42 @@ export default function VideoProduction() {
           </div>
 
           {/* Channel Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
             {/* Social Media Platforms Card */}
-            <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
-                <Smartphone className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+            <div className="group p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center mb-4 sm:mb-5 lg:mb-6">
+                <Smartphone className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-accent" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">
                 Instagram, TikTok, YouTube, Facebook
               </h3>
-              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-[15px] lg:text-base text-white/60 leading-relaxed">
                 Platform-optimized content designed to stop the scroll. Vertical video, square formats, and aspect ratios that perform from day one.
               </p>
             </div>
 
             {/* Broadcast & Streaming Card */}
-            <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
-                <Film className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+            <div className="group p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center mb-4 sm:mb-5 lg:mb-6">
+                <Film className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-accent" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">
                 TV and broadcast quality
               </h3>
-              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-[15px] lg:text-base text-white/60 leading-relaxed">
                 Broadcast-ready productions with cinematic quality. Built for television, streaming platforms, and high-impact digital campaigns.
               </p>
             </div>
 
             {/* Corporate & Marketing Card */}
-            <div className="group p-6 sm:p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-5 sm:mb-6">
-                <Briefcase className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+            <div className="group p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center mb-4 sm:mb-5 lg:mb-6">
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-accent" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">
                 Corporate and marketing videos
               </h3>
-              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-[15px] lg:text-base text-white/60 leading-relaxed sm:max-w-md lg:max-w-none">
                 Professional videos that drive business results. Product demos, explainer videos, and brand content that converts viewers into customers.
               </p>
             </div>
