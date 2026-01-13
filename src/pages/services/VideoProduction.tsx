@@ -453,8 +453,8 @@ export default function VideoProduction() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/team/9yards-team-onset.png" 
-              alt="9Yards team on set"
+              src="/images/videography/interview-4.jpg" 
+              alt="9Yards video production interview setup"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
             {/* Gradient overlay - responsive for different screens */}
