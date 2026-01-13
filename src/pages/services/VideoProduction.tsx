@@ -544,10 +544,10 @@ export default function VideoProduction() {
       {/* Our Process Section with Timeline */}
       <section className="bg-primary overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32" ref={timelineSectionRef}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-start">
             
-            {/* Left Side - Sticky Content (vertically centered) */}
-            <div className="lg:sticky lg:top-1/2 lg:-translate-y-1/2 lg:self-start lg:h-fit">
+            {/* Left Side - Sticky Content (aligned with first step) */}
+            <div className="lg:sticky lg:top-0">
               {/* Headline */}
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] mb-6">
                 Our process makes it<br className="hidden sm:block" />
