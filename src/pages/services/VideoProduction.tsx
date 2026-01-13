@@ -447,49 +447,49 @@ export default function VideoProduction() {
       </section>
 
       {/* Efficient Workflows Section */}
-      <section className="relative overflow-hidden bg-[#1c1e70] py-4 sm:py-6 lg:py-8">
+      <section className="relative overflow-hidden bg-[#1c1e70] py-3 sm:py-4 md:py-6 lg:py-8">
         {/* Full-width container with rounded corners */}
-        <div className="mx-4 sm:mx-6 lg:mx-8 rounded-2xl sm:rounded-3xl overflow-hidden relative min-h-[650px] sm:min-h-[700px] lg:min-h-[750px]">
+        <div className="mx-3 sm:mx-4 md:mx-6 lg:mx-8 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden relative min-h-[580px] sm:min-h-[620px] md:min-h-[680px] lg:min-h-[720px]">
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
               src="/images/team/9yards-team-onset.png" 
               alt="9Yards team on set"
-              className="w-full h-full object-cover object-[70%_center] sm:object-center"
+              className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
-            {/* Gradient overlay - stronger on left for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30 lg:from-black/85 lg:via-black/40 lg:to-transparent" />
+            {/* Gradient overlay - responsive for different screens */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/50 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/60 sm:to-black/30 lg:from-black/85 lg:via-black/40 lg:to-transparent" />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 px-6 sm:px-10 lg:px-16 xl:px-20 py-16 sm:py-20 lg:py-24">
-            <div className="max-w-xl lg:max-w-lg">
+          <div className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-10 sm:py-14 md:py-16 lg:py-20 xl:py-24">
+            <div className="max-w-lg sm:max-w-xl md:max-w-lg lg:max-w-xl">
               {/* Eyebrow */}
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">
+              <p className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mb-2 sm:mb-3 md:mb-4">
                 How 9Yards Delivers Faster
               </p>
               
               {/* Headline */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4">
                 Efficient workflows guided by <span className="text-accent">creative excellence</span>
               </h2>
               
               {/* Description */}
-              <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-8 sm:mb-10">
+              <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed mb-5 sm:mb-6 md:mb-8 lg:mb-10">
                 Our video specialists combine professional cinema equipment with proven workflows to deliver faster without sacrificing quality. From concept to final edit, we have refined every step.
               </p>
 
               {/* Process Cards */}
-              <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
+              <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-5 sm:mb-6 md:mb-8 lg:mb-10">
                 {/* Pre-Production */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
                     </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Pre-Production</p>
-                      <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Pre-Production</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
                         Clear planning and creative direction earlier with detailed briefs and collaborative concept development
                       </p>
                     </div>
@@ -497,14 +497,14 @@ export default function VideoProduction() {
                 </div>
 
                 {/* Production */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <Video className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Video className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
                     </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Production</p>
-                      <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Production</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
                         Professional cinema cameras, lighting, and audio equipment ensure broadcast-quality footage from every shoot
                       </p>
                     </div>
@@ -512,14 +512,14 @@ export default function VideoProduction() {
                 </div>
 
                 {/* Post-Production */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <Scissors className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Scissors className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
                     </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Post-Production</p>
-                      <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Post-Production</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
                         Expert editing, color grading, and sound design deliver polished videos that meet your deadline and exceed expectations
                       </p>
                     </div>
@@ -531,7 +531,7 @@ export default function VideoProduction() {
               <Button 
                 asChild
                 size="lg"
-                className="rounded-full bg-accent hover:bg-accent/90 text-white px-6 sm:px-8"
+                className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-6 md:px-8 h-10 sm:h-11 md:h-12 text-sm sm:text-base"
               >
                 <Link to="/get-started?service=video-production">
                   Get started
