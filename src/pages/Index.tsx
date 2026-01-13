@@ -264,7 +264,7 @@ export default function Index() {
   return (
     <Layout hideFooterCta>
       {/* Hero Section - Superside Style */}
-      <section className="relative bg-primary overflow-hidden lg:min-h-screen">
+      <section className="relative bg-[#1c1e70] overflow-hidden lg:min-h-screen">
         {/* Desktop Layout: Split view */}
         <div className="relative z-10 flex flex-col lg:flex-row lg:min-h-screen">
           
@@ -301,9 +301,9 @@ export default function Index() {
             {/* Mobile/Tablet: Horizontal Scrolling Rows with edge fade */}
             <div className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8 scroll-container">
               {/* Left edge fade */}
-              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-r from-primary to-transparent" />
+              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-r from-[#1c1e70] to-transparent" />
               {/* Right edge fade */}
-              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-l from-primary to-transparent" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-l from-[#1c1e70] to-transparent" />
               
               {/* Row 1 - Scrolls Left - Service cards with varied widths */}
               <div className="mb-1.5 sm:mb-2 md:mb-2.5">
@@ -390,7 +390,7 @@ export default function Index() {
               <div 
                 className="absolute top-0 left-0 right-0 h-28 xl:h-36 z-10 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(to bottom, hsl(var(--primary)) 0%, hsl(var(--primary)) 40%, transparent 100%)'
+                  background: 'linear-gradient(to bottom, #1c1e70 0%, #1c1e70 40%, transparent 100%)'
                 }}
               />
               
@@ -398,7 +398,7 @@ export default function Index() {
               <div 
                 className="absolute bottom-0 left-0 right-0 h-28 xl:h-36 z-10 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(to top, hsl(var(--primary)) 0%, hsl(var(--primary)) 40%, transparent 100%)'
+                  background: 'linear-gradient(to top, #1c1e70 0%, #1c1e70 40%, transparent 100%)'
                 }}
               />
               
@@ -406,7 +406,7 @@ export default function Index() {
               <div 
                 className="absolute right-0 top-0 bottom-0 w-6 xl:w-8 z-10 pointer-events-none"
                 style={{
-                  background: 'linear-gradient(to left, hsl(var(--primary)) 0%, transparent 100%)'
+                  background: 'linear-gradient(to left, #1c1e70 0%, transparent 100%)'
                 }}
               />
 
@@ -556,7 +556,7 @@ export default function Index() {
 
 
       {/* Services Overview Section */}
-      <section className="bg-[#181818] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden" id="what-we-create">
+      <section className="bg-[#1c1e70] py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden" id="what-we-create">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="max-w-4xl mx-auto mb-10 sm:mb-14 lg:mb-20 text-center lg:text-left">
@@ -570,7 +570,7 @@ export default function Index() {
           </div>
 
           {/* Services List - Horizontal Rows */}
-          <div className="divide-y divide-white/10 rounded-xl sm:rounded-2xl overflow-hidden bg-[#181818]">
+          <div className="divide-y divide-white/10 rounded-xl sm:rounded-2xl overflow-hidden bg-[#1c1e70]">
             {[
               {
                 number: '01',
