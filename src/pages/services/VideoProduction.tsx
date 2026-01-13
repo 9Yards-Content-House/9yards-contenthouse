@@ -391,7 +391,7 @@ export default function VideoProduction() {
       </section>
 
       {/* Platform Expertise Section */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-primary">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#1c1e70]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -447,7 +447,7 @@ export default function VideoProduction() {
       </section>
 
       {/* Efficient Workflows Section */}
-      <section className="relative overflow-hidden bg-primary py-4 sm:py-6 lg:py-8">
+      <section className="relative overflow-hidden bg-[#1c1e70] py-4 sm:py-6 lg:py-8">
         {/* Full-width container with rounded corners */}
         <div className="mx-4 sm:mx-6 lg:mx-8 rounded-2xl sm:rounded-3xl overflow-hidden relative min-h-[650px] sm:min-h-[700px] lg:min-h-[750px]">
           {/* Background Image */}
@@ -543,7 +543,7 @@ export default function VideoProduction() {
       </section>
 
       {/* Our Process Section - Timeline Design */}
-      <section className="bg-primary py-16 sm:py-20 md:py-24 lg:py-28 overflow-clip" ref={timelineSectionRef}>
+      <section className="bg-[#1c1e70] py-16 sm:py-20 md:py-24 lg:py-28 overflow-clip" ref={timelineSectionRef}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-10">
           <div className="flex flex-col lg:flex-row gap-10 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-28">
             
@@ -616,7 +616,7 @@ export default function VideoProduction() {
                   {/* Number Circle */}
                   <div className="flex-shrink-0 relative z-10">
                     <div 
-                      className={`w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full border-[3px] sm:border-4 flex items-center justify-center text-base sm:text-lg font-medium bg-primary transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                      className={`w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full border-[3px] sm:border-4 flex items-center justify-center text-base sm:text-lg font-medium bg-[#1c1e70] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                         activeStep >= step.number
                           ? 'border-accent text-white'
                           : 'border-white/25 text-white/40'
