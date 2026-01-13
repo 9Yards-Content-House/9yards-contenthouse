@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { ArrowRight, Play, Tv, MessageSquare, ClipboardList, Sparkles, Wand2, Smartphone, Film, Briefcase } from "lucide-react";
+import { ArrowRight, Play, Tv, MessageSquare, FileText, Video, Scissors, Smartphone, Film, Briefcase } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 // Video service categories for the horizontal scroll
@@ -471,7 +471,7 @@ export default function VideoProduction() {
               
               {/* Headline */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.15] mb-4">
-                Efficient workflows guided by <span className="italic font-serif font-normal">creative excellence</span>
+                Efficient workflows guided by <span className="text-accent">creative excellence</span>
               </h2>
               
               {/* Description */}
@@ -485,7 +485,7 @@ export default function VideoProduction() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <ClipboardList className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                      <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Pre-Production</p>
@@ -500,7 +500,7 @@ export default function VideoProduction() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                      <Video className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Production</p>
@@ -515,7 +515,7 @@ export default function VideoProduction() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <Wand2 className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+                      <Scissors className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
                     </div>
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">Post-Production</p>
