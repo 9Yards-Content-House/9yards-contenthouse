@@ -22,6 +22,7 @@ import AIConsulting from "./pages/services/AIConsulting";
 import SocialMediaMarketing from "./pages/services/SocialMediaMarketing";
 import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
 import InfluencerMarketing from "./pages/services/InfluencerMarketing";
+import EmailMarketing from "./pages/services/EmailMarketing";
 import Pricing from "./pages/Pricing";
 import Portfolio from "./pages/Portfolio";
 import Studio from "./pages/Studio";
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
           <Route path="/services/website-development" element={<WebsiteDevelopment />} />
           <Route path="/services/influencer-marketing" element={<InfluencerMarketing />} />
+          <Route path="/services/email-marketing" element={<EmailMarketing />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/studio" element={<Studio />} />
