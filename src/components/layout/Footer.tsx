@@ -8,7 +8,7 @@ const footerLinks = {
     { name: "Photography", href: "/services/photography" },
     { name: "Graphic Design", href: "/services/graphic-design" },
     { name: "Print Design", href: "/services/print-design" },
-    { name: "Branding", href: "/services/branding-services" },
+    { name: "Branding", href: "/services/branding" },
   ],
   digitalStrategy: [
     { name: "Social Media Marketing", href: "/services/social-media-management" },
