@@ -1,0 +1,713 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors - 9Yards Content House */
+    /* Blue: #212282 | Orange: #E6411C */
+    --brand-blue: 240 61% 32%;
+    --brand-blue-light: 240 61% 42%;
+    --brand-blue-dark: 240 61% 22%;
+    --brand-orange: 11 82% 51%;
+    --brand-orange-light: 11 82% 61%;
+    --brand-orange-dark: 11 82% 41%;
+    
+    /* Core Design Tokens */
+    --background: 0 0% 100%;
+    --foreground: 240 61% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 61% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 61% 15%;
+
+    --primary: var(--brand-blue);
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 240 61% 15%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: var(--brand-orange);
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: var(--brand-blue);
+
+    --radius: 0.5rem;
+
+    /* Custom tokens for 9Yards */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(var(--brand-blue-dark)) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(var(--brand-orange)) 0%, hsl(var(--brand-orange-dark)) 100%);
+    --shadow-card: 0 4px 20px -4px hsl(var(--brand-blue) / 0.1);
+    --shadow-card-hover: 0 12px 40px -8px hsl(var(--brand-blue) / 0.2);
+    --shadow-button: 0 4px 14px -2px hsl(var(--brand-orange) / 0.4);
+
+    /* Sidebar tokens */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 61% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 50% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 50% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 240 61% 65%;
+    --primary-foreground: 240 61% 10%;
+
+    --secondary: 240 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 30% 20%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: var(--brand-orange);
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 30% 20%;
+    --input: 240 30% 20%;
+    --ring: 240 61% 65%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-count-up {
+    animation: countUp 2s ease-out forwards;
+  }
+
+  /* Stagger animations for children */
+  .stagger-children > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+  /* Gradient text */
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--brand-blue)) 0%, hsl(var(--brand-orange)) 100%);
+  }
+
+  /* Hero gradient background */
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .bg-cta-gradient {
+    background: var(--gradient-cta);
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Button shadow */
+  .button-shadow {
+    box-shadow: var(--shadow-button);
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Container max width */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--brand-orange) / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px hsl(var(--brand-orange) / 0);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mega menu styles with enhanced animation */
+.mega-menu {
+  @apply opacity-0 invisible transition-all duration-200 ease-out;
+  transform: translateY(8px) scale(0.98);
+  transform-origin: top center;
+}
+
+.mega-menu-trigger:hover .mega-menu,
+.mega-menu-trigger:focus-within .mega-menu,
+.mega-menu-trigger.dropdown-open .mega-menu {
+  @apply opacity-100 visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered animation for mega menu items */
+.mega-menu-trigger .mega-menu ul li {
+  @apply opacity-0;
+  transform: translateY(4px);
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+
+.mega-menu-trigger:hover .mega-menu ul li,
+.mega-menu-trigger:focus-within .mega-menu ul li,
+.mega-menu-trigger.dropdown-open .mega-menu ul li {
+  @apply opacity-100;
+  transform: translateY(0);
+}
+
+.mega-menu-trigger .mega-menu ul li:nth-child(1) { transition-delay: 50ms; }
+.mega-menu-trigger .mega-menu ul li:nth-child(2) { transition-delay: 75ms; }
+.mega-menu-trigger .mega-menu ul li:nth-child(3) { transition-delay: 100ms; }
+.mega-menu-trigger .mega-menu ul li:nth-child(4) { transition-delay: 125ms; }
+.mega-menu-trigger .mega-menu ul li:nth-child(5) { transition-delay: 150ms; }
+.mega-menu-trigger .mega-menu ul li:nth-child(6) { transition-delay: 175ms; }
+.mega-menu-trigger .mega-menu ul li:nth-child(7) { transition-delay: 200ms; }
+.mega-menu-trigger .mega-menu ul li:nth-child(8) { transition-delay: 225ms; }
+
+/* Active nav indicator */
+.nav-item-active::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current;
+}
+
+/* Body scroll lock for mobile menu */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Accordion animation */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease-out;
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* Touch feedback */
+.tap-highlight {
+  @apply relative overflow-hidden;
+}
+
+.tap-highlight::before {
+  content: '';
+  @apply absolute inset-0 bg-primary/10 opacity-0 transition-opacity duration-150;
+}
+
+.tap-highlight:active::before {
+  @apply opacity-100;
+}
+
+/* Hamburger animation */
+.hamburger-line {
+  @apply block w-5 h-0.5 bg-current transition-all duration-300 ease-out;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-open .hamburger-line:nth-child(2) {
+  @apply opacity-0;
+}
+
+.hamburger-open .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* WhatsApp button pulse */
+.whatsapp-pulse {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Smooth image zoom */
+.image-zoom {
+  @apply overflow-hidden;
+}
+
+.image-zoom img {
+  @apply transition-transform duration-500 ease-out;
+}
+
+.image-zoom:hover img {
+  @apply scale-105;
+}
+
+/* Form focus states */
+.form-input-focus {
+  @apply focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:border-transparent transition-all duration-200;
+}
+
+/* Sticky header shrink */
+.header-shrink {
+  @apply py-2 shadow-lg;
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+  animation: mobileMenuEnter 0.3s ease-out forwards;
+}
+
+.mobile-menu-exit {
+  animation: mobileMenuExit 0.25s ease-in forwards;
+}
+
+@keyframes mobileMenuEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileMenuExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Mobile menu expanded section styling */
+.mobile-nav-expanded {
+  @apply bg-primary/5 rounded-lg;
+}
+
+/* Safe area for notched devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-menu-safe-area {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Superside-style scrolling animations - GPU accelerated */
+@keyframes scroll-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translate3d(-25%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+/* Ultra-smooth marquee for video production hero pills */
+@keyframes smoothMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 50s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.animate-scroll-right {
+  animation: scroll-right 50s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Pause animation on hover - optional, can be removed for continuous scroll */
+/*
+.animate-scroll-left:hover,
+.animate-scroll-right:hover,
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+*/
+
+/* Reduced motion support - respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-left,
+  .animate-scroll-right,
+  .animate-marquee,
+  .animate-scroll-up-slow,
+  .animate-scroll-up-medium,
+  .animate-scroll-up-fast,
+  .animate-scroll-down-slow,
+  .animate-scroll-down-medium,
+  .animate-scroll-down-fast {
+    animation: none !important;
+  }
+}
+
+/* Vertical scrolling for desktop masonry - seamless infinite scroll */
+@keyframes scroll-up-slow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+
+@keyframes scroll-up-medium {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+
+@keyframes scroll-up-fast {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+
+/* Reverse vertical scrolling (scroll down) */
+@keyframes scroll-down-slow {
+  0% {
+    transform: translate3d(0, -25%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scroll-down-medium {
+  0% {
+    transform: translate3d(0, -25%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scroll-down-fast {
+  0% {
+    transform: translate3d(0, -25%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-scroll-up-slow {
+  animation: scroll-up-slow 100s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.animate-scroll-up-medium {
+  animation: scroll-up-medium 85s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.animate-scroll-up-fast {
+  animation: scroll-up-fast 75s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.animate-scroll-down-slow {
+  animation: scroll-down-slow 100s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.animate-scroll-down-medium {
+  animation: scroll-down-medium 85s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.animate-scroll-down-fast {
+  animation: scroll-down-fast 75s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Pause vertical scroll on hover - optional, can be removed for continuous scroll */
+/*
+.animate-scroll-up-slow:hover,
+.animate-scroll-up-medium:hover,
+.animate-scroll-up-fast:hover,
+.animate-scroll-down-slow:hover,
+.animate-scroll-down-medium:hover,
+.animate-scroll-down-fast:hover {
+  animation-play-state: paused;
+}
+*/
+
+/* Scrolling grid image optimization */
+.scroll-grid-image {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  contain: layout style paint;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  isolation: isolate;
+}
+
+/* Ensure images inside cards are optimized */
+.scroll-grid-image img {
+  will-change: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Smooth scroll container */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  contain: layout style;
+  isolation: isolate;
+}
+
+/* Force GPU layer for scroll parent containers */
+.scroll-wrapper {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: contents;
+  contain: layout style;
+}
