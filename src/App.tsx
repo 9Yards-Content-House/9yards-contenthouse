@@ -13,6 +13,7 @@ import PrintDesign from "./pages/services/PrintDesign";
 import Branding from "./pages/services/Branding";
 import SocialMediaCreative from "./pages/services/SocialMediaCreative";
 import ConceptCreation from "./pages/services/ConceptCreation";
+import MotionDesign from "./pages/services/MotionDesign";
 import PodcastProduction from "./pages/services/PodcastProduction";
 import TVRadioProduction from "./pages/services/TVRadioProduction";
 import VoiceOver from "./pages/services/VoiceOver";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/services/branding" element={<Branding />} />
           <Route path="/services/social-media-creative" element={<SocialMediaCreative />} />
           <Route path="/services/concept-creation" element={<ConceptCreation />} />
+          <Route path="/services/motion-design" element={<MotionDesign />} />
           <Route path="/services/podcast-production" element={<PodcastProduction />} />
           <Route path="/services/tv-radio-production" element={<TVRadioProduction />} />
           <Route path="/services/voice-over" element={<VoiceOver />} />
