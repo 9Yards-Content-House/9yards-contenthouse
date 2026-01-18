@@ -520,10 +520,10 @@ export default function Index() {
                   Your creative department has been waiting for you
                 </p>
                 <p className="mt-5 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Professional cinema equipment. Podcast studios. Motion designers. Video production. Social media management. 9Yards Content House brings everything you need to scale your brand without the enterprise price tag or endless wait times.
+                  Professional cinema equipment. Podcast studio. Expert designers and video production crews. Social media strategists. 9Yards Content House is your complete creative infrastructure, professional standards at pricing that makes sense for your business.
                 </p>
                 <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  From a single Instagram post to complete TV commercials, we deliver world-class creative that traditional agencies can't match. Subscribe monthly or book projects. Your vision, our expertise, exceptional results.
+                  From social media content to broadcast-quality productions, we deliver world-class creative at local pricing. Subscribe for ongoing work or book individual projects, flexible engagement that scales with your business.
                 </p>
                 <div className="mt-8 sm:mt-10">
                   <Button variant="accent" size="lg" asChild>
