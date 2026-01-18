@@ -105,8 +105,7 @@ export default function VideoProduction() {
 
   return (
     <Layout
-      ctaTitle="Ready for video that stands out?"
-      ctaDescription="Work with a professional video team that delivers on time, every time. Guaranteed."
+      hideFooterCta={true}
     >
       {/* Hero Section - Superside Style */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
@@ -644,6 +643,53 @@ export default function VideoProduction() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom CTA Section - Image Card Style */}
+      <section className="bg-[#f5f5f0] py-8 sm:py-10 md:py-14 lg:py-20 xl:py-24">
+        <div className="mx-auto max-w-7xl px-3 sm:px-5 md:px-6 lg:px-8 xl:px-10">
+          {/* Card Container */}
+          <div className="relative rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden min-h-[380px] sm:min-h-[420px] md:min-h-[460px] lg:min-h-[500px] xl:min-h-[540px]">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img 
+                src="/images/videography/interview-5.jpg" 
+                alt="Professional video production team at work"
+                className="w-full h-full object-cover object-[70%_center] sm:object-center"
+              />
+              {/* Gradient overlay for text readability - stronger on mobile */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20 sm:from-black/80 sm:via-black/45 sm:to-transparent md:from-black/75 md:via-black/35 lg:from-black/70 lg:via-black/25 lg:to-transparent" />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 h-full flex items-center px-5 sm:px-7 md:px-10 lg:px-12 xl:px-16 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16">
+              <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+                {/* Headline */}
+                <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                  Now imagine video content that actually{' '}
+                  <span className="text-accent">converts viewers.</span>
+                </h2>
+
+                {/* Description */}
+                <p className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/75 leading-relaxed mb-5 sm:mb-6 md:mb-7 lg:mb-8">
+                  Subscribe for ongoing content or book one-time projects. Flexible packages, predictable pricing, and quality that rivals international studios. What would you like to create?
+                </p>
+
+                {/* CTA Button */}
+                <Button 
+                  asChild
+                  size="lg"
+                  className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-7 md:px-8 lg:px-10 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base lg:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  <Link to="/get-started?service=video-production">
+                    Start Your Project
+                    <ArrowRight className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-2" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
