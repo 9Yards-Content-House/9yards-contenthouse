@@ -79,9 +79,15 @@ const socialLinks = [
 
 interface FooterProps {
   hideCtaSection?: boolean;
+  ctaTitle?: string;
+  ctaDescription?: string;
 }
 
-export function Footer({ hideCtaSection = false }: FooterProps) {
+export function Footer({ 
+  hideCtaSection = false,
+  ctaTitle = "Ready to scale your brand?",
+  ctaDescription = "Let's create something extraordinary together."
+}: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -95,26 +101,26 @@ export function Footer({ hideCtaSection = false }: FooterProps) {
           <div className="absolute top-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3" />
         </div>
         
-        <div className="container-custom py-14 sm:py-16 md:py-20 lg:py-24 relative z-10">
+        <div className="container-custom py-12 sm:py-14 md:py-18 lg:py-20 xl:py-24 relative z-10">
           {/* Mobile & Tablet: Centered layout | Desktop: Side by side */}
-          <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left gap-6 sm:gap-8 lg:gap-12">
+          <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left gap-5 sm:gap-6 md:gap-8 lg:gap-12">
             
             {/* Text Content */}
-            <div className="max-w-lg lg:max-w-xl">
-              <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-white">
-                Ready to scale your brand?
+            <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl">
+              <h2 className="text-[1.625rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold tracking-tight leading-[1.15] text-white">
+                {ctaTitle}
               </h2>
-              <p className="mt-4 sm:mt-5 text-white/70 text-base sm:text-lg lg:text-xl max-w-md mx-auto lg:mx-0">
-                Let's create something extraordinary together.
+              <p className="mt-3 sm:mt-4 md:mt-5 text-white/70 text-sm sm:text-base md:text-lg lg:text-xl max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0 leading-relaxed">
+                {ctaDescription}
               </p>
             </div>
             
             {/* CTA Button */}
-            <div className="w-full sm:w-auto flex-shrink-0 mt-2 sm:mt-0">
+            <div className="w-full sm:w-auto flex-shrink-0 mt-1 sm:mt-2 lg:mt-0">
               <Button 
                 variant="accent" 
                 size="lg" 
-                className="w-full sm:w-auto px-10 sm:px-12 py-6 sm:py-6 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow" 
+                className="w-full sm:w-auto px-8 sm:px-10 md:px-12 py-5 sm:py-6 text-sm sm:text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow" 
                 asChild
               >
                 <Link to="/get-started">

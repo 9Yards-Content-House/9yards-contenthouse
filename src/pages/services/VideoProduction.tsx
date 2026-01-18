@@ -104,7 +104,10 @@ export default function VideoProduction() {
   }, []);
 
   return (
-    <Layout>
+    <Layout
+      ctaTitle="Ready for video that stands out?"
+      ctaDescription="Work with a professional video team that delivers on time, every time. Guaranteed."
+    >
       {/* Hero Section - Superside Style */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Video */}
