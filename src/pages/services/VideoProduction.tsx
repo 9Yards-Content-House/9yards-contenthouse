@@ -669,8 +669,8 @@ export default function VideoProduction() {
               <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Headline */}
                 <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-                  Now imagine video content that actually{' '}
-                  <span className="text-accent">converts viewers.</span>
+                  Your vision deserves{' '}
+                  <span className="text-accent">cinema-quality</span> production.
                 </h2>
 
                 {/* Description */}
