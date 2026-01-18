@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import VideoProduction from "./pages/services/VideoProduction";
+import Photography from "./pages/services/Photography";
 import PodcastProduction from "./pages/services/PodcastProduction";
 import TVRadioProduction from "./pages/services/TVRadioProduction";
 import VoiceOver from "./pages/services/VoiceOver";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/video-production" element={<VideoProduction />} />
+          <Route path="/services/photography" element={<Photography />} />
           <Route path="/services/podcast-production" element={<PodcastProduction />} />
           <Route path="/services/tv-radio-production" element={<TVRadioProduction />} />
           <Route path="/services/voice-over" element={<VoiceOver />} />
