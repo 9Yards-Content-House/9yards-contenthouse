@@ -24,6 +24,7 @@ import WebsiteDevelopment from "./pages/services/WebsiteDevelopment";
 import InfluencerMarketing from "./pages/services/InfluencerMarketing";
 import EmailMarketing from "./pages/services/EmailMarketing";
 import Copywriting from "./pages/services/Copywriting";
+import DigitalStrategy from "./pages/services/DigitalStrategy";
 import Pricing from "./pages/Pricing";
 import Portfolio from "./pages/Portfolio";
 import Studio from "./pages/Studio";
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/services/influencer-marketing" element={<InfluencerMarketing />} />
           <Route path="/services/email-marketing" element={<EmailMarketing />} />
           <Route path="/services/copywriting" element={<Copywriting />} />
+          <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/studio" element={<Studio />} />
