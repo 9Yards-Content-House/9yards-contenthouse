@@ -19,6 +19,7 @@ import TVRadioProduction from "./pages/services/TVRadioProduction";
 import VoiceOver from "./pages/services/VoiceOver";
 import AICreative from "./pages/services/AICreative";
 import AIConsulting from "./pages/services/AIConsulting";
+import SocialMediaMarketing from "./pages/services/SocialMediaMarketing";
 import Pricing from "./pages/Pricing";
 import Portfolio from "./pages/Portfolio";
 import Studio from "./pages/Studio";
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/services/voice-over" element={<VoiceOver />} />
           <Route path="/services/ai-creative" element={<AICreative />} />
           <Route path="/services/ai-consulting" element={<AIConsulting />} />
+          <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/studio" element={<Studio />} />
