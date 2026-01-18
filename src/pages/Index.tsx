@@ -279,7 +279,7 @@ export default function Index() {
             
             {/* Subtitle */}
             <p className="text-[0.9rem] sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-[1.35rem] text-white/70 mb-6 sm:mb-7 lg:mb-10 max-w-sm sm:max-w-md lg:max-w-xl xl:max-w-2xl text-center lg:text-left mx-auto lg:mx-0 leading-[1.7]">
-              Whatever your vision, we bring it to life. World-class creative talent and intelligent workflows deliver professional results faster and more affordably than traditional agencies. Your creative department, on demand.
+              Professional results, delivered faster and more affordably than traditional agencies. We combine experienced creative talent with efficient workflows to bring your vision to life, from concept to completion.
             </p>
             
             {/* CTA Button */}

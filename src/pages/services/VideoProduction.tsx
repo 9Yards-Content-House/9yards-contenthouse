@@ -351,7 +351,7 @@ export default function VideoProduction() {
             {/* Card 5: Documentary & brand stories - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/bento-grid/video production/documentaries-and-brand-stories.jpg" 
+                src="/images/videography/interview-3.jpg" 
                 alt="Documentary and brand stories"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -369,7 +369,7 @@ export default function VideoProduction() {
             {/* Card 6: Event & live production - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/bento-grid/video production/event-and-live-production.jpg" 
+                src="/images/videography/livestream-4.jpg" 
                 alt="Event and live production"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
