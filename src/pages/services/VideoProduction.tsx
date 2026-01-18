@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { ArrowRight, Play, Tv, MessageSquare, FileText, Video, Scissors, Smartphone, Film, Briefcase } from "lucide-react";
+import { ArrowRight, Play, Tv, MessageSquare, FileText, Video, Scissors, Smartphone, Film, Briefcase, Zap, CheckSquare } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 // Video service categories for the horizontal scroll
@@ -450,10 +450,10 @@ export default function VideoProduction() {
         </div>
       </section>
 
-      {/* Efficient Workflows Section */}
+      {/* Why Choose Us Section */}
       <section className="relative overflow-hidden bg-[#1c1e70] py-3 sm:py-4 md:py-6 lg:py-8">
         {/* Full-width container with rounded corners */}
-        <div className="mx-3 sm:mx-4 md:mx-6 lg:mx-8 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden relative min-h-[580px] sm:min-h-[620px] md:min-h-[680px] lg:min-h-[720px]">
+        <div className="mx-3 sm:mx-4 md:mx-6 lg:mx-8 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden relative min-h-[700px] sm:min-h-[720px] md:min-h-[760px] lg:min-h-[780px]">
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
@@ -470,61 +470,76 @@ export default function VideoProduction() {
             <div className="max-w-lg sm:max-w-xl md:max-w-lg lg:max-w-xl">
               {/* Eyebrow */}
               <p className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mb-2 sm:mb-3 md:mb-4">
-                How 9Yards Delivers Faster
+                Video Production Done Right
               </p>
               
               {/* Headline */}
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4">
-                Efficient workflows guided by <span className="text-accent">creative excellence</span>
+                Why Choose 9Yards for <span className="text-accent">Video Production</span>
               </h2>
               
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed mb-5 sm:mb-6 md:mb-8 lg:mb-10">
-                Our video specialists combine professional cinema equipment with proven workflows to deliver faster without sacrificing quality. From concept to final edit, we have refined every step.
+                We're not just videographers. We're storytellers with world-class equipment and local market expertise.
               </p>
 
-              {/* Process Cards */}
+              {/* Reason Cards */}
               <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-5 sm:mb-6 md:mb-8 lg:mb-10">
-                {/* Pre-Production */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Pre-Production</p>
-                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
-                        Clear planning and creative direction earlier with detailed briefs and collaborative concept development
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Production */}
+                {/* Reason 1: Broadcast-Quality Equipment */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
                   <div className="flex items-start gap-3 sm:gap-4">
                     <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
                       <Video className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Production</p>
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Broadcast-Quality Equipment</p>
                       <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
-                        Professional cinema cameras, lighting, and audio equipment ensure broadcast-quality footage from every shoot
+                        Cinema-grade cameras, professional lighting, stabilizers, drones, and audio equipment. Premium production value without renting gear from multiple vendors.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Post-Production */}
+                {/* Reason 2: Fast Turnaround */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
                   <div className="flex items-start gap-3 sm:gap-4">
                     <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                      <Scissors className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
+                      <Zap className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Post-Production</p>
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Fast Turnaround Without Compromise</p>
                       <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
-                        Expert editing, color grading, and sound design deliver polished videos that meet your deadline and exceed expectations
+                        Most agencies take weeks. We deliver professionally edited videos in days. 2-week turnaround for standard videos. Rush options available.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reason 3: End-to-End Production */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <CheckSquare className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">End-to-End Production</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
+                        From script to final color grade, we handle everything in-house. No outsourcing. No coordination headaches. One team, one vision, seamless execution.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reason 4: Platform-Specific Optimization */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Platform-Specific Optimization</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
+                        We optimize for where your video will live. Instagram Reels get vertical framing, pacing, and captions. Corporate videos get professional polish. Every deliverable is tailored.
                       </p>
                     </div>
                   </div>
