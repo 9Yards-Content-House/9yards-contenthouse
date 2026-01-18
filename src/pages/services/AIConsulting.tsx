@@ -1,77 +1,121 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { 
-  ArrowRight, 
-  Brain,
-  Lightbulb,
-  Target,
-  TrendingUp,
-  Users,
-  Workflow,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ArrowRight, Brain, Lightbulb, Target, TrendingUp, Users, Workflow, Sparkles, Settings, GraduationCap } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
 
 // AI Consulting service categories for the horizontal scroll
 const aiConsultingServices = [
-  { name: "AI Strategy" },
-  { name: "Workflow Automation" },
-  { name: "Tool Selection" },
-  { name: "Team Training" },
-  { name: "AI Integration" },
-  { name: "Process Optimization" },
-  { name: "Custom AI Solutions" },
-  { name: "AI Audits" },
-  { name: "Change Management" },
-];
-
-// Why choose us points
-const whyChooseUs = [
-  {
-    icon: Brain,
-    title: "Deep AI Expertise",
-    description: "Hands-on experience with 50+ AI tools across creative, marketing, and operations."
-  },
-  {
-    icon: Target,
-    title: "Business-First Approach",
-    description: "We focus on ROI and practical implementation, not just shiny new technology."
-  },
-  {
-    icon: Users,
-    title: "Team Enablement",
-    description: "We train your team to use AI effectively, creating lasting organizational change."
-  },
-  {
-    icon: Workflow,
-    title: "End-to-End Support",
-    description: "From strategy to implementation to optimization, we're with you every step."
-  },
-];
-
-// Process steps
-const processSteps = [
-  { step: "01", title: "Discovery", description: "We audit your current workflows and identify AI opportunities." },
-  { step: "02", title: "Strategy", description: "Custom roadmap with prioritized AI initiatives and ROI projections." },
-  { step: "03", title: "Pilot", description: "Test AI solutions on a small scale before full rollout." },
-  { step: "04", title: "Implementation", description: "Deploy AI tools and integrate with your existing systems." },
-  { step: "05", title: "Optimization", description: "Continuous improvement and team upskilling." },
+  { name: "AI Content Strategy" },
+  { name: "Creative Workflow Automation" },
+  { name: "AI Tool Selection" },
+  { name: "Creative Team Training" },
+  { name: "AI-Enhanced Production" },
+  { name: "Content Optimization" },
+  { name: "Generative AI Workflows" },
+  { name: "AI Image & Video Tools" },
+  { name: "Prompt Engineering" },
+  { name: "AI Copywriting Systems" },
+  { name: "Creative Automation" },
 ];
 
 export default function AIConsulting() {
-  const featuresRef = useScrollAnimation<HTMLDivElement>();
-  const processRef = useScrollAnimation<HTMLDivElement>();
+  // Timeline scroll animation state
+  const timelineSectionRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
+  const [lineProgress, setLineProgress] = useState(0);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Process steps data
+  const processSteps = [
+    {
+      number: 1,
+      title: "Creative Workflow Audit",
+      description: "We map your content production pipeline—from ideation to delivery. Identify bottlenecks, repetitive tasks, and high-impact AI opportunities in your creative process."
+    },
+    {
+      number: 2,
+      title: "AI Tool Stack Design",
+      description: "Custom recommendations for AI tools that fit your creative needs—image generation, video editing, copywriting, automation. We match tools to your team's skill level and budget."
+    },
+    {
+      number: 3,
+      title: "Pilot Production",
+      description: "Test AI-enhanced workflows on real projects. Create sample content, measure time savings, and refine prompts and processes based on actual creative output."
+    },
+    {
+      number: 4,
+      title: "Workflow Integration",
+      description: "Embed AI tools into your existing creative stack. Set up templates, prompt libraries, and automated pipelines that your team can use daily."
+    },
+    {
+      number: 5,
+      title: "Team Upskilling",
+      description: "Hands-on training for your creative team—prompt engineering, AI-assisted editing, quality control. Build lasting skills, not tool dependency."
+    }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const viewportHeight = window.innerHeight;
+      const viewportCenter = viewportHeight * 0.5;
+      
+      // Track which step is currently in view
+      let currentStep = 0;
+      
+      stepRefs.current.forEach((stepRef, index) => {
+        if (stepRef) {
+          const rect = stepRef.getBoundingClientRect();
+          const stepTop = rect.top;
+          
+          // Step becomes active when its top crosses the viewport center
+          if (stepTop <= viewportCenter) {
+            currentStep = index + 1;
+          }
+        }
+      });
+      
+      setActiveStep(currentStep);
+
+      // Calculate line progress based on timeline container
+      if (timelineRef.current && stepRefs.current[0] && stepRefs.current[stepRefs.current.length - 1]) {
+        const firstStep = stepRefs.current[0];
+        const lastStep = stepRefs.current[stepRefs.current.length - 1];
+        
+        if (firstStep && lastStep) {
+          const firstRect = firstStep.getBoundingClientRect();
+          const lastRect = lastStep.getBoundingClientRect();
+          
+          // Line starts at first circle center, ends at last circle center
+          const lineStart = firstRect.top + 25; // center of first circle
+          const lineEnd = lastRect.top + 25; // center of last circle
+          const totalDistance = lineEnd - lineStart;
+          
+          // Progress based on how far the viewport center has traveled
+          const progress = (viewportCenter - lineStart) / totalDistance;
+          setLineProgress(Math.max(0, Math.min(1, progress)));
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <Layout>
+    <Layout
+      hideFooterCta={true}
+    >
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/hero-grid/Website-development.jpg"
-            alt="AI consulting and strategy"
+            alt="AI Consulting"
             className="w-full h-full object-cover scale-105"
           />
           {/* Gradient overlay - responsive: full coverage on mobile, split on desktop */}
@@ -86,17 +130,17 @@ export default function AIConsulting() {
               <div className="flex flex-col justify-center animate-fade-in">
                 {/* Eyebrow */}
                 <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-3 sm:mb-4">
-                  AI Consulting Services
+                  AI for Creatives & Content Teams
                 </span>
 
                 {/* Headline */}
                 <h1 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.6rem] font-bold text-white leading-[1.2] mb-4 sm:mb-5 tracking-tight drop-shadow-sm">
-                  Navigate the AI revolution with confidence. <span className="text-accent">Strategic guidance</span> for real results.
+                  Supercharge your creative output with AI. <span className="text-accent">Expert guidance</span> from practitioners.
                 </h1>
 
                 {/* Description */}
                 <p className="text-sm sm:text-base lg:text-lg text-white/80 leading-relaxed mb-6 sm:mb-8 max-w-xl">
-                  Cut through the AI hype. We help businesses identify practical AI opportunities, select the right tools, and implement solutions that deliver measurable ROI.
+                  We help content teams and creative agencies harness AI for faster production, better quality, and scalable output—without losing the human touch that makes your work stand out.
                 </p>
 
                 {/* CTA Button */}
@@ -106,7 +150,7 @@ export default function AIConsulting() {
                     size="lg"
                     className="rounded-full bg-accent hover:bg-accent/90 text-white px-6 sm:px-8 h-11 sm:h-12 lg:h-14 text-sm sm:text-base font-semibold shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 transition-all duration-300"
                   >
-                    <Link to="/get-started?service=multiple">
+                    <Link to="/get-started?service=ai-consulting">
                       Book a Consultation
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
@@ -131,7 +175,7 @@ export default function AIConsulting() {
             <div 
               className="flex gap-2.5 sm:gap-3 lg:gap-4"
               style={{
-                animation: 'smoothMarquee 40s linear infinite',
+                animation: 'smoothMarquee 30s linear infinite',
                 willChange: 'transform',
               }}
             >
@@ -159,116 +203,505 @@ export default function AIConsulting() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-background">
-        <div className="container-custom">
-          <div 
-            ref={featuresRef.ref}
-            className={cn(
-              "text-center mb-12 sm:mb-16 transition-all duration-700",
-              featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-4">
-              Why Work With Us
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
-              AI Consulting, Simplified
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              Practical AI advice from practitioners who use these tools every day, not just theorists.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {whyChooseUs.map((item, index) => (
-              <div 
-                key={item.title}
-                className={cn(
-                  "bg-muted/50 rounded-2xl p-6 sm:p-8 transition-all duration-700 hover:bg-muted",
-                  featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                )}
-                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-accent" />
+      {/* AI Consulting That Works For You Section */}
+      <section className="overflow-hidden bg-background py-12 sm:py-16 md:py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
+            {/* Text Content */}
+            <div className="order-2 lg:order-1">
+              <div className="max-w-xl lg:max-w-lg">
+                {/* Accent bar */}
+                <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
+                <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">AI Consulting for Creative Teams</h2>
+                <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.2]">
+                  Create more, faster—without sacrificing quality or creativity
+                </p>
+                <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  New AI tools launch daily—Midjourney, Runway, ChatGPT, Sora, and hundreds more. Which ones actually work for content production? 9Yards cuts through the hype with practical guidance from creatives who use these tools every day.
+                </p>
+                <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  We help you build AI-enhanced workflows for video, design, copywriting, and social content that scale your output without scaling your team.
+                </p>
+                <div className="mt-6 sm:mt-8 lg:mt-10">
+                  <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
+                    <Link to="/get-started?service=ai-consulting">
+                      Book a Consultation
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
-            ))}
+            </div>
+            
+            {/* Image */}
+            <div className="relative order-1 lg:order-2">
+              {/* Decorative accent elements - visible on tablet and desktop */}
+              <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-20 h-20 md:w-24 md:h-24 bg-accent/10 rounded-2xl -z-10 hidden sm:block"></div>
+              <div className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 w-24 h-24 md:w-32 md:h-32 bg-primary/10 rounded-2xl -z-10 hidden sm:block"></div>
+              
+              {/* Image with brand accent border */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
+                <img 
+                  src="/images/hero-grid/Website-development.jpg" 
+                  alt="9Yards Content House AI consulting session" 
+                  className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-[#181818]">
-        <div className="container-custom">
-          <div 
-            ref={processRef.ref}
-            className={cn(
-              "text-center mb-12 sm:mb-16 transition-all duration-700",
-              processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            )}
-          >
-            <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-4">
-              Our Process
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-              From Strategy to Impact
+      {/* Flexible AI Consulting Options - Bento Grid Section */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-background">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center lg:text-left">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">AI-Powered Creative Services</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4 sm:mb-6">
+              AI consulting for every<br className="hidden sm:block" />
+              stage of content production
             </h2>
-            <p className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto">
-              A proven methodology that turns AI potential into business results.
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
+              From ideation to final delivery, we help creative teams integrate AI at every touchpoint for faster, better content.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {processSteps.map((step, index) => (
-              <div 
-                key={step.step}
-                className={cn(
-                  "relative bg-white/5 rounded-2xl p-6 border border-white/10 transition-all duration-700 hover:bg-white/10 hover:border-accent/30",
-                  processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                )}
-                style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-              >
-                <span className="text-4xl font-bold text-accent/30 mb-4 block">{step.step}</span>
-                <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{step.description}</p>
+          {/* Bento Grid - Responsive layout matching Photography */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4 lg:gap-5">
+            
+            {/* Row 1 */}
+            {/* Card 1: AI Strategy - Large card (5 cols) */}
+            <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/Website-development.jpg" 
+                alt="AI strategy development"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/85 via-black/55 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col justify-between">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white drop-shadow-lg">AI Content Strategy</h3>
+                <p className="text-sm sm:text-base text-white/90 max-w-md leading-relaxed drop-shadow-md">
+                  Map your content production pipeline and identify where AI creates the biggest impact. From ideation to distribution, we design AI-enhanced workflows that multiply your creative output.
+                </p>
               </div>
-            ))}
+            </div>
+
+            {/* Card 2: Workflow Automation - Medium card (4 cols) */}
+            <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/graphic-design.jpg" 
+                alt="Workflow automation"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Creative Automation</h3>
+                <p className="text-sm sm:text-base text-white/90 max-w-xs leading-relaxed drop-shadow-md">
+                  Automate repetitive creative tasks—resizing, reformatting, captioning, transcription. Free your team for the creative work that matters.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: Tool Selection - Small card (3 cols) */}
+            <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/branding.jpg" 
+                alt="AI tool selection"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">AI Tool Stack</h3>
+                <p className="text-sm text-white/90 leading-relaxed drop-shadow-md">
+                  Midjourney vs DALL-E? Runway vs Pika? We test and recommend the right AI tools for your creative needs and budget.
+                </p>
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            {/* Card 4: Prompt Engineering - Small card (3 cols) */}
+            <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/photography.jpg" 
+                alt="AI team training"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Prompt Engineering</h3>
+                <p className="text-sm text-white/90 leading-relaxed drop-shadow-md">
+                  Master the art of AI prompts. We train your team to get consistent, on-brand results from generative AI tools.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5: AI Video & Image - Small card (3 cols) */}
+            <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/hero-grid/video-production.jpg" 
+                alt="AI integration"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">AI Video & Image</h3>
+                <p className="text-sm text-white/90 leading-relaxed drop-shadow-md">
+                  Integrate AI into video editing, image generation, and motion graphics for faster turnaround and endless variations.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 6: AI Copywriting Systems - Large card (6 cols) */}
+            <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
+              <img 
+                src="/images/team/team.jpg" 
+                alt="Custom AI solutions"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Soft localized gradient behind text */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent" />
+              {/* Content */}
+              <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
+                <div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">AI Copywriting Systems</h3>
+                  <p className="text-sm sm:text-base text-white/90 max-w-lg leading-relaxed drop-shadow-md">
+                    Build AI-powered copywriting workflows that maintain your brand voice. From social captions to long-form content, create systems that scale your writing without losing authenticity. Custom prompt libraries, brand guidelines integration, and quality control processes included.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-primary">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-            Ready to Transform Your Business with AI?
-          </h2>
-          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-8">
-            Let's identify the AI opportunities that will have the biggest impact on your bottom line.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              asChild
-              size="lg"
-              className="rounded-full bg-accent hover:bg-accent/90 text-white px-10 h-14 text-base font-semibold"
-            >
-              <Link to="/get-started?service=multiple">
-                Book a Consultation
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
-            <Button 
-              asChild
-              size="lg"
-              variant="outline"
-              className="rounded-full border-white/30 text-white hover:bg-white/10 px-10 h-14 text-base font-semibold"
-            >
-              <Link to="/contact">Contact Us</Link>
-            </Button>
+      {/* AI Consulting Expertise Section */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#1c1e70]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Creative AI Expertise</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+              AI guidance from creatives<br className="hidden sm:block" />
+              who use these tools daily
+            </h2>
+          </div>
+
+          {/* AI Consulting Expertise Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+            {/* Deep Expertise Card */}
+            <div className="group p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center mb-4 sm:mb-5 lg:mb-6">
+                <Brain className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-accent" />
+              </div>
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">
+                Production Experience
+              </h3>
+              <p className="text-sm sm:text-[15px] lg:text-base text-white/60 leading-relaxed">
+                We're not just consultants—we're a content house that uses AI in real production daily. Our advice comes from hands-on creative work.
+              </p>
+            </div>
+
+            {/* Business-First Card */}
+            <div className="group p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center mb-4 sm:mb-5 lg:mb-6">
+                <Target className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-accent" />
+              </div>
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">
+                Quality-First Approach
+              </h3>
+              <p className="text-sm sm:text-[15px] lg:text-base text-white/60 leading-relaxed">
+                AI should enhance creative quality, not replace it. We help you find the balance between efficiency and the human touch that makes content connect.
+              </p>
+            </div>
+
+            {/* Team Enablement Card */}
+            <div className="group p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center mb-4 sm:mb-5 lg:mb-6">
+                <Users className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-accent" />
+              </div>
+              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">
+                Creative Team Training
+              </h3>
+              <p className="text-sm sm:text-[15px] lg:text-base text-white/60 leading-relaxed sm:max-w-md lg:max-w-none">
+                Workshops designed for designers, editors, and content creators. We speak your language and teach skills your team will actually use.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="relative overflow-hidden bg-[#1c1e70] py-3 sm:py-4 md:py-6 lg:py-8">
+        {/* Full-width container with rounded corners */}
+        <div className="mx-3 sm:mx-4 md:mx-6 lg:mx-8 rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden relative min-h-[700px] sm:min-h-[720px] md:min-h-[760px] lg:min-h-[780px]">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src="/images/hero-grid/Website-development.jpg" 
+              alt="9Yards AI consulting team"
+              className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
+            />
+            {/* Gradient overlay - responsive for different screens */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-black/50 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/60 sm:to-black/30 lg:from-black/85 lg:via-black/40 lg:to-transparent" />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-10 sm:py-14 md:py-16 lg:py-20 xl:py-24">
+            <div className="max-w-lg sm:max-w-xl md:max-w-lg lg:max-w-xl">
+              {/* Eyebrow */}
+              <p className="text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-widest text-white/60 mb-2 sm:mb-3 md:mb-4">
+                Creative AI Consulting
+              </p>
+              
+              {/* Headline */}
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4">
+                Why Creatives Choose <span className="text-accent">9Yards</span>
+              </h2>
+              
+              {/* Description */}
+              <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed mb-5 sm:mb-6 md:mb-8 lg:mb-10">
+                We're not tech consultants—we're a content production house that happens to be really good at AI. That makes all the difference.
+              </p>
+
+              {/* Reason Cards */}
+              <div className="space-y-2 sm:space-y-3 md:space-y-4 mb-5 sm:mb-6 md:mb-8 lg:mb-10">
+                {/* Reason 1: Creative Background */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Brain className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Creative Background</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
+                        We produce videos, design graphics, and write copy daily. We understand creative workflows from the inside.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reason 2: Tool Agnostic */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Tool Agnostic</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
+                        We recommend what works, not what pays us. No affiliate deals or vendor partnerships—just honest advice.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reason 3: Workflow Focus */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Workflow className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Workflow Focus</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
+                        Tools alone don't create value—workflows do. We design complete systems your team will actually use.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reason 4: Skill Building */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 border border-white/10">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/80" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/50 mb-0.5 sm:mb-1">Skill Building</p>
+                      <p className="text-xs sm:text-sm md:text-base text-white font-medium leading-relaxed">
+                        We teach your team to be AI-confident, not AI-dependent. Skills that grow as the technology evolves.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-6 md:px-8 h-10 sm:h-11 md:h-12 text-sm sm:text-base"
+              >
+                <Link to="/get-started?service=ai-consulting">
+                  Get started
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process Section - Timeline Design */}
+      <section className="bg-[#1c1e70] py-14 sm:py-16 md:py-20 lg:py-28 overflow-clip" ref={timelineSectionRef}>
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-10 lg:px-10">
+          <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-14 lg:gap-20 xl:gap-28">
+            
+            {/* Left Side - Sticky Sidebar */}
+            <div className="lg:flex-1 lg:sticky lg:top-24 lg:h-fit text-center lg:text-left">
+              <h2 className="text-[1.625rem] sm:text-3xl md:text-4xl lg:text-[2.6rem] xl:text-[2.6rem] font-bold text-white leading-[1.15] sm:leading-[1.1] mb-4 sm:mb-5 md:mb-6">
+                <span className="lg:whitespace-nowrap">Our process transforms how</span>{' '}
+                <span className="text-accent">creative teams work.</span>
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0 mb-6 sm:mb-8 md:mb-10 lg:mb-14">
+                From workflow audit to team training, we guide your creative team through a proven AI adoption process.
+              </p>
+              
+              {/* Stats Grid */}
+              <div className="flex flex-row justify-center lg:justify-start gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+                <div className="text-center lg:text-left flex-1 max-w-[150px] sm:max-w-[180px] md:max-w-[200px] lg:max-w-none">
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-accent mb-1 sm:mb-2">
+                    3x
+                  </p>
+                  <p className="text-[11px] sm:text-xs md:text-sm text-white/60 mb-2 sm:mb-3 leading-relaxed">
+                    average content output increase for clients
+                  </p>
+                  <Link to="/portfolio" className="text-[11px] sm:text-xs md:text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity duration-300 inline-flex items-center gap-1">
+                    View our work <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+                <div className="text-center lg:text-left flex-1 max-w-[150px] sm:max-w-[180px] md:max-w-[200px] lg:max-w-none">
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-accent mb-1 sm:mb-2 whitespace-nowrap">
+                    50%
+                  </p>
+                  <p className="text-[11px] sm:text-xs md:text-sm text-white/60 mb-2 sm:mb-3 leading-relaxed">
+                    reduction in production time
+                  </p>
+                  <Link to="/get-started?service=ai-consulting" className="text-[11px] sm:text-xs md:text-sm text-white font-semibold border-b border-accent pb-0.5 hover:opacity-70 transition-opacity duration-300 inline-flex items-center gap-1">
+                    Book a consultation <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Timeline */}
+            <div className="lg:flex-[1.2] relative mt-4 sm:mt-6 lg:mt-0" ref={timelineRef}>
+              {processSteps.map((step, index) => (
+                <div
+                  key={step.number}
+                  ref={(el) => { stepRefs.current[index] = el; }}
+                  className="flex gap-3 sm:gap-5 md:gap-6 lg:gap-8 pb-8 sm:pb-12 md:pb-16 lg:pb-20 relative"
+                >
+                  {/* Connector Line between circles - only show if not last item */}
+                  {index < processSteps.length - 1 && (
+                    <>
+                      {/* Background line segment */}
+                      <div 
+                        className="absolute left-[17px] sm:left-[19px] md:left-[21px] lg:left-[23px] top-[38px] sm:top-[42px] md:top-[46px] lg:top-[50px] w-[3px] sm:w-1 bg-white/20 rounded-full"
+                        style={{ height: 'calc(100% - 38px)' }}
+                      />
+                      {/* Animated progress line segment */}
+                      <div 
+                        className={`absolute left-[17px] sm:left-[19px] md:left-[21px] lg:left-[23px] top-[38px] sm:top-[42px] md:top-[46px] lg:top-[50px] w-[3px] sm:w-1 bg-accent rounded-full transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                          activeStep > step.number ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        style={{ 
+                          height: activeStep > step.number ? 'calc(100% - 38px)' : '0px',
+                          transitionProperty: 'height, opacity'
+                        }}
+                      />
+                    </>
+                  )}
+                  
+                  {/* Number Circle */}
+                  <div className="flex-shrink-0 relative z-10">
+                    <div 
+                      className={`w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full border-[2.5px] sm:border-[3px] md:border-4 flex items-center justify-center text-sm sm:text-base md:text-lg font-medium bg-[#1c1e70] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                        activeStep >= step.number
+                          ? 'border-accent text-white'
+                          : 'border-white/25 text-white/40'
+                      }`}
+                    >
+                      {step.number}
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="pt-0.5 sm:pt-1 flex-1 min-w-0">
+                    <h3 className={`text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1.5 sm:mb-2 md:mb-3 lg:mb-4 transition-colors duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                      activeStep >= step.number ? 'text-white' : 'text-white/60'
+                    }`}>
+                      {step.title}
+                    </h3>
+                    <p className={`text-[13px] sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-lg transition-colors duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                      activeStep >= step.number ? 'text-white/70' : 'text-white/40'
+                    }`}>
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom CTA Section - Image Card Style */}
+      <section className="bg-[#f5f5f0] py-8 sm:py-10 md:py-14 lg:py-20 xl:py-24">
+        <div className="mx-auto max-w-7xl px-3 sm:px-5 md:px-6 lg:px-8 xl:px-10">
+          {/* Card Container */}
+          <div className="relative rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden min-h-[380px] sm:min-h-[420px] md:min-h-[460px] lg:min-h-[500px] xl:min-h-[540px]">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img 
+                src="/images/hero-grid/Website-development.jpg" 
+                alt="AI consulting session"
+                className="w-full h-full object-cover object-[70%_center] sm:object-center"
+              />
+              {/* Gradient overlay for text readability - stronger on mobile */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20 sm:from-black/80 sm:via-black/45 sm:to-transparent md:from-black/75 md:via-black/35 lg:from-black/70 lg:via-black/25 lg:to-transparent" />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 h-full flex items-center px-5 sm:px-7 md:px-10 lg:px-12 xl:px-16 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16">
+              <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+                {/* Headline */}
+                <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                  Ready to{' '}
+                  <span className="text-accent">supercharge your creative output?</span>
+                </h2>
+
+                {/* Description */}
+                <p className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/75 leading-relaxed mb-5 sm:mb-6 md:mb-7 lg:mb-8">
+                  Let's explore how AI can transform your content production. More output, faster turnaround, same creative quality—from a team that does this work every day.
+                </p>
+
+                {/* CTA Button */}
+                <Button 
+                  asChild
+                  size="lg"
+                  className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-7 md:px-8 lg:px-10 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base lg:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  <Link to="/get-started?service=ai-consulting">
+                    Book a Consultation
+                    <ArrowRight className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

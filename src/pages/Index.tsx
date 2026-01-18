@@ -100,7 +100,7 @@ const services = [
     title: "Social Media Management",
     description:
       "Strategic content creation and community engagement that builds loyal audiences.",
-    href: "/services/social-media",
+    href: "/services/social-media-marketing",
   },
   {
     icon: Globe,
@@ -600,7 +600,7 @@ export default function Index() {
                 number: '05',
                 title: 'Podcast Production',
                 description: 'Your voice, professionally produced. Full-service recording, editing, and distribution.',
-                to: '/services/podcast-studio-rental',
+                to: '/services/podcast-production',
               },
               {
                 number: '06',

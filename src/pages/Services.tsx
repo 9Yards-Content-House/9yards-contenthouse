@@ -41,7 +41,7 @@ const allServices = [
     title: "Social Media Management",
     description:
       "Strategic content creation and community engagement that builds loyal audiences.",
-    href: "/services/social-media",
+    href: "/services/social-media-marketing",
   },
   {
     icon: Globe,
@@ -59,10 +59,10 @@ const allServices = [
   },
   {
     icon: Image,
-    title: "Ad Creative",
+    title: "Social Media Creative",
     description:
-      "Scroll-stopping ad creatives that drive clicks, conversions, and sales.",
-    href: "/services/ad-creative",
+      "Scroll-stopping social media creatives that drive clicks, conversions, and sales.",
+    href: "/services/social-media-creative",
   },
   {
     icon: Video,
