@@ -48,7 +48,7 @@ const allServices = [
     title: "Website Development",
     description:
       "Fast, responsive, and beautiful websites that convert visitors into customers.",
-    href: "/services/web-development",
+    href: "/services/website-development",
   },
   {
     icon: Sparkles,

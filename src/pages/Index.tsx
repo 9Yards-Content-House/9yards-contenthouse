@@ -107,7 +107,7 @@ const services = [
     title: "Website Development",
     description:
       "Fast, responsive, and beautiful websites that convert visitors into customers.",
-    href: "/services/web-development",
+    href: "/services/website-development",
   },
   {
     icon: Sparkles,
@@ -588,7 +588,7 @@ export default function Index() {
                 number: '03',
                 title: 'Social Media Marketing',
                 description: 'Grow your audience while you grow your business. Strategy, content, and engagement handled.',
-                to: '/services/social-media-management',
+                to: '/services/social-media-marketing',
               },
               {
                 number: '04',

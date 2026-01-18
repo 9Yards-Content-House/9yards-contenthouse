@@ -11,7 +11,7 @@ const footerLinks = {
     { name: "Branding", href: "/services/branding" },
   ],
   digitalStrategy: [
-    { name: "Social Media Marketing", href: "/services/social-media-management" },
+    { name: "Social Media Marketing", href: "/services/social-media-marketing" },
     { name: "Website Development", href: "/services/website-development" },
     { name: "Influencer Marketing", href: "/services/influencer-marketing" },
     { name: "Email Marketing", href: "/services/email-marketing" },

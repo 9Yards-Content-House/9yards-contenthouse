@@ -17,7 +17,7 @@ const services = {
   ],
   digital: [
     { name: "Social Media Marketing", href: "/services/social-media-marketing" },
-    { name: "Website Development", href: "/services/web-development" },
+    { name: "Website Development", href: "/services/website-development" },
     { name: "Influencer Marketing", href: "/services/influencer-marketing" },
     { name: "Email Marketing", href: "/services/email-marketing" },
     { name: "Copywriting", href: "/services/copywriting" },
