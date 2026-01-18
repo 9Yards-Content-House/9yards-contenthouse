@@ -29,28 +29,28 @@ export default function VideoProduction() {
   const processSteps = [
     {
       number: 1,
-      title: "Strategic planning from the start",
-      description: "Get brand-aligned video with thorough content briefs, platform strategy, and clear creative direction. We collaborate to develop concepts that work, whether you come with a full script or just an idea."
+      title: "Discovery & Concept",
+      description: "We start by understanding your goals, audience, and message. Whether you come with a full script or just an idea, we'll collaborate to develop a creative concept that works. This includes initial consultation, creative brief, mood board development, and script writing if needed."
     },
     {
       number: 2,
-      title: "Flexible engagement model",
-      description: "Subscribe for ongoing content or book one-time projects. Our services adapt to your needs. Use us end-to-end or fill specific gaps in your workflow."
+      title: "Pre-Production Planning",
+      description: "Every great video starts with solid planning. We handle locations, talent, equipment, shot lists, and scheduling so nothing is left to chance on shoot day. This covers storyboarding, location scouting, casting if needed, shot list creation, and logistics coordination."
     },
     {
       number: 3,
-      title: "Local team, professional results",
-      description: "Work with experienced cinematographers, editors, and directors based in Kampala. Direct communication, fast revisions, no time zone hassles. Professional cinema equipment on every shoot."
+      title: "Production Day",
+      description: "Our experienced crew captures your story with professional equipment and cinematic techniques. We work efficiently to maximize shoot time while maintaining creative excellence. Expect on-location or studio filming, professional lighting and audio, multiple takes and angles, and real-time director feedback."
     },
     {
       number: 4,
-      title: "Streamlined production",
-      description: "Solid pre-production planning means efficient shoot days. We handle locations, talent, equipment, and logistics while maintaining creative excellence at every step."
+      title: "Post-Production Magic",
+      description: "This is where your video comes to life. Our editors craft your story with precise cuts, color grading, motion graphics, sound design, and music. The process includes editing, color correction, audio mixing, graphics and animation, music selection, and revisions."
     },
     {
       number: 5,
-      title: "Expert finishing & delivery",
-      description: "Professional editing, color grading, motion graphics, and sound design. Delivered in every format you need, optimized for Instagram, YouTube, TV, or web with platform-specific guidance."
+      title: "Delivery & Optimization",
+      description: "We deliver your video in every format you need, optimized for Instagram, YouTube, TV broadcast, or your website. Plus, we provide usage tips to maximize impact. You'll receive exports in multiple formats, platform-specific optimization, file delivery via cloud, and usage guidelines."
     }
   ];
 
