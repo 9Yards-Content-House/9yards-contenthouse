@@ -9,12 +9,14 @@ const videoServices = [
   { name: "Music Videos" },
   { name: "Instagram Reels" },
   { name: "YouTube Shorts" },
+  { name: "TikTok Content" },
   { name: "TV Commercials" },
   { name: "Corporate Videos" },
+  { name: "Product Demos" },
   { name: "Documentaries" },
-  { name: "Product Videos" },
-  { name: "Event Coverage" },
   { name: "Explainer Videos" },
+  { name: "Event Coverage" },
+  { name: "Brand Campaigns" },
 ];
 
 export default function VideoProduction() {
@@ -179,7 +181,7 @@ export default function VideoProduction() {
             <div 
               className="flex gap-2.5 sm:gap-3 lg:gap-4"
               style={{
-                animation: 'smoothMarquee 40s linear infinite',
+                animation: 'smoothMarquee 30s linear infinite',
                 willChange: 'transform',
               }}
             >
