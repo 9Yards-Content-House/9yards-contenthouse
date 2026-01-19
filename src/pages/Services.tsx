@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
 import {
   Palette,
   Video,
@@ -14,6 +15,7 @@ import {
   Cpu,
   Printer,
   ArrowRight,
+  ArrowLeft,
   Check,
   RefreshCw,
   FileText,
@@ -175,6 +177,52 @@ const studioServices = [
   },
 ];
 
+// Main Service Categories for Carousel
+const serviceCategories = [
+  {
+    id: "creative",
+    title: "Creative",
+    description: "Brand identities, logos, social graphics, and visual content that makes your brand impossible to ignore. We design everything from scratch or refresh what you have.",
+    tags: ["Graphic Design", "Branding", "Print Design", "Social Creatives", "Concept Creation"],
+    href: "/services#creative",
+  },
+  {
+    id: "video",
+    title: "Video & Motion",
+    description: "From 15-second Reels to full documentary productions. We handle scripting, shooting, editing, and post-production to bring your stories to life on screen.",
+    tags: ["Video Production", "Motion Graphics", "Reels & TikTok", "Documentaries", "Commercials"],
+    href: "/services/video-production",
+  },
+  {
+    id: "digital",
+    title: "Digital Marketing",
+    description: "Data-driven campaigns that actually convert. We manage your paid ads, SEO, email marketing, and lead generation to turn clicks into customers.",
+    tags: ["SEO & PPC", "Social Ads", "Email Marketing", "Lead Generation", "Conversion Strategy"],
+    href: "/services#digital",
+  },
+  {
+    id: "social",
+    title: "Social Media",
+    description: "Complete social media management. We create content, engage your community, track analytics, and grow your following across all platforms.",
+    tags: ["Content Strategy", "Community Management", "Influencer Marketing", "Analytics", "Growth"],
+    href: "/services/social-media-marketing",
+  },
+  {
+    id: "ai",
+    title: "AI Services",
+    description: "Stay ahead with AI-powered creative solutions. We help you automate workflows, generate content faster, and integrate smart tools into your business.",
+    tags: ["AI Creative", "Workflow Automation", "AI Consulting", "Smart Assets"],
+    href: "/services/ai-creative",
+  },
+  {
+    id: "studio",
+    title: "Studio & Production",
+    description: "Professional studio facilities in Kampala. Book our space for podcast recording, voice-overs, photography sessions, and audio production.",
+    tags: ["Podcast Studio", "Voice Over", "Photography", "Audio Production", "Studio Rental"],
+    href: "/services/podcast-production",
+  },
+];
+
 // Why Choose Us Benefits
 const whyChooseUs = [
   {
@@ -210,6 +258,236 @@ const comparisonData = [
   { feature: "Ideal Clients", subscription: "Active brands, regular content needs", project: "Launches, rebrands, campaigns" },
   { feature: "Flexibility", subscription: "Pause/resume anytime", project: "N/A" },
 ];
+
+// Services Carousel Component with Continuous Infinite Scroll
+function ServicesCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+  
+  // Create extended array for seamless infinite scroll (5x for smooth looping)
+  const extendedCategories = [...serviceCategories, ...serviceCategories, ...serviceCategories, ...serviceCategories, ...serviceCategories];
+  const totalOriginal = serviceCategories.length;
+
+  const getCardWidth = () => {
+    if (typeof window === 'undefined') return 700;
+    if (window.innerWidth < 640) return window.innerWidth * 0.85;
+    if (window.innerWidth < 768) return window.innerWidth * 0.75;
+    if (window.innerWidth < 1024) return 600;
+    return 700;
+  };
+
+  const scrollToIndex = (index: number, smooth = true) => {
+    if (carouselRef.current) {
+      const cardWidth = getCardWidth();
+      const gap = 24;
+      // Always scroll forward by adding to current position
+      carouselRef.current.scrollTo({
+        left: (index + totalOriginal * 2) * (cardWidth + gap),
+        behavior: smooth ? 'smooth' : 'auto'
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    if (carouselRef.current) {
+      const cardWidth = getCardWidth();
+      const gap = 24;
+      carouselRef.current.scrollBy({
+        left: -(cardWidth + gap),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleNext = () => {
+    if (carouselRef.current) {
+      const cardWidth = getCardWidth();
+      const gap = 24;
+      carouselRef.current.scrollBy({
+        left: cardWidth + gap,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handle scroll to update active index and seamless infinite loop
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const cardWidth = getCardWidth();
+      const gap = 24;
+      const scrollPosition = carouselRef.current.scrollLeft;
+      const itemWidth = cardWidth + gap;
+      const currentIndex = Math.round(scrollPosition / itemWidth);
+      
+      // Calculate the actual index within original array
+      const normalizedIndex = ((currentIndex) % totalOriginal + totalOriginal) % totalOriginal;
+      
+      if (normalizedIndex !== activeIndex) {
+        setActiveIndex(normalizedIndex);
+      }
+      
+      // Seamless infinite scroll: silently jump when approaching edges
+      const minThreshold = itemWidth * totalOriginal;
+      const maxThreshold = itemWidth * (totalOriginal * 4);
+      
+      if (scrollPosition <= minThreshold) {
+        // Jump forward seamlessly
+        carouselRef.current.scrollLeft = scrollPosition + (totalOriginal * 2 * itemWidth);
+      } else if (scrollPosition >= maxThreshold) {
+        // Jump back seamlessly
+        carouselRef.current.scrollLeft = scrollPosition - (totalOriginal * 2 * itemWidth);
+      }
+    }
+  };
+
+  // Initialize scroll position to middle set
+  useEffect(() => {
+    if (carouselRef.current) {
+      const cardWidth = getCardWidth();
+      const gap = 24;
+      // Start at the middle of the extended array
+      carouselRef.current.scrollLeft = totalOriginal * 2 * (cardWidth + gap);
+    }
+  }, []);
+
+  // Auto-scroll effect - always scrolls forward
+  useEffect(() => {
+    if (isAutoScrollPaused) return;
+    
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoScrollPaused]);
+
+  return (
+    <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/40 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center">
+          <div className="w-12 h-1 bg-accent rounded-full mb-4 mx-auto"></div>
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">
+            Our Capabilities
+          </p>
+          <h2 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold tracking-tight text-foreground leading-[1.25] sm:leading-[1.3]">
+            One team for every creative<br className="hidden sm:block" /> and marketing need
+          </h2>
+        </div>
+      </div>
+
+      {/* Full-width Carousel Container */}
+      <div 
+        className="relative"
+        onMouseEnter={() => setIsAutoScrollPaused(true)}
+        onMouseLeave={() => setIsAutoScrollPaused(false)}
+      >
+        {/* Navigation Arrows - Desktop */}
+        <button
+          onClick={handlePrev}
+          className="hidden md:flex absolute left-2 sm:left-4 lg:left-6 xl:left-12 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
+          aria-label="Previous service"
+        >
+          <ArrowLeft className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
+        </button>
+        <button
+          onClick={handleNext}
+          className="hidden md:flex absolute right-2 sm:right-4 lg:right-6 xl:right-12 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
+          aria-label="Next service"
+        >
+          <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
+        </button>
+
+        {/* Cards Carousel */}
+        <div
+          ref={carouselRef}
+          className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar px-4 sm:px-6 lg:px-8"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          onScroll={handleScroll}
+        >
+          {extendedCategories.map((category, index) => (
+            <Link
+              key={`${category.id}-${index}`}
+              to={category.href}
+              className="service-card group flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[550px] lg:w-[600px] xl:w-[700px] snap-center"
+            >
+              <div className="relative h-full min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px] rounded-xl sm:rounded-2xl lg:rounded-3xl bg-background border border-border/80 p-5 sm:p-7 md:p-8 lg:p-10 overflow-hidden transition-colors duration-200 hover:border-border">
+                {/* Content */}
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Title */}
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-foreground mb-3 sm:mb-4 lg:mb-5 tracking-tight leading-[1.1] group-hover:text-accent transition-colors duration-200">
+                    {category.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-lg mb-auto">
+                    {category.description}
+                  </p>
+
+                  {/* Service Tags - Individual hover effects */}
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-6 sm:mt-8 lg:mt-10">
+                    {category.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs lg:text-sm font-medium rounded-full bg-muted/80 text-muted-foreground border border-border/50 transition-colors duration-200 hover:bg-accent/10 hover:text-accent hover:border-accent/30 cursor-pointer"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-6 sm:mt-8 lg:mt-10">
+          {serviceCategories.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setActiveIndex(index);
+                scrollToIndex(index);
+              }}
+              className={`transition-all duration-300 rounded-full ${
+                index === activeIndex
+                  ? 'w-6 sm:w-8 h-1.5 sm:h-2 bg-accent'
+                  : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-foreground/20 hover:bg-foreground/40'
+              }`}
+              aria-label={`Go to ${serviceCategories[index].title}`}
+            />
+          ))}
+        </div>
+
+        {/* Mobile Navigation Arrows */}
+        <div className="flex md:hidden justify-center gap-3 mt-5">
+          <button
+            onClick={handlePrev}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-background border border-border hover:bg-muted transition-all"
+            aria-label="Previous service"
+          >
+            <ArrowLeft className="w-4 h-4 text-foreground" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-background border border-border hover:bg-muted transition-all"
+            aria-label="Next service"
+          >
+            <ArrowRight className="w-4 h-4 text-foreground" />
+          </button>
+        </div>
+      </div>
+
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+    </section>
+  );
+}
 
 export default function Services() {
   return (
@@ -278,6 +556,9 @@ export default function Services() {
           </svg>
         </div>
       </section>
+
+      {/* Services Carousel Section */}
+      <ServicesCarousel />
 
       {/* Introduction Section */}
       <section className="overflow-hidden bg-background py-12 sm:py-16 md:py-20 lg:py-28">
