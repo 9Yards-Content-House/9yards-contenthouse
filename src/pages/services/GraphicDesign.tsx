@@ -114,7 +114,7 @@ export default function GraphicDesign() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-grid/graphic-design.jpg"
+            src="/images/miscellany/graphic.jpg"
             alt="Professional graphic design"
             className="w-full h-full object-cover scale-105"
           />
