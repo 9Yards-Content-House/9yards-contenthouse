@@ -566,20 +566,20 @@ export default function Services() {
               <div className="max-w-xl lg:max-w-lg">
                 {/* Accent bar */}
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
-                <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Your Complete Creative Department</h2>
+                <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Your Creative Partner</h2>
                 <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-                  Stop juggling freelancers. Start getting results.
+                  One team for everything your brand needs.
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Stop juggling five different freelancers. Stop wondering if your designer will actually reply this time. Stop compromising between quality and budget.
+                  Designers, videographers, strategists, and marketers, all under one roof. No more chasing freelancers, managing multiple contracts, or explaining your brand from scratch every time.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  We're your complete creative department. Accessible, affordable, and actually reliable. Whether you need ongoing creative support or a one-time project, we've built our services around one simple goal: making world-class creative easy to access.
+                  We handle the creative so you can focus on running your business. We learn your brand, understand your goals, and deliver work that actually moves things forward. Whether you need a single project or ongoing support, we make world-class creative simple.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
                     <Link to="/contact">
-                      Schedule Free Consultation
+                      Let's Talk
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
@@ -597,8 +597,8 @@ export default function Services() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/branding.jpg" 
-                  alt="9Yards Content House creative work" 
+                  src="/images/team/9Yards-Content-House-Team-01.jpg" 
+                  alt="9Yards Content House team at work" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
               </div>
