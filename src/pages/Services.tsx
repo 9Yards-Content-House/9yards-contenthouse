@@ -426,7 +426,7 @@ function ServicesCarousel() {
                   </p>
 
                   {/* Service Tags - Individual hover effects */}
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-6 sm:mt-8 lg:mt-10">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto pt-6 sm:pt-8 lg:pt-10">
                     {category.tags.map((tag) => (
                       <span
                         key={tag}
@@ -435,14 +435,6 @@ function ServicesCarousel() {
                         {tag}
                       </span>
                     ))}
-                  </div>
-
-                  {/* View Details Link */}
-                  <div className="mt-auto pt-6 sm:pt-8">
-                    <span className="inline-flex items-center text-sm font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
-                      View Details
-                      <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-200" />
-                    </span>
                   </div>
                 </div>
               </div>
