@@ -597,8 +597,8 @@ export default function Services() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/team/9Yards-Content-House-Team-01.jpg" 
-                  alt="9Yards Content House team at work" 
+                  src="/images/team/team01.jpg" 
+                  alt="9Yards Content House team group" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
               </div>
