@@ -686,7 +686,7 @@ export default function GraphicDesign() {
 
                 {/* Description */}
                 <p className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/75 leading-relaxed mb-5 sm:mb-6 md:mb-7 lg:mb-8">
-                  Subscribe for ongoing design support or book one-time projects. Flexible packages, predictable pricing, and quality that elevates your brand. What would you like to create?
+                  Get design support whenever you need it. Choose ongoing creative partnership or book one-off projects. Enjoy flexible packages, transparent pricing, and standout visuals that move your brand forward. What can we help you design next?
                 </p>
 
                 {/* CTA Button */}
