@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, ArrowRight, HelpCircle, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -244,7 +244,7 @@ export function Header() {
                   {link.dropdownType ? (
                     <div
                       className={cn(
-                        "flex items-center gap-0.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative cursor-pointer",
+                        "flex items-center gap-0.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative cursor-pointer select-none",
                         isActive
                           ? isScrolled
                             ? "text-primary bg-primary/5"
@@ -253,6 +253,8 @@ export function Header() {
                             ? "text-foreground hover:text-primary hover:bg-primary/5"
                             : "text-white/90 hover:text-white hover:bg-white/10"
                       )}
+                      role="button"
+                      tabIndex={0}
                       aria-expanded={openDropdown === link.dropdownType}
                       aria-haspopup="true"
                       onClick={() => {
@@ -261,6 +263,17 @@ export function Header() {
                           setOpenDropdown(null);
                         } else {
                           setOpenDropdown(link.dropdownType);
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        // Allow keyboard activation with Enter or Space
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          if (openDropdown === link.dropdownType) {
+                            setOpenDropdown(null);
+                          } else {
+                            setOpenDropdown(link.dropdownType);
+                          }
                         }
                       }}
                     >
@@ -301,7 +314,10 @@ export function Header() {
                 {/* Mega Menu for Services - Modern Clean Design */}
                 {link.dropdownType === "services" && openDropdown === "services" && (
                   <div 
-                    className="fixed top-[72px] left-0 right-0 pt-2 flex justify-center px-4 z-50"
+                    className={cn(
+                      "fixed left-0 right-0 pt-2 flex justify-center px-4 z-50",
+                      isScrolled ? "top-[56px]" : "top-[72px]"
+                    )}
                     onMouseEnter={() => handleMouseEnter("services")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
@@ -341,7 +357,7 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150 cursor-pointer",
                                       location.pathname === item.href
                                         ? "text-accent font-medium bg-accent/10"
                                         : "text-foreground/70 hover:text-foreground hover:bg-muted"
@@ -367,7 +383,7 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150 cursor-pointer",
                                       location.pathname === item.href
                                         ? "text-accent font-medium bg-accent/10"
                                         : "text-foreground/70 hover:text-foreground hover:bg-muted"
@@ -393,7 +409,7 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150 cursor-pointer",
                                       location.pathname === item.href
                                         ? "text-accent font-medium bg-accent/10"
                                         : "text-foreground/70 hover:text-foreground hover:bg-muted"
@@ -418,7 +434,7 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150 cursor-pointer",
                                       location.pathname === item.href
                                         ? "text-accent font-medium bg-accent/10"
                                         : "text-foreground/70 hover:text-foreground hover:bg-muted"
@@ -453,7 +469,7 @@ export function Header() {
                       
                       {/* Footer */}
                       <div className="px-6 py-3 bg-muted/30 border-t border-border/50 flex items-center justify-between text-xs text-muted-foreground">
-                        <span>Need help choosing? <a href="mailto:contenthouse@9yards.co.ug" className="text-accent hover:underline">Contact us</a></span>
+                        <span>Need help choosing? <a href="mailto:contenthouse@9yards.co.ug" onClick={() => setOpenDropdown(null)} className="text-accent hover:underline cursor-pointer">Contact us</a></span>
                         <span className="hidden sm:inline">Response within 24 hours</span>
                       </div>
                     </div>
@@ -476,7 +492,7 @@ export function Header() {
                             to={item.href}
                             onClick={() => setOpenDropdown(null)}
                             className={cn(
-                              "block px-3 py-2.5 text-[13px] rounded-lg transition-colors duration-150",
+                              "block px-3 py-2.5 text-[13px] rounded-lg transition-colors duration-150 cursor-pointer",
                               location.pathname === item.href
                                 ? "text-accent font-medium bg-accent/10"
                                 : "text-foreground/70 hover:text-foreground hover:bg-muted"
@@ -493,7 +509,7 @@ export function Header() {
                 {/* Dropdown for Company */}
                 {link.dropdownType === "company" && openDropdown === "company" && (
                   <div 
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[200px] z-50"
+                    className="absolute top-full right-0 pt-2 w-[200px] z-50"
                     onMouseEnter={() => handleMouseEnter("company")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
@@ -506,7 +522,7 @@ export function Header() {
                             to={item.href}
                             onClick={() => setOpenDropdown(null)}
                             className={cn(
-                              "block px-3 py-2.5 text-[13px] rounded-lg transition-colors duration-150",
+                              "block px-3 py-2.5 text-[13px] rounded-lg transition-colors duration-150 cursor-pointer",
                               location.pathname === item.href
                                 ? "text-accent font-medium bg-accent/10"
                                 : "text-foreground/70 hover:text-foreground hover:bg-muted"
