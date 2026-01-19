@@ -275,7 +275,7 @@ export default function PrintDesign() {
             {/* Card 1: Business Essentials - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/print-design.jpg" 
+                src="/images/miscellany/bnusines cards.png" 
                 alt="Business cards and stationery"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -294,7 +294,7 @@ export default function PrintDesign() {
             {/* Card 2: Marketing Collateral - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/branding.jpg" 
+                src="/images/miscellany/bronchures.png" 
                 alt="Brochures and marketing materials"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -312,7 +312,7 @@ export default function PrintDesign() {
             {/* Card 3: Publications - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/graphic-design.jpg" 
+                src="/images/miscellany/booklets.png" 
                 alt="Catalogs and publications"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -331,7 +331,7 @@ export default function PrintDesign() {
             {/* Card 4: Packaging - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/social-media-marketing.jpg" 
+                src="/images/miscellany/products.jpeg" 
                 alt="Product packaging design"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -349,7 +349,7 @@ export default function PrintDesign() {
             {/* Card 5: Promotional Items - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/influencer-marketing.jpg" 
+                src="/images/miscellany/9Yards-Content-House-Team-02.jpg" 
                 alt="Promotional merchandise"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -367,7 +367,7 @@ export default function PrintDesign() {
             {/* Card 6: Large Format - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/videography/livestream-4.jpg" 
+                src="/images/miscellany/billboard.png" 
                 alt="Large format banners and signage"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
