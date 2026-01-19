@@ -6,7 +6,7 @@ import {
   Palette,
   Video,
   Share2,
-  Globe,
+  Building2,
   Sparkles,
   Mic,
   Mail,
@@ -633,9 +633,13 @@ export default function Services() {
             <h2 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold tracking-tight text-foreground leading-[1.25] sm:leading-[1.3] mb-4 sm:mb-6">
               Industries We Serve
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              From music videos to e-commerce shoots, corporate rebrands to influencer campaigns. We understand what makes your industry unique.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-4">
+              We've created for brands just like yours. That means faster onboarding, fewer revisions, and content that actually resonates with your audience.
             </p>
+            <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">50+</span>
+              <span>industries served</span>
+            </div>
           </div>
 
           {/* Industries Bento Grid */}
@@ -668,7 +672,7 @@ export default function Services() {
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">E-Commerce & Retail</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Product photography, e-commerce websites, packaging design, and campaigns that drive sales.
+                Product photography, e-commerce websites, packaging design, and campaigns that convert browsers into buyers.
               </p>
             </div>
 
@@ -679,12 +683,12 @@ export default function Services() {
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Hospitality & Food</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Food photography, menu design, restaurant branding, and social media for hospitality.
+                Food photography, menu design, restaurant branding, and content that fills tables.
               </p>
             </div>
 
             {/* Corporate & Professional - Wide Card */}
-            <div className="sm:col-span-2 rounded-2xl sm:rounded-3xl bg-foreground p-5 sm:p-6 lg:p-8">
+            <Link to="/contact" className="sm:col-span-2 rounded-2xl sm:rounded-3xl bg-foreground p-5 sm:p-6 lg:p-8 block hover:bg-foreground/90 transition-colors duration-300">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/10 flex items-center justify-center">
@@ -698,7 +702,7 @@ export default function Services() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Startups & Tech */}
             <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
@@ -714,11 +718,11 @@ export default function Services() {
             {/* Real Estate */}
             <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                <Building2 className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Real Estate & Property</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Property photography, virtual tours, brochures, and listing videos.
+                Property photography, virtual tours, brochures, and listing videos that sell faster.
               </p>
             </div>
 
@@ -740,7 +744,7 @@ export default function Services() {
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Health & Wellness</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Brand identity, educational content, social marketing, and podcasts.
+                Clinic branding, educational videos, wellness campaigns, and health podcasts.
               </p>
             </div>
 
@@ -774,22 +778,15 @@ export default function Services() {
                 <div>
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-1 sm:mb-2">Don't see your industry?</h3>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    Our creative process adapts to any business. Let's discuss what you need.
+                    We've worked with industries we never expected. Yours could be next.
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button variant="accent" size="lg" className="rounded-full" asChild>
-                    <Link to="/contact">
-                      Let's Talk
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </Button>
-                  <Button variant="outline" size="lg" className="rounded-full" asChild>
-                    <Link to="/portfolio">
-                      See Our Work
-                    </Link>
-                  </Button>
-                </div>
+                <Button variant="accent" size="lg" className="rounded-full" asChild>
+                  <Link to="/contact">
+                    Let's Talk
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -817,38 +814,26 @@ export default function Services() {
               <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Headline */}
                 <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.3] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-                  Ready to Elevate{' '}
-                  <span className="text-accent">Your Brand?</span>
+                  Your Next Project{' '}
+                  <span className="text-accent">Starts Here</span>
                 </h2>
 
                 {/* Description */}
                 <p className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/75 leading-relaxed mb-5 sm:mb-6 md:mb-7 lg:mb-8">
-                  Pick a service. Choose how you work. Get world-class creative without the world-class invoice.
+                  Skip the lengthy contracts and back-to-back meetings. Work with a team that gets straight to what matters: delivering exceptional creative on time and on budget.
                 </p>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <Button 
-                    asChild
-                    size="lg"
-                    className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-7 md:px-8 lg:px-10 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base lg:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
-                  >
-                    <Link to="/get-started">
-                      Get Started
-                      <ArrowRight className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-2" />
-                    </Link>
-                  </Button>
-                  <Button 
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white/50 px-5 sm:px-7 md:px-8 lg:px-10 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base lg:text-lg font-semibold transition-all"
-                  >
-                    <Link to="/portfolio">
-                      View Our Work
-                    </Link>
-                  </Button>
-                </div>
+                {/* CTA Button */}
+                <Button 
+                  asChild
+                  size="lg"
+                  className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-7 md:px-8 lg:px-10 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base lg:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  <Link to="/get-started">
+                    Get Started
+                    <ArrowRight className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-2" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
