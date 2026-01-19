@@ -282,9 +282,9 @@ export function Header() {
                           openDropdown === link.dropdownType && "rotate-180"
                         )} />
                       </button>
-                      {/* Active indicator dot */}
-                      {isActive && (
-                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current" />
+                      {/* Active indicator line */}
+                      {(isActive || openDropdown === link.dropdownType) && (
+                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-accent" />
                       )}
                     </div>
                   ) : (
@@ -302,9 +302,9 @@ export function Header() {
                       )}
                     >
                       {link.name}
-                      {/* Active indicator dot */}
+                      {/* Active indicator line */}
                       {isActive && (
-                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current" />
+                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-accent" />
                       )}
                     </Link>
                   )}
@@ -317,7 +317,7 @@ export function Header() {
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
-                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden w-full max-w-[880px] animate-in fade-in-0 slide-in-from-top-2 duration-200">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden w-full max-w-[880px]">
                       {/* Header */}
                       <div className="px-6 py-4 border-b border-border/50">
                         <div className="flex items-center justify-between">
@@ -328,10 +328,10 @@ export function Header() {
                           <Link
                             to="/services"
                             onClick={() => setOpenDropdown(null)}
-                            className="group flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
+                            className="group flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-accent bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors"
                           >
                             View all
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                            <ArrowRight className="w-4 h-4" />
                           </Link>
                         </div>
                       </div>
@@ -341,7 +341,8 @@ export function Header() {
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-border/50">
                           {/* Creative Services */}
                           <div className="lg:pr-6">
-                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4">
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-3 flex items-center gap-2">
+                              <span className="w-1 h-4 bg-accent rounded-full"></span>
                               Creative
                             </h4>
                             <ul className="space-y-0.5">
@@ -351,10 +352,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 text-[13px] transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-accent font-medium"
-                                        : "text-foreground/70 hover:text-foreground"
+                                        ? "text-accent font-medium bg-accent/10"
+                                        : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                                     )}
                                   >
                                     {item.name}
@@ -366,7 +367,8 @@ export function Header() {
                           
                           {/* Digital & Strategy */}
                           <div className="lg:px-6">
-                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4">
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-3 flex items-center gap-2">
+                              <span className="w-1 h-4 bg-accent rounded-full"></span>
                               Digital & Strategy
                             </h4>
                             <ul className="space-y-0.5">
@@ -376,10 +378,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 text-[13px] transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-accent font-medium"
-                                        : "text-foreground/70 hover:text-foreground"
+                                        ? "text-accent font-medium bg-accent/10"
+                                        : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                                     )}
                                   >
                                     {item.name}
@@ -391,7 +393,8 @@ export function Header() {
                           
                           {/* Media & AI */}
                           <div className="lg:px-6">
-                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4">
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-3 flex items-center gap-2">
+                              <span className="w-1 h-4 bg-accent rounded-full"></span>
                               Media Production
                             </h4>
                             <ul className="space-y-0.5">
@@ -401,10 +404,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 text-[13px] transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-accent font-medium"
-                                        : "text-foreground/70 hover:text-foreground"
+                                        ? "text-accent font-medium bg-accent/10"
+                                        : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                                     )}
                                   >
                                     {item.name}
@@ -413,7 +416,10 @@ export function Header() {
                               ))}
                             </ul>
                             
-                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4 mt-5">
+                            <div className="my-4 border-t border-border/50"></div>
+                            
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-3 flex items-center gap-2">
+                              <span className="w-1 h-4 bg-accent rounded-full"></span>
                               AI Services
                             </h4>
                             <ul className="space-y-0.5">
@@ -423,10 +429,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-1.5 text-[13px] transition-colors duration-150",
+                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-accent font-medium"
-                                        : "text-foreground/70 hover:text-foreground"
+                                        ? "text-accent font-medium bg-accent/10"
+                                        : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                                     )}
                                   >
                                     {item.name}
@@ -438,7 +444,7 @@ export function Header() {
                           
                           {/* CTA Column */}
                           <div className="hidden lg:flex flex-col lg:pl-6">
-                            <div className="flex-1 flex flex-col justify-between bg-muted/40 rounded-xl p-5">
+                            <div className="flex-1 flex flex-col justify-between bg-gradient-to-br from-accent/5 to-accent/10 border border-accent/20 rounded-xl p-5">
                               <div>
                                 <h4 className="font-semibold text-foreground mb-2">Not sure where to start?</h4>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -468,22 +474,22 @@ export function Header() {
                 {/* Dropdown for Why Us */}
                 {link.dropdownType === "whyUs" && openDropdown === "whyUs" && (
                   <div 
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[240px] z-50"
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[220px] z-50"
                     onMouseEnter={() => handleMouseEnter("whyUs")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
-                    <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden animate-in fade-in-0 slide-in-from-top-2 duration-200">
-                      <div className="p-2">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden">
+                      <div className="p-3">
                         {whyUsItems.map((item) => (
                           <Link
                             key={item.name}
                             to={item.href}
                             onClick={() => setOpenDropdown(null)}
                             className={cn(
-                              "block px-3 py-2 text-[13px] rounded-lg transition-colors duration-150",
+                              "block px-3 py-2.5 text-[13px] rounded-lg transition-colors duration-150",
                               location.pathname === item.href
-                                ? "text-accent font-medium"
+                                ? "text-accent font-medium bg-accent/10"
                                 : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                             )}
                           >
@@ -503,17 +509,17 @@ export function Header() {
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
-                    <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden animate-in fade-in-0 slide-in-from-top-2 duration-200">
-                      <div className="p-2">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden">
+                      <div className="p-3">
                         {companyItems.map((item) => (
                           <Link
                             key={item.name}
                             to={item.href}
                             onClick={() => setOpenDropdown(null)}
                             className={cn(
-                              "block px-3 py-2 text-[13px] rounded-lg transition-colors duration-150",
+                              "block px-3 py-2.5 text-[13px] rounded-lg transition-colors duration-150",
                               location.pathname === item.href
-                                ? "text-accent font-medium"
+                                ? "text-accent font-medium bg-accent/10"
                                 : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                             )}
                           >
