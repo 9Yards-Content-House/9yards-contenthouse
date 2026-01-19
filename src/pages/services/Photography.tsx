@@ -349,7 +349,7 @@ export default function Photography() {
             {/* Card 5: Food & Lifestyle - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/social-media-marketing.jpg" 
+                src="/images/miscellany/9Yards-Food-chicken-Stew.jpg" 
                 alt="Food and lifestyle photography"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
