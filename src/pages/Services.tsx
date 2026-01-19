@@ -557,9 +557,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Carousel Section */}
-      <ServicesCarousel />
-
       {/* Introduction Section */}
       <section className="overflow-hidden bg-background py-12 sm:py-16 md:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
@@ -578,9 +575,6 @@ export default function Services() {
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
                   We're your complete creative department. Accessible, affordable, and actually reliable. Whether you need ongoing creative support or a one-time project, we've built our services around one simple goal: making world-class creative easy to access.
-                </p>
-                <p className="mt-4 sm:mt-6 text-lg sm:text-xl font-semibold text-foreground">
-                  Pick your service. Choose how you want to work. Get exceptional results.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
@@ -612,6 +606,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* Services Carousel Section */}
+      <ServicesCarousel />
 
       {/* How You Want to Work Section */}
       <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/50">
