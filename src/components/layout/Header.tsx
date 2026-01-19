@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -80,6 +80,31 @@ export function Header() {
   const isServicesActive = allServiceHrefs.some(href => location.pathname.startsWith(href.split('/').slice(0, 3).join('/')));
   const isWhyUsActive = whyUsHrefs.includes(location.pathname);
   const isCompanyActive = companyHrefs.includes(location.pathname);
+
+  // Auto-close other accordions when one opens
+  const handleServicesToggle = () => {
+    setIsServicesOpen(!isServicesOpen);
+    if (!isServicesOpen) {
+      setIsWhyUsOpen(false);
+      setIsCompanyOpen(false);
+    }
+  };
+
+  const handleWhyUsToggle = () => {
+    setIsWhyUsOpen(!isWhyUsOpen);
+    if (!isWhyUsOpen) {
+      setIsServicesOpen(false);
+      setIsCompanyOpen(false);
+    }
+  };
+
+  const handleCompanyToggle = () => {
+    setIsCompanyOpen(!isCompanyOpen);
+    if (!isCompanyOpen) {
+      setIsServicesOpen(false);
+      setIsWhyUsOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -575,22 +600,22 @@ export function Header() {
         {isMobileMenuOpen && (
           <div 
             ref={mobileMenuRef}
-            className="md:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background/95 backdrop-blur-xl z-40 mobile-menu-enter overflow-hidden flex flex-col"
+            className="md:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background z-40 mobile-menu-enter overflow-hidden flex flex-col"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
           >
-            {/* Scrollable Content Area */}
-            <div className="flex-1 overflow-y-auto px-4 sm:px-6 pt-4 sm:pt-6 pb-4">
+              {/* Scrollable Content Area */}
+            <div className="flex-1 overflow-y-auto px-4 sm:px-6 pt-6 pb-4">
               {/* Services Dropdown with accordion animation */}
               <div className={cn(
                 "rounded-xl transition-colors duration-200",
                 isServicesOpen && "bg-muted/50"
               )}>
                 <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  onClick={handleServicesToggle}
                   className={cn(
-                    "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
+                    "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px] active:bg-muted/70",
                     isServicesActive ? "text-accent" : "text-foreground",
                     isServicesOpen && "text-accent"
                   )}
@@ -599,12 +624,12 @@ export function Header() {
                     {isServicesActive && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
                     Services
                   </span>
-                  <ChevronDown
-                    className={cn(
-                      "w-5 h-5 transition-transform duration-300",
-                      isServicesOpen && "rotate-180"
-                    )}
-                  />
+                  <div className={cn(
+                    "flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200",
+                    isServicesOpen ? "bg-accent/20 text-accent rotate-180" : "bg-muted"
+                  )}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
                 </button>
                 <div className={cn("accordion-content", isServicesOpen && "open")}>
                   <div className="accordion-inner">
@@ -728,9 +753,9 @@ export function Header() {
                 isWhyUsOpen && "bg-muted/50"
               )}>
                 <button
-                  onClick={() => setIsWhyUsOpen(!isWhyUsOpen)}
+                  onClick={handleWhyUsToggle}
                   className={cn(
-                    "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
+                    "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px] active:bg-muted/70",
                     isWhyUsActive ? "text-accent" : "text-foreground",
                     isWhyUsOpen && "text-accent"
                   )}
@@ -739,12 +764,12 @@ export function Header() {
                     {isWhyUsActive && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
                     Why Us
                   </span>
-                  <ChevronDown
-                    className={cn(
-                      "w-5 h-5 transition-transform duration-300",
-                      isWhyUsOpen && "rotate-180"
-                    )}
-                  />
+                  <div className={cn(
+                    "flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200",
+                    isWhyUsOpen ? "bg-accent/20 text-accent rotate-180" : "bg-muted"
+                  )}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
                 </button>
                 <div className={cn("accordion-content", isWhyUsOpen && "open")}>
                   <div className="accordion-inner">
@@ -777,9 +802,9 @@ export function Header() {
                 isCompanyOpen && "bg-muted/50"
               )}>
                 <button
-                  onClick={() => setIsCompanyOpen(!isCompanyOpen)}
+                  onClick={handleCompanyToggle}
                   className={cn(
-                    "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
+                    "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px] active:bg-muted/70",
                     isCompanyActive ? "text-accent" : "text-foreground",
                     isCompanyOpen && "text-accent"
                   )}
@@ -788,12 +813,12 @@ export function Header() {
                     {isCompanyActive && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
                     Company
                   </span>
-                  <ChevronDown
-                    className={cn(
-                      "w-5 h-5 transition-transform duration-300",
-                      isCompanyOpen && "rotate-180"
-                    )}
-                  />
+                  <div className={cn(
+                    "flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200",
+                    isCompanyOpen ? "bg-accent/20 text-accent rotate-180" : "bg-muted"
+                  )}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
                 </button>
                 <div className={cn("accordion-content", isCompanyOpen && "open")}>
                   <div className="accordion-inner">
@@ -821,7 +846,10 @@ export function Header() {
             {/* Sticky Bottom CTA + Contact Info */}
             <div className="flex-shrink-0 border-t border-border/50 bg-muted/30 px-4 sm:px-6 py-4 mobile-menu-safe-area">
               <Button variant="accent" size="lg" className="w-full mb-3" asChild>
-                <Link to="/get-started">Get Started</Link>
+                <Link to="/get-started">
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
               
               {/* Quick Contact Info */}
