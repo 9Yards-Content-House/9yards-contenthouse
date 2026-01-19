@@ -183,42 +183,42 @@ const serviceCategories = [
     id: "creative",
     title: "Creative",
     description: "Brand identities, logos, social graphics, and visual content that makes your brand impossible to ignore. We design everything from scratch or refresh what you have.",
-    tags: ["Graphic Design", "Branding", "Print Design", "Social Creatives", "Concept Creation"],
-    href: "/services#creative",
+    tags: ["Logo Design", "Brand Identity", "Social Media Graphics", "Packaging Design", "Print Materials"],
+    href: "/services/graphic-design",
   },
   {
     id: "video",
     title: "Video & Motion",
     description: "From 15-second Reels to full documentary productions. We handle scripting, shooting, editing, and post-production to bring your stories to life on screen.",
-    tags: ["Video Production", "Motion Graphics", "Reels & TikTok", "Documentaries", "Commercials"],
+    tags: ["Music Videos", "TV Commercials", "Corporate Videos", "Documentaries", "Motion Graphics", "Reels & TikTok"],
     href: "/services/video-production",
   },
   {
     id: "digital",
     title: "Digital Marketing",
     description: "Data-driven campaigns that actually convert. We manage your paid ads, SEO, email marketing, and lead generation to turn clicks into customers.",
-    tags: ["SEO & PPC", "Social Ads", "Email Marketing", "Lead Generation", "Conversion Strategy"],
-    href: "/services#digital",
+    tags: ["Paid Social Ads", "Email Campaigns", "Automation Flows", "Analytics & Reporting", "A/B Testing"],
+    href: "/services/social-media-marketing",
   },
   {
     id: "social",
     title: "Social Media",
     description: "Complete social media management. We create content, engage your community, track analytics, and grow your following across all platforms.",
-    tags: ["Content Strategy", "Community Management", "Influencer Marketing", "Analytics", "Growth"],
+    tags: ["Content Strategy", "Community Management", "Account Management", "Campaign Management", "Influencer Marketing"],
     href: "/services/social-media-marketing",
   },
   {
     id: "ai",
     title: "AI Services",
     description: "Stay ahead with AI-powered creative solutions. We help you automate workflows, generate content faster, and integrate smart tools into your business.",
-    tags: ["AI Creative", "Workflow Automation", "AI Consulting", "Smart Assets"],
+    tags: ["AI Image Generation", "AI Video Creation", "AI Copywriting", "Workflow Automation", "Team Training"],
     href: "/services/ai-creative",
   },
   {
     id: "studio",
     title: "Studio & Production",
     description: "Professional studio facilities in Kampala. Book our space for podcast recording, voice-overs, photography sessions, and audio production.",
-    tags: ["Podcast Studio", "Voice Over", "Photography", "Audio Production", "Studio Rental"],
+    tags: ["Podcast Recording", "Voice Over", "Product Photography", "Corporate Headshots", "Audio Editing"],
     href: "/services/podcast-production",
   },
 ];
@@ -383,20 +383,20 @@ function ServicesCarousel() {
         onMouseEnter={() => setIsAutoScrollPaused(true)}
         onMouseLeave={() => setIsAutoScrollPaused(false)}
       >
-        {/* Navigation Arrows - Desktop - More spacing from edges */}
+        {/* Navigation Arrows - Desktop - More visible with background */}
         <button
           onClick={handlePrev}
-          className="hidden md:flex absolute left-1 lg:left-2 xl:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-11 lg:h-11 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
+          className="hidden md:flex absolute left-1 lg:left-2 xl:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 shadow-lg transition-all duration-200"
           aria-label="Previous service"
         >
-          <ArrowLeft className="w-4 h-4 text-foreground" />
+          <ArrowLeft className="w-4 h-4 lg:w-5 lg:h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="hidden md:flex absolute right-1 lg:right-2 xl:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-11 lg:h-11 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
+          className="hidden md:flex absolute right-1 lg:right-2 xl:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 shadow-lg transition-all duration-200"
           aria-label="Next service"
         >
-          <ArrowRight className="w-4 h-4 text-foreground" />
+          <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
         </button>
 
         {/* Cards Carousel */}
@@ -461,21 +461,21 @@ function ServicesCarousel() {
           ))}
         </div>
 
-        {/* Mobile Navigation Arrows - Larger with subtle background */}
+        {/* Mobile Navigation Arrows - More visible */}
         <div className="flex md:hidden justify-center gap-3 mt-5">
           <button
             onClick={handlePrev}
-            className="w-11 h-11 flex items-center justify-center rounded-full bg-background border border-border shadow-sm hover:bg-muted hover:border-foreground/20 transition-all"
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-foreground text-background shadow-md hover:bg-foreground/90 transition-all"
             aria-label="Previous service"
           >
-            <ArrowLeft className="w-4 h-4 text-foreground" />
+            <ArrowLeft className="w-4 h-4" />
           </button>
           <button
             onClick={handleNext}
-            className="w-11 h-11 flex items-center justify-center rounded-full bg-background border border-border shadow-sm hover:bg-muted hover:border-foreground/20 transition-all"
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-foreground text-background shadow-md hover:bg-foreground/90 transition-all"
             aria-label="Next service"
           >
-            <ArrowRight className="w-4 h-4 text-foreground" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>
