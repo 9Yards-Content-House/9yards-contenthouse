@@ -269,7 +269,7 @@ export function Header() {
                   {link.dropdownType ? (
                     <div
                       className={cn(
-                        "flex items-center gap-0.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative cursor-pointer select-none",
+                        "flex items-center gap-0.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative select-none",
                         isActive
                           ? isScrolled
                             ? "text-primary bg-primary/5"
@@ -278,37 +278,46 @@ export function Header() {
                             ? "text-foreground hover:text-primary hover:bg-primary/5"
                             : "text-white/90 hover:text-white hover:bg-white/10"
                       )}
-                      role="button"
-                      tabIndex={0}
-                      aria-expanded={openDropdown === link.dropdownType}
                       aria-haspopup="true"
-                      onClick={() => {
-                        // Toggle dropdown on click for all devices
-                        if (openDropdown === link.dropdownType) {
-                          setOpenDropdown(null);
-                        } else {
-                          setOpenDropdown(link.dropdownType);
-                        }
-                      }}
-                      onKeyDown={(e) => {
-                        // Allow keyboard activation with Enter or Space
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
+                    >
+                      {/* Text label - clicking navigates to the page */}
+                      <Link 
+                        to={link.href} 
+                        className="cursor-pointer"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {link.name}
+                      </Link>
+                      {/* Chevron icon - clicking toggles dropdown */}
+                      <button
+                        type="button"
+                        className="cursor-pointer p-1 -mr-1 rounded hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+                        aria-expanded={openDropdown === link.dropdownType}
+                        aria-label={`Toggle ${link.name} dropdown`}
+                        onClick={(e) => {
+                          e.stopPropagation();
                           if (openDropdown === link.dropdownType) {
                             setOpenDropdown(null);
                           } else {
                             setOpenDropdown(link.dropdownType);
                           }
-                        }
-                      }}
-                    >
-                      {/* Text label - clicking opens dropdown */}
-                      <span className="cursor-pointer">{link.name}</span>
-                      {/* Chevron icon */}
-                      <ChevronDown className={cn(
-                        "w-4 h-4 transition-transform duration-200 ml-0.5",
-                        openDropdown === link.dropdownType && "rotate-180"
-                      )} />
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            if (openDropdown === link.dropdownType) {
+                              setOpenDropdown(null);
+                            } else {
+                              setOpenDropdown(link.dropdownType);
+                            }
+                          }
+                        }}
+                      >
+                        <ChevronDown className={cn(
+                          "w-4 h-4 transition-transform duration-200",
+                          openDropdown === link.dropdownType && "rotate-180"
+                        )} />
+                      </button>
                       {/* Active indicator line */}
                       {(isActive || openDropdown === link.dropdownType) && (
                         <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-accent" />
