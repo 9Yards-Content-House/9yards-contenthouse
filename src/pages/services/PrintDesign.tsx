@@ -214,13 +214,13 @@ export default function PrintDesign() {
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Print Design That Works For You</h2>
                 <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-                  Professional print materials, fast delivery, and results that make an impact
+                  Professional print materials, delivered fast, designed to leave a lasting impression
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Your brand needs print materials that stand out in person, from business cards that get kept to brochures that get read. 9Yards Content House brings print expertise, experienced designers, and efficient workflows that deliver exceptional results.
+                  Make your brand unforgettable with print pieces that stand out. Business cards people keep, brochures that get noticed, and packaging that elevates your product. 9Yards Content House combines creative design with deep print expertise to ensure every detail is perfect.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Unlike agencies that treat print as an afterthought, we understand paper stocks, finishing options, and production requirements. Technical expertise, creative execution, and proven processes mean you get quality without the hassle.
+                  We handle everything from paper selection to production, so you get flawless results without the stress. Our team manages the technical details, creative direction, and tight deadlines, so you can focus on your business.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
@@ -243,7 +243,7 @@ export default function PrintDesign() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/print-design.jpg" 
+                  src="/images/miscellany/products.jpeg" 
                   alt="9Yards Content House professional print design" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
