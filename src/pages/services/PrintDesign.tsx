@@ -451,7 +451,7 @@ export default function PrintDesign() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/print-design.jpg" 
+              src="/images/miscellany/bronchers.jpg" 
               alt="9Yards professional print studio"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
@@ -667,9 +667,9 @@ export default function PrintDesign() {
             {/* Background Image */}
             <div className="absolute inset-0">
               <img 
-                src="/images/hero-grid/branding.jpg" 
-                alt="Professional print design"
-                className="w-full h-full object-cover object-[70%_center] sm:object-center"
+                src="/images/miscellany/9yards-beetroot-juice-menu.jpg" 
+                alt="Beetroot juice menu print design"
+                className="w-full h-full object-cover object-center"
               />
               {/* Gradient overlay for text readability - stronger on mobile */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20 sm:from-black/80 sm:via-black/45 sm:to-transparent md:from-black/75 md:via-black/35 lg:from-black/70 lg:via-black/25 lg:to-transparent" />
@@ -680,13 +680,12 @@ export default function PrintDesign() {
               <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Headline */}
                 <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.3] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-                  Your brand deserves{' '}
-                  <span className="text-accent">print that impresses.</span>
+                  Print Design That Gets Noticed
                 </h2>
 
                 {/* Description */}
                 <p className="text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/75 leading-relaxed mb-5 sm:mb-6 md:mb-7 lg:mb-8">
-                  Subscribe for ongoing print support or book one-time projects. Flexible packages, predictable pricing, and quality that represents your brand. What would you like to print?
+                  Ready to make your brand stand out? Get ongoing print support or book a one-time project. Always with clear pricing and quality you can trust. What will you create next?
                 </p>
 
                 {/* CTA Button */}
