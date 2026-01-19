@@ -575,7 +575,7 @@ export function Header() {
         {isMobileMenuOpen && (
           <div 
             ref={mobileMenuRef}
-            className="md:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background z-40 mobile-menu-enter overflow-hidden flex flex-col"
+            className="md:hidden fixed inset-x-0 top-[56px] sm:top-[64px] bottom-0 bg-background/95 backdrop-blur-xl z-40 mobile-menu-enter overflow-hidden flex flex-col"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
@@ -585,18 +585,18 @@ export function Header() {
               {/* Services Dropdown with accordion animation */}
               <div className={cn(
                 "rounded-xl transition-colors duration-200",
-                isServicesOpen && "bg-primary/5"
+                isServicesOpen && "bg-muted/50"
               )}>
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   className={cn(
                     "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
-                    isServicesActive ? "text-primary" : "text-foreground",
-                    isServicesOpen && "text-primary"
+                    isServicesActive ? "text-accent" : "text-foreground",
+                    isServicesOpen && "text-accent"
                   )}
                 >
                   <span className="flex items-center gap-2">
-                    {isServicesActive && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                    {isServicesActive && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
                     Services
                   </span>
                   <ChevronDown
@@ -611,14 +611,15 @@ export function Header() {
                     {/* Quick link to all services */}
                     <Link
                       to="/services"
-                      className="flex items-center justify-between mx-3 mb-3 py-2.5 px-3 text-sm font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
+                      className="flex items-center justify-between mx-3 mb-4 py-2.5 px-3 text-sm font-medium text-accent bg-accent/10 rounded-lg hover:bg-accent/20 transition-colors"
                     >
                       View All Services
-                      <span className="text-xs">→</span>
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
-                    <div className="pl-4 space-y-4 pb-3 border-l-2 border-primary/20 mx-3">
+                    <div className="space-y-5 pb-3 mx-3">
                       <div>
-                        <h5 className="font-semibold text-primary text-sm mb-1 px-3">
+                        <h5 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 px-2 flex items-center gap-2">
+                          <span className="w-1 h-4 bg-accent rounded-full"></span>
                           Creative Services
                         </h5>
                         {services.creative.map((item) => (
@@ -626,18 +627,19 @@ export function Header() {
                             key={item.name}
                             to={item.href}
                             className={cn(
-                              "flex items-center py-3 px-3 text-sm sm:text-base rounded-lg tap-highlight transition-colors min-h-[44px]",
+                              "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
                               location.pathname === item.href
-                                ? "text-primary font-medium bg-primary/10"
-                                : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                ? "text-accent font-medium bg-accent/10"
+                                : "text-foreground/70 hover:text-foreground hover:bg-muted"
                             )}
                           >
                             {item.name}
                           </Link>
                         ))}
                       </div>
-                      <div>
-                        <h5 className="font-semibold text-primary text-sm mb-1 px-3">
+                      <div className="border-t border-border/50 pt-4">
+                        <h5 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 px-2 flex items-center gap-2">
+                          <span className="w-1 h-4 bg-accent rounded-full"></span>
                           Digital & Strategy
                         </h5>
                         {services.digital.map((item) => (
@@ -645,18 +647,19 @@ export function Header() {
                             key={item.name}
                             to={item.href}
                             className={cn(
-                              "flex items-center py-3 px-3 text-sm sm:text-base rounded-lg tap-highlight transition-colors min-h-[44px]",
+                              "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
                               location.pathname === item.href
-                                ? "text-primary font-medium bg-primary/10"
-                                : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                ? "text-accent font-medium bg-accent/10"
+                                : "text-foreground/70 hover:text-foreground hover:bg-muted"
                             )}
                           >
                             {item.name}
                           </Link>
                         ))}
                       </div>
-                      <div>
-                        <h5 className="font-semibold text-primary text-sm mb-1 px-3">
+                      <div className="border-t border-border/50 pt-4">
+                        <h5 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 px-2 flex items-center gap-2">
+                          <span className="w-1 h-4 bg-accent rounded-full"></span>
                           Media Production
                         </h5>
                         {services.media.map((item) => (
@@ -664,18 +667,19 @@ export function Header() {
                             key={item.name}
                             to={item.href}
                             className={cn(
-                              "flex items-center py-3 px-3 text-sm sm:text-base rounded-lg tap-highlight transition-colors min-h-[44px]",
+                              "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
                               location.pathname === item.href
-                                ? "text-primary font-medium bg-primary/10"
-                                : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                ? "text-accent font-medium bg-accent/10"
+                                : "text-foreground/70 hover:text-foreground hover:bg-muted"
                             )}
                           >
                             {item.name}
                           </Link>
                         ))}
                       </div>
-                      <div>
-                        <h5 className="font-semibold text-primary text-sm mb-1 px-3">
+                      <div className="border-t border-border/50 pt-4">
+                        <h5 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 px-2 flex items-center gap-2">
+                          <span className="w-1 h-4 bg-accent rounded-full"></span>
                           AI Services
                         </h5>
                         {services.ai.map((item) => (
@@ -683,10 +687,10 @@ export function Header() {
                             key={item.name}
                             to={item.href}
                             className={cn(
-                              "flex items-center py-3 px-3 text-sm sm:text-base rounded-lg tap-highlight transition-colors min-h-[44px]",
+                              "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
                               location.pathname === item.href
-                                ? "text-primary font-medium bg-primary/10"
-                                : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                                ? "text-accent font-medium bg-accent/10"
+                                : "text-foreground/70 hover:text-foreground hover:bg-muted"
                             )}
                           >
                             {item.name}
@@ -699,7 +703,7 @@ export function Header() {
               </div>
 
               {/* Separator */}
-              <div className="h-px bg-border mx-2" />
+              <div className="h-px bg-border/50 mx-2" />
 
               {/* Our Work Link */}
               <Link
@@ -707,32 +711,32 @@ export function Header() {
                 className={cn(
                   "flex items-center gap-2 py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
                   location.pathname === "/portfolio"
-                    ? "text-primary"
-                    : "text-foreground hover:text-primary"
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent"
                 )}
               >
-                {location.pathname === "/portfolio" && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                {location.pathname === "/portfolio" && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
                 Our Work
               </Link>
 
               {/* Separator */}
-              <div className="h-px bg-border mx-2" />
+              <div className="h-px bg-border/50 mx-2" />
 
               {/* Why Us Dropdown with accordion animation */}
               <div className={cn(
                 "rounded-xl transition-colors duration-200",
-                isWhyUsOpen && "bg-primary/5"
+                isWhyUsOpen && "bg-muted/50"
               )}>
                 <button
                   onClick={() => setIsWhyUsOpen(!isWhyUsOpen)}
                   className={cn(
                     "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
-                    isWhyUsActive ? "text-primary" : "text-foreground",
-                    isWhyUsOpen && "text-primary"
+                    isWhyUsActive ? "text-accent" : "text-foreground",
+                    isWhyUsOpen && "text-accent"
                   )}
                 >
                   <span className="flex items-center gap-2">
-                    {isWhyUsActive && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                    {isWhyUsActive && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
                     Why Us
                   </span>
                   <ChevronDown
@@ -744,16 +748,16 @@ export function Header() {
                 </button>
                 <div className={cn("accordion-content", isWhyUsOpen && "open")}>
                   <div className="accordion-inner">
-                    <div className="pl-4 pb-3 border-l-2 border-primary/20 mx-3">
+                    <div className="pb-3 mx-3">
                       {whyUsItems.map((item) => (
                         <Link
                           key={item.name}
                           to={item.href}
                           className={cn(
-                            "flex items-center py-3 px-3 text-sm sm:text-base rounded-lg tap-highlight transition-colors min-h-[44px]",
+                            "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
                             location.pathname === item.href
-                              ? "text-primary font-medium bg-primary/10"
-                              : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                              ? "text-accent font-medium bg-accent/10"
+                              : "text-foreground/70 hover:text-foreground hover:bg-muted"
                           )}
                         >
                           {item.name}
@@ -765,23 +769,23 @@ export function Header() {
               </div>
 
               {/* Separator */}
-              <div className="h-px bg-border mx-2" />
+              <div className="h-px bg-border/50 mx-2" />
 
               {/* Company Dropdown with accordion animation */}
               <div className={cn(
                 "rounded-xl transition-colors duration-200",
-                isCompanyOpen && "bg-primary/5"
+                isCompanyOpen && "bg-muted/50"
               )}>
                 <button
                   onClick={() => setIsCompanyOpen(!isCompanyOpen)}
                   className={cn(
                     "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
-                    isCompanyActive ? "text-primary" : "text-foreground",
-                    isCompanyOpen && "text-primary"
+                    isCompanyActive ? "text-accent" : "text-foreground",
+                    isCompanyOpen && "text-accent"
                   )}
                 >
                   <span className="flex items-center gap-2">
-                    {isCompanyActive && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                    {isCompanyActive && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
                     Company
                   </span>
                   <ChevronDown
@@ -793,16 +797,16 @@ export function Header() {
                 </button>
                 <div className={cn("accordion-content", isCompanyOpen && "open")}>
                   <div className="accordion-inner">
-                    <div className="pl-4 pb-3 border-l-2 border-primary/20 mx-3">
+                    <div className="pb-3 mx-3">
                       {companyItems.map((item) => (
                         <Link
                           key={item.name}
                           to={item.href}
                           className={cn(
-                            "flex items-center py-3 px-3 text-sm sm:text-base rounded-lg tap-highlight transition-colors min-h-[44px]",
+                            "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
                             location.pathname === item.href
-                              ? "text-primary font-medium bg-primary/10"
-                              : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                              ? "text-accent font-medium bg-accent/10"
+                              : "text-foreground/70 hover:text-foreground hover:bg-muted"
                           )}
                         >
                           {item.name}
@@ -815,16 +819,16 @@ export function Header() {
             </div>
 
             {/* Sticky Bottom CTA + Contact Info */}
-            <div className="flex-shrink-0 border-t border-border bg-background px-4 sm:px-6 py-4 mobile-menu-safe-area">
-              <Button variant="accent" size="lg" className="w-full mb-4" asChild>
+            <div className="flex-shrink-0 border-t border-border/50 bg-muted/30 px-4 sm:px-6 py-4 mobile-menu-safe-area">
+              <Button variant="accent" size="lg" className="w-full mb-3" asChild>
                 <Link to="/get-started">Get Started</Link>
               </Button>
               
               {/* Quick Contact Info */}
-              <div className="flex items-center justify-center text-sm text-muted-foreground">
+              <div className="flex items-center justify-center text-xs text-muted-foreground">
                 <a 
                   href="mailto:contenthouse@9yards.co.ug" 
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-accent transition-colors"
                 >
                   contenthouse@9yards.co.ug
                 </a>
