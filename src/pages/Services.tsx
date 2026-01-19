@@ -616,134 +616,181 @@ export default function Services() {
 
 
       {/* Industries We Serve Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="max-w-3xl mb-10 sm:mb-12 lg:mb-16">
-            <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
-            <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Industries We Serve</h2>
-            <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-              Creative solutions built for your industry
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-gradient-to-b from-muted/30 via-background to-muted/50 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 -left-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 -right-32 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header - Matching other sections */}
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 lg:mb-16">
+            <div className="w-12 h-1 bg-accent rounded-full mb-4 mx-auto"></div>
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">
+              Who We Work With
             </p>
-            <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-              From music videos to e-commerce product shoots, corporate rebrands to influencer campaigns, we understand the unique creative demands of different industries. Here's who we work with:
+            <h2 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold tracking-tight text-foreground leading-[1.25] sm:leading-[1.3] mb-4 sm:mb-6">
+              Industries We Serve
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              From music videos to e-commerce shoots, corporate rebrands to influencer campaigns. We understand what makes your industry unique.
             </p>
           </div>
 
-          {/* Industries Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {/* Entertainment & Music */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                <Play className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+          {/* Industries Bento Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+            {/* Entertainment & Music - Featured Card */}
+            <div className="group relative sm:col-span-2 lg:col-span-1 lg:row-span-2 rounded-2xl sm:rounded-3xl overflow-hidden min-h-[280px] sm:min-h-[300px] lg:min-h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1c1e70] via-[#2a2d8a] to-[#1c1e70]"></div>
+              <div className="absolute inset-0 bg-[url('/images/hero-grid/video-production.jpg')] bg-cover bg-center opacity-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="relative h-full p-5 sm:p-6 lg:p-8 flex flex-col justify-end">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-3 sm:mb-4">
+                  <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                </div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">Entertainment & Music</h3>
+                <p className="text-sm text-white/80 leading-relaxed mb-3 sm:mb-4">
+                  Music videos, artist branding, album artwork, concert visuals, and social content for musicians, DJs, and record labels.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-xs font-medium bg-white/10 backdrop-blur-sm text-white/90 rounded-full">Music Videos</span>
+                  <span className="px-3 py-1 text-xs font-medium bg-white/10 backdrop-blur-sm text-white/90 rounded-full">Artist Branding</span>
+                  <span className="px-3 py-1 text-xs font-medium bg-white/10 backdrop-blur-sm text-white/90 rounded-full">Album Art</span>
+                </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Entertainment & Music</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Music videos, artist branding, album artwork, concert visuals, and social content for musicians, DJs, record labels, and entertainment companies.
-              </p>
             </div>
 
             {/* E-Commerce & Retail */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">E-Commerce & Retail</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Product photography, e-commerce websites, packaging design, social media marketing, and email campaigns that drive online sales and in-store traffic.
+                Product photography, e-commerce websites, packaging design, and campaigns that drive sales.
               </p>
             </div>
 
             {/* Hospitality & Food */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Hospitality & Food</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Food photography, menu design, restaurant branding, promotional videos, influencer partnerships, and social media management for restaurants, hotels, and cafes.
+                Food photography, menu design, restaurant branding, and social media for hospitality.
               </p>
             </div>
 
-            {/* Corporate & Professional Services */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                <Users className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+            {/* Corporate & Professional - Wide Card */}
+            <div className="sm:col-span-2 rounded-2xl sm:rounded-3xl bg-foreground p-5 sm:p-6 lg:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/10 flex items-center justify-center">
+                    <Users className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">Corporate & Professional Services</h3>
+                  <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+                    Corporate headshots, company profiles, brand guidelines, presentation design, training videos, and internal communications for businesses of all sizes.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Corporate & Professional</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Corporate headshots, company profiles, brand guidelines, presentation design, training videos, and internal communications for businesses and professional services.
-              </p>
             </div>
 
             {/* Startups & Tech */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Startups & Tech</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Brand identity, website development, explainer videos, pitch deck design, product demos, and digital marketing for tech startups and software companies.
+                Brand identity, websites, explainer videos, and pitch decks for tech companies.
               </p>
             </div>
 
-            {/* Real Estate & Property */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+            {/* Real Estate */}
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Real Estate & Property</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Property photography, virtual tours, brochure design, listing videos, and digital advertising for real estate agents, developers, and property managers.
+                Property photography, virtual tours, brochures, and listing videos.
               </p>
             </div>
 
             {/* Fashion & Beauty */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Fashion & Beauty</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Lookbook photography, brand campaigns, influencer marketing, social media content, e-commerce shoots, and packaging design for fashion and beauty brands.
+                Lookbooks, brand campaigns, influencer marketing, and e-commerce shoots.
               </p>
             </div>
 
             {/* Health & Wellness */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Target className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Health & Wellness</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Brand identity, educational content, social media marketing, podcast production, and promotional videos for gyms, clinics, wellness brands, and health practitioners.
+                Brand identity, educational content, social marketing, and podcasts.
               </p>
             </div>
 
             {/* Media & Content Creators */}
-            <div className="bg-card rounded-xl sm:rounded-2xl border border-border p-5 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Mic className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Media & Content Creators</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Media & Creators</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Podcast production, video editing, channel branding, thumbnail design, and content strategy for YouTubers, podcasters, influencers, and digital creators.
+                Podcast production, video editing, channel branding, and thumbnails.
+              </p>
+            </div>
+
+            {/* Education & Training - New card to balance */}
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Education & Training</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Course content, training videos, educational graphics, and e-learning platforms.
               </p>
             </div>
           </div>
 
-          {/* Bottom Note */}
-          <div className="mt-10 sm:mt-12 lg:mt-16 text-center">
-            <p className="text-base sm:text-lg text-muted-foreground">
-              Don't see your industry? <span className="font-semibold text-foreground">We adapt.</span> Our creative process works for any business that needs to look great and grow.
-            </p>
-            <div className="mt-6">
-              <Button variant="accent" size="lg" asChild>
-                <Link to="/contact">
-                  Let's Discuss Your Project
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+          {/* Bottom CTA */}
+          <div className="mt-10 sm:mt-12 lg:mt-16">
+            <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-r from-accent/10 via-accent/5 to-primary/10 border border-accent/20 p-5 sm:p-6 lg:p-8 overflow-hidden">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6">
+                <div>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-1 sm:mb-2">Don't see your industry?</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground">
+                    Our creative process adapts to any business. Let's discuss what you need.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button variant="accent" size="lg" className="rounded-full" asChild>
+                    <Link to="/contact">
+                      Let's Talk
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" size="lg" className="rounded-full" asChild>
+                    <Link to="/portfolio">
+                      See Our Work
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
