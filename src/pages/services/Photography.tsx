@@ -667,7 +667,7 @@ export default function Photography() {
             {/* Background Image */}
             <div className="absolute inset-0">
               <img 
-                src="/images/hero-grid/photography.jpg" 
+                src="/images/miscellany/cta.jpg" 
                 alt="Professional photography session"
                 className="w-full h-full object-cover object-[70%_center] sm:object-center"
               />
