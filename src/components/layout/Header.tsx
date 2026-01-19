@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, HelpCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -327,6 +327,7 @@ export function Header() {
                           </div>
                           <Link
                             to="/services"
+                            onClick={() => setOpenDropdown(null)}
                             className="group flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
                           >
                             View all
@@ -348,11 +349,12 @@ export function Header() {
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
+                                    onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200 group",
                                       location.pathname === item.href
                                         ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
                                     )}
                                   >
                                     {item.name}
@@ -371,11 +373,12 @@ export function Header() {
                                   <li key={item.name}>
                                     <Link
                                       to={item.href}
+                                      onClick={() => setOpenDropdown(null)}
                                       className={cn(
                                         "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
                                         location.pathname === item.href
                                           ? "text-primary font-medium bg-primary/5"
-                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
                                       )}
                                     >
                                       {item.name}
@@ -396,11 +399,12 @@ export function Header() {
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
+                                    onClick={() => setOpenDropdown(null)}
                                     className={cn(
                                       "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
                                       location.pathname === item.href
                                         ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
                                     )}
                                   >
                                     {item.name}
@@ -419,11 +423,12 @@ export function Header() {
                                   <li key={item.name}>
                                     <Link
                                       to={item.href}
+                                      onClick={() => setOpenDropdown(null)}
                                       className={cn(
                                         "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
                                         location.pathname === item.href
                                           ? "text-primary font-medium bg-primary/5"
-                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
                                       )}
                                     >
                                       {item.name}
@@ -444,11 +449,12 @@ export function Header() {
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
+                                    onClick={() => setOpenDropdown(null)}
                                     className={cn(
                                       "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
                                       location.pathname === item.href
                                         ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
                                     )}
                                   >
                                     {item.name}
@@ -466,11 +472,12 @@ export function Header() {
                                 <li key={item.name}>
                                   <Link
                                     to={item.href}
+                                    onClick={() => setOpenDropdown(null)}
                                     className={cn(
                                       "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
                                       location.pathname === item.href
                                         ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
                                     )}
                                   >
                                     {item.name}
@@ -484,16 +491,13 @@ export function Header() {
                           <div className="hidden lg:block lg:pl-6">
                             <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 rounded-xl p-5 h-full flex flex-col border border-primary/10">
                               <div className="flex-1">
-                                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                                  <span className="text-primary text-lg">?</span>
-                                </div>
                                 <h4 className="font-bold text-foreground mb-2">Not sure where to start?</h4>
                                 <p className="text-sm text-muted-foreground mb-4">
                                   Tell us about your project and we'll recommend the perfect solution.
                                 </p>
                               </div>
                               <Button variant="accent" size="sm" className="w-full" asChild>
-                                <Link to="/get-started">
+                                <Link to="/get-started" onClick={() => setOpenDropdown(null)}>
                                   Get Started
                                   <ArrowRight className="w-4 h-4 ml-1" />
                                 </Link>
@@ -505,17 +509,12 @@ export function Header() {
                         {/* CTA Banner - Shown only on tablet */}
                         <div className="lg:hidden mt-6 pt-6 border-t border-border">
                           <div className="bg-gradient-to-r from-primary/10 via-accent/5 to-primary/5 rounded-xl p-4 flex items-center justify-between gap-4 border border-primary/10">
-                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                                <span className="text-primary text-xl">?</span>
-                              </div>
-                              <div>
-                                <h4 className="font-bold text-foreground text-sm">Not sure where to start?</h4>
-                                <p className="text-xs text-muted-foreground">Tell us about your project</p>
-                              </div>
+                            <div>
+                              <h4 className="font-bold text-foreground text-sm">Not sure where to start?</h4>
+                              <p className="text-xs text-muted-foreground">Tell us about your project</p>
                             </div>
                             <Button variant="accent" size="sm" asChild>
-                              <Link to="/get-started">
+                              <Link to="/get-started" onClick={() => setOpenDropdown(null)}>
                                 Get Started
                                 <ArrowRight className="w-4 h-4 ml-1" />
                               </Link>
