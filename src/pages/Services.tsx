@@ -369,7 +369,7 @@ function ServicesCarousel() {
         <div className="max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center">
           <div className="w-12 h-1 bg-accent rounded-full mb-4 mx-auto"></div>
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">
-            Our Capabilities
+            What We Do
           </p>
           <h2 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold tracking-tight text-foreground leading-[1.25] sm:leading-[1.3]">
             One team for every creative<br className="hidden sm:block" /> and marketing need
@@ -383,26 +383,26 @@ function ServicesCarousel() {
         onMouseEnter={() => setIsAutoScrollPaused(true)}
         onMouseLeave={() => setIsAutoScrollPaused(false)}
       >
-        {/* Navigation Arrows - Desktop */}
+        {/* Navigation Arrows - Desktop - More spacing from edges */}
         <button
           onClick={handlePrev}
-          className="hidden md:flex absolute left-2 sm:left-4 lg:left-6 xl:left-12 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
+          className="hidden md:flex absolute left-1 lg:left-2 xl:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-11 lg:h-11 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
           aria-label="Previous service"
         >
-          <ArrowLeft className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
+          <ArrowLeft className="w-4 h-4 text-foreground" />
         </button>
         <button
           onClick={handleNext}
-          className="hidden md:flex absolute right-2 sm:right-4 lg:right-6 xl:right-12 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
+          className="hidden md:flex absolute right-1 lg:right-2 xl:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-11 lg:h-11 items-center justify-center rounded-full bg-background border border-border hover:border-foreground/20 hover:bg-muted transition-all duration-200"
           aria-label="Next service"
         >
-          <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 text-foreground" />
+          <ArrowRight className="w-4 h-4 text-foreground" />
         </button>
 
         {/* Cards Carousel */}
         <div
           ref={carouselRef}
-          className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar px-4 sm:px-6 lg:px-8"
+          className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           onScroll={handleScroll}
         >
@@ -412,7 +412,7 @@ function ServicesCarousel() {
               to={category.href}
               className="service-card group flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[550px] lg:w-[600px] xl:w-[700px] snap-center"
             >
-              <div className="relative h-full min-h-[280px] sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px] rounded-xl sm:rounded-2xl lg:rounded-3xl bg-background border border-border/80 p-5 sm:p-7 md:p-8 lg:p-10 overflow-hidden transition-colors duration-200 hover:border-border">
+              <div className="relative h-full min-h-[300px] sm:min-h-[340px] md:min-h-[380px] lg:min-h-[420px] rounded-xl sm:rounded-2xl lg:rounded-3xl bg-background border border-border/80 p-5 sm:p-7 md:p-8 lg:p-10 overflow-hidden transition-colors duration-200 hover:border-border">
                 {/* Content */}
                 <div className="relative z-10 flex flex-col h-full">
                   {/* Title */}
@@ -421,7 +421,7 @@ function ServicesCarousel() {
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-lg mb-auto">
+                  <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-lg">
                     {category.description}
                   </p>
 
@@ -435,6 +435,14 @@ function ServicesCarousel() {
                         {tag}
                       </span>
                     ))}
+                  </div>
+
+                  {/* View Details Link */}
+                  <div className="mt-auto pt-6 sm:pt-8">
+                    <span className="inline-flex items-center text-sm font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
+                      View Details
+                      <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform duration-200" />
+                    </span>
                   </div>
                 </div>
               </div>
@@ -461,18 +469,18 @@ function ServicesCarousel() {
           ))}
         </div>
 
-        {/* Mobile Navigation Arrows */}
+        {/* Mobile Navigation Arrows - Larger with subtle background */}
         <div className="flex md:hidden justify-center gap-3 mt-5">
           <button
             onClick={handlePrev}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-background border border-border hover:bg-muted transition-all"
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-background border border-border shadow-sm hover:bg-muted hover:border-foreground/20 transition-all"
             aria-label="Previous service"
           >
             <ArrowLeft className="w-4 h-4 text-foreground" />
           </button>
           <button
             onClick={handleNext}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-background border border-border hover:bg-muted transition-all"
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-background border border-border shadow-sm hover:bg-muted hover:border-foreground/20 transition-all"
             aria-label="Next service"
           >
             <ArrowRight className="w-4 h-4 text-foreground" />
