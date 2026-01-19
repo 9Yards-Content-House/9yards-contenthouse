@@ -309,26 +309,26 @@ export function Header() {
                     </Link>
                   )}
 
-                {/* Mega Menu for Services */}
+                {/* Mega Menu for Services - Modern Clean Design */}
                 {link.dropdownType === "services" && openDropdown === "services" && (
                   <div 
-                    className="fixed top-[72px] left-0 right-0 pt-3 flex justify-center px-4 z-50"
+                    className="fixed top-[72px] left-0 right-0 pt-2 flex justify-center px-4 z-50"
                     onMouseEnter={() => handleMouseEnter("services")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
-                    <div className="bg-background rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden w-full max-w-[900px] animate-in fade-in-0 zoom-in-95 duration-200">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden w-full max-w-[880px] animate-in fade-in-0 slide-in-from-top-2 duration-200">
                       {/* Header */}
-                      <div className="bg-gradient-to-r from-primary/5 via-transparent to-accent/5 px-6 py-4 border-b border-border">
+                      <div className="px-6 py-4 border-b border-border/50">
                         <div className="flex items-center justify-between">
                           <div>
-                            <h3 className="font-bold text-foreground">Our Services</h3>
-                            <p className="text-sm text-muted-foreground">Everything you need to grow your brand</p>
+                            <h3 className="font-bold text-foreground">Services</h3>
+                            <p className="text-sm text-muted-foreground">Creative solutions tailored to your goals</p>
                           </div>
                           <Link
                             to="/services"
                             onClick={() => setOpenDropdown(null)}
-                            className="group flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+                            className="group flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
                           >
                             View all
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -338,10 +338,10 @@ export function Header() {
                       
                       {/* Content Grid */}
                       <div className="p-6">
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-border">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-border/50">
                           {/* Creative Services */}
                           <div className="lg:pr-6">
-                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4">
                               Creative
                             </h4>
                             <ul className="space-y-0.5">
@@ -351,10 +351,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200 group",
+                                      "block py-1.5 text-[13px] transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
+                                        ? "text-accent font-medium"
+                                        : "text-foreground/70 hover:text-foreground"
                                     )}
                                   >
                                     {item.name}
@@ -362,36 +362,11 @@ export function Header() {
                                 </li>
                               ))}
                             </ul>
-                            
-                            {/* Media Production - shown on tablet only in this column */}
-                            <div className="lg:hidden">
-                              <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
-                                Media Production
-                              </h4>
-                              <ul className="space-y-0.5">
-                                {services.media.map((item) => (
-                                  <li key={item.name}>
-                                    <Link
-                                      to={item.href}
-                                      onClick={() => setOpenDropdown(null)}
-                                      className={cn(
-                                        "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
-                                        location.pathname === item.href
-                                          ? "text-primary font-medium bg-primary/5"
-                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
-                                      )}
-                                    >
-                                      {item.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
                           </div>
                           
                           {/* Digital & Strategy */}
                           <div className="lg:px-6">
-                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4">
                               Digital & Strategy
                             </h4>
                             <ul className="space-y-0.5">
@@ -401,10 +376,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      "block py-1.5 text-[13px] transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
+                                        ? "text-accent font-medium"
+                                        : "text-foreground/70 hover:text-foreground"
                                     )}
                                   >
                                     {item.name}
@@ -412,36 +387,11 @@ export function Header() {
                                 </li>
                               ))}
                             </ul>
-                            
-                            {/* AI Services - shown on tablet only in this column */}
-                            <div className="lg:hidden">
-                              <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
-                                AI Services
-                              </h4>
-                              <ul className="space-y-0.5">
-                                {services.ai.map((item) => (
-                                  <li key={item.name}>
-                                    <Link
-                                      to={item.href}
-                                      onClick={() => setOpenDropdown(null)}
-                                      className={cn(
-                                        "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
-                                        location.pathname === item.href
-                                          ? "text-primary font-medium bg-primary/5"
-                                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
-                                      )}
-                                    >
-                                      {item.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
                           </div>
                           
-                          {/* Media Production - hidden on tablet, shown on desktop */}
-                          <div className="hidden lg:block lg:px-6">
-                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block">
+                          {/* Media & AI */}
+                          <div className="lg:px-6">
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4">
                               Media Production
                             </h4>
                             <ul className="space-y-0.5">
@@ -451,10 +401,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      "block py-1.5 text-[13px] transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
+                                        ? "text-accent font-medium"
+                                        : "text-foreground/70 hover:text-foreground"
                                     )}
                                   >
                                     {item.name}
@@ -463,8 +413,7 @@ export function Header() {
                               ))}
                             </ul>
                             
-                            {/* AI Services - desktop only in this column */}
-                            <h4 className="font-extrabold text-xs uppercase tracking-wider text-primary mb-4 pb-2 border-b-2 border-primary/20 inline-block mt-6">
+                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-4 mt-5">
                               AI Services
                             </h4>
                             <ul className="space-y-0.5">
@@ -474,10 +423,10 @@ export function Header() {
                                     to={item.href}
                                     onClick={() => setOpenDropdown(null)}
                                     className={cn(
-                                      "block py-2 px-2 -mx-2 text-sm rounded-lg transition-all duration-200",
+                                      "block py-1.5 text-[13px] transition-colors duration-150",
                                       location.pathname === item.href
-                                        ? "text-primary font-medium bg-primary/5"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50 hover:pl-3"
+                                        ? "text-accent font-medium"
+                                        : "text-foreground/70 hover:text-foreground"
                                     )}
                                   >
                                     {item.name}
@@ -487,16 +436,16 @@ export function Header() {
                             </ul>
                           </div>
                           
-                          {/* Featured / CTA Column - Hidden on tablet, shown on desktop */}
-                          <div className="hidden lg:block lg:pl-6">
-                            <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5 rounded-xl p-5 h-full flex flex-col border border-primary/10">
-                              <div className="flex-1">
-                                <h4 className="font-bold text-foreground mb-2">Not sure where to start?</h4>
-                                <p className="text-sm text-muted-foreground mb-4">
+                          {/* CTA Column */}
+                          <div className="hidden lg:flex flex-col lg:pl-6">
+                            <div className="flex-1 flex flex-col justify-between bg-muted/40 rounded-xl p-5">
+                              <div>
+                                <h4 className="font-semibold text-foreground mb-2">Not sure where to start?</h4>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
                                   Tell us about your project and we'll recommend the perfect solution.
                                 </p>
                               </div>
-                              <Button variant="accent" size="sm" className="w-full" asChild>
+                              <Button variant="accent" size="sm" className="w-full mt-4" asChild>
                                 <Link to="/get-started" onClick={() => setOpenDropdown(null)}>
                                   Get Started
                                   <ArrowRight className="w-4 h-4 ml-1" />
@@ -505,27 +454,11 @@ export function Header() {
                             </div>
                           </div>
                         </div>
-                        
-                        {/* CTA Banner - Shown only on tablet */}
-                        <div className="lg:hidden mt-6 pt-6 border-t border-border">
-                          <div className="bg-gradient-to-r from-primary/10 via-accent/5 to-primary/5 rounded-xl p-4 flex items-center justify-between gap-4 border border-primary/10">
-                            <div>
-                              <h4 className="font-bold text-foreground text-sm">Not sure where to start?</h4>
-                              <p className="text-xs text-muted-foreground">Tell us about your project</p>
-                            </div>
-                            <Button variant="accent" size="sm" asChild>
-                              <Link to="/get-started" onClick={() => setOpenDropdown(null)}>
-                                Get Started
-                                <ArrowRight className="w-4 h-4 ml-1" />
-                              </Link>
-                            </Button>
-                          </div>
-                        </div>
                       </div>
                       
                       {/* Footer */}
-                      <div className="px-6 py-3 bg-muted/30 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
-                        <span>Need help choosing? <a href="mailto:contenthouse@9yards.co.ug" className="text-primary hover:underline">Contact us</a></span>
+                      <div className="px-6 py-3 bg-muted/30 border-t border-border/50 flex items-center justify-between text-xs text-muted-foreground">
+                        <span>Need help choosing? <a href="mailto:contenthouse@9yards.co.ug" className="text-accent hover:underline">Contact us</a></span>
                         <span className="hidden sm:inline">Response within 24 hours</span>
                       </div>
                     </div>
@@ -535,22 +468,23 @@ export function Header() {
                 {/* Dropdown for Why Us */}
                 {link.dropdownType === "whyUs" && openDropdown === "whyUs" && (
                   <div 
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[220px] z-50"
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[240px] z-50"
                     onMouseEnter={() => handleMouseEnter("whyUs")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
-                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden animate-in fade-in-0 zoom-in-95 duration-200">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden animate-in fade-in-0 slide-in-from-top-2 duration-200">
                       <div className="p-2">
                         {whyUsItems.map((item) => (
                           <Link
                             key={item.name}
                             to={item.href}
+                            onClick={() => setOpenDropdown(null)}
                             className={cn(
-                              "block px-4 py-2.5 text-sm rounded-lg transition-all duration-200",
+                              "block px-3 py-2 text-[13px] rounded-lg transition-colors duration-150",
                               location.pathname === item.href
-                                ? "text-primary font-medium bg-primary/5"
-                                : "text-foreground hover:text-primary hover:bg-muted/50"
+                                ? "text-accent font-medium"
+                                : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                             )}
                           >
                             {item.name}
@@ -564,22 +498,23 @@ export function Header() {
                 {/* Dropdown for Company */}
                 {link.dropdownType === "company" && openDropdown === "company" && (
                   <div 
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[200px] z-50"
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[200px] z-50"
                     onMouseEnter={() => handleMouseEnter("company")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
-                    <div className="bg-background rounded-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] border border-border overflow-hidden animate-in fade-in-0 zoom-in-95 duration-200">
+                    <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden animate-in fade-in-0 slide-in-from-top-2 duration-200">
                       <div className="p-2">
                         {companyItems.map((item) => (
                           <Link
                             key={item.name}
                             to={item.href}
+                            onClick={() => setOpenDropdown(null)}
                             className={cn(
-                              "block px-4 py-2.5 text-sm rounded-lg transition-all duration-200",
+                              "block px-3 py-2 text-[13px] rounded-lg transition-colors duration-150",
                               location.pathname === item.href
-                                ? "text-primary font-medium bg-primary/5"
-                                : "text-foreground hover:text-primary hover:bg-muted/50"
+                                ? "text-accent font-medium"
+                                : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
                             )}
                           >
                             {item.name}
