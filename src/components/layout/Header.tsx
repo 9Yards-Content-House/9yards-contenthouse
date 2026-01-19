@@ -242,17 +242,9 @@ export function Header() {
                   onMouseLeave={handleMouseLeave}
                 >
                   {link.dropdownType ? (
-                    <button
-                      onClick={() => {
-                        // Toggle dropdown on click (for touch devices)
-                        if (openDropdown === link.dropdownType) {
-                          setOpenDropdown(null);
-                        } else {
-                          setOpenDropdown(link.dropdownType);
-                        }
-                      }}
+                    <div
                       className={cn(
-                        "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
+                        "flex items-center gap-0.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative",
                         isActive
                           ? isScrolled
                             ? "text-primary bg-primary/5"
@@ -264,16 +256,37 @@ export function Header() {
                       aria-expanded={openDropdown === link.dropdownType}
                       aria-haspopup="true"
                     >
-                      {link.name}
-                      <ChevronDown className={cn(
-                        "w-4 h-4 transition-transform duration-200",
-                        openDropdown === link.dropdownType && "rotate-180"
-                      )} />
+                      {/* Link for navigation - Services and Why Us go to their overview pages */}
+                      {link.href !== "#" ? (
+                        <Link to={link.href} className="hover:opacity-80 transition-opacity">
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <span>{link.name}</span>
+                      )}
+                      {/* Chevron button for dropdown toggle */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (openDropdown === link.dropdownType) {
+                            setOpenDropdown(null);
+                          } else {
+                            setOpenDropdown(link.dropdownType);
+                          }
+                        }}
+                        className="p-1 -mr-1 hover:bg-white/10 rounded transition-colors"
+                        aria-label={`Toggle ${link.name} menu`}
+                      >
+                        <ChevronDown className={cn(
+                          "w-4 h-4 transition-transform duration-200",
+                          openDropdown === link.dropdownType && "rotate-180"
+                        )} />
+                      </button>
                       {/* Active indicator dot */}
                       {isActive && (
                         <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-current" />
                       )}
-                    </button>
+                    </div>
                   ) : (
                     <Link
                       to={link.href}
