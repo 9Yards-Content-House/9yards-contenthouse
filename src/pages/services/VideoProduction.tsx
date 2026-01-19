@@ -140,7 +140,7 @@ export default function VideoProduction() {
                 </span>
 
                 {/* Headline */}
-                <h1 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.6rem] font-bold text-white leading-[1.2] mb-4 sm:mb-5 tracking-tight drop-shadow-sm">
+                <h1 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.6rem] font-bold text-white leading-[1.3] mb-4 sm:mb-5 tracking-tight drop-shadow-sm">
                   Stories that captivate. Videos that convert. Production <span className="text-accent">delivered in days</span>, not months.
                 </h1>
 
@@ -154,7 +154,7 @@ export default function VideoProduction() {
                   <Button 
                     asChild
                     size="lg"
-                    className="rounded-full bg-accent hover:bg-accent/90 text-white px-6 sm:px-8 h-11 sm:h-12 lg:h-14 text-sm sm:text-base font-semibold shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 transition-all duration-300"
+                    className="rounded-full bg-accent hover:bg-[#C93917] active:bg-[#AB3013] text-white px-6 sm:px-8 h-11 sm:h-12 lg:h-14 text-sm sm:text-base font-semibold transition-colors duration-200"
                   >
                     <Link to="/get-started?service=video-production">
                       Start Your Project
@@ -219,7 +219,7 @@ export default function VideoProduction() {
                 {/* Accent bar */}
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Video Production That Works For You</h2>
-                <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.2]">
+                <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
                   High-quality video, fast turnaround, and results you can measure
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -265,7 +265,7 @@ export default function VideoProduction() {
           {/* Section Header */}
           <div className="max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center lg:text-left">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Full-Service Video Production</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.3] mb-4 sm:mb-6">
               Flexible production options for<br className="hidden sm:block" />
               every kind of video need
             </h2>
@@ -400,7 +400,7 @@ export default function VideoProduction() {
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Platform Expertise</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.3]">
               Video expertise for every<br className="hidden sm:block" />
               platform and purpose
             </h2>
@@ -474,7 +474,7 @@ export default function VideoProduction() {
               </p>
               
               {/* Headline */}
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.3] mb-3 sm:mb-4">
                 Why Choose 9Yards for <span className="text-accent">Video Production</span>
               </h2>
               
@@ -550,7 +550,7 @@ export default function VideoProduction() {
               <Button 
                 asChild
                 size="lg"
-                className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-6 md:px-8 h-10 sm:h-11 md:h-12 text-sm sm:text-base"
+                className="rounded-full bg-accent hover:bg-[#C93917] active:bg-[#AB3013] text-white px-5 sm:px-6 md:px-8 h-10 sm:h-11 md:h-12 text-sm sm:text-base"
               >
                 <Link to="/get-started?service=video-production">
                   Get started
@@ -568,7 +568,7 @@ export default function VideoProduction() {
             
             {/* Left Side - Sticky Sidebar */}
             <div className="lg:flex-1 lg:sticky lg:top-24 lg:h-fit text-center lg:text-left">
-              <h2 className="text-[1.625rem] sm:text-3xl md:text-4xl lg:text-[2.6rem] xl:text-[2.6rem] font-bold text-white leading-[1.15] sm:leading-[1.1] mb-4 sm:mb-5 md:mb-6">
+              <h2 className="text-[1.625rem] sm:text-3xl md:text-4xl lg:text-[2.6rem] xl:text-[2.6rem] font-bold text-white leading-[1.3] mb-4 sm:mb-5 md:mb-6">
                 <span className="lg:whitespace-nowrap">Our process makes it easier to</span>{' '}
                 <span className="text-accent">deliver results.</span>
               </h2>
@@ -685,7 +685,7 @@ export default function VideoProduction() {
             <div className="relative z-10 h-full flex items-center px-5 sm:px-7 md:px-10 lg:px-12 xl:px-16 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16">
               <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Headline */}
-                <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.3] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
                   Your vision deserves{' '}
                   <span className="text-accent">cinema-quality</span> production.
                 </h2>
@@ -699,7 +699,7 @@ export default function VideoProduction() {
                 <Button 
                   asChild
                   size="lg"
-                  className="rounded-full bg-accent hover:bg-accent/90 text-white px-5 sm:px-7 md:px-8 lg:px-10 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base lg:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                  className="rounded-full bg-accent hover:bg-[#C93917] active:bg-[#AB3013] text-white px-5 sm:px-7 md:px-8 lg:px-10 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base lg:text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
                 >
                   <Link to="/get-started?service=video-production">
                     Start Your Project

@@ -8,12 +8,10 @@ import {
   Globe,
   Sparkles,
   Mic,
-  Image,
   Mail,
   Users,
   PenTool,
   Cpu,
-  LineChart,
   Printer,
   ArrowRight,
   Check,
@@ -25,9 +23,7 @@ import {
   Play,
   Code,
   Megaphone,
-  MailOpen,
   Brain,
-  MessageSquare,
   Map,
   Zap,
   Layers,
@@ -37,28 +33,12 @@ import {
   Camera,
 } from "lucide-react";
 
-// Service pills for the horizontal scroll
-const servicePills = [
-  { name: "Graphic Design" },
-  { name: "Video Production" },
-  { name: "Branding" },
-  { name: "Social Media" },
-  { name: "Web Development" },
-  { name: "Motion Design" },
-  { name: "AI Creative" },
-  { name: "Podcast Studio" },
-  { name: "Email Marketing" },
-  { name: "Copywriting" },
-  { name: "Digital Strategy" },
-  { name: "Photography" },
-];
-
 // Creative Services
 const creativeServices = [
   {
     icon: Palette,
     title: "Graphic Design Services",
-    description: "Logos, posters, social graphics, brochures—if it's visual, we design it. Professional designs delivered fast.",
+    description: "Logos, posters, social graphics, and brochures. If it's visual, we design it. Professional designs delivered fast.",
     startingPrice: "500K UGX/month subscription or custom project pricing",
     href: "/services/graphic-design",
   },
@@ -79,7 +59,7 @@ const creativeServices = [
   {
     icon: Sparkles,
     title: "Branding Services",
-    description: "Complete brand identities from scratch or refreshing what you already have. Logo, colors, typography, voice, guidelines—everything.",
+    description: "Complete brand identities from scratch or refreshing what you already have. Logo, colors, typography, voice, and guidelines. Everything.",
     startingPrice: "3M UGX (full identity)",
     href: "/services/branding",
   },
@@ -107,14 +87,14 @@ const creativeServices = [
   {
     icon: Printer,
     title: "Print Design Services",
-    description: "Brochures, flyers, billboards, catalogs—high-impact designs optimized for physical printing at any scale.",
+    description: "Brochures, flyers, billboards, and catalogs. High-impact designs optimized for physical printing at any scale.",
     startingPrice: "800K - 2M UGX per project",
     href: "/services/print-design",
   },
   {
     icon: Play,
     title: "Motion Design Services",
-    description: "Animated logos, explainer videos, kinetic typography—motion graphics that bring your brand to life.",
+    description: "Animated logos, explainer videos, and kinetic typography. Motion graphics that bring your brand to life.",
     startingPrice: "1.2M UGX per 30 seconds",
     href: "/services/motion-design",
   },
@@ -125,14 +105,14 @@ const digitalServices = [
   {
     icon: Share2,
     title: "Social Media Management",
-    description: "We handle everything—content creation, posting, community management, strategy. Your social presence, managed professionally.",
+    description: "We handle everything: content creation, posting, community management, and strategy. Your social presence, managed professionally.",
     startingPrice: "1M UGX/month",
     href: "/services/social-media-marketing",
   },
   {
     icon: Code,
     title: "Website Development",
-    description: "Custom websites that look incredible and actually convert. From landing pages to full e-commerce—built on the platform that fits your needs.",
+    description: "Custom websites that look incredible and actually convert. From landing pages to full e-commerce, built on the platform that fits your needs.",
     startingPrice: "1.5M UGX (landing page) to 12M+ UGX (e-commerce)",
     href: "/services/website-development",
   },
@@ -153,7 +133,7 @@ const digitalServices = [
   {
     icon: PenTool,
     title: "Copywriting Services",
-    description: "Words that sell without sounding sales-y. Website copy, ad copy, scripts, captions—we write it all.",
+    description: "Words that sell without sounding sales-y. Website copy, ad copy, scripts, and captions. We write it all.",
     startingPrice: "Included in most services or custom pricing",
     href: "/services/copywriting",
   },
@@ -239,55 +219,46 @@ export default function Services() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-grid/graphic-design.jpg"
-            alt="Creative services collage"
-            className="w-full h-full object-cover scale-105"
+            src="/images/team/services section hero.jpg"
+            alt="Creative services - professional team at work"
+            className="w-full h-full object-cover object-[70%_60%] sm:object-[center_50%] lg:object-[center_40%] scale-105"
           />
-          {/* Gradient overlay - responsive: full coverage on mobile, split on desktop */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 lg:bg-gradient-to-r lg:from-black/95 lg:via-black/60 lg:via-55% lg:to-black/20" />
+          {/* Gradient overlay - stronger on mobile for readability, softer split on desktop */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/75 lg:bg-gradient-to-r lg:from-black/95 lg:via-black/65 lg:via-55% lg:to-black/15" />
         </div>
 
-        {/* Main Content - Flex grow to push cards to bottom */}
-        <div className="relative z-10 flex-1 flex items-center">
-          <div className="container-custom py-20 sm:py-24 lg:py-28">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        {/* Main Content - Better vertical centering on all devices */}
+        <div className="relative z-10 flex-1 flex items-center pt-16 sm:pt-20 lg:pt-0">
+          <div className="container-custom py-8 sm:py-12 lg:py-20">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
               {/* Left side - Text content */}
               <div className="flex flex-col justify-center animate-fade-in">
                 {/* Eyebrow */}
-                <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-accent mb-3 sm:mb-4">
+                <span className="inline-block text-[11px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase text-accent mb-2.5 sm:mb-3 md:mb-4">
                   Our Services
                 </span>
 
-                {/* Headline */}
-                <h1 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-[2.6rem] font-bold text-white leading-[1.2] mb-4 sm:mb-5 tracking-tight drop-shadow-sm">
-                  Every Creative Service Your Brand Needs. <span className="text-accent">One Trusted Partner.</span>
+                {/* Headline - Tighter line height, better wrapping */}
+                <h1 className="text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.3rem] font-bold text-white leading-[1.12] sm:leading-[1.15] lg:leading-[1.18] mb-4 sm:mb-5 md:mb-6 tracking-tight drop-shadow-sm">
+                  Design. Video. Strategy. Everything your brand needs to{" "}
+                  <span className="text-accent whitespace-nowrap">stand out and grow.</span>
                 </h1>
 
-                {/* Description */}
-                <p className="text-sm sm:text-base lg:text-lg text-white/80 leading-relaxed mb-6 sm:mb-8 max-w-xl">
-                  From a single social media post to a complete brand transformation—we've got the expertise, the tools, and the team to make it happen.
+                {/* Description - Improved readability */}
+                <p className="text-[13px] sm:text-sm md:text-base lg:text-lg text-white/90 leading-[1.6] sm:leading-relaxed mb-5 sm:mb-6 md:mb-8 max-w-md sm:max-w-lg lg:max-w-xl">
+                  From scroll-stopping social content to complete brand transformations, we deliver the creative firepower that turns attention into action. One team. Every service. Results that matter.
                 </p>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-3 sm:gap-4">
+                {/* CTA Button */}
+                <div className="flex">
                   <Button 
                     asChild
                     size="lg"
-                    className="rounded-full bg-accent hover:bg-accent/90 text-white px-6 sm:px-8 h-11 sm:h-12 lg:h-14 text-sm sm:text-base font-semibold shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-0.5 transition-all duration-300"
+                    className="rounded-full bg-accent hover:bg-[#C93917] active:bg-[#AB3013] text-white px-5 sm:px-6 md:px-8 h-10 sm:h-11 md:h-12 lg:h-14 text-[13px] sm:text-sm md:text-base font-semibold transition-colors duration-200"
                   >
                     <Link to="/get-started">
                       Get Started
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </Button>
-                  <Button 
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/50 px-6 sm:px-8 h-11 sm:h-12 lg:h-14 text-sm sm:text-base font-semibold transition-all duration-300"
-                  >
-                    <Link to="/pricing">
-                      View Pricing
+                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-2" />
                     </Link>
                   </Button>
                 </div>
@@ -299,38 +270,8 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Service Pills Carousel - Fixed at bottom */}
-        <div className="relative z-20 pb-4 sm:pb-6 lg:pb-8">
-          {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-40 bg-gradient-to-r from-black via-black/50 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-40 bg-gradient-to-l from-black via-black/50 to-transparent z-10 pointer-events-none" />
-          
-          {/* Infinite scrolling carousel */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex gap-2.5 sm:gap-3 lg:gap-4"
-              style={{
-                animation: 'smoothMarquee 30s linear infinite',
-                willChange: 'transform',
-              }}
-            >
-              {/* Render 4 sets of pills for seamless loop */}
-              {[...Array(4)].map((_, setIndex) => (
-                servicePills.map((service) => (
-                  <div 
-                    key={`set-${setIndex}-${service.name}`}
-                    className="flex-shrink-0 bg-white rounded-full py-2.5 sm:py-3 lg:py-3.5 px-5 sm:px-6 lg:px-8 flex items-center cursor-pointer hover:bg-gray-100 hover:scale-[1.02] transition-all duration-200 shadow-sm"
-                  >
-                    <span className="font-medium text-foreground text-xs sm:text-sm lg:text-base whitespace-nowrap">{service.name}</span>
-                  </div>
-                ))
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator - desktop only */}
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 opacity-60 animate-bounce">
+        {/* Scroll indicator - desktop only for cleaner mobile/tablet */}
+        <div className="absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 opacity-60 animate-bounce">
           <span className="text-white/60 text-xs uppercase tracking-widest">Scroll</span>
           <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -348,14 +289,14 @@ export default function Services() {
                 {/* Accent bar */}
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Your Complete Creative Department</h2>
-                <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.2]">
+                <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
                   Stop juggling freelancers. Start getting results.
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
                   Stop juggling five different freelancers. Stop wondering if your designer will actually reply this time. Stop compromising between quality and budget.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  We're your complete creative department—accessible, affordable, and actually reliable. Whether you need ongoing creative support or a one-time project, we've built our services around one simple goal: making world-class creative easy to access.
+                  We're your complete creative department. Accessible, affordable, and actually reliable. Whether you need ongoing creative support or a one-time project, we've built our services around one simple goal: making world-class creative easy to access.
                 </p>
                 <p className="mt-4 sm:mt-6 text-lg sm:text-xl font-semibold text-foreground">
                   Pick your service. Choose how you want to work. Get exceptional results.
@@ -397,8 +338,8 @@ export default function Services() {
           {/* Section Header */}
           <div className="max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Flexible Engagement</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4 sm:mb-6">
-              Subscribe or Book Projects—Your Choice
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.3] mb-4 sm:mb-6">
+              Subscribe or Book Projects. Your Choice.
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               We're flexible because your business is. Choose the model that makes sense for you.
@@ -436,7 +377,7 @@ export default function Services() {
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">One-Time Projects</h3>
               <p className="text-primary font-bold text-base sm:text-lg mb-3 sm:mb-4">Varies by project</p>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
-                Got a specific project? Book it. Whether it's a music video, a complete rebrand, or a new website—we take on individual projects with the same obsessive attention to detail.
+                Got a specific project? Book it. Whether it's a music video, a complete rebrand, or a new website, we take on individual projects with the same obsessive attention to detail.
               </p>
               <p className="text-sm text-muted-foreground mb-5 sm:mb-6">
                 <span className="font-semibold text-foreground">Best for:</span> One-time needs like brand launches, music videos, website builds, or major campaigns.
@@ -479,7 +420,7 @@ export default function Services() {
           {/* Section Header */}
           <div className="max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">What We Create</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.3] mb-4 sm:mb-6">
               Browse Our Complete Service Lineup
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -610,14 +551,14 @@ export default function Services() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Need Guidance?</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.3] mb-4 sm:mb-6">
               Let's Figure It Out Together
             </h2>
             <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-6 sm:mb-8">
               Looking at 19 services and feeling overwhelmed? That's completely normal.
             </p>
             <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-8 sm:mb-10">
-              Most clients don't know exactly what they need when they first reach out—and that's fine. We start every relationship with a free consultation where we dig into your business, your goals, and your challenges. Then we recommend the services that'll actually move the needle.
+              Most clients don't know exactly what they need when they first reach out, and that's fine. We start every relationship with a free consultation where we dig into your business, your goals, and your challenges. Then we recommend the services that'll actually move the needle.
             </p>
             <p className="text-lg sm:text-xl text-white font-semibold mb-8 sm:mb-10">
               No pressure. No commitment. Just honest advice on what you need.
@@ -654,7 +595,7 @@ export default function Services() {
           {/* Section Header */}
           <div className="max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">Quick Comparison</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.3] mb-4 sm:mb-6">
               Subscriptions vs. Projects
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -727,11 +668,11 @@ export default function Services() {
           {/* Section Header */}
           <div className="max-w-4xl mx-auto mb-10 sm:mb-12 lg:mb-16 text-center">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">More Than Just Services</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.3] mb-4 sm:mb-6">
               Why Clients Choose Us
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              What you're really buying isn't design or video—it's peace of mind.
+              What you're really buying isn't design or video. It's peace of mind.
             </p>
           </div>
 
@@ -758,7 +699,7 @@ export default function Services() {
             <div>
               <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
               <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Who We Work With</h2>
-              <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.2]">
+              <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
                 Industries We Serve
               </p>
               <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -833,7 +774,7 @@ export default function Services() {
             <div className="relative z-10 h-full flex items-center px-5 sm:px-7 md:px-10 lg:px-12 xl:px-16 py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16">
               <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Headline */}
-                <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                <h2 className="text-[1.5rem] sm:text-[1.75rem] md:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-white leading-[1.3] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
                   Ready to Elevate{' '}
                   <span className="text-accent">Your Brand?</span>
                 </h2>
