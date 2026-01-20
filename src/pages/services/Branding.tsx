@@ -349,7 +349,7 @@ export default function Branding() {
             {/* Card 5: Brand Guidelines - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/Website-development.jpg" 
+                src="/images/miscellany/brand.png" 
                 alt="Brand guidelines"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
