@@ -31,13 +31,6 @@ const allServiceHrefs = [
   "/services"
 ];
 
-const whyUsItems = [
-  { name: "How We Work", href: "/how-we-work" },
-  { name: "World-Class Team", href: "/team" },
-];
-
-const whyUsHrefs = whyUsItems.map(item => item.href);
-
 const companyItems = [
   { name: "About Us", href: "/about" },
   { name: "Careers", href: "/careers" },
@@ -49,7 +42,7 @@ const companyHrefs = companyItems.map(item => item.href);
 const navLinks = [
   { name: "Services", href: "/services", dropdownType: "services" },
   { name: "Our Work", href: "/portfolio" },
-  { name: "Why Us", href: "#", dropdownType: "whyUs" },
+  { name: "Why Us", href: "/how-we-work" },
   { name: "Company", href: "#", dropdownType: "company" },
 ];
 
@@ -62,7 +55,6 @@ export function Header({ darkMode = true }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isWhyUsOpen, setIsWhyUsOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -74,22 +66,13 @@ export function Header({ darkMode = true }: HeaderProps) {
 
   // Check if current path matches a child route for parent active state
   const isServicesActive = allServiceHrefs.some(href => location.pathname.startsWith(href.split('/').slice(0, 3).join('/')));
-  const isWhyUsActive = whyUsHrefs.includes(location.pathname);
+  const isWhyUsActive = location.pathname === "/how-we-work";
   const isCompanyActive = companyHrefs.includes(location.pathname);
 
   // Auto-close other accordions when one opens
   const handleServicesToggle = () => {
     setIsServicesOpen(!isServicesOpen);
     if (!isServicesOpen) {
-      setIsWhyUsOpen(false);
-      setIsCompanyOpen(false);
-    }
-  };
-
-  const handleWhyUsToggle = () => {
-    setIsWhyUsOpen(!isWhyUsOpen);
-    if (!isWhyUsOpen) {
-      setIsServicesOpen(false);
       setIsCompanyOpen(false);
     }
   };
@@ -98,7 +81,6 @@ export function Header({ darkMode = true }: HeaderProps) {
     setIsCompanyOpen(!isCompanyOpen);
     if (!isCompanyOpen) {
       setIsServicesOpen(false);
-      setIsWhyUsOpen(false);
     }
   };
 
@@ -127,7 +109,6 @@ export function Header({ darkMode = true }: HeaderProps) {
         setIsMobileMenuOpen(false);
         setOpenDropdown(null);
         setIsServicesOpen(false);
-        setIsWhyUsOpen(false);
         setIsCompanyOpen(false);
       }
     };
@@ -182,7 +163,6 @@ export function Header({ darkMode = true }: HeaderProps) {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsServicesOpen(false);
-    setIsWhyUsOpen(false);
     setIsCompanyOpen(false);
     setOpenDropdown(null);
   }, [location]);
@@ -481,36 +461,6 @@ export function Header({ darkMode = true }: HeaderProps) {
                   </div>
                 )}
 
-                {/* Dropdown for Why Us */}
-                {link.dropdownType === "whyUs" && openDropdown === "whyUs" && (
-                  <div 
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[220px] z-50"
-                    onMouseEnter={() => handleMouseEnter("whyUs")}
-                    onMouseLeave={handleMouseLeave}
-                    data-dropdown-content
-                  >
-                    <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden">
-                      <div className="p-3">
-                        {whyUsItems.map((item) => (
-                          <Link
-                            key={item.name}
-                            to={item.href}
-                            onClick={() => setOpenDropdown(null)}
-                            className={cn(
-                              "block px-3 py-2.5 text-[13px] rounded-lg transition-colors duration-150 cursor-pointer",
-                              location.pathname === item.href
-                                ? "text-accent font-medium bg-accent/10"
-                                : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                            )}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
                 {/* Dropdown for Company */}
                 {link.dropdownType === "company" && openDropdown === "company" && (
                   <div 
@@ -707,51 +657,19 @@ export function Header({ darkMode = true }: HeaderProps) {
               {/* Separator */}
               <div className="h-px bg-border/50 mx-2" />
 
-              {/* Why Us Dropdown with accordion animation */}
-              <div className={cn(
-                "rounded-xl transition-colors duration-200",
-                isWhyUsOpen && "bg-muted/50"
-              )}>
-                <button
-                  onClick={handleWhyUsToggle}
-                  className={cn(
-                    "flex items-center justify-between w-full py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px] active:bg-muted/70",
-                    isWhyUsActive ? "text-accent" : "text-foreground",
-                    isWhyUsOpen && "text-accent"
-                  )}
-                >
-                  <span className="flex items-center gap-2">
-                    {isWhyUsActive && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
-                    Why Us
-                  </span>
-                  <div className={cn(
-                    "flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200",
-                    isWhyUsOpen ? "bg-accent/20 text-accent rotate-180" : "bg-muted"
-                  )}>
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
-                </button>
-                <div className={cn("accordion-content", isWhyUsOpen && "open")}>
-                  <div className="accordion-inner">
-                    <div className="pb-3 mx-3">
-                      {whyUsItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className={cn(
-                            "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
-                            location.pathname === item.href
-                              ? "text-accent font-medium bg-accent/10"
-                              : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                          )}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* Why Us Link */}
+              <Link
+                to="/how-we-work"
+                className={cn(
+                  "flex items-center gap-2 py-4 px-3 text-base sm:text-lg font-medium rounded-lg tap-highlight transition-colors min-h-[52px]",
+                  location.pathname === "/how-we-work"
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent"
+                )}
+              >
+                {location.pathname === "/how-we-work" && <span className="w-1.5 h-1.5 rounded-full bg-accent" />}
+                Why Us
+              </Link>
 
               {/* Separator */}
               <div className="h-px bg-border/50 mx-2" />
