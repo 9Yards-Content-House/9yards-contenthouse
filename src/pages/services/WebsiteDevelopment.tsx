@@ -275,7 +275,7 @@ export default function WebsiteDevelopment() {
             {/* Card 1: Custom Websites - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/Website-development.jpg" 
+                src="/images/miscellany/custom website.webp" 
                 alt="Custom website development"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -286,7 +286,7 @@ export default function WebsiteDevelopment() {
               <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col justify-between">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white drop-shadow-lg">Custom Websites</h3>
                 <p className="text-sm sm:text-base text-white/90 max-w-md leading-relaxed drop-shadow-md">
-                  Bespoke websites built from scratch to match your brand and goals. No templates, no compromises—just clean code and stunning design tailored to you.
+                  Bespoke websites built from scratch to match your brand and goals. No templates, no compromises. Just clean code and stunning design tailored to you.
                 </p>
               </div>
             </div>
@@ -294,7 +294,7 @@ export default function WebsiteDevelopment() {
             {/* Card 2: E-Commerce Solutions - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/graphic-design.jpg" 
+                src="/images/miscellany/ecommer.webp" 
                 alt="E-commerce website development"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
