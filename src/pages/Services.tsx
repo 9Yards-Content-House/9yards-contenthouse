@@ -72,13 +72,6 @@ const creativeServices = [
     startingPrice: "1.5M UGX per campaign (5 variations)",
     href: "/services/social-media-creative",
   },
-  {
-    icon: Share2,
-    title: "Social Media Creative",
-    description: "Platform-specific content that actually performs. We understand algorithms, trends, and what makes people engage.",
-    startingPrice: "Included in subscriptions or 1.2M+ UGX/month standalone",
-    href: "/services/social-media-creative",
-  },
 
   {
     icon: Printer,
@@ -86,13 +79,6 @@ const creativeServices = [
     description: "Brochures, flyers, billboards, and catalogs. High-impact designs optimized for physical printing at any scale.",
     startingPrice: "800K - 2M UGX per project",
     href: "/services/print-design",
-  },
-  {
-    icon: Play,
-    title: "Motion Design Services",
-    description: "Animated logos, explainer videos, and kinetic typography. Motion graphics that bring your brand to life.",
-    startingPrice: "1.2M UGX per 30 seconds",
-    href: "/services/motion-design",
   },
 ];
 
@@ -136,24 +122,6 @@ const digitalServices = [
   },
 ];
 
-// AI-Powered Services
-const aiServices = [
-  {
-    icon: Cpu,
-    title: "AI-Powered Creative Services",
-    description: "AI-generated concepts, rapid variations, and smart asset generation. The future of creative production, available now.",
-    startingPrice: "800K/month (AI Starter subscription)",
-    href: "/services/ai-creative",
-  },
-  {
-    icon: Brain,
-    title: "AI Consulting",
-    description: "Optimize your workflows with AI. We'll show you how to integrate smart tools without losing the human touch.",
-    startingPrice: "500K UGX per session",
-    href: "/services/ai-consulting",
-  },
-];
-
 // Studio Services
 const studioServices = [
   {
@@ -194,13 +162,6 @@ const serviceCategories = [
     description: "Complete social media management. We create content, engage your community, track analytics, and grow your following across all platforms.",
     tags: ["Content Strategy", "Community Management", "Account Management", "Campaign Management", "Influencer Marketing"],
     href: "/services/social-media-marketing",
-  },
-  {
-    id: "ai",
-    title: "AI Services",
-    description: "Stay ahead with AI-powered creative solutions. We help you automate workflows, generate content faster, and integrate smart tools into your business.",
-    tags: ["AI Image Generation", "AI Video Creation", "AI Copywriting", "Workflow Automation", "Team Training"],
-    href: "/services/ai-creative",
   },
   {
     id: "studio",

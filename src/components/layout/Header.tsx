@@ -11,8 +11,6 @@ const services = {
     { name: "Graphic Design", href: "/services/graphic-design" },
     { name: "Print Design", href: "/services/print-design" },
     { name: "Branding", href: "/services/branding" },
-    { name: "Social Media Creative", href: "/services/social-media-creative" },
-    { name: "Motion Design", href: "/services/motion-design" },
   ],
   digital: [
     { name: "Social Media Marketing", href: "/services/social-media-marketing" },
@@ -26,24 +24,18 @@ const services = {
     { name: "TV & Radio Production", href: "/services/tv-radio-production" },
     { name: "Voice-Over Recording", href: "/services/voice-over" },
   ],
-  ai: [
-    { name: "AI-Powered Creative", href: "/services/ai-creative" },
-    { name: "AI Consulting", href: "/services/ai-consulting" },
-  ],
 };
 
 const allServiceHrefs = [
   ...services.creative.map(s => s.href),
   ...services.digital.map(s => s.href),
   ...services.media.map(s => s.href),
-  ...services.ai.map(s => s.href),
   "/services"
 ];
 
 const whyUsItems = [
   { name: "How We Work", href: "/how-we-work" },
   { name: "World-Class Team", href: "/team" },
-  { name: "AI-Powered Creative", href: "/ai-creative" },
 ];
 
 const whyUsHrefs = whyUsItems.map(item => item.href);
@@ -452,31 +444,6 @@ export function Header() {
                                 </li>
                               ))}
                             </ul>
-                            
-                            <div className="my-4 border-t border-border/50"></div>
-                            
-                            <h4 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-3 flex items-center gap-2">
-                              <span className="w-1 h-4 bg-accent rounded-full"></span>
-                              AI Services
-                            </h4>
-                            <ul className="space-y-0.5">
-                              {services.ai.map((item) => (
-                                <li key={item.name}>
-                                  <Link
-                                    to={item.href}
-                                    onClick={() => setOpenDropdown(null)}
-                                    className={cn(
-                                      "block py-1.5 px-2 -mx-2 text-[13px] rounded-md transition-colors duration-150 cursor-pointer",
-                                      location.pathname === item.href
-                                        ? "text-accent font-medium bg-accent/10"
-                                        : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                                    )}
-                                  >
-                                    {item.name}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
                           </div>
                           
                           {/* CTA Column */}
@@ -695,26 +662,6 @@ export function Header() {
                           Media Production
                         </h5>
                         {services.media.map((item) => (
-                          <Link
-                            key={item.name}
-                            to={item.href}
-                            className={cn(
-                              "flex items-center py-2.5 px-2 text-[13px] rounded-md tap-highlight transition-colors min-h-[40px]",
-                              location.pathname === item.href
-                                ? "text-accent font-medium bg-accent/10"
-                                : "text-foreground/70 hover:text-foreground hover:bg-muted"
-                            )}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                      <div className="border-t border-border/50 pt-4">
-                        <h5 className="text-[11px] font-bold uppercase tracking-wider text-accent mb-2 px-2 flex items-center gap-2">
-                          <span className="w-1 h-4 bg-accent rounded-full"></span>
-                          AI Services
-                        </h5>
-                        {services.ai.map((item) => (
                           <Link
                             key={item.name}
                             to={item.href}
