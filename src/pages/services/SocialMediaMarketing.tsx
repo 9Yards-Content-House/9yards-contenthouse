@@ -451,7 +451,7 @@ export default function SocialMediaMarketing() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/social-media-marketing.jpg" 
+              src="/images/miscellany/mediasocial.jpg" 
               alt="9Yards social media marketing team"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
