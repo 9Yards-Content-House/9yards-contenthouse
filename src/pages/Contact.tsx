@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
-import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,57 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  MessageSquare,
-  Mic,
-  Send,
-  Clock,
-} from "lucide-react";
-import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
-
-const contactOptions = [
-  {
-    icon: MessageSquare,
-    title: "Get a Quote",
-    description: "Fill out the form below",
-    action: "scroll",
-  },
-  {
-    icon: Mic,
-    title: "Book Studio",
-    description: "Reserve recording time",
-    href: "/studio",
-  },
-  {
-    icon: Phone,
-    title: "Call Us",
-    description: "0700 488 870",
-    href: "tel:0700488870",
-  },
-  {
-    icon: Mail,
-    title: "Email Us",
-    description: "info@9yards.co.ug",
-    href: "mailto:info@9yards.co.ug",
-  },
-];
+import { Phone, Mail, MapPin, Send, ChevronDown } from "lucide-react";
 
 const services = [
-  "Graphic Design",
   "Video Production",
-  "Social Media Management",
+  "Graphic Design",
+  "Social Media Marketing",
   "Website Development",
-  "Branding Services",
-  "Ad Creative",
-  "Email Marketing",
-  "Influencer Marketing",
-  "Digital Strategy",
-  "Podcast Studio",
+  "Branding",
+  "Podcast Production",
   "Multiple Services",
   "Not Sure Yet",
 ];
@@ -73,23 +30,7 @@ const budgetRanges = [
   "3M - 5M UGX",
   "5M - 10M UGX",
   "10M+ UGX",
-  "Not Sure Yet",
-];
-
-const timelines = [
-  "Urgent (Within 1 week)",
-  "Soon (2-4 weeks)",
-  "Planned (1-3 months)",
-  "Flexible",
-];
-
-const hearAboutOptions = [
-  "Google Search",
-  "Social Media",
-  "Referral",
-  "Previous Client",
-  "Event/Conference",
-  "Other",
+  "Let's Discuss",
 ];
 
 export default function Contact() {
@@ -100,12 +41,8 @@ export default function Contact() {
     phone: "",
     company: "",
     service: "",
-    projectType: "",
     budget: "",
-    timeline: "",
-    details: "",
-    hearAbout: "",
-    newsletter: true,
+    message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -115,10 +52,7 @@ export default function Contact() {
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // In production, this would submit to Netlify Forms
     console.log("Form submitted:", formData);
-
-    // Redirect to thank you page
     window.location.href = "/thank-you/contact";
   };
 
@@ -129,383 +63,383 @@ export default function Contact() {
   };
 
   return (
-    <Layout>
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-primary">
-        <div className="container-custom text-center">
-          <h1 className="text-display-2 md:text-display-1 text-primary-foreground mb-6">
-            Get In <span className="text-accent">Touch</span>
-          </h1>
-          <p className="text-body-lg text-primary-foreground/90 max-w-2xl mx-auto flex items-center justify-center gap-2">
-            <Clock className="w-5 h-5" />
-            We respond within 2 hours during business hours
-          </p>
+    <Layout hideFooterCta>
+      {/* Hero Section */}
+      <section 
+        className="relative min-h-[55vh] sm:min-h-[60vh] lg:min-h-[65vh] flex items-center overflow-hidden"
+        aria-labelledby="contact-hero-heading"
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <img
+            src="/images/team/team.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1c1e70]/95 via-[#1c1e70]/85 to-[#1c1e70]/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1c1e70] via-transparent to-transparent" />
         </div>
-      </section>
 
-      {/* Contact Options */}
-      <section className="py-12 bg-background -mt-8 relative z-10">
-        <div className="container-custom">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {contactOptions.map((option) => (
-              <div key={option.title}>
-                {option.action === "scroll" ? (
-                  <button
-                    onClick={scrollToForm}
-                    className="w-full p-6 rounded-xl bg-card border border-border card-hover text-left"
-                  >
-                    <option.icon className="w-8 h-8 text-accent mb-3" />
-                    <h3 className="font-bold mb-1">{option.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {option.description}
-                    </p>
-                  </button>
-                ) : option.href?.startsWith("/") ? (
-                  <Link
-                    to={option.href}
-                    className="block p-6 rounded-xl bg-card border border-border card-hover"
-                  >
-                    <option.icon className="w-8 h-8 text-accent mb-3" />
-                    <h3 className="font-bold mb-1">{option.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {option.description}
-                    </p>
-                  </Link>
-                ) : (
-                  <a
-                    href={option.href}
-                    className="block p-6 rounded-xl bg-card border border-border card-hover"
-                  >
-                    <option.icon className="w-8 h-8 text-accent mb-3" />
-                    <h3 className="font-bold mb-1">{option.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {option.description}
-                    </p>
-                  </a>
-                )}
+        {/* Content */}
+        <div className="relative z-10 w-full">
+          <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28">
+            <div className="max-w-2xl">
+              {/* Eyebrow */}
+              <p 
+                className="text-accent font-semibold text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 opacity-0 animate-fade-in-up [animation-delay:100ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
+                aria-hidden="true"
+              >
+                Get In Touch
+              </p>
+
+              {/* Headline */}
+              <h1 
+                id="contact-hero-heading"
+                className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] sm:leading-[1.1] mb-4 sm:mb-5 tracking-tight opacity-0 animate-fade-in-up [animation-delay:200ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
+              >
+                Let's create something
+                <br className="hidden xs:block" />
+                <span className="text-accent"> amazing together</span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6 sm:mb-8 max-w-md lg:max-w-lg leading-relaxed opacity-0 animate-fade-in-up [animation-delay:400ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
+                Ready to bring your vision to life? Drop us a message and we'll get back to you within a few hours.
+              </p>
+
+              {/* CTA Button */}
+              <div className="opacity-0 animate-fade-in-up [animation-delay:600ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
+                <Button
+                  variant="accent"
+                  size="lg"
+                  onClick={scrollToForm}
+                  className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base touch-manipulation"
+                  aria-label="Scroll down to contact form"
+                >
+                  Start a Conversation
+                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 ml-2" aria-hidden="true" />
+                </Button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="section-padding bg-muted" id="contact-form">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Form */}
-            <div className="lg:col-span-2">
-              <SectionHeading
-                title="Tell Us About Your Project"
-                subtitle="Fill out the form below and we'll get back to you within 2 hours."
-                align="left"
-              />
+      {/* Quick Contact Options */}
+      <section 
+        className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-20"
+        aria-label="Quick contact options"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 xs:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+            {/* Phone */}
+            <a
+              href="tel:+256700488870"
+              className="group bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-300 touch-manipulation flex xs:flex-col items-center xs:items-start gap-4 xs:gap-0"
+              aria-label="Call us at +256 700 488 870"
+            >
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center xs:mb-3 sm:mb-4 group-hover:bg-accent/20 group-focus-visible:bg-accent/20 transition-colors flex-shrink-0">
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-accent" aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1">Call Us</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm">+256 700 488 870</p>
+              </div>
+            </a>
 
+            {/* Email */}
+            <a
+              href="mailto:contenthouse@9yards.co.ug"
+              className="group bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-300 touch-manipulation flex xs:flex-col items-center xs:items-start gap-4 xs:gap-0"
+              aria-label="Email us at contenthouse@9yards.co.ug"
+            >
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center xs:mb-3 sm:mb-4 group-hover:bg-accent/20 group-focus-visible:bg-accent/20 transition-colors flex-shrink-0">
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-accent" aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1">Email Us</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm break-all xs:break-normal">contenthouse@9yards.co.ug</p>
+              </div>
+            </a>
+
+            {/* Location */}
+            <div 
+              className="bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg flex xs:flex-col items-center xs:items-start gap-4 xs:gap-0"
+              role="group"
+              aria-label="Our location"
+            >
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center xs:mb-3 sm:mb-4 flex-shrink-0">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-accent" aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1">Visit Us</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm">Kampala, Uganda</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section 
+        className="py-16 sm:py-20 lg:py-28 bg-background scroll-mt-20" 
+        id="contact-form"
+        aria-labelledby="form-section-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header - Mobile First, Centered */}
+          <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0 mb-10 sm:mb-12 lg:hidden">
+            <p className="text-accent font-semibold text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3">
+              Contact Form
+            </p>
+            <h2 
+              id="form-section-heading-mobile"
+              className="text-2xl sm:text-3xl font-bold text-foreground leading-tight mb-3 sm:mb-4"
+            >
+              Tell us about your project
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              Fill out the form and we'll get back to you within 24 hours.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 xl:gap-16">
+            {/* Left: Info - Desktop Only */}
+            <div className="hidden lg:block lg:col-span-2">
+              <div className="lg:sticky lg:top-32">
+                {/* Section Header */}
+                <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
+                  Contact Form
+                </p>
+                <h2 
+                  id="form-section-heading"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5"
+                >
+                  Tell us about your project
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Fill out the form and our team will get back to you within 24 hours. 
+                  We're excited to learn about your vision and how we can help bring it to life.
+                </p>
+
+                {/* Trust Indicators */}
+                <div className="space-y-4 pt-6 border-t border-border">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-green-500" aria-hidden="true" />
+                    <span className="text-sm text-muted-foreground">Usually respond within 2-4 hours</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-green-500" aria-hidden="true" />
+                    <span className="text-sm text-muted-foreground">No spam, we promise</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-green-500" aria-hidden="true" />
+                    <span className="text-sm text-muted-foreground">Free consultation included</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Form */}
+            <div className="lg:col-span-3">
               <form
                 onSubmit={handleSubmit}
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                className="space-y-6"
+                className="bg-muted/30 sm:bg-muted/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 xl:p-10 border border-border"
+                aria-label="Contact form"
+                noValidate
               >
                 <input type="hidden" name="form-name" value="contact" />
-                <input
-                  type="text"
-                  name="bot-field"
-                  style={{ display: "none" }}
-                />
+                <input type="text" name="bot-field" style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">
-                      Full Name <span className="text-accent">*</span>
-                    </Label>
-                    <Input
-                      id="fullName"
-                      name="fullName"
-                      required
-                      placeholder="John Doe"
-                      value={formData.fullName}
-                      onChange={(e) =>
-                        setFormData({ ...formData, fullName: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">
-                      Email Address <span className="text-accent">*</span>
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="john@example.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                    />
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">
-                      Phone Number <span className="text-accent">*</span>
-                    </Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      placeholder="0700 000 000"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Company Name</Label>
-                    <Input
-                      id="company"
-                      name="company"
-                      placeholder="Your Company"
-                      value={formData.company}
-                      onChange={(e) =>
-                        setFormData({ ...formData, company: e.target.value })
-                      }
-                    />
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="service">
-                      Service Interested In <span className="text-accent">*</span>
-                    </Label>
-                    <Select
-                      name="service"
-                      required
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, service: value })
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {services.map((service) => (
-                          <SelectItem key={service} value={service}>
-                            {service}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label>
-                      Project Type <span className="text-accent">*</span>
-                    </Label>
-                    <div className="flex gap-4 pt-2">
-                      {["One-time", "Monthly", "Not Sure"].map((type) => (
-                        <label
-                          key={type}
-                          className="flex items-center gap-2 cursor-pointer"
-                        >
-                          <input
-                            type="radio"
-                            name="projectType"
-                            value={type}
-                            checked={formData.projectType === type}
-                            onChange={(e) =>
-                              setFormData({
-                                ...formData,
-                                projectType: e.target.value,
-                              })
-                            }
-                            className="w-4 h-4 accent-accent"
-                            required
-                          />
-                          <span className="text-sm">{type}</span>
-                        </label>
-                      ))}
+                <div className="space-y-4 sm:space-y-5 lg:space-y-6">
+                  {/* Name & Email Row */}
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <Label htmlFor="fullName" className="text-xs sm:text-sm font-medium">
+                        Full Name <span className="text-accent" aria-label="required">*</span>
+                      </Label>
+                      <Input
+                        id="fullName"
+                        name="fullName"
+                        required
+                        autoComplete="name"
+                        placeholder="John Doe"
+                        value={formData.fullName}
+                        onChange={(e) =>
+                          setFormData({ ...formData, fullName: e.target.value })
+                        }
+                        className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
+                        aria-required="true"
+                      />
+                    </div>
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <Label htmlFor="email" className="text-xs sm:text-sm font-medium">
+                        Email Address <span className="text-accent" aria-label="required">*</span>
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        placeholder="john@example.com"
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
+                        aria-required="true"
+                      />
                     </div>
                   </div>
-                </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="budget">Budget Range</Label>
-                    <Select
-                      name="budget"
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, budget: value })
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {budgetRanges.map((range) => (
-                          <SelectItem key={range} value={range}>
-                            {range}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                  {/* Phone & Company Row */}
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <Label htmlFor="phone" className="text-xs sm:text-sm font-medium">
+                        Phone Number <span className="text-muted-foreground text-xs">(optional)</span>
+                      </Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        autoComplete="tel"
+                        placeholder="+256 700 000 000"
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
+                        className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
+                      />
+                    </div>
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <Label htmlFor="company" className="text-xs sm:text-sm font-medium">
+                        Company Name <span className="text-muted-foreground text-xs">(optional)</span>
+                      </Label>
+                      <Input
+                        id="company"
+                        name="company"
+                        autoComplete="organization"
+                        placeholder="Your Company"
+                        value={formData.company}
+                        onChange={(e) =>
+                          setFormData({ ...formData, company: e.target.value })
+                        }
+                        className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
+                      />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="timeline">
-                      Timeline <span className="text-accent">*</span>
+
+                  {/* Service & Budget Row */}
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <Label htmlFor="service" className="text-xs sm:text-sm font-medium">
+                        Service Interested In <span className="text-accent" aria-label="required">*</span>
+                      </Label>
+                      <Select
+                        name="service"
+                        required
+                        onValueChange={(value) =>
+                          setFormData({ ...formData, service: value })
+                        }
+                      >
+                        <SelectTrigger 
+                          className="h-11 sm:h-12 text-base bg-background border-border focus:ring-accent/30"
+                          aria-required="true"
+                        >
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {services.map((service) => (
+                            <SelectItem key={service} value={service} className="text-base py-2.5">
+                              {service}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <Label htmlFor="budget" className="text-xs sm:text-sm font-medium">
+                        Budget Range <span className="text-muted-foreground text-xs">(optional)</span>
+                      </Label>
+                      <Select
+                        name="budget"
+                        onValueChange={(value) =>
+                          setFormData({ ...formData, budget: value })
+                        }
+                      >
+                        <SelectTrigger className="h-11 sm:h-12 text-base bg-background border-border focus:ring-accent/30">
+                          <SelectValue placeholder="Select budget" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {budgetRanges.map((range) => (
+                            <SelectItem key={range} value={range} className="text-base py-2.5">
+                              {range}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-1.5 sm:space-y-2">
+                    <Label htmlFor="message" className="text-xs sm:text-sm font-medium">
+                      Your Message <span className="text-accent" aria-label="required">*</span>
                     </Label>
-                    <Select
-                      name="timeline"
+                    <Textarea
+                      id="message"
+                      name="message"
                       required
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, timeline: value })
+                      placeholder="Tell us about your project, goals, and any specific requirements..."
+                      rows={4}
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
                       }
+                      className="text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30 resize-none min-h-[120px] sm:min-h-[140px]"
+                      aria-required="true"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-2">
+                    <Button
+                      type="submit"
+                      variant="accent"
+                      size="lg"
+                      disabled={isSubmitting}
+                      className="w-full h-12 sm:h-14 text-sm sm:text-base font-semibold touch-manipulation"
+                      aria-busy={isSubmitting}
                     >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select timeline" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {timelines.map((timeline) => (
-                          <SelectItem key={timeline} value={timeline}>
-                            {timeline}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                      {isSubmitting ? (
+                        <span className="flex items-center gap-2">
+                          <span 
+                            className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" 
+                            aria-hidden="true" 
+                          />
+                          <span>Sending...</span>
+                        </span>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="w-4 h-4 sm:w-5 sm:h-5 ml-2" aria-hidden="true" />
+                        </>
+                      )}
+                    </Button>
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="details">
-                    Project Details <span className="text-accent">*</span>
-                  </Label>
-                  <Textarea
-                    id="details"
-                    name="details"
-                    required
-                    placeholder="Tell us about your project, goals, and any specific requirements..."
-                    rows={5}
-                    value={formData.details}
-                    onChange={(e) =>
-                      setFormData({ ...formData, details: e.target.value })
-                    }
-                  />
+                  {/* Privacy Note */}
+                  <p className="text-[11px] sm:text-xs text-muted-foreground text-center leading-relaxed">
+                    Your information is secure. We never share your data with third parties.
+                  </p>
                 </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="hearAbout">How did you hear about us?</Label>
-                  <Select
-                    name="hearAbout"
-                    onValueChange={(value) =>
-                      setFormData({ ...formData, hearAbout: value })
-                    }
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select an option" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {hearAboutOptions.map((option) => (
-                        <SelectItem key={option} value={option}>
-                          {option}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <Checkbox
-                    id="newsletter"
-                    name="newsletter"
-                    checked={formData.newsletter}
-                    onCheckedChange={(checked) =>
-                      setFormData({ ...formData, newsletter: checked === true })
-                    }
-                  />
-                  <Label htmlFor="newsletter" className="text-sm cursor-pointer">
-                    Subscribe to our newsletter for creative tips and updates
-                  </Label>
-                </div>
-
-                <Button
-                  type="submit"
-                  variant="accent"
-                  size="lg"
-                  disabled={isSubmitting}
-                  className="w-full sm:w-auto"
-                >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="w-4 h-4" />
-                    </>
-                  )}
-                </Button>
               </form>
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-8">
-              <div className="bg-card rounded-xl border border-border p-6">
-                <h3 className="font-bold text-lg mb-4">Contact Information</h3>
-                <div className="space-y-4">
-                  <a
-                    href="tel:0700488870"
-                    className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Phone className="w-5 h-5 text-accent" />
-                    0700 488 870
-                  </a>
-                  <a
-                    href="mailto:info@9yards.co.ug"
-                    className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Mail className="w-5 h-5 text-accent" />
-                    info@9yards.co.ug
-                  </a>
-                  <div className="flex items-start gap-3 text-muted-foreground">
-                    <MapPin className="w-5 h-5 text-accent flex-shrink-0" />
-                    <span>Kampala, Uganda</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-card rounded-xl border border-border p-6">
-                <h3 className="font-bold text-lg mb-4">Business Hours</h3>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Monday - Friday</span>
-                    <span className="font-medium">8:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Saturday</span>
-                    <span className="font-medium">9:00 AM - 3:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Sunday</span>
-                    <span className="font-medium">Closed</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Map Placeholder */}
-              <div className="bg-card rounded-xl border border-border overflow-hidden">
-                <div className="h-48 bg-muted flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <MapPin className="w-8 h-8 mx-auto mb-2" />
-                    <p className="text-sm">Google Maps</p>
-                    <p className="text-xs">Kampala, Uganda</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
