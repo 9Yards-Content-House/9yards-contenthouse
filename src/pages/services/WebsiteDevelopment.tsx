@@ -451,8 +451,8 @@ export default function WebsiteDevelopment() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/Website-development.jpg" 
-              alt="9Yards website development team"
+              src="/images/miscellany/webscale.webp" 
+              alt="Web scalability illustration"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
             {/* Gradient overlay - responsive for different screens */}
@@ -667,8 +667,8 @@ export default function WebsiteDevelopment() {
             {/* Background Image */}
             <div className="absolute inset-0">
               <img 
-                src="/images/hero-grid/Website-development.jpg" 
-                alt="Website development team"
+                src="/images/miscellany/website cta.jpg" 
+                alt="Website CTA background"
                 className="w-full h-full object-cover object-[70%_center] sm:object-center"
               />
               {/* Gradient overlay for text readability - stronger on mobile */}
