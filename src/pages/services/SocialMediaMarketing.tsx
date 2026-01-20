@@ -312,7 +312,7 @@ export default function SocialMediaMarketing() {
             {/* Card 3: Paid Social Ads - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/graphic-design.jpg" 
+                src="/images/miscellany/paidads.png" 
                 alt="Paid social advertising"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -331,7 +331,7 @@ export default function SocialMediaMarketing() {
             {/* Card 4: Content Planning - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/branding.jpg" 
+                src="/images/miscellany/paid content planning.png" 
                 alt="Content planning and calendars"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -349,7 +349,7 @@ export default function SocialMediaMarketing() {
             {/* Card 5: Analytics & Reporting - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/Website-development.jpg" 
+                src="/images/miscellany/strategy.jpg" 
                 alt="Social media analytics and reporting"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
