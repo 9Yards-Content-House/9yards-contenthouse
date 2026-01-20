@@ -367,7 +367,7 @@ export default function Branding() {
             {/* Card 6: Rebranding - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/influencer-marketing.jpg" 
+                src="/images/miscellany/rebranding.png" 
                 alt="Rebranding services"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
