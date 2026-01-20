@@ -451,7 +451,7 @@ export default function VoiceOver() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/podcast-production.jpg" 
+              src="/images/miscellany/multi language.png" 
               alt="9Yards voice-over recording team"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
@@ -474,7 +474,7 @@ export default function VoiceOver() {
               
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed mb-5 sm:mb-6 md:mb-8 lg:mb-10">
-                We don't just record—we match the perfect voice to your brand and deliver broadcast-ready audio that connects.
+                We don't just record. We match the perfect voice to your brand and deliver broadcast-ready audio that connects.
               </p>
 
               {/* Reason Cards */}
