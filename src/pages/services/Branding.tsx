@@ -451,7 +451,7 @@ export default function Branding() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/branding.jpg" 
+              src="/images/miscellany/brandingnow.jpg" 
               alt="9Yards professional branding studio"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
