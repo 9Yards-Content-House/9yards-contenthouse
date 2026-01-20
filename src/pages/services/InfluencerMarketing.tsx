@@ -214,13 +214,13 @@ export default function InfluencerMarketing() {
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Influencer Marketing That Works For You</h2>
                 <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-                  Authentic partnerships, measurable impact, and real growth
+                  Real partnerships. Real results. Real growth.
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Influencer marketing isn't about follower counts—it's about finding the right voices that resonate with your target audience. 9Yards Content House connects you with creators who genuinely align with your brand.
+                  Influencer marketing is more than follower counts. It’s about connecting your brand with the right voices that truly resonate with your audience. 9Yards Content House finds and partners you with creators who share your values and vision.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  From micro-influencers to industry leaders, we identify, vet, and manage partnerships that drive real engagement and conversions. No vanity metrics—just results you can measure.
+                  Whether you need micro-influencers or industry leaders, we handle every step: discovery, vetting, and partnership management. We focus on authentic engagement and measurable conversions, not vanity metrics.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
@@ -243,8 +243,8 @@ export default function InfluencerMarketing() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/influencer-marketing.jpg" 
-                  alt="9Yards Content House influencer marketing team" 
+                  src="/images/miscellany/influencermarketing.jpg" 
+                  alt="Influencer marketing featured" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
               </div>
