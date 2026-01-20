@@ -66,18 +66,18 @@ const heroPortfolioRow2 = [
   { image: portfolio5, title: "Animation", logo: "Animate" },
 ];
 
-// Hero service cards for the masonry grid - 10 services with unique images
+// Hero service cards for the masonry grid - 10 services with unique images and links
 const heroServiceCards = [
-  { name: "Video Production", image: "/images/hero-grid/video-production.jpg" },
-  { name: "Photography", image: "/images/hero-grid/photography.jpg" },
-  { name: "Graphic Design", image: "/images/hero-grid/graphic-design.jpg" },
-  { name: "Print Design", image: "/images/hero-grid/print-design.jpg" },
-  { name: "Branding", image: "/images/hero-grid/branding.jpg" },
-  { name: "Social Media Marketing", image: "/images/hero-grid/social-media-marketing.jpg" },
-  { name: "Website Development", image: "/images/hero-grid/Website-development.jpg" },
-  { name: "Influencer Marketing", image: "/images/hero-grid/influencer-marketing.jpg" },
-  { name: "Podcast Production", image: "/images/hero-grid/podcast-production.jpg" },
-  { name: "TV & Radio Production", image: "/images/hero-grid/tv-and-radio-production.jpg" },
+  { name: "Video Production", image: "/images/hero-grid/video-production.jpg", href: "/services/video-production" },
+  { name: "Photography", image: "/images/hero-grid/photography.jpg", href: "/services" },
+  { name: "Graphic Design", image: "/images/hero-grid/graphic-design.jpg", href: "/services/graphic-design" },
+  { name: "Print Design", image: "/images/hero-grid/print-design.jpg", href: "/services/graphic-design" },
+  { name: "Branding", image: "/images/hero-grid/branding.jpg", href: "/services/branding" },
+  { name: "Social Media Marketing", image: "/images/hero-grid/social-media-marketing.jpg", href: "/services/social-media-marketing" },
+  { name: "Website Development", image: "/images/hero-grid/Website-development.jpg", href: "/services/website-development" },
+  { name: "Influencer Marketing", image: "/images/hero-grid/influencer-marketing.jpg", href: "/services/influencer-marketing" },
+  { name: "Podcast Production", image: "/images/hero-grid/podcast-production.jpg", href: "/services/podcast-production" },
+  { name: "TV & Radio Production", image: "/images/hero-grid/tv-and-radio-production.jpg", href: "/services/tv-radio-production" },
 ];
 
 const services = [
@@ -265,32 +265,51 @@ export default function Index() {
     <Layout hideFooterCta>
       {/* Hero Section - Superside Style */}
       <section className="relative bg-[#1c1e70] overflow-hidden lg:min-h-screen">
+        {/* Subtle background pattern for depth */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+        
         {/* Desktop Layout: Split view */}
         <div className="relative z-10 flex flex-col lg:flex-row lg:min-h-screen">
           
           {/* Left Side - Text Content */}
           <div className="w-full lg:w-[60%] flex flex-col justify-center px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-28 pt-20 sm:pt-24 md:pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 lg:min-h-screen">
+            {/* Eyebrow */}
+            <p className="text-accent font-semibold text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 lg:mb-5 text-center lg:text-left opacity-0 animate-fade-in-up [animation-delay:100ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none">
+              Kampala's Creative Powerhouse
+            </p>
+            
             {/* Main Headline */}
-            <h1 className="text-[1.5rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[4rem] leading-[1.15] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left">
-              <span className="sm:whitespace-nowrap">Everything your brand needs,</span>
-              <br className="hidden sm:block" />
-              <span className="sm:whitespace-nowrap">one <span className="text-accent">creative partner.</span></span>
+            <h1 className="text-[1.5rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.85rem] xl:text-[3.2rem] 2xl:text-[3.5rem] leading-[1.15] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left opacity-0 animate-fade-in-up [animation-delay:200ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none">
+              <span className="lg:whitespace-nowrap">Everything your brand needs,</span>
+              <br />
+              <span className="whitespace-nowrap">one <span className="text-accent">creative partner.</span></span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-[0.9rem] sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-[1.35rem] text-white/70 mb-6 sm:mb-7 lg:mb-10 max-w-sm sm:max-w-md lg:max-w-xl xl:max-w-2xl text-center lg:text-left mx-auto lg:mx-0 leading-[1.7]">
-              Professional results, delivered faster and more affordably than traditional agencies. We combine experienced creative talent with efficient workflows to bring your vision to life, from concept to completion.
+            <p className="text-[0.9rem] sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-[1.35rem] text-white/70 mb-6 sm:mb-7 lg:mb-10 max-w-sm sm:max-w-md lg:max-w-xl xl:max-w-2xl text-center lg:text-left mx-auto lg:mx-0 leading-[1.7] opacity-0 animate-fade-in-up [animation-delay:400ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none">
+              Professional results, delivered faster and more affordably than traditional agencies. From concept to completion, we bring your vision to life.
             </p>
             
-            {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center lg:justify-start opacity-0 animate-fade-in-up [animation-delay:600ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none">
               <Button 
                 variant="accent" 
                 size="lg" 
-                className="px-7 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 text-sm sm:text-base lg:text-lg"
+                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
                 asChild
               >
-                <Link to="/get-started">Get Started</Link>
+                <Link to="/get-started" aria-label="Get started with 9Yards Content House">
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+                </Link>
+              </Button>
+              <Button 
+                variant="hero-outline" 
+                size="lg" 
+                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto border-white/30 hover:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
+                asChild
+              >
+                <Link to="/portfolio" aria-label="View our portfolio of work">View Our Work</Link>
               </Button>
             </div>
           </div>
@@ -299,15 +318,19 @@ export default function Index() {
           <div className="w-full lg:w-[40%] relative">
             
             {/* Mobile/Tablet: Horizontal Scrolling Rows with edge fade */}
-            <div className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8 scroll-container">
+            <div 
+              className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8 scroll-container"
+              aria-label="Our services showcase"
+              role="region"
+            >
               {/* Left edge fade */}
-              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-r from-[#1c1e70] to-transparent" />
+              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-r from-[#1c1e70] to-transparent" aria-hidden="true" />
               {/* Right edge fade */}
-              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-l from-[#1c1e70] to-transparent" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 z-10 pointer-events-none bg-gradient-to-l from-[#1c1e70] to-transparent" aria-hidden="true" />
               
               {/* Row 1 - Scrolls Left - Service cards with varied widths */}
-              <div className="mb-1.5 sm:mb-2 md:mb-2.5">
-                <div className="flex animate-scroll-left flex-nowrap">
+              <div className="mb-2 sm:mb-2.5 md:mb-3">
+                <div className="flex animate-scroll-left motion-reduce:animate-none flex-nowrap">
                   {[...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5)].map((service, index) => {
                     // Pinterest-style varied widths only (height consistent for clean horizontal scroll)
                     const widths = [
@@ -323,22 +346,25 @@ export default function Index() {
                     ];
                     const width = widths[index % widths.length];
                     return (
-                      <div 
+                      <Link 
+                        to={service.href}
                         key={`row1-${index}`} 
-                        className={`flex-shrink-0 ${width} h-[100px] sm:h-[130px] md:h-[160px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image group`}
+                        className={`flex-shrink-0 ${width} h-[100px] sm:h-[130px] md:h-[160px] mx-1 sm:mx-1.5 md:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative scroll-grid-image group ring-1 ring-white/10 shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] transition-transform active:scale-95`}
+                        aria-label={`Learn more about ${service.name}`}
                       >
                         <img 
                           src={service.image} 
-                          alt={service.name}
+                          alt=""
+                          loading="lazy"
                           className="absolute inset-0 w-full h-full object-cover"
                         />
                         {/* Gradient overlay for text readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" aria-hidden="true" />
                         {/* Service name label */}
-                        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
-                          <h4 className="text-white font-semibold text-[10px] sm:text-xs md:text-sm leading-tight drop-shadow-lg">{service.name}</h4>
+                        <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3">
+                          <span className="text-white font-semibold text-[10px] sm:text-xs md:text-sm leading-tight drop-shadow-lg">{service.name}</span>
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
@@ -346,7 +372,7 @@ export default function Index() {
 
               {/* Row 2 - Scrolls Right - Service cards with varied widths */}
               <div>
-                <div className="flex animate-scroll-right flex-nowrap">
+                <div className="flex animate-scroll-right motion-reduce:animate-none flex-nowrap">
                   {[...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10)].map((service, index) => {
                     // Different width pattern for row 2
                     const widths = [
@@ -362,22 +388,25 @@ export default function Index() {
                     ];
                     const width = widths[index % widths.length];
                     return (
-                      <div 
+                      <Link 
+                        to={service.href}
                         key={`row2-${index}`} 
-                        className={`flex-shrink-0 ${width} h-[115px] sm:h-[145px] md:h-[180px] mx-0.5 sm:mx-1 md:mx-1.5 rounded-lg sm:rounded-xl overflow-hidden relative scroll-grid-image group`}
+                        className={`flex-shrink-0 ${width} h-[115px] sm:h-[145px] md:h-[180px] mx-1 sm:mx-1.5 md:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative scroll-grid-image group ring-1 ring-white/10 shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] transition-transform active:scale-95`}
+                        aria-label={`Learn more about ${service.name}`}
                       >
                         <img 
                           src={service.image} 
-                          alt={service.name}
+                          alt=""
+                          loading="lazy"
                           className="absolute inset-0 w-full h-full object-cover"
                         />
                         {/* Gradient overlay for text readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" aria-hidden="true" />
                         {/* Service name label */}
-                        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
-                          <h4 className="text-white font-semibold text-[10px] sm:text-xs md:text-sm leading-tight drop-shadow-lg">{service.name}</h4>
+                        <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3">
+                          <span className="text-white font-semibold text-[10px] sm:text-xs md:text-sm leading-tight drop-shadow-lg">{service.name}</span>
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
@@ -385,13 +414,18 @@ export default function Index() {
             </div>
 
             {/* Desktop: 3-Column Masonry Grid with Smooth Scrolling */}
-            <div className="hidden lg:block h-screen overflow-hidden relative">
+            <div 
+              className="hidden lg:block h-screen overflow-hidden relative"
+              aria-label="Our services showcase"
+              role="region"
+            >
               {/* Top Gradient Overlay - ensures nav visibility */}
               <div 
                 className="absolute top-0 left-0 right-0 h-28 xl:h-36 z-10 pointer-events-none"
                 style={{
                   background: 'linear-gradient(to bottom, #1c1e70 0%, #1c1e70 40%, transparent 100%)'
                 }}
+                aria-hidden="true"
               />
               
               {/* Bottom Gradient Overlay */}
@@ -400,6 +434,7 @@ export default function Index() {
                 style={{
                   background: 'linear-gradient(to top, #1c1e70 0%, #1c1e70 40%, transparent 100%)'
                 }}
+                aria-hidden="true"
               />
               
               {/* Right edge fade */}
@@ -408,35 +443,39 @@ export default function Index() {
                 style={{
                   background: 'linear-gradient(to left, #1c1e70 0%, transparent 100%)'
                 }}
+                aria-hidden="true"
               />
 
               {/* Grid Container - Service Cards Masonry */}
-              <div className="flex h-full gap-1.5 xl:gap-2 pl-3 xl:pl-4 pr-3 xl:pr-4 pt-6">
+              <div className="flex h-full gap-2 xl:gap-2.5 pl-3 xl:pl-4 pr-3 xl:pr-4 pt-6">
                 {/* Column 1 - Scrolls Up - Services 0-3 */}
                 <div className="flex-1 overflow-hidden">
-                  <div className="animate-scroll-up-slow">
+                  <div className="animate-scroll-up-slow motion-reduce:animate-none">
                     {[...heroServiceCards.slice(0, 4), ...heroServiceCards.slice(0, 4), ...heroServiceCards.slice(0, 4), ...heroServiceCards.slice(0, 4)].map((service, index) => {
                       // Pinterest-style varied heights
                       const heights = [180, 240, 160, 280];
                       const height = heights[index % heights.length];
                       return (
-                        <div 
+                        <Link 
+                          to={service.href}
                           key={`col1-${index}`} 
-                          className="mb-1.5 xl:mb-2 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
+                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg transition-all duration-300 hover:ring-accent/50 hover:scale-[1.02] block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
                           style={{ height: `${height}px` }}
+                          aria-label={`Learn more about ${service.name}`}
                         >
                           <img 
                             src={service.image} 
-                            alt={service.name}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            alt=""
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300" aria-hidden="true" />
                           {/* Service name label */}
                           <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
-                            <h4 className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg">{service.name}</h4>
+                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg group-hover:text-accent transition-colors duration-300">{service.name}</span>
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
                   </div>
@@ -444,29 +483,32 @@ export default function Index() {
 
                 {/* Column 2 - Scrolls Down - Services 4-6 */}
                 <div className="flex-1 overflow-hidden">
-                  <div className="animate-scroll-down-medium pt-6 xl:pt-10">
+                  <div className="animate-scroll-down-medium motion-reduce:animate-none pt-6 xl:pt-10">
                     {[...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7)].map((service, index) => {
                       // Different height pattern for column 2
                       const heights = [220, 170, 260];
                       const height = heights[index % heights.length];
                       return (
-                        <div 
+                        <Link 
+                          to={service.href}
                           key={`col2-${index}`} 
-                          className="mb-1.5 xl:mb-2 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
+                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg transition-all duration-300 hover:ring-accent/50 hover:scale-[1.02] block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
                           style={{ height: `${height}px` }}
+                          aria-label={`Learn more about ${service.name}`}
                         >
                           <img 
                             src={service.image} 
-                            alt={service.name}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            alt=""
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300" aria-hidden="true" />
                           {/* Service name label */}
                           <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
-                            <h4 className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg">{service.name}</h4>
+                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg group-hover:text-accent transition-colors duration-300">{service.name}</span>
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
                   </div>
@@ -474,29 +516,32 @@ export default function Index() {
 
                 {/* Column 3 - Scrolls Up - Services 7-9 */}
                 <div className="flex-1 overflow-hidden">
-                  <div className="animate-scroll-up-fast pt-3 xl:pt-5">
+                  <div className="animate-scroll-up-fast motion-reduce:animate-none pt-3 xl:pt-5">
                     {[...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10)].map((service, index) => {
                       // Different height pattern for column 3
                       const heights = [200, 150, 250];
                       const height = heights[index % heights.length];
                       return (
-                        <div 
+                        <Link 
+                          to={service.href}
                           key={`col3-${index}`} 
-                          className="mb-1.5 xl:mb-2 rounded-lg xl:rounded-xl overflow-hidden relative group scroll-grid-image"
+                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg transition-all duration-300 hover:ring-accent/50 hover:scale-[1.02] block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
                           style={{ height: `${height}px` }}
+                          aria-label={`Learn more about ${service.name}`}
                         >
                           <img 
                             src={service.image} 
-                            alt={service.name}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            alt=""
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300" aria-hidden="true" />
                           {/* Service name label */}
                           <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
-                            <h4 className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg">{service.name}</h4>
+                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg group-hover:text-accent transition-colors duration-300">{service.name}</span>
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
                   </div>
