@@ -37,7 +37,7 @@ export default function PodcastProduction() {
     {
       number: 2,
       title: "Studio Booking & Prep",
-      description: "Schedule your recording session and prepare everything—from guest coordination to equipment setup and show outlines."
+      description: "Schedule your recording session and prepare everything: from guest coordination to equipment setup and show outlines."
     },
     {
       number: 3,
@@ -114,8 +114,8 @@ export default function PodcastProduction() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-grid/podcast-production.jpg"
-            alt="Podcast Production"
+            src="/images/miscellany/podcast hero.jpg"
+            alt="Podcast Production Hero"
             className="w-full h-full object-cover scale-105"
           />
           {/* Gradient overlay - responsive: full coverage on mobile, split on desktop */}
@@ -214,13 +214,13 @@ export default function PodcastProduction() {
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Podcast Production That Works For You</h2>
                 <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-                  Professional audio, compelling content, and seamless production
+                  Broadcast-quality sound. Engaging stories. Effortless production.
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Great podcasts need more than a microphone—they need professional production that captures your voice and keeps listeners coming back. 9Yards Content House delivers broadcast-quality audio with full production support.
+                  A great podcast is more than just a microphone. It’s about capturing your unique voice and delivering a polished, professional sound that keeps listeners coming back. 9Yards Content House provides full production support from start to finish.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  From solo shows to multi-guest interviews, we handle every technical detail so you can focus on your content and connecting with your audience.
+                  Whether you’re hosting solo or bringing in multiple guests, we handle every technical detail. You focus on your message and audience, and we’ll make sure you sound your best.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
@@ -243,8 +243,8 @@ export default function PodcastProduction() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/podcast-production.jpg" 
-                  alt="9Yards Content House podcast studio" 
+                  src="/images/miscellany/podcast featured.jpg" 
+                  alt="Podcast featured studio" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
               </div>
@@ -294,7 +294,7 @@ export default function PodcastProduction() {
             {/* Card 2: Audio Editing - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/video-production.jpg" 
+                src="/images/miscellany/AUDIO-EDITING.jpg" 
                 alt="Audio editing and post-production"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -474,7 +474,7 @@ export default function PodcastProduction() {
               
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed mb-5 sm:mb-6 md:mb-8 lg:mb-10">
-                We don't just record—we produce podcasts that sound professional and build loyal audiences.
+                We don't just record. We produce podcasts that sound professional and build loyal audiences.
               </p>
 
               {/* Reason Cards */}
