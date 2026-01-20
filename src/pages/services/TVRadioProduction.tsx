@@ -214,13 +214,13 @@ export default function TVRadioProduction() {
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Broadcast Production That Works For You</h2>
                 <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-                  Reach millions with broadcast-quality content that delivers results
+                  Reach millions with content that commands attention and delivers results
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  TV and radio remain the most powerful mediums for mass reach. 9Yards Content House creates broadcast content that captures attention, builds brand recognition, and drives action across East Africa's airwaves.
+                  TV and radio are still the most powerful ways to reach a mass audience. 9Yards Content House produces broadcast content that stands out, builds your brand, and inspires action across East Africa.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  From concept to airtime, we handle every aspect—creative development, production, post-production, and strategic media placement.
+                  From concept to airtime, we handle every detail: creative development, production, post-production, and strategic media placement.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
@@ -243,8 +243,8 @@ export default function TVRadioProduction() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/tv-and-radio-production.jpg" 
-                  alt="9Yards Content House TV & Radio production" 
+                  src="/images/miscellany/television-5.jpg" 
+                  alt="TV and radio production featured" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
               </div>
@@ -275,7 +275,7 @@ export default function TVRadioProduction() {
             {/* Card 1: TV Commercials - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/tv-and-radio-production.jpg" 
+                src="/images/miscellany/onair.jpg" 
                 alt="TV commercial production"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -312,8 +312,8 @@ export default function TVRadioProduction() {
             {/* Card 3: Jingles - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/video-production.jpg" 
-                alt="Jingle production"
+                src="/images/miscellany/television.jpg" 
+                alt="Jingle and music production"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               {/* Soft localized gradient behind text */}
@@ -331,7 +331,7 @@ export default function TVRadioProduction() {
             {/* Card 4: Documentary - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/photography.jpg" 
+                src="/images/miscellany/documentaries-and-brand-stories.jpg" 
                 alt="Documentary production"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -341,7 +341,7 @@ export default function TVRadioProduction() {
               <div className="absolute inset-0 p-5 sm:p-6 lg:p-8 flex flex-col">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">Documentary</h3>
                 <p className="text-sm text-white/90 leading-relaxed drop-shadow-md">
-                  Long-form storytelling that builds deep connections with viewers and showcases your brand's impact.
+                  Long-form storytelling that forges deep connections with viewers and highlights your brand’s impact. Every documentary is crafted to inspire, inform, and leave a lasting impression.
                 </p>
               </div>
             </div>
@@ -349,7 +349,7 @@ export default function TVRadioProduction() {
             {/* Card 5: Infomercials - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/branding.jpg" 
+                src="/images/miscellany/influencer01-.png" 
                 alt="Infomercial production"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -367,7 +367,7 @@ export default function TVRadioProduction() {
             {/* Card 6: Media Buying & Placement - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/team/team.jpg" 
+                src="/images/miscellany/AUDIO-EDITING.jpg" 
                 alt="Media buying and placement"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -451,7 +451,7 @@ export default function TVRadioProduction() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/tv-and-radio-production.jpg" 
+              src="/images/miscellany/television-6.jpg" 
               alt="9Yards TV & Radio production team"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
@@ -474,7 +474,7 @@ export default function TVRadioProduction() {
               
               {/* Description */}
               <p className="text-sm sm:text-base md:text-lg text-white/70 leading-relaxed mb-5 sm:mb-6 md:mb-8 lg:mb-10">
-                We don't just produce—we strategize, create, and place content that reaches millions and drives real results.
+                We don't just produce. We strategize, create, and place content that reaches millions and drives real results.
               </p>
 
               {/* Reason Cards */}
@@ -667,7 +667,7 @@ export default function TVRadioProduction() {
             {/* Background Image */}
             <div className="absolute inset-0">
               <img 
-                src="/images/hero-grid/tv-and-radio-production.jpg" 
+                src="/images/miscellany/podcta.jpg" 
                 alt="TV & Radio production team"
                 className="w-full h-full object-cover object-[70%_center] sm:object-center"
               />
