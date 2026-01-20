@@ -114,7 +114,7 @@ export default function VoiceOver() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-grid/podcast-production.jpg"
+            src="/images/miscellany/spotlight.jpg"
             alt="Voice-Over Recording"
             className="w-full h-full object-cover scale-105"
           />
@@ -243,7 +243,7 @@ export default function VoiceOver() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/podcast-production.jpg" 
+                  src="/images/miscellany/radio.jpg" 
                   alt="9Yards Content House voice-over recording studio" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
@@ -275,7 +275,7 @@ export default function VoiceOver() {
             {/* Card 1: Commercial Voice-Over - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/podcast-production.jpg" 
+                src="/images/miscellany/podcast hero.jpg" 
                 alt="Commercial voice-over recording"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -294,7 +294,7 @@ export default function VoiceOver() {
             {/* Card 2: E-Learning & Training - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/branding.jpg" 
+                src="/images/miscellany/podcast featured.jpg" 
                 alt="E-learning voice-over"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -312,7 +312,7 @@ export default function VoiceOver() {
             {/* Card 3: Documentary Narration - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/video-production.jpg" 
+                src="/images/miscellany/collaboration.png" 
                 alt="Documentary narration"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -331,7 +331,7 @@ export default function VoiceOver() {
             {/* Card 4: IVR & Phone Systems - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/photography.jpg" 
+                src="/images/miscellany/narration.png" 
                 alt="IVR voice recording"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -349,7 +349,7 @@ export default function VoiceOver() {
             {/* Card 5: Audiobooks - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/tv-and-radio-production.jpg" 
+                src="/images/miscellany/audio books.jpg" 
                 alt="Audiobook recording"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -367,7 +367,7 @@ export default function VoiceOver() {
             {/* Card 6: Multi-Language Recording - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/team/team.jpg" 
+                src="/images/miscellany/multi language.png" 
                 alt="Multi-language voice talent"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
