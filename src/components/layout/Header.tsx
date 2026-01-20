@@ -53,7 +53,12 @@ const navLinks = [
   { name: "Company", href: "#", dropdownType: "company" },
 ];
 
-export function Header() {
+interface HeaderProps {
+  /** When true (default), header uses light text for dark hero backgrounds. When false, uses dark text for light backgrounds. */
+  darkMode?: boolean;
+}
+
+export function Header({ darkMode = true }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -63,6 +68,9 @@ export function Header() {
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  // Use scrolled styling when scrolled OR when not in dark mode (light background pages)
+  const useScrolledStyle = isScrolled || !darkMode;
 
   // Check if current path matches a child route for parent active state
   const isServicesActive = allServiceHrefs.some(href => location.pathname.startsWith(href.split('/').slice(0, 3).join('/')));
@@ -196,7 +204,7 @@ export function Header() {
   }, []);
 
   // Determine if mobile menu is open - always show full color logo when mobile menu is open
-  const showFullColorLogo = isScrolled || isMobileMenuOpen;
+  const showFullColorLogo = useScrolledStyle || isMobileMenuOpen;
 
   return (
     <header
@@ -259,10 +267,10 @@ export function Header() {
                       className={cn(
                         "flex items-center gap-0.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative select-none",
                         isActive
-                          ? isScrolled
+                          ? useScrolledStyle
                             ? "text-primary bg-primary/5"
                             : "text-white bg-white/10"
-                          : isScrolled
+                          : useScrolledStyle
                             ? "text-foreground hover:text-primary hover:bg-primary/5"
                             : "text-white/90 hover:text-white hover:bg-white/10"
                       )}
@@ -317,10 +325,10 @@ export function Header() {
                       className={cn(
                         "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative cursor-pointer",
                         isActive
-                          ? isScrolled 
+                          ? useScrolledStyle 
                             ? "text-primary bg-primary/5" 
                             : "text-white bg-white/10"
-                          : isScrolled
+                          : useScrolledStyle
                             ? "text-foreground hover:text-primary hover:bg-primary/5"
                             : "text-white/90 hover:text-white hover:bg-white/10"
                       )}
@@ -338,7 +346,7 @@ export function Header() {
                   <div 
                     className={cn(
                       "fixed left-0 right-0 pt-2 flex justify-center px-4 z-50",
-                      isScrolled ? "top-[56px]" : "top-[72px]"
+                      useScrolledStyle ? "top-[56px]" : "top-[72px]"
                     )}
                     onMouseEnter={() => handleMouseEnter("services")}
                     onMouseLeave={handleMouseLeave}
@@ -540,7 +548,7 @@ export function Header() {
           {/* Desktop CTA - hidden on home page until scroll */}
           <div className={cn(
             "hidden md:flex items-center gap-4 transition-all duration-300",
-            location.pathname === "/" && !isScrolled && "opacity-0 pointer-events-none"
+            location.pathname === "/" && !useScrolledStyle && "opacity-0 pointer-events-none"
           )}>
             <Button variant="accent" asChild>
               <Link to="/get-started">Get Started</Link>
@@ -551,7 +559,7 @@ export function Header() {
           <button
             className={cn(
               "md:hidden p-2 rounded-lg transition-all duration-300",
-              isScrolled || isMobileMenuOpen
+              useScrolledStyle || isMobileMenuOpen
                 ? "hover:bg-muted text-foreground"
                 : "hover:bg-white/10 text-white",
               isMobileMenuOpen && "hamburger-open"

@@ -522,7 +522,7 @@ export default function GetStarted() {
     !errors.phone;
 
   return (
-    <Layout>
+    <Layout headerDarkMode={currentStep === 1}>
       {/* Hero Header - Step 1 only */}
       {currentStep === 1 && (
         <section className="relative pt-28 sm:pt-32 pb-8 sm:pb-12 bg-gradient-to-b from-[#1a1a2e] to-[#16162a] overflow-hidden">

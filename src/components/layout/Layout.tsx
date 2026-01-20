@@ -7,17 +7,20 @@ interface LayoutProps {
   hideFooterCta?: boolean;
   ctaTitle?: string;
   ctaDescription?: string;
+  /** When true, header uses light text for dark backgrounds. When false, uses dark text. Default: true */
+  headerDarkMode?: boolean;
 }
 
 export function Layout({ 
   children, 
   hideFooterCta = false,
   ctaTitle,
-  ctaDescription
+  ctaDescription,
+  headerDarkMode = true
 }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header darkMode={headerDarkMode} />
       <main className="flex-1">{children}</main>
       <Footer 
         hideCtaSection={hideFooterCta} 

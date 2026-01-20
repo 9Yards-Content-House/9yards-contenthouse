@@ -5,7 +5,7 @@ import { Home, Search } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <Layout>
+    <Layout headerDarkMode={false}>
       <section className="min-h-[80vh] flex items-center py-20">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">
