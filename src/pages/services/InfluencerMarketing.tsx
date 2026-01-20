@@ -275,7 +275,7 @@ export default function InfluencerMarketing() {
             {/* Card 1: Influencer Discovery - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/influencer-marketing.jpg" 
+                src="/images/miscellany/influencer01-.png" 
                 alt="Influencer discovery and vetting"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -294,7 +294,7 @@ export default function InfluencerMarketing() {
             {/* Card 2: Campaign Strategy - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/social-media-marketing.jpg" 
+                src="/images/miscellany/team02.jpg" 
                 alt="Influencer campaign strategy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -312,7 +312,7 @@ export default function InfluencerMarketing() {
             {/* Card 3: Content Collaboration - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/video-production.jpg" 
+                src="/images/miscellany/collaboration.png" 
                 alt="Content collaboration with influencers"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -331,7 +331,7 @@ export default function InfluencerMarketing() {
             {/* Card 4: UGC Campaigns - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/photography.jpg" 
+                src="/images/miscellany/UGC Campaigns.png" 
                 alt="User-generated content campaigns"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -349,7 +349,7 @@ export default function InfluencerMarketing() {
             {/* Card 5: Performance Tracking - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/Website-development.jpg" 
+                src="/images/miscellany/tracking.png" 
                 alt="Campaign performance tracking"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -367,7 +367,7 @@ export default function InfluencerMarketing() {
             {/* Card 6: Brand Ambassadors - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/team/team.jpg" 
+                src="/images/miscellany/brandambassador.png" 
                 alt="Long-term brand ambassador programs"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -451,8 +451,8 @@ export default function InfluencerMarketing() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/influencer-marketing.jpg" 
-              alt="9Yards influencer marketing team"
+              src="/images/miscellany/main-influencer.jpg" 
+              alt="Main influencer marketing background"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
             {/* Gradient overlay - responsive for different screens */}
