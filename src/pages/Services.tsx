@@ -79,13 +79,7 @@ const creativeServices = [
     startingPrice: "Included in subscriptions or 1.2M+ UGX/month standalone",
     href: "/services/social-media-creative",
   },
-  {
-    icon: Lightbulb,
-    title: "Concept Creation",
-    description: "Big ideas for 360° campaigns. Strategic concepts that resonate with your audience and work across every channel.",
-    startingPrice: "2M+ UGX per campaign concept",
-    href: "/services/concept-creation",
-  },
+
   {
     icon: Printer,
     title: "Print Design Services",
@@ -132,13 +126,7 @@ const digitalServices = [
     startingPrice: "600K UGX/month (4 campaigns)",
     href: "/services/email-marketing",
   },
-  {
-    icon: PenTool,
-    title: "Copywriting Services",
-    description: "Words that sell without sounding sales-y. Website copy, ad copy, scripts, and captions. We write it all.",
-    startingPrice: "Included in most services or custom pricing",
-    href: "/services/copywriting",
-  },
+
   {
     icon: Map,
     title: "Digital Strategy Development",

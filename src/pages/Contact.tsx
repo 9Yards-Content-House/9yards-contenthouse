@@ -62,7 +62,6 @@ const services = [
   "Motion Design",
   "Email Marketing",
   "Influencer Marketing",
-  "Copywriting",
   "AI-Powered Creative",
   "Digital Strategy",
   "Podcast Studio",

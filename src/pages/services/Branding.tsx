@@ -214,13 +214,13 @@ export default function Branding() {
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Branding That Works For You</h2>
                 <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-                  Strategic branding, fast delivery, and identities that drive business growth
+                  Strategic branding, quick turnaround, and identities that fuel your business growth
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Your brand is more than a logo. It's the perception people have of your business, shaped by every touchpoint and interaction. 9Yards Content House builds brands that connect with audiences and stand out in crowded markets.
+                  Your brand is the story people remember and the feeling they associate with your business. Every experience and interaction shapes that story. At 9Yards Content House, we build brands that spark real connections and make you memorable in a crowded world.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Unlike agencies that treat branding as just visual design, we start with strategy. Understanding your business, your audience, and your goals ensures every creative decision has purpose and impact.
+                  We start with strategy, not just visuals. By understanding your business, your audience, and your goals, we make sure every creative choice is meaningful and drives results.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
@@ -243,8 +243,8 @@ export default function Branding() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/branding.jpg" 
-                  alt="9Yards Content House professional branding" 
+                  src="/images/miscellany/featured.jpg" 
+                  alt="Branding process showcase - 9Yards Content House" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
               </div>
@@ -275,7 +275,7 @@ export default function Branding() {
             {/* Card 1: Brand Strategy - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/branding.jpg" 
+                src="/images/miscellany/strategy.jpg" 
                 alt="Brand strategy development"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

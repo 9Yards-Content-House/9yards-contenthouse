@@ -12,7 +12,6 @@ const services = {
     { name: "Print Design", href: "/services/print-design" },
     { name: "Branding", href: "/services/branding" },
     { name: "Social Media Creative", href: "/services/social-media-creative" },
-    { name: "Concept Creation", href: "/services/concept-creation" },
     { name: "Motion Design", href: "/services/motion-design" },
   ],
   digital: [
@@ -20,7 +19,6 @@ const services = {
     { name: "Website Development", href: "/services/website-development" },
     { name: "Influencer Marketing", href: "/services/influencer-marketing" },
     { name: "Email Marketing", href: "/services/email-marketing" },
-    { name: "Copywriting", href: "/services/copywriting" },
     { name: "Digital Strategy", href: "/services/digital-strategy" },
   ],
   media: [
