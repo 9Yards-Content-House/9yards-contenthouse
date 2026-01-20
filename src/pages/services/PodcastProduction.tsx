@@ -312,7 +312,7 @@ export default function PodcastProduction() {
             {/* Card 3: Sound Design - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/tv-and-radio-production.jpg" 
+                src="/images/miscellany/sound-design.jpg" 
                 alt="Podcast sound design"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -331,7 +331,7 @@ export default function PodcastProduction() {
             {/* Card 4: Mixing & Mastering - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/graphic-design.jpg" 
+                src="/images/miscellany/mixing.jpg" 
                 alt="Podcast mixing and mastering"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -349,7 +349,7 @@ export default function PodcastProduction() {
             {/* Card 5: Guest Coordination - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/influencer-marketing.jpg" 
+                src="/images/miscellany/guest.jpg" 
                 alt="Podcast guest coordination"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -367,7 +367,7 @@ export default function PodcastProduction() {
             {/* Card 6: Distribution & Marketing - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/team/team.jpg" 
+                src="/images/miscellany/spotify.jpg" 
                 alt="Podcast distribution and marketing"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -451,8 +451,8 @@ export default function PodcastProduction() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/images/hero-grid/podcast-production.jpg" 
-              alt="9Yards podcast production team"
+              src="/images/miscellany/spotlight.jpg" 
+              alt="Podcast production spotlight"
               className="w-full h-full object-cover object-[65%_center] sm:object-[60%_center] md:object-center"
             />
             {/* Gradient overlay - responsive for different screens */}
@@ -667,8 +667,8 @@ export default function PodcastProduction() {
             {/* Background Image */}
             <div className="absolute inset-0">
               <img 
-                src="/images/hero-grid/podcast-production.jpg" 
-                alt="Podcast production team"
+                src="/images/miscellany/sound-design.jpg" 
+                alt="Podcast sound design background"
                 className="w-full h-full object-cover object-[70%_center] sm:object-center"
               />
               {/* Gradient overlay for text readability - stronger on mobile */}
