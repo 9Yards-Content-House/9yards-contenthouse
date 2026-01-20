@@ -114,8 +114,8 @@ export default function Branding() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-grid/branding.jpg"
-            alt="Professional branding services"
+            src="/images/miscellany/branding.jpg"
+            alt="Branding showcase - 9Yards Content House"
             className="w-full h-full object-cover scale-105"
           />
           {/* Gradient overlay - responsive: full coverage on mobile, split on desktop */}
