@@ -312,7 +312,7 @@ export default function WebsiteDevelopment() {
             {/* Card 3: Web Applications - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/branding.jpg" 
+                src="/images/miscellany/webapplication.webp" 
                 alt="Web application development"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -331,7 +331,7 @@ export default function WebsiteDevelopment() {
             {/* Card 4: UI/UX Design - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/social-media-marketing.jpg" 
+                src="/images/miscellany/ui-ux.webp" 
                 alt="UI/UX design services"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -349,7 +349,7 @@ export default function WebsiteDevelopment() {
             {/* Card 5: SEO & Performance - Small card (3 cols) */}
             <div className="lg:col-span-3 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/photography.jpg" 
+                src="/images/miscellany/seo.png" 
                 alt="SEO and performance optimization"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -367,7 +367,7 @@ export default function WebsiteDevelopment() {
             {/* Card 6: Maintenance & Support - Large card (6 cols) */}
             <div className="sm:col-span-2 lg:col-span-6 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/team/team.jpg" 
+                src="/images/miscellany/website maintain.png" 
                 alt="Website maintenance and support"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
