@@ -114,7 +114,7 @@ export default function SocialMediaMarketing() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-grid/social-media-marketing.jpg"
+            src="/images/miscellany/socialmedia.jpg"
             alt="Social media marketing"
             className="w-full h-full object-cover scale-105"
           />
@@ -214,13 +214,13 @@ export default function SocialMediaMarketing() {
                 <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
                 <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">Social Media Marketing That Works For You</h2>
                 <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
-                  Strategic management, engaged communities, and measurable growth
+                  Strategic management. Engaged communities. Real, measurable growth.
                 </p>
                 <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Social media isn't just about posting content—it's about building relationships that drive business results. 9Yards Content House delivers strategic social media marketing that grows your audience and converts followers into customers.
+                  Social media is more than just posting content. It's about building relationships that drive real business results. 9Yards Content House delivers social media marketing that grows your audience and turns followers into loyal customers.
                 </p>
                 <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Unlike agencies that treat social as an afterthought, we make it a core part of your marketing strategy. Data-driven insights, consistent execution, and active community management mean your social presence actually works.
+                  We make social a core part of your marketing strategy. With data-driven insights, consistent execution, and active community management, your social presence finally works for your business.
                 </p>
                 <div className="mt-6 sm:mt-8 lg:mt-10">
                   <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
@@ -243,7 +243,7 @@ export default function SocialMediaMarketing() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-2 scale-[1.02]"></div>
                 <img 
-                  src="/images/hero-grid/influencer-marketing.jpg" 
+                  src="/images/miscellany/featuredsocial.jpg" 
                   alt="9Yards Content House social media marketing team" 
                   className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
                 />
@@ -275,7 +275,7 @@ export default function SocialMediaMarketing() {
             {/* Card 1: Social Media Strategy - Large card (5 cols) */}
             <div className="sm:col-span-2 lg:col-span-5 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/hero-grid/social-media-marketing.jpg" 
+                src="/images/miscellany/social-strategy.jpg" 
                 alt="Social media strategy development"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -294,7 +294,7 @@ export default function SocialMediaMarketing() {
             {/* Card 2: Community Management - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/team/team.jpg" 
+                src="/images/miscellany/engagment.jpg" 
                 alt="Community management and engagement"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
