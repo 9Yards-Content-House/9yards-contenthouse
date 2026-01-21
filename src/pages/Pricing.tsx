@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { SEO, schemas } from "@/components/shared/SEO";
+import { SEO } from "@/components/shared/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Check, ArrowRight, Star, HelpCircle } from "lucide-react";

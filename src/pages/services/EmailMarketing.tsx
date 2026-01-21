@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { SEO, schemas } from "@/components/shared/SEO";
+import { SEO } from "@/components/shared/SEO";
 import { ArrowRight, Mail, Target, TrendingUp, Users, Zap, BarChart3, PenTool, Clock, RefreshCw } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 

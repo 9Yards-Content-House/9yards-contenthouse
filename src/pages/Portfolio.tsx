@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { SEO, schemas } from "@/components/shared/SEO";
+import { SEO } from "@/components/shared/SEO";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ArrowRight, Play, Camera, Film, Package, Mic, X, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
