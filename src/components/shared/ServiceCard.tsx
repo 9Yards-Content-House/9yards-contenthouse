@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { LucideIcon, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,7 +11,7 @@ interface ServiceCardProps {
   className?: string;
 }
 
-export function ServiceCard({
+export const ServiceCard = memo(function ServiceCard({
   icon: Icon,
   title,
   description,
@@ -36,4 +37,4 @@ export function ServiceCard({
       </span>
     </Link>
   );
-}
+});

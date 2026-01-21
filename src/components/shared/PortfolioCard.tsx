@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -9,7 +10,7 @@ interface PortfolioCardProps {
   className?: string;
 }
 
-export function PortfolioCard({
+export const PortfolioCard = memo(function PortfolioCard({
   image,
   title,
   category,
@@ -30,6 +31,7 @@ export function PortfolioCard({
           alt={title}
           className="w-full h-full object-cover"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
@@ -49,4 +51,4 @@ export function PortfolioCard({
       </div>
     </Link>
   );
-}
+});
