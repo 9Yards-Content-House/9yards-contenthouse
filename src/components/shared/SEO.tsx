@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = '9Yards Content House';
-const BASE_URL = 'https://contenthouse.9yards.co.ug';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://contenthouse.9yards.co.ug';
 const DEFAULT_IMAGE = `${BASE_URL}/images/og/9yards-share-image.jpg`;
 
 /**

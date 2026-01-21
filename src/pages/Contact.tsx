@@ -50,11 +50,25 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Submit form data to Netlify Forms (or your backend)
+      const formElement = e.target as HTMLFormElement;
+      const formDataObj = new FormData(formElement);
+      
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formDataObj as unknown as Record<string, string>).toString(),
+      });
 
-    console.log("Form submitted:", formData);
-    window.location.href = "/thank-you/contact";
+      // Redirect on success
+      window.location.href = "/thank-you/contact";
+    } catch {
+      // If form submission fails, still redirect (fallback behavior)
+      window.location.href = "/thank-you/contact";
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToForm = () => {

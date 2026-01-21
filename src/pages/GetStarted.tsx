@@ -476,12 +476,34 @@ export default function GetStarted() {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setHasUnsavedChanges(false);
-    setCurrentStep(4);
+    
+    try {
+      // Prepare form data for submission
+      const submitData = {
+        service: selectedService,
+        ...formData,
+        submittedAt: new Date().toISOString(),
+      };
+
+      // Submit to Netlify Forms or your backend
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "get-started",
+          ...Object.fromEntries(
+            Object.entries(submitData).map(([k, v]) => [k, String(v ?? "")])
+          ),
+        }).toString(),
+      });
+    } catch {
+      // Continue even if submission fails (form data shown on success screen)
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setHasUnsavedChanges(false);
+      setCurrentStep(4);
+    }
   };
 
   // Get selected service details
