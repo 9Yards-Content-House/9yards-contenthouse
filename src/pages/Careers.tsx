@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
 import {
   ArrowRight,
   ChevronDown,
@@ -140,6 +141,11 @@ export default function Careers() {
 
   return (
     <Layout hideFooterCta>
+      <SEO 
+        title="Careers at 9Yards | Join Our Creative Team in Kampala"
+        description="Join Kampala's leading creative agency. We're looking for talented designers, videographers, marketers, and more. View open positions."
+        url="/careers"
+      />
       {/* Hero Section */}
       <section
         className="relative min-h-[100svh] flex items-center overflow-hidden"

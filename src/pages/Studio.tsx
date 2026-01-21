@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -170,6 +171,12 @@ const bookingProcess = [
 export default function Studio() {
   return (
     <Layout>
+      <SEO 
+        title="Podcast & Recording Studio | 9Yards Kampala"
+        description="Professional podcast and recording studio in Kampala. Expert audio engineering, soundproof rooms, multi-guest setup. Book by hour or day."
+        url="/studio"
+        schema={schemas.localBusiness}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0">

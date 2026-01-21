@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Mail, Target, TrendingUp, Users, Zap, BarChart3, PenTool, Clock, RefreshCw } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,11 @@ export default function EmailMarketing() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Email Marketing Services | 9Yards Content House"
+        description="Email marketing services. Campaign strategy, design, automation & list management. Drive conversions with email."
+        url="/services/email-marketing"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

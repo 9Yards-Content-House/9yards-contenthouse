@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Check, ArrowRight, Star, HelpCircle } from "lucide-react";
@@ -123,6 +124,11 @@ const faqs = [
 export default function Pricing() {
   return (
     <Layout>
+      <SEO 
+        title="Pricing | 9Yards Content House Subscription Plans"
+        description="Transparent pricing for creative services. Subscriptions from 500K UGX/month. No hidden fees, cancel anytime. Video, design & marketing."
+        url="/pricing"
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 bg-primary">
         <div className="container-custom text-center">

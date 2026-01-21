@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
 import { 
   ArrowRight, 
   Zap, 
@@ -180,6 +181,11 @@ export default function HowWeWork() {
 
   return (
     <Layout hideFooterCta={true}>
+      <SEO 
+        title="How We Work | 9Yards Content House Process"
+        description="Discover how 9Yards Content House delivers world-class creative at local prices. Our AI-powered workflows, flexible engagement models, and proven process."
+        url="/how-we-work"
+      />
       {/* Hero Section - Left Aligned */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
         {/* Background Image */}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Users, Target, TrendingUp, Handshake, Search, BarChart3, MessageSquare, Star, Shield } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,11 @@ export default function InfluencerMarketing() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Influencer Marketing Uganda | 9Yards Content House"
+        description="Influencer marketing services. Discovery, campaign management, creator partnerships & performance tracking."
+        url="/services/influencer-marketing"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

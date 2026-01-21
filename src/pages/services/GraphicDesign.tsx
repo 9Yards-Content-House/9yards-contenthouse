@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Palette, Layers, PenTool, FileImage, Zap, CheckSquare, Smartphone, Package } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function GraphicDesign() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Graphic Design Services Kampala | 9Yards Content House"
+        description="Professional graphic design in Uganda. Brand identity, marketing materials, digital graphics & more. Creative design team in Kampala."
+        url="/services/graphic-design"
+        schema={schemas.service("Graphic Design", "Professional graphic design services including brand identity, marketing materials, and digital graphics.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

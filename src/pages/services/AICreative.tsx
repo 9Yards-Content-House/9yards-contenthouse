@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Sparkles, Zap, Brain, Palette, Wand2, Clock, Image, Video, PenTool } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function AICreative() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="AI Creative Services | 9Yards Content House"
+        description="AI-enhanced creative services. AI image generation, video enhancement, content automation & creative AI tools."
+        url="/services/ai-creative"
+        schema={schemas.service("AI Creative", "AI-enhanced creative services including image generation, video enhancement, and content automation.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

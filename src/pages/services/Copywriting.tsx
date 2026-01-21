@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, PenTool, Target, FileText, Megaphone, Search, BarChart3, MessageSquare, Sparkles, BookOpen } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,11 @@ export default function Copywriting() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Copywriting Services | 9Yards Content House"
+        description="Professional copywriting services. Website copy, brand messaging, ad copy & content writing."
+        url="/services/copywriting"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

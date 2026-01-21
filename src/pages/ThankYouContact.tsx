@@ -1,11 +1,17 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
 import { Link } from "react-router-dom";
 import { CheckCircle, ArrowRight, Clock, BookOpen, Share2 } from "lucide-react";
 
 export default function ThankYouContact() {
   return (
     <Layout>
+      <SEO 
+        title="Thank You | 9Yards Content House"
+        description="Thank you for contacting 9Yards Content House. We'll respond within 2 hours during business hours."
+        noIndex={true}
+      />
       <section className="min-h-[80vh] flex items-center py-20">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, TrendingUp, Users, Target, Zap, CheckSquare, BarChart3, MessageSquare, Calendar, Megaphone } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function SocialMediaMarketing() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Social Media Marketing Kampala | 9Yards Content House"
+        description="Social media marketing in Uganda. Strategy, content creation, community management & paid ads. Grow your social presence."
+        url="/services/social-media-marketing"
+        schema={schemas.service("Social Media Marketing", "Comprehensive social media marketing services including strategy, content creation, and community management.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

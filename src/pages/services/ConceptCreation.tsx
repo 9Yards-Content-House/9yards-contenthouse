@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Lightbulb, Target, Users, Zap, CheckSquare, Sparkles, PenTool, MessageSquare } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,11 @@ export default function ConceptCreation() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Creative Concept Development | 9Yards Content House"
+        description="Creative concept development. Campaign concepts, brand storytelling, creative direction & content strategy."
+        url="/services/concept-creation"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Sparkles, Target, Palette, FileText, Zap, CheckSquare, Users, Lightbulb } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function Branding() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Branding Services Kampala | 9Yards Content House"
+        description="Strategic branding services in Uganda. Brand strategy, identity design, brand guidelines & rebranding. Build a memorable brand."
+        url="/services/branding"
+        schema={schemas.service("Branding", "Strategic branding services including brand strategy, identity design, and brand guidelines.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Tv, Radio, Film, Megaphone, Sparkles, Target, Music, Volume2 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function TVRadioProduction() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="TV & Radio Production Uganda | 9Yards Content House"
+        description="TV and radio production in Uganda. Commercials, jingles, shows & branded content. Broadcast-quality production."
+        url="/services/tv-radio-production"
+        schema={schemas.service("TV & Radio Production", "Professional TV and radio production services including commercials, jingles, and branded content.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

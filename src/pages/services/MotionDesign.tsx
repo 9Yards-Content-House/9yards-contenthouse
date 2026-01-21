@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Play, Layers, Sparkles, Zap, CheckSquare, Monitor, Film, Tv, Smartphone } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,11 @@ export default function MotionDesign() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Motion Design & Animation | 9Yards Content House"
+        description="Professional motion design and animation. Logo animation, explainer videos, motion graphics & 2D/3D animation."
+        url="/services/motion-design"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -64,6 +65,12 @@ export default function Contact() {
 
   return (
     <Layout hideFooterCta>
+      <SEO 
+        title="Contact Us | 9Yards Content House Kampala"
+        description="Get in touch with Kampala's premier creative agency. Let's discuss your video production, design, or marketing project. Call +256-700-488-870."
+        url="/contact"
+        schema={schemas.localBusiness}
+      />
       {/* Hero Section */}
       <section 
         className="relative min-h-[55vh] sm:min-h-[60vh] lg:min-h-[65vh] flex items-center overflow-hidden"

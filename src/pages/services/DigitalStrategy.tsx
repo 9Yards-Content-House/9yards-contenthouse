@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Target, TrendingUp, BarChart3, Users, Lightbulb, Compass, LineChart, Zap, Search } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,11 @@ export default function DigitalStrategy() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Digital Strategy Consulting | 9Yards Content House"
+        description="Digital strategy consulting. Brand strategy, marketing strategy, content strategy & growth planning."
+        url="/services/digital-strategy"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

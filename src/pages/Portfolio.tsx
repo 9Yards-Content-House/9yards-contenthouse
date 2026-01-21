@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ArrowRight, Play, Camera, Film, Package, Mic, X, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -137,6 +138,11 @@ export default function Portfolio() {
 
   return (
     <Layout hideFooterCta={true}>
+      <SEO 
+        title="Portfolio | 9Yards Content House Work Examples"
+        description="Explore our portfolio of music videos, brand identities, product photography, and podcast productions. See why Uganda's top brands trust 9Yards."
+        url="/portfolio"
+      />
       {/* YouTube Video Modal */}
       <Dialog open={isVideoModalOpen} onOpenChange={setIsVideoModalOpen}>
         <DialogContent className="max-w-5xl w-[95vw] p-0 bg-black border-none overflow-hidden rounded-xl sm:rounded-2xl">

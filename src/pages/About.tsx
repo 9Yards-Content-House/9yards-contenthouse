@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO, schemas } from "@/components/shared/SEO";
 import {
   ArrowRight,
   ChevronDown,
@@ -174,6 +175,12 @@ export default function About() {
 
   return (
     <Layout hideFooterCta>
+      <SEO 
+        title="About 9Yards Content House | Creative Team Kampala"
+        description="Meet the creative minds behind Kampala's leading content agency. AI-powered workflows, world-class talent, and a passion for African storytelling."
+        url="/about"
+        schema={schemas.organization}
+      />
       {/* Hero Section */}
       <section
         className="relative min-h-[100svh] flex items-center overflow-hidden"

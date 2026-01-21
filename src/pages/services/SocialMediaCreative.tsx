@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Instagram, Share2, TrendingUp, Calendar, Zap, CheckSquare, Sparkles, BarChart3 } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,11 @@ export default function SocialMediaCreative() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Social Media Creative & Ad Design | 9Yards Content House"
+        description="Social media creative design. Instagram content, ad creatives, story templates & platform-optimized graphics."
+        url="/services/social-media-creative"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Play, Tv, MessageSquare, FileText, Video, Scissors, Smartphone, Film, Briefcase, Zap, CheckSquare } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function VideoProduction() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Video Production Services Kampala | 9Yards Content House"
+        description="Professional video production in Uganda. Corporate videos, commercials, social media content & more. Award-winning video team in Kampala."
+        url="/services/video-production"
+        schema={schemas.service("Video Production", "Professional video production services including corporate videos, commercials, music videos, and social media content.")}
+      />
       {/* Hero Section - Superside Style */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Video */}

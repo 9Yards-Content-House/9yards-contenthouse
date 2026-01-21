@@ -6,6 +6,7 @@ import { ServiceCard } from "@/components/shared/ServiceCard";
 import { PortfolioCard } from "@/components/shared/PortfolioCard";
 import { TestimonialCard } from "@/components/shared/TestimonialCard";
 import { StatCounter } from "@/components/shared/StatCounter";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Palette,
@@ -267,6 +268,12 @@ export default function Index() {
 
   return (
     <Layout hideFooterCta>
+      <SEO 
+        title="9Yards Content House | Creative Agency Kampala Uganda"
+        description="Kampala's premier creative agency. Video production, graphic design, web development & social media management. AI-powered quality at accessible prices."
+        url="/"
+        schema={schemas.organization}
+      />
       {/* Hero Section - Superside Style */}
       <section className="relative bg-[#1c1e70] overflow-hidden lg:min-h-screen">
         {/* Subtle background pattern for depth */}

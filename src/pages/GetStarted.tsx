@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/shared/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -523,6 +524,11 @@ export default function GetStarted() {
 
   return (
     <Layout headerDarkMode={currentStep === 1}>
+      <SEO 
+        title="Get Started | Request a Quote from 9Yards"
+        description="Start your creative project with 9Yards Content House. Quick quote for video production, branding, web development & marketing services."
+        url="/get-started"
+      />
       {/* Hero Header - Step 1 only */}
       {currentStep === 1 && (
         <section className="relative pt-28 sm:pt-32 pb-8 sm:pb-12 bg-gradient-to-b from-[#1a1a2e] to-[#16162a] overflow-hidden">

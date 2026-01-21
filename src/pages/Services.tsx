@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { useState, useRef, useEffect } from "react";
 import {
   Palette,
@@ -441,6 +442,11 @@ function ServicesCarousel() {
 export default function Services() {
   return (
     <Layout hideFooterCta={true}>
+      <SEO 
+        title="Creative Services | 9Yards Content House Kampala"
+        description="Video production, graphic design, social media marketing, web development, and more. Full-service creative agency in Kampala, Uganda."
+        url="/services"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

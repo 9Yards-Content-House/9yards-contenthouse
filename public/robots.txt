@@ -1,3 +1,6 @@
+# Robots.txt for 9Yards Content House
+# https://contenthouse.9yards.co.ug
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,11 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Block admin and private directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://contenthouse.9yards.co.ug/sitemap.xml

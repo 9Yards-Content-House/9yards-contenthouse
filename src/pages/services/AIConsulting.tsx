@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Brain, Lightbulb, Target, TrendingUp, Users, Workflow, Sparkles, Settings, GraduationCap } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function AIConsulting() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="AI Consulting Services | 9Yards Content House"
+        description="AI consulting for creative teams. Workflow automation, tool selection, team training & AI strategy."
+        url="/services/ai-consulting"
+        schema={schemas.service("AI Consulting", "AI consulting services for creative teams including workflow automation and team training.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

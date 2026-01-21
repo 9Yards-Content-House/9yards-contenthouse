@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Mic, Volume2, Headphones, Languages, Sparkles, Clock, Radio, Music } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function VoiceOver() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Voice Over Services Kampala | 9Yards Content House"
+        description="Professional voice over services in Uganda. Commercials, narration, IVR & character voices. Multilingual voice talent."
+        url="/services/voice-over"
+        schema={schemas.service("Voice Over", "Professional voice over services including commercials, narration, and multilingual voice talent.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

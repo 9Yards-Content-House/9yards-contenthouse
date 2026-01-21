@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Mic, Headphones, Radio, Users, Settings, Sparkles } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function PodcastProduction() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Podcast Production Kampala | 9Yards Content House"
+        description="Professional podcast production in Uganda. Recording, editing, distribution & strategy. Launch and grow your podcast."
+        url="/services/podcast-production"
+        schema={schemas.service("Podcast Production", "Professional podcast production services including recording, editing, and distribution.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

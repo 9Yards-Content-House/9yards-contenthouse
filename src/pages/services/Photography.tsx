@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Camera, Image, Users, Building2, Zap, CheckSquare, Smartphone, Package } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function Photography() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Photography Services Kampala | 9Yards Content House"
+        description="Professional photography in Uganda. Product, corporate, event & lifestyle photography. Expert photographers in Kampala."
+        url="/services/photography"
+        schema={schemas.service("Photography", "Professional photography services including product, corporate, event, and lifestyle photography.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

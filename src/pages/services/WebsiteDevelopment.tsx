@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Code, Palette, Zap, Shield, Smartphone, Globe, Settings, Layers, Search, Gauge } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -109,6 +110,12 @@ export default function WebsiteDevelopment() {
     <Layout
       hideFooterCta={true}
     >
+      <SEO
+        title="Website Development Kampala | 9Yards Content House"
+        description="Professional website development in Uganda. Custom websites, e-commerce, web apps & maintenance. Modern web solutions."
+        url="/services/website-development"
+        schema={schemas.service("Website Development", "Professional website development services including custom websites, e-commerce, and web applications.")}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Image */}

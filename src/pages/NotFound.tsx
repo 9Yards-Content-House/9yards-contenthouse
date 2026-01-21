@@ -1,11 +1,17 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/shared/SEO";
 import { Link } from "react-router-dom";
 import { Home, Search } from "lucide-react";
 
 export default function NotFound() {
   return (
     <Layout headerDarkMode={false}>
+      <SEO 
+        title="Page Not Found | 9Yards Content House"
+        description="The page you're looking for doesn't exist."
+        noIndex={true}
+      />
       <section className="min-h-[80vh] flex items-center py-20">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center">
