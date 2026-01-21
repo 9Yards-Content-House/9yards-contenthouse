@@ -169,7 +169,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
           <video
             autoPlay
             muted
@@ -178,6 +178,7 @@ export default function Portfolio() {
             preload="auto"
             poster="/images/Portfolio/Other music video behind the scene pictures/9yards-team-onset.png"
             className="w-full h-full object-cover"
+            aria-label="Featured portfolio project video showcase"
           >
             <source src={featuredProject.videoSrc} type="video/mp4" />
           </video>

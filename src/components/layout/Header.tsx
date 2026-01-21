@@ -197,14 +197,15 @@ export function Header({ darkMode = true }: HeaderProps) {
       )}
     >
       <div className="container-custom">
-        <nav className="flex items-center justify-between">
+        <nav className="flex items-center justify-between" aria-label="Main navigation">
           {/* Logo with transition */}
-          <Link to="/" className="flex items-center group relative">
+          <Link to="/" className="flex items-center group relative" aria-label="9Yards Content House - Go to homepage">
             <div className="relative h-10 sm:h-12 w-auto">
               {/* Inverted Logo (shown before scroll) */}
               <img
                 src="/images/logo/9Yards-Logo-Inverted-Color.png"
-                alt="9Yards Content House"
+                alt={!showFullColorLogo ? "9Yards Content House" : ""}
+                aria-hidden={showFullColorLogo}
                 className={cn(
                   "h-full w-auto object-contain transition-opacity duration-300",
                   showFullColorLogo ? "opacity-0" : "opacity-100"
@@ -213,7 +214,8 @@ export function Header({ darkMode = true }: HeaderProps) {
               {/* Full Color Logo (shown after scroll) */}
               <img
                 src="/images/logo/9Yards-Logo-Full-Color.png"
-                alt="9Yards Content House"
+                alt={showFullColorLogo ? "9Yards Content House" : ""}
+                aria-hidden={!showFullColorLogo}
                 className={cn(
                   "h-full w-auto object-contain absolute top-0 left-0 transition-opacity duration-300",
                   showFullColorLogo ? "opacity-100" : "opacity-0"
@@ -254,7 +256,6 @@ export function Header({ darkMode = true }: HeaderProps) {
                             ? "text-foreground hover:text-primary hover:bg-primary/5"
                             : "text-white/90 hover:text-white hover:bg-white/10"
                       )}
-                      aria-haspopup="true"
                     >
                       {/* Text label - clicking navigates to the page */}
                       <Link 
@@ -268,6 +269,7 @@ export function Header({ darkMode = true }: HeaderProps) {
                       <button
                         type="button"
                         className="cursor-pointer p-1 -mr-1 rounded hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+                        aria-haspopup="menu"
                         aria-expanded={openDropdown === link.dropdownType}
                         aria-label={`Toggle ${link.name} dropdown`}
                         onClick={(e) => {

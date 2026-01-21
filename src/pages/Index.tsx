@@ -248,6 +248,10 @@ export default function Index() {
   const whyChooseUsRef = useScrollAnimation<HTMLDivElement>();
 
   useEffect(() => {
+    // Respect user's reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 6000);
@@ -746,7 +750,8 @@ export default function Index() {
                 <div className="col-span-7 grid grid-cols-5">
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className="flex items-center justify-center">
-                      <Check className="w-7 h-7 lg:w-8 lg:h-8 text-white" strokeWidth={2.5} />
+                      <Check className="w-7 h-7 lg:w-8 lg:h-8 text-white" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                   ))}
                 </div>
@@ -771,19 +776,24 @@ export default function Index() {
                   </div>
                   <div className="col-span-7 grid grid-cols-5">
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                   </div>
                 </div>
@@ -805,19 +815,24 @@ export default function Index() {
                   </div>
                   <div className="col-span-7 grid grid-cols-5">
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                   </div>
                 </div>
@@ -839,19 +854,24 @@ export default function Index() {
                   </div>
                   <div className="col-span-7 grid grid-cols-5">
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                   </div>
                 </div>
@@ -873,19 +893,24 @@ export default function Index() {
                   </div>
                   <div className="col-span-7 grid grid-cols-5">
                     <div className="flex items-center justify-center">
-                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} />
+                      <X className="w-6 h-6 lg:w-7 lg:h-7 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Not available</span>
                     </div>
                     <div className="flex items-center justify-center">
-                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 lg:w-7 lg:h-7 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                   </div>
                 </div>
@@ -918,7 +943,8 @@ export default function Index() {
                 <div className="grid grid-cols-5 w-[320px] flex-shrink-0">
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className="flex items-center justify-center">
-                      <Check className="w-6 h-6 text-white" strokeWidth={2.5} />
+                      <Check className="w-6 h-6 text-white" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available</span>
                     </div>
                   ))}
                 </div>
@@ -968,9 +994,15 @@ export default function Index() {
                       {option.checks.map((checked, i) => (
                         <div key={i} className="flex items-center justify-center">
                           {checked ? (
-                            <Check className="w-5 h-5 text-green-500" strokeWidth={2.5} />
+                            <>
+                              <Check className="w-5 h-5 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                              <span className="sr-only">Available</span>
+                            </>
                           ) : (
-                            <X className="w-5 h-5 text-red-400" strokeWidth={2.5} />
+                            <>
+                              <X className="w-5 h-5 text-red-400" strokeWidth={2.5} aria-hidden="true" />
+                              <span className="sr-only">Not available</span>
+                            </>
                           )}
                         </div>
                       ))}
@@ -993,7 +1025,8 @@ export default function Index() {
                 {['Speed', 'Quality', 'Flexibility', 'Scalability', 'Cost'].map((label) => (
                   <div key={label} className="text-center">
                     <div className="flex items-center justify-center mb-1.5">
-                      <Check className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={2.5} />
+                      <Check className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={2.5} aria-hidden="true" />
+                      <span className="sr-only">Available for {label}</span>
                     </div>
                     <span className="text-[9px] sm:text-[10px] text-white/75 font-medium leading-tight block">{label}</span>
                   </div>
@@ -1046,9 +1079,15 @@ export default function Index() {
                     <div key={label} className="text-center">
                       <div className="flex items-center justify-center mb-1.5">
                         {option.checks[i] ? (
-                          <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" strokeWidth={2.5} />
+                          <>
+                            <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" strokeWidth={2.5} aria-hidden="true" />
+                            <span className="sr-only">{label}: Available</span>
+                          </>
                         ) : (
-                          <X className="w-5 h-5 sm:w-6 sm:h-6 text-red-400" strokeWidth={2} />
+                          <>
+                            <X className="w-5 h-5 sm:w-6 sm:h-6 text-red-400" strokeWidth={2} aria-hidden="true" />
+                            <span className="sr-only">{label}: Not available</span>
+                          </>
                         )}
                       </div>
                       <span className="text-[9px] sm:text-[10px] text-muted-foreground font-medium leading-tight block">{label}</span>

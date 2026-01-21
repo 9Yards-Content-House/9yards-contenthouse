@@ -36,6 +36,8 @@ const TikTokIcon = ({ className }: { className?: string }) => (
     viewBox="0 0 24 24" 
     fill="currentColor" 
     className={className}
+    aria-hidden="true"
+    focusable="false"
   >
     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
   </svg>
@@ -51,6 +53,8 @@ const InstagramIcon = ({ className }: { className?: string }) => (
     strokeLinecap="round" 
     strokeLinejoin="round"
     className={className}
+    aria-hidden="true"
+    focusable="false"
   >
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
@@ -64,6 +68,8 @@ const YouTubeIcon = ({ className }: { className?: string }) => (
     viewBox="0 0 24 24" 
     fill="currentColor" 
     className={className}
+    aria-hidden="true"
+    focusable="false"
   >
     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
   </svg>
@@ -135,7 +141,7 @@ export function Footer({
       {/* Main Footer - Dark Theme */}
       <div className="bg-[#181818]">
         <div className="container-custom py-10 sm:py-12 md:py-14">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-4 sm:gap-x-6 lg:gap-x-10 gap-y-8 sm:gap-y-10">
+        <nav className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-4 sm:gap-x-6 lg:gap-x-10 gap-y-8 sm:gap-y-10" aria-label="Footer navigation">
           {/* Brand Column */}
           <div className="col-span-2 sm:col-span-2 md:col-span-4 lg:col-span-1 mb-2 md:mb-4 lg:mb-0">
             <Link to="/" className="inline-block mb-4">
@@ -176,7 +182,7 @@ export function Footer({
 
           {/* Creative Services */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Creative Services</h4>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Creative Services</h3>
             <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.creativeServices.map((link) => (
                 <li key={link.name}>
@@ -193,7 +199,7 @@ export function Footer({
 
           {/* Digital & Strategy */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Digital & Strategy</h4>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Digital & Strategy</h3>
             <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.digitalStrategy.map((link) => (
                 <li key={link.name}>
@@ -210,7 +216,7 @@ export function Footer({
 
           {/* Media Production */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Media Production</h4>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Media Production</h3>
             <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.mediaProduction.map((link) => (
                 <li key={link.name}>
@@ -227,7 +233,7 @@ export function Footer({
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Company</h4>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-accent mb-3 sm:mb-4">Company</h3>
             <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -241,7 +247,7 @@ export function Footer({
               ))}
             </ul>
           </div>
-        </div>
+        </nav>
         </div>
       </div>
 

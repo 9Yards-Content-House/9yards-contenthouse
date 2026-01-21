@@ -112,7 +112,7 @@ export default function VideoProduction() {
       {/* Hero Section - Superside Style */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
           <video 
             autoPlay 
             muted 
@@ -121,6 +121,7 @@ export default function VideoProduction() {
             preload="auto"
             poster="/images/hero-grid/video-production.jpg"
             className="w-full h-full object-cover scale-105"
+            aria-label="Showcase of 9Yards professional video production work"
           >
             <source src="/images/team/Spice Diana - Nzigulawo.mp4" type="video/mp4" />
           </video>
