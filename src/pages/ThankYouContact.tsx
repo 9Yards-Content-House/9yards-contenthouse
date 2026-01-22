@@ -79,9 +79,9 @@ export default function ThankYouContact() {
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/blog">
+                <Link to="/how-we-work">
                   <Clock className="w-4 h-4" />
-                  Read Our Blog
+                  How We Work
                 </Link>
               </Button>
               <Button variant="outline" asChild>

@@ -148,9 +148,10 @@ export default {
     },
   },
   plugins: [
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require("tailwindcss-animate"),
     // Custom plugin for hiding scrollbars
-    function({ addUtilities }: { addUtilities: Function }) {
+    function({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string | Record<string, string>>>) => void }) {
       addUtilities({
         '.scrollbar-hide': {
           '-ms-overflow-style': 'none',

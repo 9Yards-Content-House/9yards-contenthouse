@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/shared/SEO";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
   Palette,
   Video,
@@ -250,7 +250,7 @@ function ServicesCarousel() {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (carouselRef.current) {
       const cardWidth = getCardWidth();
       const gap = 24;
@@ -259,7 +259,7 @@ function ServicesCarousel() {
         behavior: 'smooth'
       });
     }
-  };
+  }, []);
 
   // Handle scroll to update active index and seamless infinite loop
   const handleScroll = () => {
@@ -299,7 +299,7 @@ function ServicesCarousel() {
       // Start at the middle of the extended array
       carouselRef.current.scrollLeft = totalOriginal * 2 * (cardWidth + gap);
     }
-  }, []);
+  }, [totalOriginal]);
 
   // Auto-scroll effect - always scrolls forward
   useEffect(() => {
@@ -310,7 +310,7 @@ function ServicesCarousel() {
     }, 4000);
     
     return () => clearInterval(interval);
-  }, [isAutoScrollPaused]);
+  }, [isAutoScrollPaused, handleNext]);
 
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-muted/40 overflow-hidden">
