@@ -25,6 +25,7 @@ import {
   Code,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Check,
   X,
   Building2,
@@ -275,9 +276,12 @@ export default function Index() {
         schema={schemas.organization}
       />
       {/* Hero Section - Superside Style */}
-      <section className="relative bg-[#1c1e70] overflow-hidden lg:min-h-screen">
+      <section 
+        className="relative bg-[#1c1e70] overflow-hidden lg:min-h-screen"
+        aria-labelledby="home-hero-heading"
+      >
         {/* Subtle background pattern for depth */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} aria-hidden="true" />
         
         {/* Desktop Layout: Split view */}
         <div className="relative z-10 flex flex-col lg:flex-row lg:min-h-screen">
@@ -290,7 +294,10 @@ export default function Index() {
             </p>
             
             {/* Main Headline */}
-            <h1 className="text-[1.5rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.85rem] xl:text-[3.2rem] 2xl:text-[3.5rem] leading-[1.15] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left opacity-0 animate-fade-in-up [animation-delay:200ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none">
+            <h1 
+              id="home-hero-heading"
+              className="text-[1.5rem] sm:text-[2.25rem] md:text-[2.5rem] lg:text-[2.85rem] xl:text-[3.2rem] 2xl:text-[3.5rem] leading-[1.15] tracking-tight text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-center lg:text-left opacity-0 animate-fade-in-up [animation-delay:200ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none"
+            >
               <span className="lg:whitespace-nowrap">Everything your brand needs,</span>
               <br />
               <span className="whitespace-nowrap">one <span className="text-accent">creative partner.</span></span>
@@ -366,7 +373,9 @@ export default function Index() {
                         <img 
                           src={service.image} 
                           alt=""
-                          loading="lazy"
+                          loading={index < 5 ? "eager" : "lazy"}
+                          decoding={index < 5 ? "sync" : "async"}
+                          fetchPriority={index < 3 ? "high" : undefined}
                           className="absolute inset-0 w-full h-full object-cover"
                         />
                         {/* Gradient overlay for text readability */}
@@ -408,7 +417,9 @@ export default function Index() {
                         <img 
                           src={service.image} 
                           alt=""
-                          loading="lazy"
+                          loading={index < 5 ? "eager" : "lazy"}
+                          decoding={index < 5 ? "sync" : "async"}
+                          fetchPriority={index < 3 ? "high" : undefined}
                           className="absolute inset-0 w-full h-full object-cover"
                         />
                         {/* Gradient overlay for text readability */}
@@ -477,7 +488,9 @@ export default function Index() {
                           <img 
                             src={service.image} 
                             alt=""
-                            loading="lazy"
+                            loading={index < 4 ? "eager" : "lazy"}
+                            decoding={index < 4 ? "sync" : "async"}
+                            fetchPriority={index < 2 ? "high" : undefined}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
@@ -510,7 +523,9 @@ export default function Index() {
                           <img 
                             src={service.image} 
                             alt=""
-                            loading="lazy"
+                            loading={index < 4 ? "eager" : "lazy"}
+                            decoding={index < 4 ? "sync" : "async"}
+                            fetchPriority={index < 2 ? "high" : undefined}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
@@ -543,7 +558,9 @@ export default function Index() {
                           <img 
                             src={service.image} 
                             alt=""
-                            loading="lazy"
+                            loading={index < 4 ? "eager" : "lazy"}
+                            decoding={index < 4 ? "sync" : "async"}
+                            fetchPriority={index < 2 ? "high" : undefined}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
@@ -561,6 +578,18 @@ export default function Index() {
             </div>
           </div>
         </div>
+
+        {/* Scroll Indicator - Desktop only */}
+        <button
+          onClick={() => {
+            document.getElementById("what-we-create")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          aria-label="Scroll to explore our services"
+          className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-white/60 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] rounded-full p-2 opacity-0 animate-fade-in-up [animation-delay:1000ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none"
+        >
+          <span className="text-[10px] sm:text-xs tracking-widest uppercase">Explore</span>
+          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce motion-reduce:animate-none" aria-hidden="true" />
+        </button>
       </section>
 
       {/* Creative Partner Section */}
