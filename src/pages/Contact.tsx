@@ -45,9 +45,61 @@ export default function Contact() {
     budget: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  // Form validation
+  const validateField = (name: string, value: string): string => {
+    switch (name) {
+      case "fullName":
+        return value.trim().length < 2 ? "Please enter your full name" : "";
+      case "email":
+        return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "Please enter a valid email address" : "";
+      case "service":
+        return !value ? "Please select a service" : "";
+      case "message":
+        return value.trim().length < 10 ? "Please describe your project (at least 10 characters)" : "";
+      default:
+        return "";
+    }
+  };
+
+  const handleBlur = (name: string) => {
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const error = validateField(name, formData[name as keyof typeof formData]);
+    setErrors(prev => ({ ...prev, [name]: error }));
+  };
+
+  const handleChange = (name: string, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({ ...prev, [name]: error }));
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate all required fields
+    const newErrors: Record<string, string> = {};
+    ["fullName", "email", "service", "message"].forEach(field => {
+      const error = validateField(field, formData[field as keyof typeof formData]);
+      if (error) newErrors[field] = error;
+    });
+    
+    setErrors(newErrors);
+    setTouched({ fullName: true, email: true, service: true, message: true });
+    
+    // If there are errors, don't submit
+    if (Object.keys(newErrors).some(key => newErrors[key])) {
+      // Focus first error field
+      const firstErrorField = document.querySelector('[aria-invalid="true"]') as HTMLElement;
+      firstErrorField?.focus();
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -97,6 +149,8 @@ export default function Contact() {
             alt=""
             className="w-full h-full object-cover"
             loading="eager"
+            decoding="sync"
+            fetchPriority="high"
           />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#1c1e70]/95 via-[#1c1e70]/85 to-[#1c1e70]/70" />
@@ -291,12 +345,18 @@ export default function Contact() {
                         autoComplete="name"
                         placeholder="John Doe"
                         value={formData.fullName}
-                        onChange={(e) =>
-                          setFormData({ ...formData, fullName: e.target.value })
-                        }
+                        onChange={(e) => handleChange("fullName", e.target.value)}
+                        onBlur={() => handleBlur("fullName")}
                         className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
                         aria-required="true"
+                        aria-invalid={errors.fullName ? "true" : undefined}
+                        aria-describedby={errors.fullName ? "fullName-error" : undefined}
                       />
+                      {errors.fullName && touched.fullName && (
+                        <p id="fullName-error" role="alert" className="text-xs text-red-500 mt-1">
+                          {errors.fullName}
+                        </p>
+                      )}
                     </div>
                     <div className="space-y-1.5 sm:space-y-2">
                       <Label htmlFor="email" className="text-xs sm:text-sm font-medium">
@@ -310,12 +370,18 @@ export default function Contact() {
                         autoComplete="email"
                         placeholder="john@example.com"
                         value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        onBlur={() => handleBlur("email")}
                         className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
                         aria-required="true"
+                        aria-invalid={errors.email ? "true" : undefined}
+                        aria-describedby={errors.email ? "email-error" : undefined}
                       />
+                      {errors.email && touched.email && (
+                        <p id="email-error" role="alert" className="text-xs text-red-500 mt-1">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -332,9 +398,7 @@ export default function Contact() {
                         autoComplete="tel"
                         placeholder="+256 700 000 000"
                         value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
+                        onChange={(e) => handleChange("phone", e.target.value)}
                         className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
                       />
                     </div>
@@ -348,9 +412,7 @@ export default function Contact() {
                         autoComplete="organization"
                         placeholder="Your Company"
                         value={formData.company}
-                        onChange={(e) =>
-                          setFormData({ ...formData, company: e.target.value })
-                        }
+                        onChange={(e) => handleChange("company", e.target.value)}
                         className="h-11 sm:h-12 text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30"
                       />
                     </div>
@@ -365,13 +427,16 @@ export default function Contact() {
                       <Select
                         name="service"
                         required
-                        onValueChange={(value) =>
-                          setFormData({ ...formData, service: value })
-                        }
+                        onValueChange={(value) => {
+                          handleChange("service", value);
+                          handleBlur("service");
+                        }}
                       >
                         <SelectTrigger 
                           className="h-11 sm:h-12 text-base bg-background border-border focus:ring-accent/30"
                           aria-required="true"
+                          aria-invalid={errors.service ? "true" : undefined}
+                          aria-describedby={errors.service ? "service-error" : undefined}
                         >
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
@@ -383,6 +448,11 @@ export default function Contact() {
                           ))}
                         </SelectContent>
                       </Select>
+                      {errors.service && touched.service && (
+                        <p id="service-error" role="alert" className="text-xs text-red-500 mt-1">
+                          {errors.service}
+                        </p>
+                      )}
                     </div>
                     <div className="space-y-1.5 sm:space-y-2">
                       <Label htmlFor="budget" className="text-xs sm:text-sm font-medium">
@@ -390,9 +460,7 @@ export default function Contact() {
                       </Label>
                       <Select
                         name="budget"
-                        onValueChange={(value) =>
-                          setFormData({ ...formData, budget: value })
-                        }
+                        onValueChange={(value) => handleChange("budget", value)}
                       >
                         <SelectTrigger className="h-11 sm:h-12 text-base bg-background border-border focus:ring-accent/30">
                           <SelectValue placeholder="Select budget" />
@@ -420,12 +488,18 @@ export default function Contact() {
                       placeholder="Tell us about your project, goals, and any specific requirements..."
                       rows={4}
                       value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
+                      onChange={(e) => handleChange("message", e.target.value)}
+                      onBlur={() => handleBlur("message")}
                       className="text-base bg-background border-border focus:border-accent focus-visible:ring-accent/30 resize-none min-h-[120px] sm:min-h-[140px]"
                       aria-required="true"
+                      aria-invalid={errors.message ? "true" : undefined}
+                      aria-describedby={errors.message ? "message-error" : undefined}
                     />
+                    {errors.message && touched.message && (
+                      <p id="message-error" role="alert" className="text-xs text-red-500 mt-1">
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
 
                   {/* Submit Button */}

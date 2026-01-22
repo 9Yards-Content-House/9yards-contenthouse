@@ -34,9 +34,15 @@ export default defineConfig(({ mode }) => ({
     sourcemap: mode === "development",
     // Target modern browsers for smaller bundles
     target: "es2020",
+    // Enable CSS code splitting for better caching
+    cssCodeSplit: true,
     // Chunk splitting strategy
     rollupOptions: {
       output: {
+        // Better asset naming for long-term caching
+        assetFileNames: "assets/[name]-[hash][extname]",
+        chunkFileNames: "js/[name]-[hash].js",
+        entryFileNames: "js/[name]-[hash].js",
         manualChunks: {
           // Core React libraries
           "vendor-react": ["react", "react-dom", "react-router-dom"],
@@ -61,6 +67,10 @@ export default defineConfig(({ mode }) => ({
     },
     // Increase chunk size warning limit
     chunkSizeWarningLimit: 1000,
+    // Better tree shaking
+    modulePreload: {
+      polyfill: true,
+    },
   },
   // Optimize dependencies
   optimizeDeps: {

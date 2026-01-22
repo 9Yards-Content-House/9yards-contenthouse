@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="QDT0bvNomFsJHjx50qFwFZJc0MgLW_ULO3JolmgDxds" />
     
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TPFLVK82S"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5TPFLVK82S');
-    </script>
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    
+    <!-- Preload critical hero images for LCP optimization -->
+    <link rel="preload" as="image" href="/images/hero-grid/video-production.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/logo/9Yards-Logo-Inverted-Color.png" fetchpriority="high" />
     
     <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
@@ -107,5 +106,29 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Google Analytics (GA4) - Deferred for better LCP -->
+    <script>
+      // Defer GA loading until after page interactive
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5TPFLVK82S';
+          script.async = true;
+          document.head.appendChild(script);
+          
+          script.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-5TPFLVK82S', { 
+              send_page_view: true,
+              anonymize_ip: true 
+            });
+          };
+        }, 100);
+      });
+    </script>
   </body>
 </html>

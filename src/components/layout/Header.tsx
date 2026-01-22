@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, throttle } from "@/lib/utils";
 
 const services = {
   creative: [
@@ -85,10 +85,15 @@ export function Header({ darkMode = true }: HeaderProps) {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
+    // Throttled scroll handler for better INP (Interaction to Next Paint)
+    const handleScroll = throttle(() => {
       setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    }, 100);
+    
+    // Set initial state
+    setIsScrolled(window.scrollY > 20);
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

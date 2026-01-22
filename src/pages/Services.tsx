@@ -407,8 +407,18 @@ function ServicesCarousel() {
                   : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-foreground/20 hover:bg-foreground/40'
               }`}
               aria-label={`Go to ${serviceCategories[index].title}`}
+              aria-current={index === activeIndex ? "true" : undefined}
             />
           ))}
+        </div>
+        
+        {/* Accessible live region for screen readers */}
+        <div 
+          aria-live="polite" 
+          aria-atomic="true" 
+          className="sr-only"
+        >
+          Currently showing: {serviceCategories[activeIndex].title} - {serviceCategories[activeIndex].description}
         </div>
 
         {/* Mobile Navigation Arrows - More visible */}
@@ -453,8 +463,11 @@ export default function Services() {
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/team/services section hero.jpg"
-            alt="Creative services - professional team at work"
+            alt=""
             className="w-full h-full object-cover object-[70%_60%] sm:object-[center_50%] lg:object-[center_40%] scale-105"
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
           />
           {/* Gradient overlay - stronger on mobile for readability, softer split on desktop */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/75 lg:bg-gradient-to-r lg:from-black/95 lg:via-black/65 lg:via-55% lg:to-black/15" />
