@@ -178,14 +178,13 @@ export default function Portfolio() {
         aria-labelledby="portfolio-hero-heading"
       >
         {/* Background Video */}
-        <div className="absolute inset-0 z-0" aria-hidden="true">
+        <div className="absolute inset-0 z-0 bg-black" aria-hidden="true">
           <video
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            poster="/images/Portfolio/Other music video behind the scene pictures/9yards-team-onset.png"
             className="w-full h-full object-cover"
             aria-label="Featured portfolio project video showcase"
           >
@@ -227,10 +226,10 @@ export default function Portfolio() {
                   size="lg"
                   onClick={() => setIsVideoModalOpen(true)}
                   aria-label={`Watch ${featuredProject.title} by ${featuredProject.artist}`}
-                  className="group rounded-full bg-accent hover:bg-[#C93917] active:bg-[#AB3013] text-white px-8 sm:px-10 h-13 sm:h-14 text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl hover:shadow-accent/25 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black"
+                  className="group rounded-full bg-accent hover:bg-[#C93917] active:bg-[#AB3013] text-white px-6 sm:px-10 h-12 sm:h-14 text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl hover:shadow-accent/25 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black"
                 >
-                  <span className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 mr-2 sm:mr-3 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors">
-                    <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current ml-0.5" />
+                  <span className="relative flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 mr-2 sm:mr-3 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors">
+                    <Play className="w-3.5 h-3.5 sm:w-5 sm:h-5 fill-current ml-0.5" />
                   </span>
                   Watch Full Video
                 </Button>
