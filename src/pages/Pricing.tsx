@@ -130,9 +130,15 @@ export default function Pricing() {
         url="/pricing"
       />
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-primary">
+      <section 
+        className="pt-32 pb-20 bg-primary"
+        aria-labelledby="pricing-hero-heading"
+      >
         <div className="container-custom text-center">
-          <h1 className="text-display-2 md:text-display-1 text-primary-foreground mb-6">
+          <h1 
+            id="pricing-hero-heading"
+            className="text-display-2 md:text-display-1 text-primary-foreground mb-6"
+          >
             Transparent <span className="text-accent">Pricing</span>
           </h1>
           <p className="text-body-lg text-primary-foreground/90 max-w-2xl mx-auto">

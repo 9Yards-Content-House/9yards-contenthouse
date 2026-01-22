@@ -173,7 +173,10 @@ export default function Portfolio() {
       </Dialog>
 
       {/* Hero Section */}
-      <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
+      <section 
+        className="relative min-h-[100svh] flex flex-col overflow-hidden"
+        aria-labelledby="portfolio-hero-heading"
+      >
         {/* Background Video */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <video
@@ -197,26 +200,29 @@ export default function Portfolio() {
           <div className="container-custom py-24 sm:py-28 lg:py-32">
             <div className="max-w-4xl mx-auto text-center">
               {/* Eyebrow with animation */}
-              <span className="inline-block text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-5 sm:mb-6 animate-fade-in opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
+              <span className="inline-block text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-5 sm:mb-6 animate-fade-in opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
                 Our Work
               </span>
 
               {/* Headline with staggered animation */}
-              <h1 className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 sm:mb-8 tracking-tight animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
+              <h1 
+                id="portfolio-hero-heading"
+                className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6 sm:mb-8 tracking-tight animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
+              >
                 Creative work that
                 <br className="hidden sm:block" />
                 <span className="text-accent"> speaks for itself</span>
               </h1>
 
               {/* Featured Badge */}
-              <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md rounded-full px-4 sm:px-6 py-2.5 sm:py-3 border border-white/20 mb-8 sm:mb-10 animate-fade-in opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md rounded-full px-4 sm:px-6 py-2.5 sm:py-3 border border-white/20 mb-8 sm:mb-10 animate-fade-in opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
+                <div className="w-2 h-2 rounded-full bg-accent animate-pulse motion-reduce:animate-none" aria-hidden="true" />
                 <span className="text-white/70 text-xs sm:text-sm">Now Playing:</span>
                 <span className="text-white font-semibold text-sm sm:text-base">{featuredProject.artist} — {featuredProject.title}</span>
               </div>
 
               {/* CTA Button */}
-              <div className="flex justify-center animate-fade-in opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards]">
+              <div className="flex justify-center animate-fade-in opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
                 <Button
                   size="lg"
                   onClick={() => setIsVideoModalOpen(true)}
@@ -237,10 +243,10 @@ export default function Portfolio() {
         <button
           onClick={scrollToWorks}
           aria-label="Scroll to selected works"
-          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors focus:outline-none focus:text-accent animate-fade-in opacity-0 [animation-delay:1200ms] [animation-fill-mode:forwards]"
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full p-2 animate-fade-in opacity-0 [animation-delay:1200ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
         >
           <span className="text-[10px] sm:text-xs tracking-widest uppercase hidden sm:block">View Projects</span>
-          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" />
+          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce motion-reduce:animate-none" aria-hidden="true" />
         </button>
       </section>
 

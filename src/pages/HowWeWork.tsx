@@ -187,13 +187,18 @@ export default function HowWeWork() {
         url="/how-we-work"
       />
       {/* Hero Section - Left Aligned */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+      <section 
+        className="relative min-h-[100svh] flex items-center overflow-hidden"
+        aria-labelledby="how-we-work-hero-heading"
+      >
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" aria-hidden="true">
           <img
             src="/images/team/9Yards-Content-House-Team-01.jpg"
             alt=""
-            aria-hidden="true"
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
             className="w-full h-full object-cover object-center md:object-right"
           />
           {/* Gradient overlay - stronger on left for text readability */}
@@ -206,25 +211,28 @@ export default function HowWeWork() {
             <div className="max-w-2xl">
               {/* Eyebrow */}
               <span 
-                className="inline-block text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 sm:mb-5 animate-fade-in opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]"
+                className="inline-block text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 sm:mb-5 animate-fade-in opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
               >
                 Why Choose Us
               </span>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-5 sm:mb-6 tracking-tight animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
+              <h1 
+                id="how-we-work-hero-heading"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-5 sm:mb-6 tracking-tight animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
+              >
                 Built different.
                 <br />
                 <span className="text-accent">Delivers better.</span>
               </h1>
 
               {/* Subheadline */}
-              <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mb-8 sm:mb-10 max-w-lg animate-fade-in opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">
+              <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mb-8 sm:mb-10 max-w-lg animate-fade-in opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
                 We combine the speed of AI-powered workflows with the craft of seasoned creatives to deliver exceptional results, faster.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards]">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
                 <Button
                   asChild
                   size="lg"
@@ -254,10 +262,10 @@ export default function HowWeWork() {
         <button
           onClick={scrollToContent}
           aria-label="Scroll to learn more"
-          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black rounded-full p-2 animate-fade-in opacity-0 [animation-delay:1200ms] [animation-fill-mode:forwards]"
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full p-2 animate-fade-in opacity-0 [animation-delay:1200ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
         >
           <span className="text-[10px] sm:text-xs tracking-widest uppercase">Learn More</span>
-          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" aria-hidden="true" />
+          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce motion-reduce:animate-none" aria-hidden="true" />
         </button>
       </section>
 

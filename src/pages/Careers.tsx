@@ -158,6 +158,8 @@ export default function Careers() {
             alt=""
             className="w-full h-full object-cover"
             loading="eager"
+            decoding="sync"
+            fetchPriority="high"
           />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40 md:from-black md:via-black/70 md:to-transparent" />

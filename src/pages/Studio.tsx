@@ -178,18 +178,27 @@ export default function Studio() {
         schema={schemas.localBusiness}
       />
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
+      <section 
+        className="relative pt-32 pb-20 overflow-hidden"
+        aria-labelledby="studio-hero-heading"
+      >
+        <div className="absolute inset-0" aria-hidden="true">
           <img
             src={studioImg}
-            alt="9Yards Podcast Studio"
+            alt=""
             className="w-full h-full object-cover"
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/70" />
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-display-2 md:text-display-1 text-primary-foreground mb-6">
+            <h1 
+              id="studio-hero-heading"
+              className="text-display-2 md:text-display-1 text-primary-foreground mb-6"
+            >
               Kampala's Premier{" "}
               <span className="text-accent">Podcast & Recording Studio</span>
             </h1>
@@ -200,7 +209,7 @@ export default function Studio() {
             <Button variant="cta" size="xl" asChild>
               <a href="#booking-form">
                 Book Studio Time
-                <Calendar className="w-5 h-5" />
+                <Calendar className="w-5 h-5" aria-hidden="true" />
               </a>
             </Button>
           </div>
