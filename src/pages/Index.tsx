@@ -70,16 +70,16 @@ const heroPortfolioRow2 = [
 
 // Hero service cards for the masonry grid - 10 services with unique images and links
 const heroServiceCards = [
-  { name: "Video Production", image: "/images/hero-grid/video-production.jpg", href: "/services/video-production" },
-  { name: "Photography", image: "/images/hero-grid/photography.jpg", href: "/services" },
-  { name: "Graphic Design", image: "/images/hero-grid/graphic-design.jpg", href: "/services/graphic-design" },
-  { name: "Print Design", image: "/images/hero-grid/print-design.jpg", href: "/services/graphic-design" },
-  { name: "Branding", image: "/images/hero-grid/branding.jpg", href: "/services/branding" },
-  { name: "Social Media Marketing", image: "/images/hero-grid/social-media-marketing.jpg", href: "/services/social-media-marketing" },
-  { name: "Website Development", image: "/images/hero-grid/Website-development.jpg", href: "/services/website-development" },
-  { name: "Influencer Marketing", image: "/images/hero-grid/influencer-marketing.jpg", href: "/services/influencer-marketing" },
-  { name: "Podcast Production", image: "/images/hero-grid/podcast-production.jpg", href: "/services/podcast-production" },
-  { name: "TV & Radio Production", image: "/images/hero-grid/tv-and-radio-production.jpg", href: "/services/tv-radio-production" },
+  { name: "Video Production", image: "/images/miscellany/camera.jpg", href: "/services/video-production" },
+  { name: "Photography", image: "/images/miscellany/product photography.jpg", href: "/services" },
+  { name: "Graphic Design", image: "/images/miscellany/graphic.jpg", href: "/services/graphic-design" },
+  { name: "Print Design", image: "/images/miscellany/bronchures.png", href: "/services/graphic-design" },
+  { name: "Branding", image: "/images/miscellany/branding.jpg", href: "/services/branding" },
+  { name: "Social Media Marketing", image: "/images/miscellany/socialmedia.jpg", href: "/services/social-media-marketing" },
+  { name: "Website Development", image: "/images/miscellany/website.webp", href: "/services/website-development" },
+  { name: "Influencer Marketing", image: "/images/miscellany/influencermarketing.jpg", href: "/services/influencer-marketing" },
+  { name: "Podcast Production", image: "/images/miscellany/podcast hero.jpg", href: "/services/podcast-production" },
+  { name: "TV & Radio Production", image: "/images/miscellany/television.jpg", href: "/services/tv-radio-production" },
 ];
 
 const services = [

@@ -461,7 +461,7 @@ body.menu-open {
   }
 }
 
-/* Superside-style scrolling animations - GPU accelerated */
+/* Superside-style scrolling animations - GPU accelerated with ultra-smooth easing */
 @keyframes scroll-left {
   0% {
     transform: translate3d(0, 0, 0);
@@ -500,7 +500,7 @@ body.menu-open {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 50s linear infinite;
+  animation: scroll-left 60s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -508,10 +508,11 @@ body.menu-open {
   transform-style: preserve-3d;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .animate-scroll-right {
-  animation: scroll-right 50s linear infinite;
+  animation: scroll-right 55s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -519,6 +520,7 @@ body.menu-open {
   transform-style: preserve-3d;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .animate-marquee {
@@ -553,7 +555,7 @@ body.menu-open {
   }
 }
 
-/* Vertical scrolling for desktop masonry - seamless infinite scroll */
+/* Vertical scrolling for desktop masonry - seamless infinite scroll with ultra-smooth motion */
 @keyframes scroll-up-slow {
   0% {
     transform: translate3d(0, 0, 0);
@@ -610,57 +612,63 @@ body.menu-open {
 }
 
 .animate-scroll-up-slow {
-  animation: scroll-up-slow 100s linear infinite;
+  animation: scroll-up-slow 120s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .animate-scroll-up-medium {
-  animation: scroll-up-medium 85s linear infinite;
+  animation: scroll-up-medium 100s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .animate-scroll-up-fast {
-  animation: scroll-up-fast 75s linear infinite;
+  animation: scroll-up-fast 90s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .animate-scroll-down-slow {
-  animation: scroll-down-slow 100s linear infinite;
+  animation: scroll-down-slow 120s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .animate-scroll-down-medium {
-  animation: scroll-down-medium 85s linear infinite;
+  animation: scroll-down-medium 100s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .animate-scroll-down-fast {
-  animation: scroll-down-fast 75s linear infinite;
+  animation: scroll-down-fast 90s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* Pause vertical scroll on hover - optional, can be removed for continuous scroll */
@@ -685,6 +693,7 @@ body.menu-open {
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   isolation: isolate;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* Ensure images inside cards are optimized */
@@ -694,6 +703,8 @@ body.menu-open {
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Smooth scroll container */
@@ -702,6 +713,8 @@ body.menu-open {
   scroll-behavior: smooth;
   contain: layout style;
   isolation: isolate;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Force GPU layer for scroll parent containers */
