@@ -19,12 +19,11 @@ const footerLinks = {
     { name: "Podcast Production", href: "/services/podcast-production" },
     { name: "TV & Radio Production", href: "/services/tv-radio-production" },
     { name: "Voice-Over Recording", href: "/services/voice-over" },
-    { name: "Podcast Studio Rental", href: "/services/podcast-studio-rental" },
   ],
   company: [
     { name: "About Us", href: "/about" },
     { name: "Our Work", href: "/portfolio" },
-    { name: "Why Us", href: "/why-us" },
+    { name: "Why Us", href: "/how-we-work" },
     { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ],
