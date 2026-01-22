@@ -23,28 +23,28 @@ const advantages = [
     title: "Speed Meets Affordability",
     description: "AI-powered workflows deliver world-class creative at local prices with lightning-fast turnarounds.",
     accentColor: "bg-orange-500",
-    image: "/images/bento-grid/video production/Post-production-specialists.jpg",
+    image: "/images/miscellany/AUDIO-EDITING.jpg",
   },
   {
     id: "flexible",
     title: "Work Your Way",
     description: "Monthly subscriptions, one-off projects, or a mix. No long-term contracts required.",
     accentColor: "bg-blue-500",
-    image: "/images/videography/podcast.jpg",
+    image: "/images/miscellany/collaboration.png",
   },
   {
     id: "onestop",
     title: "Everything Under One Roof",
     description: "Video, design, web, social, and strategy from a single partner. One team, one vision.",
     accentColor: "bg-emerald-500",
-    image: "/images/miscellany/9Yards-Content-House-05.jpg",
+    image: "/images/miscellany/strategy.jpg",
   },
   {
     id: "local",
     title: "Local Insight, Global Polish",
     description: "Deep understanding of East African markets with international quality standards.",
     accentColor: "bg-purple-500",
-    image: "/images/bento-grid/video production/full-production-music-videos.jpg",
+    image: "/images/miscellany/documentaries-and-brand-stories.jpg",
   },
 ];
 
