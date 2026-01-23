@@ -504,10 +504,9 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  perspective: 1000px;
-  transform-style: preserve-3d;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+  transform-origin: left center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -523,10 +522,9 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(-25%, 0, 0);
+  -webkit-transform: translate3d(-25%, 0, 0);
+  transform-origin: left center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -637,6 +635,7 @@ body.menu-open {
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+  transform-origin: center top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -654,6 +653,7 @@ body.menu-open {
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+  transform-origin: center top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -671,6 +671,7 @@ body.menu-open {
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+  transform-origin: center top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -686,8 +687,9 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, -25%, 0);
+  -webkit-transform: translate3d(0, -25%, 0);
+  transform-origin: center top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -703,8 +705,9 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, -25%, 0);
+  -webkit-transform: translate3d(0, -25%, 0);
+  transform-origin: center top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -720,8 +723,9 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, -25%, 0);
+  -webkit-transform: translate3d(0, -25%, 0);
+  transform-origin: center top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   contain: layout style;
@@ -734,19 +738,19 @@ body.menu-open {
 
 /* Scrolling grid image optimization - ultra smooth rendering */
 .scroll-grid-image {
-  will-change: transform;
+  will-change: auto; /* Let browser decide - avoid forcing layer */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  contain: layout style paint;
+  contain: layout paint;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   isolation: isolate;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Extra smoothness for transform transitions */
-  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease;
+  /* Only transition box-shadow, NOT transform - prevents conflict with parent animation */
+  transition: box-shadow 0.3s ease;
 }
 
 /* Ensure images inside cards are optimized */

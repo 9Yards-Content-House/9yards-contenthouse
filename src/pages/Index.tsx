@@ -371,16 +371,13 @@ export default function Index() {
                       'w-[120px] sm:w-[150px] md:w-[180px]',  // small
                       'w-[180px] sm:w-[220px] md:w-[265px]',  // extra wide
                       'w-[155px] sm:w-[190px] md:w-[230px]',  // medium-wide
-                      'w-[140px] sm:w-[175px] md:w-[205px]',  // medium-narrow
-                      'w-[165px] sm:w-[200px] md:w-[240px]',  // wide
-                      'w-[135px] sm:w-[168px] md:w-[200px]',  // narrow-medium
                     ];
                     const width = widths[index % widths.length];
                     return (
                       <Link 
                         to={service.href}
                         key={`row1-${index}`} 
-                        className={`flex-shrink-0 ${width} h-[100px] sm:h-[130px] md:h-[160px] mx-1 sm:mx-1.5 md:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative scroll-grid-image group ring-1 ring-white/10 shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] transition-transform active:scale-95`}
+                        className={`flex-shrink-0 ${width} h-[100px] sm:h-[130px] md:h-[160px] mx-1 sm:mx-1.5 md:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative scroll-grid-image group ring-1 ring-white/10 shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]`}
                         aria-label={`Learn more about ${service.name}`}
                       >
                         <img 
@@ -407,24 +404,20 @@ export default function Index() {
               <div>
                 <div className="flex animate-scroll-right motion-reduce:animate-none flex-nowrap">
                   {[...heroServiceCards.slice(6, 11), ...heroServiceCards.slice(6, 11), ...heroServiceCards.slice(6, 11), ...heroServiceCards.slice(6, 11)].map((service, index) => {
-                    // Different width pattern for row 2
+                    // Different width pattern for row 2 - 5 widths to match 5 cards
                     const widths = [
                       'w-[160px] sm:w-[195px] md:w-[235px]',  // medium-wide
                       'w-[125px] sm:w-[155px] md:w-[185px]',  // narrow
                       'w-[185px] sm:w-[225px] md:w-[270px]',  // extra wide
                       'w-[140px] sm:w-[175px] md:w-[210px]',  // medium
-                      'w-[115px] sm:w-[145px] md:w-[175px]',  // small
                       'w-[170px] sm:w-[210px] md:w-[250px]',  // wide
-                      'w-[150px] sm:w-[185px] md:w-[220px]',  // medium
-                      'w-[175px] sm:w-[215px] md:w-[255px]',  // wide
-                      'w-[130px] sm:w-[160px] md:w-[195px]',  // narrow
                     ];
                     const width = widths[index % widths.length];
                     return (
                       <Link 
                         to={service.href}
                         key={`row2-${index}`} 
-                        className={`flex-shrink-0 ${width} h-[115px] sm:h-[145px] md:h-[180px] mx-1 sm:mx-1.5 md:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative scroll-grid-image group ring-1 ring-white/10 shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] transition-transform active:scale-95`}
+                        className={`flex-shrink-0 ${width} h-[115px] sm:h-[145px] md:h-[180px] mx-1 sm:mx-1.5 md:mx-2 rounded-xl sm:rounded-2xl overflow-hidden relative scroll-grid-image group ring-1 ring-white/10 shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]`}
                         aria-label={`Learn more about ${service.name}`}
                       >
                         <img 
@@ -495,7 +488,7 @@ export default function Index() {
                         <Link 
                           to={service.href}
                           key={`col1-${index}`} 
-                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg transition-all duration-300 hover:ring-accent/50 hover:scale-[1.02] block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
+                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] hover:ring-accent/50"
                           style={{ height: `${height}px` }}
                           aria-label={`Learn more about ${service.name}`}
                         >
@@ -505,13 +498,13 @@ export default function Index() {
                             loading={index < 4 ? "eager" : "lazy"}
                             decoding={index < 4 ? "sync" : "async"}
                             fetchPriority={index < 2 ? "high" : undefined}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
+                            className="absolute inset-0 w-full h-full object-cover transition-[filter,opacity] duration-500 group-hover:brightness-110 group-hover:contrast-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300" aria-hidden="true" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" aria-hidden="true" />
                           {/* Service name label */}
                           <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
-                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg group-hover:text-accent transition-colors duration-300">{service.name}</span>
+                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg transition-colors duration-300 group-hover:text-accent">{service.name}</span>
                           </div>
                         </Link>
                       );
@@ -530,7 +523,7 @@ export default function Index() {
                         <Link 
                           to={service.href}
                           key={`col2-${index}`} 
-                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg transition-all duration-300 hover:ring-accent/50 hover:scale-[1.02] block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
+                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] hover:ring-accent/50"
                           style={{ height: `${height}px` }}
                           aria-label={`Learn more about ${service.name}`}
                         >
@@ -540,13 +533,13 @@ export default function Index() {
                             loading={index < 4 ? "eager" : "lazy"}
                             decoding={index < 4 ? "sync" : "async"}
                             fetchPriority={index < 2 ? "high" : undefined}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
+                            className="absolute inset-0 w-full h-full object-cover transition-[filter,opacity] duration-500 group-hover:brightness-110 group-hover:contrast-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300" aria-hidden="true" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" aria-hidden="true" />
                           {/* Service name label */}
                           <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
-                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg group-hover:text-accent transition-colors duration-300">{service.name}</span>
+                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg transition-colors duration-300 group-hover:text-accent">{service.name}</span>
                           </div>
                         </Link>
                       );
@@ -565,7 +558,7 @@ export default function Index() {
                         <Link 
                           to={service.href}
                           key={`col3-${index}`} 
-                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg transition-all duration-300 hover:ring-accent/50 hover:scale-[1.02] block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
+                          className="mb-2 xl:mb-2.5 rounded-xl xl:rounded-2xl overflow-hidden relative group scroll-grid-image ring-1 ring-white/10 shadow-lg block focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] hover:ring-accent/50"
                           style={{ height: `${height}px` }}
                           aria-label={`Learn more about ${service.name}`}
                         >
@@ -575,13 +568,13 @@ export default function Index() {
                             loading={index < 4 ? "eager" : "lazy"}
                             decoding={index < 4 ? "sync" : "async"}
                             fetchPriority={index < 2 ? "high" : undefined}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
+                            className="absolute inset-0 w-full h-full object-cover transition-[filter,opacity] duration-500 group-hover:brightness-110 group-hover:contrast-105 motion-reduce:transition-none"
                           />
                           {/* Gradient overlay for text readability */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-300" aria-hidden="true" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-90" aria-hidden="true" />
                           {/* Service name label */}
                           <div className="absolute bottom-0 left-0 right-0 p-3 xl:p-4">
-                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg group-hover:text-accent transition-colors duration-300">{service.name}</span>
+                            <span className="text-white font-semibold text-sm xl:text-base leading-tight drop-shadow-lg transition-colors duration-300 group-hover:text-accent">{service.name}</span>
                           </div>
                         </Link>
                       );
