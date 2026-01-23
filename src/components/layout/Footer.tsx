@@ -146,7 +146,7 @@ export function Footer({
             <Link to="/" className="inline-block mb-4">
               <img 
                 src="/images/logo/9Yards-Logo-Inverted-Color.png" 
-                alt="9Yards Content House" 
+                alt="9Yards Content House - Go to homepage" 
                 className="h-9 sm:h-10 w-auto"
               />
             </Link>
@@ -157,7 +157,7 @@ export function Footer({
             {/* Email Contact */}
             <a 
               href="mailto:contenthouse@9yards.co.ug" 
-              className="text-white/60 hover:text-accent transition-colors text-sm mb-4 inline-block"
+              className="text-white/60 hover:text-accent focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] rounded transition-colors text-sm mb-4 inline-block"
             >
               contenthouse@9yards.co.ug
             </a>
@@ -170,7 +170,7 @@ export function Footer({
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent text-white/70 hover:text-white transition-all"
+                  className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:scale-110 focus-visible:bg-accent focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] text-white/70 hover:text-white focus-visible:text-white transition-all duration-200"
                   aria-label={social.name}
                 >
                   <social.icon className="w-4 h-4" />
@@ -187,7 +187,7 @@ export function Footer({
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] rounded transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -204,7 +204,7 @@ export function Footer({
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] rounded transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -221,7 +221,7 @@ export function Footer({
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] rounded transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -238,7 +238,7 @@ export function Footer({
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] rounded transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -260,10 +260,10 @@ export function Footer({
 
           {/* Legal Links - Right */}
           <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-white/50">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">
+            <Link to="/privacy-policy" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] rounded transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors">
+            <Link to="/terms-of-service" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#181818] rounded transition-colors">
               Terms of Service
             </Link>
           </div>
