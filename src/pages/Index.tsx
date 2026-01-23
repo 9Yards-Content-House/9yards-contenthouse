@@ -275,6 +275,14 @@ export default function Index() {
         url="/"
         schema={schemas.organization}
       />
+      {/* Skip link for keyboard/screen reader users */}
+      <a 
+        href="#what-we-create" 
+        className="skip-link"
+      >
+        Skip to main content
+      </a>
+
       {/* Hero Section - Superside Style */}
       <section 
         className="relative bg-[#1c1e70] overflow-hidden lg:min-h-screen"
@@ -300,7 +308,7 @@ export default function Index() {
             >
               <span className="lg:whitespace-nowrap">Everything your brand needs,</span>
               <br />
-              <span className="whitespace-nowrap">one <span className="text-accent">creative partner.</span></span>
+              <span className="whitespace-nowrap">one <em className="text-accent not-italic">creative partner.</em></span>
             </h1>
             
             {/* Subtitle */}
@@ -313,7 +321,7 @@ export default function Index() {
               <Button 
                 variant="accent" 
                 size="lg" 
-                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
+                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] transition-shadow"
                 asChild
               >
                 <Link to="/get-started" aria-label="Get started with 9Yards Content House">
@@ -324,7 +332,7 @@ export default function Index() {
               <Button 
                 variant="hero-outline" 
                 size="lg" 
-                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto border-white/30 hover:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
+                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto border-white/30 hover:border-white shadow-lg shadow-black/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
                 asChild
               >
                 <Link to="/portfolio" aria-label="View our portfolio of work">View Our Work</Link>
@@ -338,7 +346,8 @@ export default function Index() {
             {/* Mobile/Tablet: Horizontal Scrolling Rows with edge fade */}
             <div 
               className="lg:hidden relative mt-2 sm:mt-4 md:mt-6 overflow-hidden pb-4 sm:pb-6 md:pb-8 scroll-container"
-              aria-label="Our services showcase"
+              aria-label="Our services showcase - scrolling gallery of services we offer"
+              aria-roledescription="carousel"
               role="region"
             >
               {/* Left edge fade */}
@@ -437,8 +446,9 @@ export default function Index() {
 
             {/* Desktop: 3-Column Masonry Grid with Smooth Scrolling */}
             <div 
-              className="hidden lg:block h-screen overflow-hidden relative"
-              aria-label="Our services showcase"
+              className="hidden lg:block h-screen overflow-hidden relative masonry-scroll-container"
+              aria-label="Our services showcase - scrolling gallery of services we offer"
+              aria-roledescription="carousel"
               role="region"
             >
               {/* Top Gradient Overlay - ensures nav visibility */}
@@ -585,7 +595,7 @@ export default function Index() {
             document.getElementById("what-we-create")?.scrollIntoView({ behavior: "smooth" });
           }}
           aria-label="Scroll to explore our services"
-          className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-white/60 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] rounded-full p-2 opacity-0 animate-fade-in-up [animation-delay:1000ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none"
+          className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-white/60 hover:text-white transition-colors outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] rounded-full p-2 opacity-0 animate-fade-in-up [animation-delay:1000ms] [animation-fill-mode:forwards] motion-reduce:opacity-100 motion-reduce:animate-none"
         >
           <span className="text-[10px] sm:text-xs tracking-widest uppercase">Explore</span>
           <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce motion-reduce:animate-none" aria-hidden="true" />

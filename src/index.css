@@ -500,7 +500,7 @@ body.menu-open {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 60s linear infinite;
+  animation: scroll-left 40s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -511,8 +511,12 @@ body.menu-open {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
+
 .animate-scroll-right {
-  animation: scroll-right 55s linear infinite;
+  animation: scroll-right 35s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -521,6 +525,10 @@ body.menu-open {
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.animate-scroll-right:hover {
+  animation-play-state: paused;
 }
 
 .animate-marquee {
@@ -531,14 +539,11 @@ body.menu-open {
   transform: translateZ(0);
 }
 
-/* Pause animation on hover - optional, can be removed for continuous scroll */
-/*
-.animate-scroll-left:hover,
-.animate-scroll-right:hover,
 .animate-marquee:hover {
   animation-play-state: paused;
 }
-*/
+
+/* Horizontal scroll animations - smooth pause on hover */
 
 /* Reduced motion support - respect user preferences */
 @media (prefers-reduced-motion: reduce) {
@@ -611,58 +616,81 @@ body.menu-open {
   }
 }
 
+/* Vertical scroll animations are defined above with hover slowdown */
+
+/* Vertical scroll animations - smooth pause on hover */
 .animate-scroll-up-slow {
-  animation: scroll-up-slow 120s linear infinite;
+  animation: scroll-up-slow 80s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.animate-scroll-up-slow:hover {
+  animation-play-state: paused;
 }
 
 .animate-scroll-up-medium {
-  animation: scroll-up-medium 100s linear infinite;
+  animation: scroll-up-medium 65s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.animate-scroll-up-medium:hover {
+  animation-play-state: paused;
 }
 
 .animate-scroll-up-fast {
-  animation: scroll-up-fast 90s linear infinite;
+  animation: scroll-up-fast 55s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.animate-scroll-up-fast:hover {
+  animation-play-state: paused;
 }
 
 .animate-scroll-down-slow {
-  animation: scroll-down-slow 120s linear infinite;
+  animation: scroll-down-slow 80s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.animate-scroll-down-slow:hover {
+  animation-play-state: paused;
 }
 
 .animate-scroll-down-medium {
-  animation: scroll-down-medium 100s linear infinite;
+  animation: scroll-down-medium 65s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.animate-scroll-down-medium:hover {
+  animation-play-state: paused;
 }
 
 .animate-scroll-down-fast {
-  animation: scroll-down-fast 90s linear infinite;
+  animation: scroll-down-fast 55s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -671,29 +699,24 @@ body.menu-open {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-/* Pause vertical scroll on hover - optional, can be removed for continuous scroll */
-/*
-.animate-scroll-up-slow:hover,
-.animate-scroll-up-medium:hover,
-.animate-scroll-up-fast:hover,
-.animate-scroll-down-slow:hover,
-.animate-scroll-down-medium:hover,
 .animate-scroll-down-fast:hover {
   animation-play-state: paused;
 }
-*/
 
-/* Scrolling grid image optimization */
+/* Scrolling grid image optimization - ultra smooth rendering */
 .scroll-grid-image {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   contain: layout style paint;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   isolation: isolate;
   -webkit-font-smoothing: subpixel-antialiased;
+  /* Extra smoothness for transform transitions */
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease;
 }
 
 /* Ensure images inside cards are optimized */
@@ -704,10 +727,11 @@ body.menu-open {
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Smooth scroll container */
+/* Smooth scroll container - enhanced for buttery smooth animations */
 .scroll-container {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
@@ -715,6 +739,8 @@ body.menu-open {
   isolation: isolate;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  /* Optimize for smooth child animations */
+  perspective: 1000px;
 }
 
 /* Force GPU layer for scroll parent containers */
@@ -723,4 +749,23 @@ body.menu-open {
   -webkit-transform: translateZ(0);
   will-change: contents;
   contain: layout style;
+}
+
+/* Masonry scroll container for desktop grid */
+.masonry-scroll-container {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  perspective: 1000px;
+  isolation: isolate;
+}
+
+/* Skip link for accessibility - visually hidden until focused */
+.skip-link {
+  @apply absolute -top-full left-4 z-[100] bg-accent text-white px-4 py-2 rounded-b-lg font-semibold text-sm transition-all duration-200;
+  transform: translateY(0);
+}
+
+.skip-link:focus {
+  @apply top-0;
+  transform: translateY(0);
 }
