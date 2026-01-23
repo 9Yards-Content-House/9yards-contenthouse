@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { useState, useRef, useEffect, useCallback } from "react";
 import {
   Palette,
@@ -456,6 +456,7 @@ export default function Services() {
         title="Creative Services | 9Yards Content House Kampala"
         description="Video production, graphic design, social media marketing, web development, and more. Full-service creative agency in Kampala, Uganda."
         url="/services"
+        schema={schemas.organization}
       />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">

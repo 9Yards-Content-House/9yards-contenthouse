@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Play, Layers, Sparkles, Zap, CheckSquare, Monitor, Film, Tv, Smartphone } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -112,8 +112,9 @@ export default function MotionDesign() {
     >
       <SEO
         title="Motion Design & Animation | 9Yards Content House"
-        description="Professional motion design and animation. Logo animation, explainer videos, motion graphics & 2D/3D animation."
+        description="Professional motion design and animation services in Kampala. Logo animation, explainer videos, motion graphics & 2D/3D animation for brands and businesses."
         url="/services/motion-design"
+        schema={schemas.service("Motion Design & Animation", "Professional motion design and animation services including logo animation, explainer videos, motion graphics, and 2D/3D animation.")}
       />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">

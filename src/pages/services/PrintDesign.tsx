@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Printer, FileText, BookOpen, Package, Zap, CheckSquare, Ruler, Layers } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -112,8 +112,9 @@ export default function PrintDesign() {
     >
       <SEO
         title="Print Design Services Kampala | 9Yards Content House"
-        description="Professional print design in Uganda. Business cards, brochures, packaging & large format. Print-ready designs."
+        description="Professional print design services in Uganda. Business cards, brochures, packaging & large format printing. High-quality print-ready designs."
         url="/services/print-design"
+        schema={schemas.service("Print Design", "Professional print design services including business cards, brochures, packaging, and large format printing.")}
       />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">

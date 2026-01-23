@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -550,6 +550,7 @@ export default function GetStarted() {
         title="Get Started | Request a Quote from 9Yards"
         description="Start your creative project with 9Yards Content House. Quick quote for video production, branding, web development & marketing services."
         url="/get-started"
+        schema={schemas.service("Creative Services Quote", "Request a quote for video production, branding, web development, and marketing services from 9Yards Content House.")}
       />
       {/* Hero Header - Step 1 only */}
       {currentStep === 1 && (

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { 
   ArrowRight, 
   ChevronDown, 
@@ -133,8 +133,9 @@ export default function PrivacyPolicy() {
     <Layout hideFooterCta>
       <SEO
         title="Privacy Policy | 9Yards Content House"
-        description="Learn how 9Yards Content House collects, uses, and protects your personal information. Your privacy matters to us."
+        description="Learn how 9Yards Content House collects, uses, and protects your personal information. Our privacy policy outlines your data rights and security."
         url="/privacy-policy"
+        schema={schemas.breadcrumb([{ name: "Home", url: "/" }, { name: "Privacy Policy", url: "/privacy-policy" }])}
       />
 
       {/* Reading Progress Bar */}

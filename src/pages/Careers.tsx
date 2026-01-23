@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import {
   ArrowRight,
   ChevronDown,
@@ -145,6 +145,7 @@ export default function Careers() {
         title="Careers at 9Yards | Join Our Creative Team in Kampala"
         description="Join Kampala's leading creative agency. We're looking for talented designers, videographers, marketers, and more. View open positions."
         url="/careers"
+        schema={schemas.organization}
       />
       {/* Hero Section */}
       <section

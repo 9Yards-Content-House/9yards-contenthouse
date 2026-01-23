@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { ArrowRight, Lightbulb, Target, Users, Zap, CheckSquare, Sparkles, PenTool, MessageSquare } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
@@ -112,8 +112,9 @@ export default function ConceptCreation() {
     >
       <SEO
         title="Creative Concept Development | 9Yards Content House"
-        description="Creative concept development. Campaign concepts, brand storytelling, creative direction & content strategy."
+        description="Creative concept development and ideation services. Campaign concepts, brand storytelling, creative direction & content strategy for impactful marketing."
         url="/services/concept-creation"
+        schema={schemas.service("Concept Creation", "Creative concept development services including campaign concepts, brand storytelling, creative direction, and content strategy.")}
       />
       {/* Hero Section */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden">

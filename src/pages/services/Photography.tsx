@@ -112,7 +112,7 @@ export default function Photography() {
     >
       <SEO
         title="Photography Services Kampala | 9Yards Content House"
-        description="Professional photography in Uganda. Product, corporate, event & lifestyle photography. Expert photographers in Kampala."
+        description="Professional photography services in Uganda. Product, corporate, event & lifestyle photography by expert photographers in Kampala. Book your session today."
         url="/services/photography"
         schema={schemas.service("Photography", "Professional photography services including product, corporate, event, and lifestyle photography.")}
       />

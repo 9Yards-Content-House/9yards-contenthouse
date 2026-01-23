@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Check, ArrowRight, Star, HelpCircle } from "lucide-react";
@@ -128,6 +128,7 @@ export default function Pricing() {
         title="Pricing | 9Yards Content House Subscription Plans"
         description="Transparent pricing for creative services. Subscriptions from 500K UGX/month. No hidden fees, cancel anytime. Video, design & marketing."
         url="/pricing"
+        schema={schemas.organization}
       />
       {/* Hero */}
       <section 

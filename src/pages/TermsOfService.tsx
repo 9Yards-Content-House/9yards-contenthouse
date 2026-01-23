@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { SEO } from "@/components/shared/SEO";
+import { SEO, schemas } from "@/components/shared/SEO";
 import { 
   ArrowRight, 
   ChevronDown, 
@@ -139,6 +139,7 @@ export default function TermsOfService() {
         title="Terms of Service | 9Yards Content House"
         description="Read the terms and conditions for using 9Yards Content House services. Understand our policies on projects, payments, and intellectual property."
         url="/terms-of-service"
+        schema={schemas.breadcrumb([{ name: "Home", url: "/" }, { name: "Terms of Service", url: "/terms-of-service" }])}
       />
 
       {/* Reading Progress Bar */}
