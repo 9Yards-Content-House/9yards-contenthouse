@@ -43,7 +43,7 @@ const navLinks = [
   { name: "Services", href: "/services", dropdownType: "services" },
   { name: "Our Work", href: "/portfolio" },
   { name: "Why Us", href: "/how-we-work" },
-  { name: "Company", href: "#", dropdownType: "company" },
+  { name: "Company", href: "/about", dropdownType: "company" },
 ];
 
 interface HeaderProps {
@@ -59,6 +59,7 @@ export function Header({ darkMode = true }: HeaderProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   // Use scrolled styling when scrolled OR when not in dark mode (light background pages)
@@ -101,6 +102,10 @@ export function Header({ darkMode = true }: HeaderProps) {
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.classList.add("menu-open");
+      // Reset scroll position when menu opens
+      if (mobileScrollRef.current) {
+        mobileScrollRef.current.scrollTop = 0;
+      }
     } else {
       document.body.classList.remove("menu-open");
     }
@@ -182,10 +187,10 @@ export function Header({ darkMode = true }: HeaderProps) {
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    // Small delay to allow cursor to move between trigger and menu
+    // Delay to allow cursor to move between trigger and menu
     closeTimeoutRef.current = setTimeout(() => {
       setOpenDropdown(null);
-    }, 50); // 50ms - just enough to bridge the gap
+    }, 150); // 150ms - forgiving delay for hover transitions
   }, []);
 
   // Determine if mobile menu is open - always show full color logo when mobile menu is open
@@ -332,13 +337,15 @@ export function Header({ darkMode = true }: HeaderProps) {
                 {link.dropdownType === "services" && openDropdown === "services" && (
                   <div 
                     className={cn(
-                      "fixed left-0 right-0 pt-2 flex justify-center px-4 z-50",
-                      useScrolledStyle ? "top-[56px]" : "top-[72px]"
+                      "fixed left-0 right-0 flex justify-center px-4 z-50",
+                      useScrolledStyle ? "top-[48px]" : "top-[64px]"
                     )}
                     onMouseEnter={() => handleMouseEnter("services")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
+                    {/* Invisible bridge to prevent gap issues */}
+                    <div className="absolute inset-x-0 -top-3 h-3" />
                     <div className="bg-background/95 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden w-full max-w-[880px]">
                       {/* Header */}
                       <div className="px-6 py-4 border-b border-border/50">
@@ -471,11 +478,13 @@ export function Header({ darkMode = true }: HeaderProps) {
                 {/* Dropdown for Company */}
                 {link.dropdownType === "company" && openDropdown === "company" && (
                   <div 
-                    className="absolute top-full right-0 pt-2 w-[200px] z-50"
+                    className="absolute top-full right-0 w-[200px] z-50"
                     onMouseEnter={() => handleMouseEnter("company")}
                     onMouseLeave={handleMouseLeave}
                     data-dropdown-content
                   >
+                    {/* Invisible bridge to prevent gap issues */}
+                    <div className="h-2" />
                     <div className="bg-background/95 backdrop-blur-xl rounded-xl shadow-2xl shadow-black/10 border border-border/50 overflow-hidden">
                       <div className="p-3">
                         {companyItems.map((item) => (
@@ -543,7 +552,7 @@ export function Header({ darkMode = true }: HeaderProps) {
             aria-label="Navigation menu"
           >
               {/* Scrollable Content Area */}
-            <div className="flex-1 overflow-y-auto px-4 sm:px-6 pt-6 pb-4">
+            <div ref={mobileScrollRef} className="flex-1 overflow-y-auto px-4 sm:px-6 pt-6 pb-4">
               {/* Services Dropdown with accordion animation */}
               <div className={cn(
                 "rounded-xl transition-colors duration-200",
