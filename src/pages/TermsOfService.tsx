@@ -71,10 +71,29 @@ export default function TermsOfService() {
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       setScrollProgress(progress);
       setShowBackToTop(scrollTop > 400);
+      // Auto-close mobile TOC when scrolling
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileMenuOpen]);
+
+  // Handle hash links on page load
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          setActiveSection(hash);
+        }
+      }, 100);
+    }
   }, []);
 
   // Intersection Observer for scroll animations and active section tracking
@@ -339,7 +358,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("services")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -386,7 +405,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("engagement")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -450,7 +469,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("intellectual-property")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -515,7 +534,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("client-responsibilities")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -587,7 +606,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("limitations")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -660,7 +679,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("termination")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -702,7 +721,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("changes")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -762,7 +781,7 @@ export default function TermsOfService() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("contact")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -783,13 +802,13 @@ export default function TermsOfService() {
                       <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                         <p>
                           <strong>Email:</strong>{" "}
-                          <a href="mailto:contenthouse@9yards.co.ug" className="text-accent hover:underline">
+                          <a href="mailto:contenthouse@9yards.co.ug" className="text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded">
                             contenthouse@9yards.co.ug
                           </a>
                         </p>
                         <p>
                           <strong>Phone:</strong>{" "}
-                          <a href="tel:+256700488870" className="text-accent hover:underline">
+                          <a href="tel:+256700488870" className="text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded">
                             +256 700 488 870
                           </a>
                         </p>

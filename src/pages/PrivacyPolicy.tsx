@@ -29,6 +29,7 @@ const policySections = [
   { id: "sharing", title: "Information Sharing", icon: Globe },
   { id: "data-security", title: "Data Security", icon: Lock },
   { id: "your-rights", title: "Your Rights", icon: UserCheck },
+  { id: "cookies", title: "Cookies and Tracking", icon: Eye },
   { id: "contact", title: "Contact Us", icon: Mail },
 ];
 
@@ -67,10 +68,29 @@ export default function PrivacyPolicy() {
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       setScrollProgress(progress);
       setShowBackToTop(scrollTop > 400);
+      // Auto-close mobile TOC when scrolling
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileMenuOpen]);
+
+  // Handle hash links on page load
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          setActiveSection(hash);
+        }
+      }, 100);
+    }
   }, []);
 
   // Intersection Observer for scroll animations and active section tracking
@@ -335,7 +355,7 @@ export default function PrivacyPolicy() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("information-we-collect")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -397,7 +417,7 @@ export default function PrivacyPolicy() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("how-we-use")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -443,7 +463,7 @@ export default function PrivacyPolicy() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("sharing")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -490,7 +510,7 @@ export default function PrivacyPolicy() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("data-security")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -537,7 +557,7 @@ export default function PrivacyPolicy() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("your-rights")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -567,6 +587,7 @@ export default function PrivacyPolicy() {
 
                 {/* Cookies */}
                 <div
+                  id="cookies"
                   ref={(el) => (sectionRefs.current["cookies"] = el)}
                   className={cn(
                     "mb-8 sm:mb-10 lg:mb-12 scroll-mt-20 lg:scroll-mt-24 transition-all duration-700",
@@ -612,7 +633,7 @@ export default function PrivacyPolicy() {
                     </div>
                     <button
                       onClick={() => copyLinkToSection("contact")}
-                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors print:hidden"
+                      className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 focus-visible:text-foreground focus-visible:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent transition-colors print:hidden"
                       aria-label="Copy link to this section"
                       title="Copy link to section"
                     >
@@ -633,13 +654,13 @@ export default function PrivacyPolicy() {
                       <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                         <p>
                           <strong>Email:</strong>{" "}
-                          <a href="mailto:contenthouse@9yards.co.ug" className="text-accent hover:underline">
+                          <a href="mailto:contenthouse@9yards.co.ug" className="text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded">
                             contenthouse@9yards.co.ug
                           </a>
                         </p>
                         <p>
                           <strong>Phone:</strong>{" "}
-                          <a href="tel:+256700488870" className="text-accent hover:underline">
+                          <a href="tel:+256700488870" className="text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded">
                             +256 700 488 870
                           </a>
                         </p>
