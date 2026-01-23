@@ -506,9 +506,12 @@ body.menu-open {
   -webkit-backface-visibility: hidden;
   perspective: 1000px;
   transform-style: preserve-3d;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-left:hover {
@@ -522,9 +525,12 @@ body.menu-open {
   -webkit-backface-visibility: hidden;
   perspective: 1000px;
   transform-style: preserve-3d;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-right:hover {
@@ -536,7 +542,12 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-marquee:hover {
@@ -624,9 +635,12 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-up-slow:hover {
@@ -638,9 +652,12 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-up-medium:hover {
@@ -652,9 +669,12 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-up-fast:hover {
@@ -666,9 +686,12 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-down-slow:hover {
@@ -680,9 +703,12 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-down-medium:hover {
@@ -694,9 +720,12 @@ body.menu-open {
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+  isolation: isolate;
 }
 
 .animate-scroll-down-fast:hover {
@@ -711,10 +740,11 @@ body.menu-open {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   contain: layout style paint;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   isolation: isolate;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   /* Extra smoothness for transform transitions */
   transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease;
 }
@@ -724,11 +754,12 @@ body.menu-open {
   will-change: auto;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Smooth scroll container - enhanced for buttery smooth animations */
@@ -753,10 +784,11 @@ body.menu-open {
 
 /* Masonry scroll container for desktop grid */
 .masonry-scroll-container {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   perspective: 1000px;
   isolation: isolate;
+  contain: layout style;
 }
 
 /* Skip link for accessibility - visually hidden until focused */

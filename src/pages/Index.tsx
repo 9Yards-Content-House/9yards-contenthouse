@@ -68,18 +68,22 @@ const heroPortfolioRow2 = [
   { image: portfolio5, title: "Animation", logo: "Animate" },
 ];
 
-// Hero service cards for the masonry grid - 10 services with unique images and links
+// Hero service cards for the masonry grid - 11 services matching main navigation
 const heroServiceCards = [
+  // Creative Services
   { name: "Video Production", image: "/images/miscellany/documentaries-and-brand-stories.jpg", href: "/services/video-production" },
-  { name: "Photography", image: "/images/miscellany/headshots.jpg", href: "/services" },
+  { name: "Photography", image: "/images/miscellany/headshots.jpg", href: "/services/photography" },
   { name: "Graphic Design", image: "/images/miscellany/visual.png", href: "/services/graphic-design" },
-  { name: "Print Design", image: "/images/miscellany/booklets.png", href: "/services/graphic-design" },
+  { name: "Print Design", image: "/images/miscellany/booklets.png", href: "/services/print-design" },
   { name: "Branding", image: "/images/miscellany/logo.jpg", href: "/services/branding" },
+  // Digital Services
   { name: "Social Media Marketing", image: "/images/miscellany/featuredsocial.jpg", href: "/services/social-media-marketing" },
   { name: "Website Development", image: "/images/miscellany/ui-ux.webp", href: "/services/website-development" },
   { name: "Influencer Marketing", image: "/images/miscellany/main-influencer.jpg", href: "/services/influencer-marketing" },
+  // Media Services
   { name: "Podcast Production", image: "/images/miscellany/spotify.jpg", href: "/services/podcast-production" },
   { name: "TV & Radio Production", image: "/images/miscellany/onair.jpg", href: "/services/tv-radio-production" },
+  { name: "Voice-Over Recording", image: "/images/miscellany/onair.jpg", href: "/services/voice-over" },
 ];
 
 const services = [
@@ -358,7 +362,7 @@ export default function Index() {
               {/* Row 1 - Scrolls Left - Service cards with varied widths */}
               <div className="mb-2 sm:mb-2.5 md:mb-3">
                 <div className="flex animate-scroll-left motion-reduce:animate-none flex-nowrap">
-                  {[...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5), ...heroServiceCards.slice(0, 5)].map((service, index) => {
+                  {[...heroServiceCards.slice(0, 6), ...heroServiceCards.slice(0, 6), ...heroServiceCards.slice(0, 6), ...heroServiceCards.slice(0, 6)].map((service, index) => {
                     // Pinterest-style varied widths only (height consistent for clean horizontal scroll)
                     const widths = [
                       'w-[130px] sm:w-[160px] md:w-[190px]',  // narrow
@@ -402,7 +406,7 @@ export default function Index() {
               {/* Row 2 - Scrolls Right - Service cards with varied widths */}
               <div>
                 <div className="flex animate-scroll-right motion-reduce:animate-none flex-nowrap">
-                  {[...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10), ...heroServiceCards.slice(5, 10)].map((service, index) => {
+                  {[...heroServiceCards.slice(6, 11), ...heroServiceCards.slice(6, 11), ...heroServiceCards.slice(6, 11), ...heroServiceCards.slice(6, 11)].map((service, index) => {
                     // Different width pattern for row 2
                     const widths = [
                       'w-[160px] sm:w-[195px] md:w-[235px]',  // medium-wide
@@ -518,9 +522,9 @@ export default function Index() {
                 {/* Column 2 - Scrolls Down - Services 4-6 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-down-medium motion-reduce:animate-none pt-6 xl:pt-10">
-                    {[...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7), ...heroServiceCards.slice(4, 7)].map((service, index) => {
+                    {[...heroServiceCards.slice(4, 8), ...heroServiceCards.slice(4, 8), ...heroServiceCards.slice(4, 8), ...heroServiceCards.slice(4, 8)].map((service, index) => {
                       // Different height pattern for column 2
-                      const heights = [220, 170, 260];
+                      const heights = [220, 170, 260, 190];
                       const height = heights[index % heights.length];
                       return (
                         <Link 
@@ -553,7 +557,7 @@ export default function Index() {
                 {/* Column 3 - Scrolls Up - Services 7-9 */}
                 <div className="flex-1 overflow-hidden">
                   <div className="animate-scroll-up-fast motion-reduce:animate-none pt-3 xl:pt-5">
-                    {[...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10), ...heroServiceCards.slice(7, 10)].map((service, index) => {
+                    {[...heroServiceCards.slice(8, 11), ...heroServiceCards.slice(8, 11), ...heroServiceCards.slice(8, 11), ...heroServiceCards.slice(8, 11)].map((service, index) => {
                       // Different height pattern for column 3
                       const heights = [200, 150, 250];
                       const height = heights[index % heights.length];
