@@ -71,19 +71,19 @@ const heroPortfolioRow2 = [
 // Hero service cards for the masonry grid - 11 services matching main navigation
 const heroServiceCards = [
   // Creative Services
-  { name: "Video Production", image: "/images/miscellany/documentaries-and-brand-stories.jpg", href: "/services/video-production" },
-  { name: "Photography", image: "/images/miscellany/headshots.jpg", href: "/services/photography" },
-  { name: "Graphic Design", image: "/images/miscellany/visual.png", href: "/services/graphic-design" },
-  { name: "Print Design", image: "/images/miscellany/booklets.png", href: "/services/print-design" },
-  { name: "Branding", image: "/images/miscellany/logo.jpg", href: "/services/branding" },
+  { name: "Video Production", image: "/images/miscellany/event-and-live-production.jpg", href: "/services/video-production" },
+  { name: "Photography", image: "/images/miscellany/photography.jpg", href: "/services/photography" },
+  { name: "Graphic Design", image: "/images/miscellany/9Yards-Content-House-05.jpg", href: "/services/graphic-design" },
+  { name: "Print Design", image: "/images/miscellany/print-design.jpg", href: "/services/print-design" },
+  { name: "Branding", image: "/images/miscellany/bnusines cards.png", href: "/services/branding" },
   // Digital Services
-  { name: "Social Media Marketing", image: "/images/miscellany/featuredsocial.jpg", href: "/services/social-media-marketing" },
+  { name: "Social Media Marketing", image: "/images/miscellany/socialmedia.jpg", href: "/services/social-media-marketing" },
   { name: "Website Development", image: "/images/miscellany/ui-ux.webp", href: "/services/website-development" },
-  { name: "Influencer Marketing", image: "/images/miscellany/main-influencer.jpg", href: "/services/influencer-marketing" },
+  { name: "Influencer Marketing", image: "/images/miscellany/brandambassador.png", href: "/services/influencer-marketing" },
   // Media Services
-  { name: "Podcast Production", image: "/images/miscellany/spotify.jpg", href: "/services/podcast-production" },
-  { name: "TV & Radio Production", image: "/images/miscellany/onair.jpg", href: "/services/tv-radio-production" },
-  { name: "Voice-Over Recording", image: "/images/miscellany/onair.jpg", href: "/services/voice-over" },
+  { name: "Podcast Production", image: "/images/miscellany/podcast featured.jpg", href: "/services/podcast-production" },
+  { name: "TV & Radio Production", image: "/images/miscellany/television-2.jpg", href: "/services/tv-radio-production" },
+  { name: "Voice-Over Recording", image: "/images/miscellany/narration.png", href: "/services/voice-over" },
 ];
 
 const services = [
@@ -325,7 +325,7 @@ export default function Index() {
               <Button 
                 variant="accent" 
                 size="lg" 
-                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70] transition-shadow"
+                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
                 asChild
               >
                 <Link to="/get-started" aria-label="Get started with 9Yards Content House">
@@ -336,7 +336,7 @@ export default function Index() {
               <Button 
                 variant="hero-outline" 
                 size="lg" 
-                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto border-white/30 hover:border-white shadow-lg shadow-black/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
+                className="px-7 sm:px-8 lg:px-10 py-5 sm:py-6 lg:py-6 text-sm sm:text-base lg:text-lg w-full sm:w-auto border-white/30 hover:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1e70]"
                 asChild
               >
                 <Link to="/portfolio" aria-label="View our portfolio of work">View Our Work</Link>
