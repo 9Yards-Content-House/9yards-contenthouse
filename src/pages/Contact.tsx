@@ -208,14 +208,14 @@ export default function Contact() {
         aria-label="Quick contact options"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 xs:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
             {/* Phone */}
             <a
               href="tel:+256700488870"
-              className="group bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-300 touch-manipulation flex xs:flex-col items-center xs:items-start gap-4 xs:gap-0"
+              className="group bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-300 touch-manipulation flex md:flex-col items-center md:items-start gap-4 md:gap-0"
               aria-label="Call us at +256 700 488 870"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center xs:mb-3 sm:mb-4 group-hover:bg-accent/20 group-focus-visible:bg-accent/20 transition-colors flex-shrink-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center md:mb-4 group-hover:bg-accent/20 group-focus-visible:bg-accent/20 transition-colors flex-shrink-0">
                 <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-accent" aria-hidden="true" />
               </div>
               <div>
@@ -227,25 +227,25 @@ export default function Contact() {
             {/* Email */}
             <a
               href="mailto:contenthouse@9yards.co.ug"
-              className="group bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-300 touch-manipulation flex xs:flex-col items-center xs:items-start gap-4 xs:gap-0"
+              className="group bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl hover:border-accent/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-300 touch-manipulation flex md:flex-col items-center md:items-start gap-4 md:gap-0"
               aria-label="Email us at contenthouse@9yards.co.ug"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center xs:mb-3 sm:mb-4 group-hover:bg-accent/20 group-focus-visible:bg-accent/20 transition-colors flex-shrink-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center md:mb-4 group-hover:bg-accent/20 group-focus-visible:bg-accent/20 transition-colors flex-shrink-0">
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-accent" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1">Email Us</h3>
-                <p className="text-muted-foreground text-xs sm:text-sm break-all xs:break-normal">contenthouse@9yards.co.ug</p>
+                <p className="text-muted-foreground text-xs sm:text-sm break-all md:break-normal">contenthouse@9yards.co.ug</p>
               </div>
             </a>
 
             {/* Location */}
             <div 
-              className="bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg flex xs:flex-col items-center xs:items-start gap-4 xs:gap-0"
+              className="bg-background rounded-xl sm:rounded-2xl border border-border p-4 sm:p-6 lg:p-8 shadow-lg flex md:flex-col items-center md:items-start gap-4 md:gap-0"
               role="group"
               aria-label="Our location"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center xs:mb-3 sm:mb-4 flex-shrink-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center md:mb-4 flex-shrink-0">
                 <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-accent" aria-hidden="true" />
               </div>
               <div>
