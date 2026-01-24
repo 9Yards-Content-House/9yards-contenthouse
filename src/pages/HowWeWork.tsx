@@ -522,7 +522,7 @@ export default function HowWeWork() {
                 Subscription Plans
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-                Ongoing creative support with predictable monthly costs. Perfect for brands that need consistent content.
+                Unlimited creative requests across video, design, social, and web. One flat monthly fee for consistent content production.
               </p>
 
               {/* Features */}
@@ -533,7 +533,7 @@ export default function HowWeWork() {
                 </li>
                 <li className="flex items-center gap-3 text-sm text-foreground">
                   <Clock className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
-                  Priority turnaround times
+                  48-72 hour turnarounds
                 </li>
                 <li className="flex items-center gap-3 text-sm text-foreground">
                   <FileText className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
@@ -546,7 +546,7 @@ export default function HowWeWork() {
               </ul>
 
               <p className="text-xs text-muted-foreground mb-6">
-                <span className="font-semibold">Best for:</span> Growing brands, marketing teams, agencies
+                <span className="font-semibold">Best for:</span> Brands needing ongoing Reels, ads, social graphics, and website updates
               </p>
 
               {/* CTA */}
@@ -580,7 +580,7 @@ export default function HowWeWork() {
                 Project-Based
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-                One-off projects with clear deliverables and timelines. Ideal for specific campaigns or initiatives.
+                One-off productions with clear scope and deliverables. Ideal for music videos, brand films, website builds, or full rebrands.
               </p>
 
               {/* Features */}
@@ -604,7 +604,7 @@ export default function HowWeWork() {
               </ul>
 
               <p className="text-xs text-muted-foreground mb-6">
-                <span className="font-semibold">Best for:</span> Launches, campaigns, rebrands, events
+                <span className="font-semibold">Best for:</span> Music videos, TV commercials, websites, rebrands, event coverage
               </p>
 
               {/* CTA */}
