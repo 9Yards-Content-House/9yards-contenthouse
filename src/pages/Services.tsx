@@ -34,6 +34,7 @@ import {
   Award,
   Phone,
   Camera,
+  Heart,
 } from "lucide-react";
 
 // Creative Services
@@ -585,7 +586,10 @@ export default function Services() {
 
 
       {/* Industries We Serve Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-gradient-to-b from-muted/30 via-background to-muted/50 relative overflow-hidden">
+      <section 
+        className="py-12 sm:py-16 md:py-20 lg:py-28 bg-gradient-to-b from-muted/30 via-background to-muted/50 relative overflow-hidden"
+        aria-labelledby="industries-heading"
+      >
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 -left-32 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
@@ -599,11 +603,11 @@ export default function Services() {
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-accent mb-3 sm:mb-4">
               Who We Work With
             </p>
-            <h2 className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold tracking-tight text-foreground leading-[1.25] sm:leading-[1.3] mb-4 sm:mb-6">
+            <h2 id="industries-heading" className="text-[1.75rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold tracking-tight text-foreground leading-[1.25] sm:leading-[1.3] mb-4 sm:mb-6">
               Industries We Serve
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-4">
-              We've created for brands just like yours. That means faster onboarding, fewer revisions, and content that actually resonates with your audience.
+              We've partnered with brands across every sector. That means faster onboarding, fewer revisions, and content that resonates with your audience.
             </p>
             <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">50+</span>
@@ -635,29 +639,29 @@ export default function Services() {
             </div>
 
             {/* E-Commerce & Retail */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">E-Commerce & Retail</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Product photography, e-commerce websites, packaging design, and campaigns that convert browsers into buyers.
+                Product shots that sell, packaging that pops, and websites built for checkout.
               </p>
             </div>
 
             {/* Hospitality & Food */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Hospitality & Food</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Food photography, menu design, restaurant branding, and content that fills tables.
+                Menu design, food photography, and social content that makes mouths water.
               </p>
             </div>
 
             {/* Corporate & Professional - Wide Card */}
-            <Link to="/contact" className="sm:col-span-2 rounded-2xl sm:rounded-3xl bg-foreground p-5 sm:p-6 lg:p-8 block hover:bg-foreground/90 transition-colors duration-300">
+            <div className="sm:col-span-2 rounded-2xl sm:rounded-3xl bg-foreground p-5 sm:p-6 lg:p-8 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/10 flex items-center justify-center">
@@ -671,54 +675,54 @@ export default function Services() {
                   </p>
                 </div>
               </div>
-            </Link>
+            </div>
 
             {/* Startups & Tech */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Startups & Tech</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Brand identity, websites, explainer videos, and pitch decks for tech companies.
+                Launch-ready brands, investor decks, and explainers that make complex simple.
               </p>
             </div>
 
             {/* Real Estate */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Building2 className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Real Estate & Property</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Property photography, virtual tours, brochures, and listing videos that sell faster.
+                Drone shots, virtual tours, and brochures that close deals faster.
               </p>
             </div>
 
             {/* Fashion & Beauty */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Fashion & Beauty</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Lookbooks, brand campaigns, influencer marketing, and e-commerce shoots.
+                Editorial shoots, influencer content, and campaigns that set trends.
               </p>
             </div>
 
             {/* Health & Wellness */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                <Target className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Health & Wellness</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Clinic branding, educational videos, wellness campaigns, and health podcasts.
+                Trusted branding for clinics, wellness content, and patient education that actually gets watched.
               </p>
             </div>
 
             {/* Media & Content Creators */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Mic className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
@@ -729,7 +733,7 @@ export default function Services() {
             </div>
 
             {/* Education & Training - New card to balance */}
-            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-colors duration-300">
+            <div className="rounded-2xl sm:rounded-3xl bg-card border border-border hover:border-accent/30 p-5 sm:p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                 <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
