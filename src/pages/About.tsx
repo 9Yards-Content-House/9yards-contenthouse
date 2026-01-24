@@ -14,6 +14,12 @@ import {
   Phone,
   Mail,
   MapPin,
+  Palette,
+  Video,
+  Megaphone,
+  Code,
+  Briefcase,
+  PenTool,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -54,27 +60,33 @@ const differentiators = [
 const teamExpertise = [
   {
     role: "Graphic Design",
-    description: "Brand identities to social media graphics. If it's visual, we've mastered it.",
+    description: "Brands that get recognized and remembered.",
+    icon: Palette,
   },
   {
     role: "Video Production",
-    description: "From Instagram Reels to documentaries, stories that stick.",
+    description: "Content that stops the scroll and drives action.",
+    icon: Video,
   },
   {
     role: "Social Media Strategy",
-    description: "Platform algorithms change. We stay ahead so your content stays relevant.",
+    description: "Growth strategies that actually grow.",
+    icon: Megaphone,
   },
   {
     role: "Web Development",
-    description: "Clean code, beautiful interfaces, and websites that convert.",
+    description: "Sites that look great and convert better.",
+    icon: Code,
   },
   {
     role: "Brand Consulting",
-    description: "Strategic brand identities from startups to celebrities.",
+    description: "Strategic positioning that differentiates.",
+    icon: Briefcase,
   },
   {
     role: "Copywriting",
-    description: "Words that sell without sounding sales-y.",
+    description: "Words that persuade without the hard sell.",
+    icon: PenTool,
   },
 ];
 
@@ -369,26 +381,17 @@ export default function About() {
               )}
             >
               <img
-                src="/images/team/9yards-team-onset.png"
-                alt="9Yards team on set"
+                src="/images/team/team01.jpg"
+                alt="9Yards creative team at work"
                 className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
                 loading="lazy"
               />
-              {/* Badge */}
-              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Users
-                      className="w-5 h-5 sm:w-6 sm:h-6 text-accent"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Top 1% Talent</p>
-                    <p className="text-sm text-muted-foreground">
-                      Elite creatives from East Africa
-                    </p>
-                  </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              {/* Simple Badge */}
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm shadow-lg">
+                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <span className="text-sm font-medium text-foreground">Elite Creatives, Fair Prices</span>
                 </div>
               </div>
             </div>
@@ -410,36 +413,43 @@ export default function About() {
                 Our Team
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8">
-                We're small by design, elite by necessity. Our team represents
-                the best creative minds in East Africa: designers, strategists,
-                producers, and technologists who've proven themselves on
-                international stages.
+                Small team. Big results. We've handpicked the sharpest creative minds
+                in East Africa: designers, strategists, producers, and developers
+                who've delivered for international brands. No bloat, no junior handoffs,
+                just senior talent on every project.
               </p>
 
               {/* Expertise Grid */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                {teamExpertise.map((item) => (
-                  <div key={item.role} className="flex items-start gap-2">
-                    <CheckCircle2
-                      className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0 mt-0.5"
-                      aria-hidden="true"
-                    />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        {item.role}
-                      </p>
-                      <p className="text-xs text-muted-foreground hidden sm:block">
-                        {item.description}
-                      </p>
+              <div className="grid grid-cols-2 gap-4 sm:gap-5">
+                {teamExpertise.map((item) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div key={item.role} className="flex items-start gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                        <IconComponent
+                          className="w-4 h-4 sm:w-5 sm:h-5 text-accent"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">
+                          {item.role}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
-              <p className="text-sm text-muted-foreground mt-6 italic">
-                Combined experience: Decades of expertise from agencies and
-                in-house roles across three continents.
-              </p>
+              <div className="mt-6 pt-6 border-t border-border/50">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-medium text-foreground">Decades of combined experience</span> from agencies and
+                  in-house roles across three continents.
+                </p>
+              </div>
             </div>
           </div>
         </div>
