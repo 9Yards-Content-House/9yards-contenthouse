@@ -5,12 +5,6 @@ import { SEO, schemas } from "@/components/shared/SEO";
 import {
   ArrowRight,
   ChevronDown,
-  Star,
-  Zap,
-  Lightbulb,
-  Eye,
-  Target,
-  Globe,
   Bot,
   Wallet,
   Shuffle,
@@ -53,52 +47,6 @@ const differentiators = [
     description:
       "While other agencies are 'virtual first,' we've invested in physical infrastructure: a professional podcast studio at our Kampala HQ where we produce 'Sitwakalaba' and where you can produce yours.",
     highlight: "Book by the hour or day",
-  },
-];
-
-// Our values
-const values = [
-  {
-    icon: Star,
-    title: "Excellence",
-    description:
-      "We don't do 'good enough.' Every design, video, and campaign gets obsessive attention. If it's not portfolio-worthy, it doesn't ship.",
-    color: "bg-amber-500",
-  },
-  {
-    icon: Zap,
-    title: "Speed",
-    description:
-      "Your competitors aren't waiting. AI-enhanced workflows mean professional creative in days, not weeks. Fast turnarounds are our standard.",
-    color: "bg-orange-500",
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description:
-      "We're early adopters by nature. AI workflows, emerging platforms, new formats. If it helps deliver better work faster, we're testing it.",
-    color: "bg-blue-500",
-  },
-  {
-    icon: Eye,
-    title: "Transparency",
-    description:
-      "No hidden fees. No surprise charges. You see our pricing upfront, know what you're paying for, and get exactly what we promised.",
-    color: "bg-emerald-500",
-  },
-  {
-    icon: Target,
-    title: "Client Success",
-    description:
-      "We succeed when you succeed. Likes are nice. Conversions are better. Business growth is what we're actually after.",
-    color: "bg-pink-500",
-  },
-  {
-    icon: Globe,
-    title: "Local Pride, Global Standards",
-    description:
-      "Proudly East African and unapologetically world-class. We celebrate where we're from while competing with anyone, anywhere.",
-    color: "bg-purple-500",
   },
 ];
 
@@ -421,69 +369,6 @@ export default function About() {
                     {item.highlight}
                   </span>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Values */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div
-            ref={(el) => (sectionRefs.current["values-header"] = el)}
-            className={cn(
-              "max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-16 text-center transition-all duration-700",
-              isVisible["values-header"]
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            )}
-          >
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-              What We Stand For
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
-              Our Values
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-              Six principles guide everything we create.
-            </p>
-          </div>
-
-          {/* Values Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
-            {values.map((value, index) => (
-              <div
-                key={value.title}
-                ref={(el) => (sectionRefs.current[`value-${index}`] = el)}
-                className={cn(
-                  "group p-5 sm:p-6 rounded-2xl border border-border bg-muted/30 hover:border-accent/30 hover:bg-muted/50 transition-all duration-300 text-center",
-                  isVisible[`value-${index}`]
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                )}
-                style={{ transitionDelay: `${index * 75}ms` }}
-              >
-                {/* Icon */}
-                <div
-                  className={cn(
-                    "w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110",
-                    value.color
-                  )}
-                >
-                  <value.icon
-                    className="w-6 h-6 sm:w-7 sm:h-7 text-white"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
               </div>
             ))}
           </div>
