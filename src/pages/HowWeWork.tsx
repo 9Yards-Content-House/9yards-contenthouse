@@ -411,7 +411,7 @@ export default function HowWeWork() {
       </section>
 
       {/* Comparison Section - Simplified Visual Cards */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#1a1a2e]">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#181818]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div
@@ -443,11 +443,11 @@ export default function HowWeWork() {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Card Content */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 h-full hover:border-accent/30 transition-colors">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 h-full hover:border-emerald-500/30 transition-colors duration-300">
                   {/* Header with checkmark */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-accent" aria-hidden="true" />
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" aria-hidden="true" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
@@ -462,9 +462,9 @@ export default function HowWeWork() {
                   {/* Others comparison */}
                   <div className="mt-4 pt-4 border-t border-white/10">
                     <div className="flex items-start gap-3">
-                      <XCircle className="w-4 h-4 text-white/30 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                      <XCircle className="w-4 h-4 text-red-400/60 flex-shrink-0 mt-0.5" aria-hidden="true" />
                       <p className="text-sm text-white/50">
-                        <span className="font-medium text-white/60">Others:</span> {feature.others}
+                        <span className="inline-block px-2 py-0.5 text-xs font-medium bg-red-500/10 text-red-400/70 rounded-full mr-2">Others</span>{feature.others}
                       </p>
                     </div>
                   </div>
