@@ -78,13 +78,6 @@ const teamExpertise = [
   },
 ];
 
-// Stats
-const stats = [
-  { value: "100+", label: "Projects Delivered", description: "And counting" },
-  { value: "5+", label: "Years of Excellence", description: "Since 2020" },
-  { value: "24hrs", label: "Avg Response Time", description: "We move fast" },
-];
-
 export default function About() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
@@ -241,27 +234,23 @@ export default function About() {
                   consume great creative. We should create it.
                 </p>
                 <p>
-                  9Yards Content House is the creative powerhouse of 9Yards, a
+                  9Yards Content House is the creative arm of 9Yards, a
                   Kampala-based conglomerate building the future of African
-                  business. We focus on one thing: delivering world-class
-                  creative that makes your brand impossible to ignore.
+                  business. We combine global standards with local insight, AI
+                  efficiency with human artistry, and international quality with
+                  pricing that makes sense for East African businesses.
                 </p>
-                <p>
-                  We're not trying to be the biggest agency in Uganda. We're
-                  building something better: a creative studio that combines
-                  global standards with local insight, AI efficiency with human
-                  artistry, and international quality with pricing that actually
-                  makes sense for East African businesses.
-                </p>
-                <p className="text-foreground font-medium">
-                  Our mission: Scale your in-house creative team with top global
-                  talent powered by industry-leading AI workflows, delivering
-                  anything you can imagine, fast and affordably.
-                </p>
+                <div className="border-l-4 border-accent pl-4 py-2">
+                  <p className="text-foreground font-medium">
+                    Our mission: Scale your in-house creative team with top global
+                    talent powered by industry-leading AI workflows, delivering
+                    anything you can imagine, fast and affordably.
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Image + Stats */}
+            {/* Image */}
             <div
               ref={(el) => (sectionRefs.current["story-image"] = el)}
               className={cn(
@@ -274,30 +263,20 @@ export default function About() {
             >
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden">
                 <img
-                  src="/images/team/team.jpg"
-                  alt="9Yards Content House team"
+                  src="/images/team/9yards-team-onset.png"
+                  alt="9Yards Content House team on set"
                   className="w-full h-[300px] sm:h-[400px] lg:h-[480px] object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </div>
-
-              {/* Stats Overlay */}
-              <div className="absolute -bottom-6 left-4 right-4 sm:left-6 sm:right-6 grid grid-cols-3 gap-2 sm:gap-3">
-                {stats.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className="bg-background/95 backdrop-blur-sm rounded-xl p-3 sm:p-4 text-center shadow-lg border border-border"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-accent">
-                      {stat.value}
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground font-medium">
-                      {stat.label}
-                    </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                
+                {/* Simple Badge */}
+                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm shadow-lg">
+                    <div className="w-2 h-2 rounded-full bg-accent" />
+                    <span className="text-sm font-medium text-foreground">Kampala's Creative Powerhouse</span>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </div>
