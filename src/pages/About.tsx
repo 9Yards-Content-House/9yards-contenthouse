@@ -30,7 +30,7 @@ const differentiators = [
     icon: Bot,
     title: "AI-Powered Workflows",
     description:
-      "We use AI to handle the repetitive stuff—freeing our creatives to focus on strategic thinking, cultural nuance, and ideas that make people stop scrolling.",
+      "We use AI to handle the repetitive stuff, freeing our creatives to focus on strategic thinking, cultural nuance, and ideas that make people stop scrolling.",
     highlight: "Superside-level quality at local speeds",
   },
   {
@@ -51,7 +51,7 @@ const differentiators = [
     icon: Mic,
     title: "Real Studio in Kampala",
     description:
-      "While other agencies are 'virtual first,' we've invested in physical infrastructure—a professional podcast studio at our Kampala HQ where we produce 'Sitwakalaba' and where you can produce yours.",
+      "While other agencies are 'virtual first,' we've invested in physical infrastructure: a professional podcast studio at our Kampala HQ where we produce 'Sitwakalaba' and where you can produce yours.",
     highlight: "Book by the hour or day",
   },
 ];
@@ -76,7 +76,7 @@ const values = [
     icon: Lightbulb,
     title: "Innovation",
     description:
-      "We're early adopters by nature. AI workflows, emerging platforms, new formats—if it helps deliver better work faster, we're testing it.",
+      "We're early adopters by nature. AI workflows, emerging platforms, new formats. If it helps deliver better work faster, we're testing it.",
     color: "bg-blue-500",
   },
   {
@@ -106,7 +106,7 @@ const values = [
 const teamExpertise = [
   {
     role: "Graphic Design",
-    description: "Brand identities to social media graphics—if it's visual, we've mastered it.",
+    description: "Brand identities to social media graphics. If it's visual, we've mastered it.",
   },
   {
     role: "Video Production",
@@ -219,7 +219,7 @@ export default function About() {
               {/* Subheadline */}
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/80 leading-relaxed mb-8 sm:mb-10 max-w-lg animate-fade-in opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
                 From Kampala to the world, we're redefining what a creative
-                agency can be—combining the speed of AI with the irreplaceable
+                agency can be. Combining the speed of AI with the irreplaceable
                 magic of human creativity.
               </p>
 
@@ -290,7 +290,7 @@ export default function About() {
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   It started with a simple belief: East Africa shouldn't just
-                  consume great creative—we should create it.
+                  consume great creative. We should create it.
                 </p>
                 <p>
                   9Yards Content House is the creative powerhouse of 9Yards, a
@@ -300,7 +300,7 @@ export default function About() {
                 </p>
                 <p>
                   We're not trying to be the biggest agency in Uganda. We're
-                  building something better—a creative studio that combines
+                  building something better: a creative studio that combines
                   global standards with local insight, AI efficiency with human
                   artistry, and international quality with pricing that actually
                   makes sense for East African businesses.
@@ -308,7 +308,7 @@ export default function About() {
                 <p className="text-foreground font-medium">
                   Our mission: Scale your in-house creative team with top global
                   talent powered by industry-leading AI workflows, delivering
-                  anything you can imagine—fast and affordably.
+                  anything you can imagine, fast and affordably.
                 </p>
               </div>
             </div>
@@ -547,7 +547,7 @@ export default function About() {
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6 sm:mb-8">
                 We're small by design, elite by necessity. Our team represents
-                the best creative minds in East Africa—designers, strategists,
+                the best creative minds in East Africa: designers, strategists,
                 producers, and technologists who've proven themselves on
                 international stages.
               </p>
