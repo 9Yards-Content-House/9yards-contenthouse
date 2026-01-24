@@ -195,7 +195,7 @@ export default function HowWeWork() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <img
-            src="/images/team/9Yards-Content-House-Team-01.jpg"
+            src="/images/miscellany/about-hero-9-yards.jpg"
             alt=""
             loading="eager"
             decoding="sync"
@@ -220,16 +220,16 @@ export default function HowWeWork() {
               {/* Headline */}
               <h1 
                 id="how-we-work-hero-heading"
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-5 sm:mb-6 tracking-tight animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
+                className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] mb-5 sm:mb-6 tracking-tight animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
               >
-                Built different.
+                Built for creatives.
                 <br />
-                <span className="text-accent">Delivers better.</span>
+                <span className="text-accent">Delivers excellence.</span>
               </h1>
 
               {/* Subheadline */}
               <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mb-8 sm:mb-10 max-w-lg animate-fade-in opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100">
-                We combine the speed of AI-powered workflows with the craft of seasoned creatives to deliver exceptional results, faster.
+                From concept to final cut, we bring your vision to life with world-class equipment, seasoned creatives, and the speed your deadlines demand.
               </p>
 
               {/* CTA Buttons */}
