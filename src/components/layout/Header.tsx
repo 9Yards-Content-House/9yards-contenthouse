@@ -33,7 +33,6 @@ const allServiceHrefs = [
 
 const companyItems = [
   { name: "About Us", href: "/about" },
-  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 

@@ -24,7 +24,6 @@ const footerLinks = {
     { name: "About Us", href: "/about" },
     { name: "Our Work", href: "/portfolio" },
     { name: "Why Us", href: "/how-we-work" },
-    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ],
 };

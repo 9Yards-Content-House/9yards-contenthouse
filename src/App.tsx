@@ -37,7 +37,6 @@ const Studio = lazy(() => import("./pages/Studio"));
 const Contact = lazy(() => import("./pages/Contact"));
 const GetStarted = lazy(() => import("./pages/GetStarted"));
 const HowWeWork = lazy(() => import("./pages/HowWeWork"));
-const Careers = lazy(() => import("./pages/Careers"));
 const ThankYouContact = lazy(() => import("./pages/ThankYouContact"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
@@ -90,7 +89,6 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/get-started" element={<GetStarted />} />
             <Route path="/how-we-work" element={<HowWeWork />} />
-            <Route path="/careers" element={<Careers />} />
             <Route path="/thank-you/contact" element={<ThankYouContact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
