@@ -918,7 +918,7 @@ export default function HowWeWork() {
             {/* Background Image */}
             <div className="absolute inset-0">
               <img
-                src="/images/team/9yards-office.jpg"
+                src="/images/miscellany/video-production.jpg"
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
