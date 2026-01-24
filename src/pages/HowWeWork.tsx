@@ -11,7 +11,15 @@ import {
   ChevronDown,
   Phone,
   Mail,
-  MessageCircle
+  MessageCircle,
+  Clock,
+  User,
+  FileText,
+  Pause,
+  Target,
+  Layers,
+  RefreshCw,
+  Headphones
 } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { cn } from "@/lib/utils";
@@ -491,7 +499,7 @@ export default function HowWeWork() {
               Choose how to work with us
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-              Flexible engagement models designed to fit your needs and budget.
+              Work with us your way. No lock-ins, no surprises.
             </p>
           </div>
 
@@ -501,13 +509,13 @@ export default function HowWeWork() {
             <div
               ref={(el) => (sectionRefs.current["eng-0"] = el)}
               className={cn(
-                "relative rounded-2xl sm:rounded-3xl border-2 border-accent bg-accent/5 p-5 sm:p-6 lg:p-8 transition-all duration-700",
+                "relative rounded-2xl sm:rounded-3xl border-2 border-accent bg-accent/5 p-5 sm:p-6 lg:p-8 transition-all duration-300 hover:border-accent/80 hover:bg-accent/10 flex flex-col",
                 isVisible["eng-0"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
               {/* Badge */}
-              <span className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-accent text-white mb-4">
-                Recommended
+              <span className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-accent text-white mb-4 w-fit">
+                Most Popular
               </span>
 
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -518,13 +526,23 @@ export default function HowWeWork() {
               </p>
 
               {/* Features */}
-              <ul className="space-y-3 mb-6" role="list">
-                {["Dedicated account manager", "Priority turnaround times", "No long-term contracts", "Pause or cancel anytime"].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm text-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
-                    {feature}
-                  </li>
-                ))}
+              <ul className="space-y-3 mb-6 flex-1" role="list">
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <User className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  Dedicated account manager
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <Clock className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  Priority turnaround times
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <FileText className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  No long-term contracts
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <Pause className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  Pause or cancel anytime
+                </li>
               </ul>
 
               <p className="text-xs text-muted-foreground mb-6">
@@ -535,7 +553,7 @@ export default function HowWeWork() {
               <Button
                 asChild
                 variant="accent"
-                className="w-full rounded-full h-12"
+                className="w-full rounded-full h-12 mt-auto"
               >
                 <Link to="/contact">
                   <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
@@ -548,14 +566,14 @@ export default function HowWeWork() {
             <div
               ref={(el) => (sectionRefs.current["eng-1"] = el)}
               className={cn(
-                "relative rounded-2xl sm:rounded-3xl border-2 border-border bg-muted/30 p-5 sm:p-6 lg:p-8 transition-all duration-700 hover:border-accent/50",
+                "relative rounded-2xl sm:rounded-3xl border-2 border-border bg-muted/30 p-5 sm:p-6 lg:p-8 transition-all duration-300 hover:border-accent/50 hover:bg-muted/50 flex flex-col",
                 isVisible["eng-1"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: "100ms" }}
             >
               {/* Badge */}
-              <span className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-muted text-muted-foreground mb-4">
-                Flexible
+              <span className="inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-foreground/10 text-foreground mb-4 w-fit">
+                Pay As You Go
               </span>
 
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
@@ -566,13 +584,23 @@ export default function HowWeWork() {
               </p>
 
               {/* Features */}
-              <ul className="space-y-3 mb-6" role="list">
-                {["Fixed scope and pricing", "Milestone-based delivery", "Revisions included", "Post-project support"].map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm text-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
-                    {feature}
-                  </li>
-                ))}
+              <ul className="space-y-3 mb-6 flex-1" role="list">
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <Target className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  Fixed scope and pricing
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <Layers className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  Milestone-based delivery
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <RefreshCw className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  Revisions included
+                </li>
+                <li className="flex items-center gap-3 text-sm text-foreground">
+                  <Headphones className="w-4 h-4 text-accent flex-shrink-0" aria-hidden="true" />
+                  Post-project support
+                </li>
               </ul>
 
               <p className="text-xs text-muted-foreground mb-6">
@@ -583,7 +611,7 @@ export default function HowWeWork() {
               <Button
                 asChild
                 variant="outline"
-                className="w-full rounded-full h-12"
+                className="w-full rounded-full h-12 mt-auto"
               >
                 <Link to="/get-started">
                   Get a Quote
