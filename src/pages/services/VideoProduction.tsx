@@ -307,7 +307,7 @@ export default function VideoProduction() {
             {/* Card 2: Full-production music videos - Medium card (4 cols) */}
             <div className="lg:col-span-4 group relative rounded-xl sm:rounded-2xl overflow-hidden h-[300px] sm:h-[340px] lg:h-[400px]">
               <img 
-                src="/images/bento-grid/video production/full-production-music-videos.jpg" 
+                src="/images/miscellany/team.jpg" 
                 alt="Full-production music videos"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
