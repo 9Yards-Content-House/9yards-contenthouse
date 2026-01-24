@@ -357,7 +357,7 @@ export default function About() {
       </section>
 
       {/* What Makes Us Different */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#1a1a2e]">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#181818]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div
