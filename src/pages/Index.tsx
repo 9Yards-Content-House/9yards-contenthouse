@@ -1149,7 +1149,7 @@ export default function Index() {
         <div className="md:hidden">
           <div className="relative h-[280px] sm:h-[320px]">
             <img 
-              src="/images/team/9yards-office-2.jpg" 
+              src="/images/miscellany/9yards-team-onset.png" 
               alt="9Yards Content House team" 
               className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
             />
@@ -1227,7 +1227,7 @@ export default function Index() {
           {/* Right Image */}
           <div className="relative min-h-[500px]">
             <img 
-              src="/images/team/9yards-office-2.jpg" 
+              src="/images/miscellany/9yards-team-onset.png" 
               alt="9Yards Content House team" 
               className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
             />
@@ -1273,7 +1273,7 @@ export default function Index() {
           {/* Right Image */}
           <div className="relative min-h-[600px]">
             <img 
-              src="/images/team/9yards-office-2.jpg" 
+              src="/images/miscellany/9yards-team-onset.png" 
               alt="9Yards Content House team" 
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
