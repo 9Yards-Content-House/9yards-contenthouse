@@ -23,28 +23,32 @@ const advantages = [
     title: "Speed Meets Affordability",
     description: "AI-powered workflows deliver world-class creative at local prices with lightning-fast turnarounds.",
     accentColor: "bg-orange-500",
-    image: "/images/miscellany/AUDIO-EDITING.jpg",
+    overlayTint: "from-orange-950/80 via-black/60",
+    image: "/images/miscellany/team.jpg",
   },
   {
     id: "flexible",
     title: "Work Your Way",
     description: "Monthly subscriptions, one-off projects, or a mix. No long-term contracts required.",
     accentColor: "bg-blue-500",
-    image: "/images/miscellany/collaboration.png",
+    overlayTint: "from-blue-950/80 via-black/60",
+    image: "/images/miscellany/strategy.jpg",
   },
   {
     id: "onestop",
     title: "Everything Under One Roof",
-    description: "Video, design, web, social, and strategy from a single partner. One team, one vision.",
+    description: "Video, design, web, social, and strategy from a single partner. One team, one vision, zero coordination headaches.",
     accentColor: "bg-emerald-500",
-    image: "/images/miscellany/strategy.jpg",
+    overlayTint: "from-emerald-950/80 via-black/60",
+    image: "/images/miscellany/9Yards-Content-House-05.jpg",
   },
   {
     id: "local",
     title: "Local Insight, Global Polish",
-    description: "Deep understanding of East African markets with international quality standards.",
+    description: "We know the Ugandan market inside out and deliver work that competes on a global stage.",
     accentColor: "bg-purple-500",
-    image: "/images/miscellany/documentaries-and-brand-stories.jpg",
+    overlayTint: "from-purple-950/80 via-black/60",
+    image: "/images/miscellany/9yards-team-onset.png",
   },
 ];
 
@@ -288,10 +292,11 @@ export default function HowWeWork() {
           </div>
 
           {/* Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {/* Speed - Large Card (spans 2 cols on lg) */}
             <div
               ref={(el) => (sectionRefs.current["adv-0"] = el)}
+              role="article"
               className={cn(
                 "group relative lg:col-span-2 rounded-2xl sm:rounded-3xl overflow-hidden min-h-[280px] sm:min-h-[320px] lg:min-h-[360px] transition-all duration-700",
                 isVisible["adv-0"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -304,11 +309,11 @@ export default function HowWeWork() {
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+              {/* Gradient Overlay with Color Tint */}
+              <div className={cn("absolute inset-0 bg-gradient-to-t to-black/20", advantages[0].overlayTint)} />
               {/* Content */}
               <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-end">
-                <div className={cn("w-1 h-8 sm:h-10 rounded-full mb-4", advantages[0].accentColor)} aria-hidden="true" />
+                <div className={cn("w-1 h-8 sm:h-10 rounded-full mb-4 animate-pulse", advantages[0].accentColor)} aria-hidden="true" />
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
                   {advantages[0].title}
                 </h3>
@@ -321,6 +326,7 @@ export default function HowWeWork() {
             {/* Flexible - Medium Card */}
             <div
               ref={(el) => (sectionRefs.current["adv-1"] = el)}
+              role="article"
               className={cn(
                 "group relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[280px] sm:min-h-[320px] lg:min-h-[360px] transition-all duration-700",
                 isVisible["adv-1"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -333,7 +339,7 @@ export default function HowWeWork() {
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+              <div className={cn("absolute inset-0 bg-gradient-to-t to-black/20", advantages[1].overlayTint)} />
               <div className="absolute inset-0 p-5 sm:p-7 flex flex-col justify-end">
                 <div className={cn("w-1 h-8 sm:h-10 rounded-full mb-4", advantages[1].accentColor)} aria-hidden="true" />
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
@@ -348,6 +354,7 @@ export default function HowWeWork() {
             {/* One Stop - Medium Card */}
             <div
               ref={(el) => (sectionRefs.current["adv-2"] = el)}
+              role="article"
               className={cn(
                 "group relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[280px] sm:min-h-[320px] transition-all duration-700",
                 isVisible["adv-2"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -360,7 +367,7 @@ export default function HowWeWork() {
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+              <div className={cn("absolute inset-0 bg-gradient-to-t to-black/20", advantages[2].overlayTint)} />
               <div className="absolute inset-0 p-5 sm:p-7 flex flex-col justify-end">
                 <div className={cn("w-1 h-8 sm:h-10 rounded-full mb-4", advantages[2].accentColor)} aria-hidden="true" />
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
@@ -375,6 +382,7 @@ export default function HowWeWork() {
             {/* Local Global - Full Width Card (spans 2 cols on lg) */}
             <div
               ref={(el) => (sectionRefs.current["adv-3"] = el)}
+              role="article"
               className={cn(
                 "group relative lg:col-span-2 rounded-2xl sm:rounded-3xl overflow-hidden min-h-[240px] sm:min-h-[280px] transition-all duration-700",
                 isVisible["adv-3"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -387,7 +395,7 @@ export default function HowWeWork() {
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+              <div className={cn("absolute inset-0 bg-gradient-to-t to-black/20", advantages[3].overlayTint)} />
               <div className="absolute inset-0 p-5 sm:p-7 lg:p-8 flex flex-col justify-end">
                 <div className={cn("w-1 h-8 sm:h-10 rounded-full mb-4", advantages[3].accentColor)} aria-hidden="true" />
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
