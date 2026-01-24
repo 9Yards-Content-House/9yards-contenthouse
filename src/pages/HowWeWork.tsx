@@ -200,7 +200,7 @@ export default function HowWeWork() {
             loading="eager"
             decoding="sync"
             fetchPriority="high"
-            className="w-full h-full object-cover object-center md:object-right"
+            className="w-full h-full object-cover object-[70%_center] md:object-[65%_center] lg:object-[60%_center]"
           />
           {/* Gradient overlay - stronger on left for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30 md:from-black md:via-black/70 md:to-transparent" />
@@ -214,7 +214,7 @@ export default function HowWeWork() {
               <span 
                 className="inline-block text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 sm:mb-5 animate-fade-in opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards] motion-reduce:animate-none motion-reduce:opacity-100"
               >
-                Why Choose Us
+                The 9Yards Way
               </span>
 
               {/* Headline */}
