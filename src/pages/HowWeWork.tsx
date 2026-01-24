@@ -89,32 +89,32 @@ const processSteps = [
   {
     number: "01",
     title: "Discovery",
-    description: "We dive deep into your brand, goals, and target audience to understand exactly what you need.",
-    details: ["Stakeholder interviews", "Brand audit", "Competitor research", "Goal definition"],
+    description: "We start by understanding your brand, audience, and objectives. Stakeholder interviews, competitor analysis, and a creative brief lay the foundation.",
+    details: ["Stakeholder interviews", "Competitor research", "Creative brief", "Goal definition"],
   },
   {
     number: "02",
     title: "Strategy",
-    description: "We develop a comprehensive creative strategy tailored to your objectives and timeline.",
-    details: ["Creative brief", "Concept exploration", "Timeline planning", "Resource allocation"],
+    description: "We develop concepts, storyboards, or wireframes depending on your project. You'll see multiple directions before we move forward.",
+    details: ["Concept development", "Mood boards & storyboards", "Timeline planning", "Budget alignment"],
   },
   {
     number: "03",
-    title: "Creation",
-    description: "Our experts bring ideas to life using cutting-edge tools and proven creative processes.",
-    details: ["Design & production", "Regular check-ins", "Progress updates", "Quality assurance"],
+    title: "Production",
+    description: "Our team brings the vision to life through shooting, designing, coding, or recording. Regular check-ins keep you in the loop throughout.",
+    details: ["Design & production", "Weekly progress updates", "Quality checkpoints", "Real-time collaboration"],
   },
   {
     number: "04",
     title: "Refinement",
-    description: "We collaborate closely to refine every detail until it perfectly matches your vision.",
-    details: ["Client review", "Revision rounds", "Fine-tuning", "Final approval"],
+    description: "We polish every detail based on your feedback. Revision rounds ensure the final output matches your vision exactly.",
+    details: ["Client review sessions", "Revision rounds", "Color grading & fine-tuning", "Final approval"],
   },
   {
     number: "05",
     title: "Delivery",
-    description: "Final assets delivered on time, in all formats you need, ready to make an impact.",
-    details: ["Multi-format exports", "Platform optimization", "Asset handover", "Launch support"],
+    description: "You receive files optimized for every platform: web, social, print, and broadcast. Plus ongoing support for future adaptations.",
+    details: ["Multi-format exports", "Platform optimization", "Asset library handover", "Launch support"],
   },
 ];
 
@@ -624,7 +624,7 @@ export default function HowWeWork() {
       </section>
 
       {/* Our Process - Numbered Steps */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#f8f8f5]">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-b from-[#f8f8f5] to-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div
@@ -639,7 +639,7 @@ export default function HowWeWork() {
               From idea to impact
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-              A proven 5-step process that ensures every project delivers exceptional results.
+              Every project follows the same proven framework. Clear milestones, regular updates, and no surprises.
             </p>
           </div>
 
@@ -647,16 +647,16 @@ export default function HowWeWork() {
           <div className="max-w-5xl mx-auto">
             {/* Step Selector - Desktop */}
             <div 
-              className="hidden lg:flex items-stretch justify-between mb-10 relative"
+              className="hidden lg:flex items-stretch justify-between mb-12 relative px-8"
               role="tablist"
               aria-label="Process steps"
             >
               {/* Progress line background */}
-              <div className="absolute top-6 left-0 right-0 h-0.5 bg-border" aria-hidden="true" />
+              <div className="absolute top-7 left-8 right-8 h-0.5 bg-border" aria-hidden="true" />
               {/* Progress line active */}
               <div 
-                className="absolute top-6 left-0 h-0.5 bg-accent transition-all duration-500"
-                style={{ width: `${(activeStep / (processSteps.length - 1)) * 100}%` }}
+                className="absolute top-7 left-8 h-0.5 bg-accent transition-all duration-500"
+                style={{ width: `calc(${(activeStep / (processSteps.length - 1)) * 100}% - ${activeStep === processSteps.length - 1 ? '0px' : '0px'})` }}
                 aria-hidden="true"
               />
               
@@ -672,19 +672,19 @@ export default function HowWeWork() {
                   tabIndex={activeStep === index ? 0 : -1}
                   className={cn(
                     "relative z-10 flex flex-col items-center gap-3 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-lg p-2 -m-2",
-                    activeStep === index ? "scale-105" : "opacity-60 hover:opacity-100"
+                    activeStep === index ? "" : "opacity-50 hover:opacity-80"
                   )}
                 >
                   <div className={cn(
-                    "w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-300",
+                    "w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-300",
                     activeStep === index 
-                      ? "bg-accent text-white shadow-lg shadow-accent/30" 
-                      : "bg-background border-2 border-border text-foreground"
+                      ? "bg-accent text-white shadow-lg shadow-accent/30 scale-110" 
+                      : "bg-white border-2 border-border text-foreground"
                   )}>
                     {step.number}
                   </div>
                   <span className={cn(
-                    "text-sm font-semibold transition-colors",
+                    "text-sm font-semibold transition-colors whitespace-nowrap",
                     activeStep === index ? "text-accent" : "text-muted-foreground"
                   )}>
                     {step.title}
@@ -697,7 +697,7 @@ export default function HowWeWork() {
             <div
               ref={(el) => (sectionRefs.current["step-content"] = el)}
               className={cn(
-                "bg-background rounded-2xl sm:rounded-3xl shadow-lg transition-all duration-700 overflow-hidden",
+                "bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-border/50 transition-all duration-700 overflow-hidden",
                 isVisible["step-content"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
             >
@@ -732,34 +732,36 @@ export default function HowWeWork() {
                   role="tabpanel"
                   aria-labelledby={`step-tab-${index}`}
                   hidden={activeStep !== index}
-                  className="p-5 sm:p-6 lg:p-10"
+                  className="p-6 sm:p-8 lg:p-12"
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
                     {/* Left - Title & Description */}
-                    <div>
-                      <div className="flex items-baseline gap-4 mb-4">
-                        <span className="text-5xl sm:text-6xl lg:text-7xl font-bold text-accent/20">
+                    <div className="lg:col-span-3">
+                      <div className="flex items-start gap-5 mb-5">
+                        <span className="text-6xl sm:text-7xl lg:text-8xl font-bold text-accent/15 leading-none">
                           {step.number}
                         </span>
-                        <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                          {step.title}
-                        </h3>
+                        <div className="pt-2 sm:pt-3">
+                          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+                            {step.title}
+                          </h3>
+                          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                            {step.description}
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                        {step.description}
-                      </p>
                     </div>
                     
                     {/* Right - Details */}
-                    <div className="flex flex-col justify-center">
-                      <h4 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
-                        What happens in this phase
+                    <div className="lg:col-span-2 flex flex-col justify-center lg:border-l lg:border-border/50 lg:pl-10">
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-accent mb-5">
+                        What happens here
                       </h4>
                       <ul className="space-y-3" role="list">
                         {step.details.map((detail) => (
-                          <li key={detail} className="flex items-center gap-3 text-foreground">
-                            <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
+                          <li key={detail} className="flex items-center gap-3 text-sm sm:text-base text-foreground">
+                            <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                              <CheckCircle2 className="w-3 h-3 text-accent" aria-hidden="true" />
                             </div>
                             {detail}
                           </li>
@@ -771,7 +773,7 @@ export default function HowWeWork() {
               ))}
 
               {/* Navigation */}
-              <div className="flex items-center justify-between p-4 sm:p-5 border-t border-border bg-muted/30">
+              <div className="flex items-center justify-between p-5 sm:p-6 border-t border-border/50 bg-[#fafafa]">
                 <button
                   onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
                   disabled={activeStep === 0}
