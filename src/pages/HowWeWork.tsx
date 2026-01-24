@@ -24,7 +24,7 @@ const advantages = [
     description: "AI-powered workflows deliver world-class creative at local prices with lightning-fast turnarounds.",
     accentColor: "bg-orange-500",
     overlayTint: "from-orange-950/80 via-black/60",
-    image: "/images/miscellany/team.jpg",
+    image: "/images/miscellany/graphic.jpg",
   },
   {
     id: "flexible",
@@ -40,7 +40,7 @@ const advantages = [
     description: "Video, design, web, social, and strategy from a single partner. One team, one vision, zero coordination headaches.",
     accentColor: "bg-emerald-500",
     overlayTint: "from-emerald-950/80 via-black/60",
-    image: "/images/miscellany/9Yards-Content-House-05.jpg",
+    image: "/images/miscellany/Post-production-specialists.jpg",
   },
   {
     id: "local",
@@ -48,7 +48,7 @@ const advantages = [
     description: "We know the Ugandan market inside out and deliver work that competes on a global stage.",
     accentColor: "bg-purple-500",
     overlayTint: "from-purple-950/80 via-black/60",
-    image: "/images/miscellany/9yards-team-onset.png",
+    image: "/images/miscellany/multi language.png",
   },
 ];
 
