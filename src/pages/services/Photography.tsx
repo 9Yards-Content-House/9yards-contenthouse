@@ -395,6 +395,97 @@ export default function Photography() {
         </div>
       </section>
 
+      {/* In-House Studio Section */}
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-[#f8f8f5]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
+            {/* Image */}
+            <div className="relative order-1 lg:order-1">
+              {/* Decorative accent elements */}
+              <div className="absolute -top-3 -left-3 md:-top-4 md:-left-4 w-20 h-20 md:w-24 md:h-24 bg-accent/10 rounded-2xl -z-10 hidden sm:block"></div>
+              <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 w-24 h-24 md:w-32 md:h-32 bg-primary/10 rounded-2xl -z-10 hidden sm:block"></div>
+              
+              {/* Main Image */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl sm:rounded-2xl transform -rotate-1 sm:-rotate-2 scale-[1.02]"></div>
+                <img 
+                  src="/images/team/9yards-office.jpg" 
+                  alt="9Yards Content House photography studio at Canoga Heights" 
+                  className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl ring-1 ring-foreground/10 object-cover aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]" 
+                />
+                {/* Location Badge */}
+                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm shadow-lg">
+                    <div className="w-2 h-2 rounded-full bg-accent" />
+                    <span className="text-sm font-medium text-foreground">Canoga Heights, Off Lukuli Road</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="order-2 lg:order-2">
+              <div className="max-w-xl lg:max-w-lg">
+                {/* Accent bar */}
+                <div className="w-12 h-1 bg-accent rounded-full mb-4"></div>
+                <h2 className="text-xs sm:text-sm font-semibold text-accent uppercase tracking-widest">In-House Studio</h2>
+                <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-[1.3]">
+                  Professional photography studio right at our office
+                </p>
+                <p className="mt-4 sm:mt-5 lg:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  No need to rent expensive venues or coordinate with external studios. Our in-house photography studio at Canoga Heights gives you access to professional lighting, multiple backdrop options, and all the equipment needed for stunning product shots, portraits, and content creation.
+                </p>
+
+                {/* Studio Features */}
+                <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Camera className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Professional Equipment</p>
+                      <p className="text-sm text-muted-foreground">Studio lighting, backdrops, and high-end camera gear on-site</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Building2 className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Controlled Environment</p>
+                      <p className="text-sm text-muted-foreground">Consistent lighting conditions for perfect shots every time</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Zap className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Faster Turnaround</p>
+                      <p className="text-sm text-muted-foreground">Shoot and edit in-house for quicker delivery</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button variant="accent" size="lg" className="w-full sm:w-auto" asChild>
+                    <Link to="/get-started?service=photography">
+                      Book a Studio Session
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+                    <Link to="/studio">
+                      View Studio Details
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Platform Expertise Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#1c1e70]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
