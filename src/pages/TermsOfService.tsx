@@ -812,7 +812,7 @@ export default function TermsOfService() {
                             +256 700 488 870
                           </a>
                         </p>
-                        <p><strong>Location:</strong> Kampala, Uganda</p>
+                        <p><strong>Location:</strong> Canoga Heights, Lower Kkonge, Off Lukuli Road</p>
                       </div>
                     </div>
                   </div>

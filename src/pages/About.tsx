@@ -545,7 +545,7 @@ export default function About() {
                   </a>
                   <span className="flex items-center gap-2">
                     <MapPin className="w-4 h-4" aria-hidden="true" />
-                    Kampala, Uganda
+                    Canoga Heights. Lower Kkonge. Off Lukuli Road.
                   </span>
                 </div>
               </div>

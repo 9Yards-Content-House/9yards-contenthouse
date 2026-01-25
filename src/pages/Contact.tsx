@@ -250,7 +250,8 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1">Visit Us</h3>
-                <p className="text-muted-foreground text-xs sm:text-sm">Kampala, Uganda</p>
+                <p className="text-muted-foreground text-xs sm:text-sm">Canoga Heights, Lower Kkonge</p>
+                <p className="text-muted-foreground text-xs sm:text-sm">Off Lukuli Road</p>
               </div>
             </div>
           </div>
