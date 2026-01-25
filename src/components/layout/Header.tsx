@@ -21,6 +21,7 @@ const services = {
     { name: "Podcast Production", href: "/services/podcast-production" },
     { name: "TV & Radio Production", href: "/services/tv-radio-production" },
     { name: "Voice-Over Recording", href: "/services/voice-over" },
+    { name: "Creator Studio", href: "/studio" },
   ],
 };
 
