@@ -1,22 +1,27 @@
 # SEO Implementation Guide
 
 ## Overview
+
 This website has been optimized for search engines with the following implementations:
 
 ## ✅ Implemented Features
 
 ### 1. Dynamic Meta Tags (react-helmet-async)
+
 - Each page has unique title and description
 - Open Graph tags for Facebook/LinkedIn sharing
 - Twitter Card meta tags
 - Canonical URLs for duplicate content prevention
 
 ### 2. Structured Data (JSON-LD)
+
 - **Organization Schema** - Company information on homepage
 - **LocalBusiness Schema** - Location, hours, contact info
+- **WebSite Schema** - Site name and alternate names for search results
 - **Service Schema** - Individual service pages
 
 ### 3. Technical SEO
+
 - `sitemap.xml` - All 30+ pages listed with priorities
 - `robots.txt` - Sitemap reference included
 - Semantic HTML throughout
@@ -29,6 +34,7 @@ This website has been optimized for search engines with the following implementa
 **File location:** `/public/images/og/9yards-share-image.jpg`
 
 **Specifications:**
+
 - **Dimensions:** 1200 x 630 pixels (standard OG size)
 - **Format:** JPG or PNG
 - **File size:** Under 300KB for fast loading
@@ -39,6 +45,7 @@ This website has been optimized for search engines with the following implementa
   - High-quality team or work sample imagery
 
 **Design tips:**
+
 - Text should be large enough to read in thumbnails
 - Keep important content in the center (social platforms crop edges)
 - Use high contrast for readability
@@ -68,14 +75,14 @@ public/
 import { SEO, schemas } from "@/components/shared/SEO";
 
 // Basic usage
-<SEO 
+<SEO
   title="Page Title | 9Yards Content House"
   description="Page description for search results"
   url="/page-path"
 />
 
 // With schema
-<SEO 
+<SEO
   title="Service Name | 9Yards Content House"
   description="Service description"
   url="/services/service-name"
@@ -84,11 +91,13 @@ import { SEO, schemas } from "@/components/shared/SEO";
 ```
 
 ## 🌐 Production URL
+
 **Base URL:** https://contenthouse.9yards.co.ug
 
 ## 📊 SEO Checklist for New Pages
 
 When adding new pages:
+
 1. Import the SEO component
 2. Add unique title (60 chars max)
 3. Add unique description (155 chars max)
@@ -99,6 +108,7 @@ When adding new pages:
 ## 🚀 Pre-rendering (Recommended)
 
 For SPAs, consider implementing pre-rendering with:
+
 - **vite-plugin-prerender** - Static site generation at build time
 - **Netlify/Vercel** - Built-in prerendering support
 
@@ -115,4 +125,4 @@ This ensures search engines see fully rendered HTML.
 
 ---
 
-*Last updated: January 2025*
+_Last updated: January 2025_
